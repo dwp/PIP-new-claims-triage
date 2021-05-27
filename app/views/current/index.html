@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+          Sprint 24
+        <span class="govuk-caption-xl">[Description of sprint here]</span>
+
+{{ govukDetails({
+          summaryText: "Notes on this sprint",
+          html: '
+          <p>This sprint we:</p>
+
+          <ul class="govuk-list  govuk-list--bullet">
+              <li></li>
+              <li></li>
+              <li></li>
+          </ul>'
+
+                  }) }}
+
+
+
+
+  <h3 class="govuk-heading-m">Link to pages</h3>
+   <br>
+  <ul class="govuk-list">
+      <li><a class="govuk-link" href="/{{folder}}/#">Example link</a></li>
+  </ul>
+
+    </div>
+</div>
+
+
+{% endblock %}
