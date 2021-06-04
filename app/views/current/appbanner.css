@@ -1,0 +1,86 @@
+@charset "UTF-8";
+.app-banner {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  background-color: #005ea5;
+}
+
+.app-banner * {
+  color: #fff;
+}
+
+@media (min-width: 40.0625em) {
+  .app-banner {
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+}
+
+
+
+.key-details-bar {
+  background-color: #005ea5;
+}
+
+.key-details-bar .key-details-bar__key-details {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 20px 30px 20px 30px;
+  position: relative;
+  font-family: "GDS Transport";
+}
+
+.key-details-bar .key-details-bar__key-details * {
+  color: #fff;
+}
+
+.key-details-bar .key-details-bar__key-details .key-details-bar__name {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.11111;
+  margin-right: 10px;
+}
+
+.key-details-bar .key-details-bar__key-details .key-details-bar__nino {
+  font-size: 24px;
+  line-height: 1;
+  margin-top: 12px;
+}
+
+.key-details-bar .key-details-bar__key-details .key-details-bar__status {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  padding: 5px 8px 0;
+  color: #005ea5;
+  background-color: #fff;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  float: right;
+  margin: 5px 0 0;
+}
+
+.key-details-bar .key-details-bar__key-details .key-details-bar__bottom-block {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  content: ' ';
+  padding-top: 10px;
+  margin-top: 6px;
+}
+
+.key-details-bar .key-details-bar__key-details dd, .key-details-bar .key-details-bar__key-details dt {
+  float: left;
+  font-size: 19px;
+  margin-right: 5px;
+}
+
+.key-details-bar .key-details-bar__key-details dd {
+  margin-right: 20px;
+}
+
+.key-details-bar .key-details-bar__key-details .key-details-bar__top-block::after, .key-details-bar .key-details-bar__key-details .key-details-bar__bottom-block::after {
+  clear: both;
+  content: ' ';
+  display: block;
+}
