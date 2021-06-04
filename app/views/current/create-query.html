@@ -36,6 +36,13 @@
           <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
       </div>
 
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Continue",
+          href: "set-action.html"
+        }) }}
+
 
     </div>
   </div>
