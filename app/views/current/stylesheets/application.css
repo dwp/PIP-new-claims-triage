@@ -8037,6 +8037,14 @@ p + .govuk-heading-s,
   }
 }
 
+@media (min-width: 28.125em) {
+  .action-query__tag,
+  .action-query__task-completed {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 .app-related-items {
   border-top: 2px solid #1d70b8;
   padding-top: 10px;
