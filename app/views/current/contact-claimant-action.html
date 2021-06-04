@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block content %}
+<link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jayne Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>31 December 1999</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Evidence
+      </h1>
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Contact  claimant</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Query</th>
+          <th scope="col" class="govuk-table__header">Date created</th>
+          <th scope="col" class="govuk-table__header">Activity</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Need to clarify some evidence</a></td>
+          <td class="govuk-table__cell">12 March 2021</td>
+          <td class="govuk-table__cell">Preparing food</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag govuk-!-margin-left-60" id="list-convictions-status">Not started</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Question about food types</a></td>
+          <td class="govuk-table__cell">12 March 2021</td>
+          <td class="govuk-table__cell">Taking nutrition</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag" id="list-convictions-status">Not started</strong></td
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Notsure about support or  aid</a></td>
+          <td class="govuk-table__cell">12 March 2021</td>
+          <td class="govuk-table__cell">Washing and bathing</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag" id="list-convictions-status">Not started</strong></td
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Need to check budget details</a></td>
+          <td class="govuk-table__cell">12 March 2021</td>
+          <td class="govuk-table__cell">Budgeting</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag" id="list-convictions-status">Not started</strong></td
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}
