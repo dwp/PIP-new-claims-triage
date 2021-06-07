@@ -1,5 +1,9 @@
+<!--{% set link = "1-ni-number" %}-->
 {% extends "layout.html" %}
+<!--{% set redirect = [{id : "req-med-advice", page: link }, {id: "cons-ref-materials", page: "unhappy-2"}, {id: "req-further-evidence-from-hcp", page: "unhappy-2"}, {id: "contact-claimant", page: "unhappy-2"}, {id: "agent-action", page: "unhappy-2"}] %}-->
 {% block content %}
+
+
 <link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
 
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
@@ -25,6 +29,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+  <form method="post" action="#">
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -40,32 +45,38 @@
   },
   items: [
     {
-      value: "request-medical-advice",
+      id: "req-med-advice",
+      value: "request~/current/task-list",
       text: "Request medical advice"
     },
     {
-      value: "consult-reference-materials",
+      id: "cons-ref-materials",
+      value: "consult~/current/task-list",
       text: "Consult reference materials"
     },
     {
-      value: "Request-further-evidence-or-information-from-the-claimant-healthcare-provider",
+      id: "req-further-evidence-from-hcp",
+      value: "req~/current/task-list",
       text: "Request further evidence or information from the claimant's healthcare provider"
     },
     {
-      value: "contact-the-claimant",
+      id: "contact-claimant",
+      value: "contact~/current/task-list",
       text: "Contact the claimant"
     },
     {
+      id: "agent-action",
       value: "agent-defined-action",
       text: "Agent defined action"
     }
   ]
 }) }}
 
-<button class="govuk-button" data-module="govuk-button">
-  Continue
-</button>
+{{ govukButton({
+  text: "Continue"
+}) }}
 
+</form>
 
 
 
