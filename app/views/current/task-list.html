@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-<link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
 
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">
@@ -150,7 +149,17 @@
               <a href="preparing-food.html" aria-describedby="company-information-status">
                 Preparing food
                 </a>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                <script type="text/javascript">
+                              var preparingfood =
+                              console.log(preparingfood)
+                              if (preparingfood) {
+
+                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
+                                }
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>');
+                              }
+                            </script>
             </li>
             <li class="app-task-list__item">
               <a href="#" aria-describedby="company-information-status">
