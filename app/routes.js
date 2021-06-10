@@ -6,3 +6,23 @@ router.use(radioButtonRedirect)
 // Add your routes here - above the module.exports line
 
 module.exports = router
+
+router.all('/current/check-router', function(req, res, next){
+  var testQ = req.session.data['query-content']
+
+/*var preparingFood = "";
+  if (req.session.data['query-content'] && req.session.data['query-content'] == "true") {
+    //preparingFood = "query-content"; // quick way to append apointee journey to relevant screens
+    console.log(preparingFood);
+  }
+});*/
+
+
+/*router.all('/current/query-check', function(req, res) {
+  if (req.session.data['query-content'] && req.session.data['query-content'] == "true") {
+    //preparingFood = "query-content"; // quick way to append apointee journey to relevant screens
+    console.log(preparingFood);
+  }
+});*/
+
+});

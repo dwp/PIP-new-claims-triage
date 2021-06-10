@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-<link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
 
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">
@@ -28,21 +27,21 @@
       <h1 class="govuk-heading-xl">
         Create query
       </h1>
-
+<form action="set-action" method="post">
       <div class="govuk-form-group">
           <label class="govuk-label" for="more-detail">
               What is your query?
           </label>
-          <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+          <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
       </div>
+      <input name="query-content" value="{{ data['query-content'] }}">
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
         {{ govukButton({
-          text: "Continue",
-          href: "set-action.html"
+          text: "Continue"
         }) }}
-
+</form>
 
     </div>
 
@@ -50,7 +49,7 @@
           <aside class="app-related-items" role="complementary">
           </aside>
         </div>
-        
+
   </div>
 
 

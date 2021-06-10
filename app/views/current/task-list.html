@@ -150,20 +150,25 @@
         </h2>
         <li>
           <ul class="app-task-list__items govuk-!-padding-left-0">
+
+
             <li class="app-task-list__item">
               <a href="preparing-food.html" aria-describedby="company-information-status">
                 Preparing food
                 </a>
                 <script type="text/javascript">
-                              var preparingfood =
-                              console.log(preparingfood)
-                              if (preparingfood) {
 
-                                document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
+                          var testQ = "{{ data['query-content'] }}";
+
+                            if (testQ) {
+
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">In progress</strong>');
                                 }
                               else {
                                 document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>');
                               }
+
+                              //document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
                             </script>
             </li>
             <li class="app-task-list__item">
@@ -257,7 +262,7 @@
           }) }}
 
           <br>
-
+<p>{{ data['query-content'] }}</p>
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
