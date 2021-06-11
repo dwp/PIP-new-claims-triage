@@ -45,7 +45,8 @@
     {
       id: "req-med-advice",
       value: "request~/current/task-list",
-      text: "Request medical advice"
+      text: "Request medical advice",
+      conditional: "2"
     },
     {
       id: "cons-ref-materials",
@@ -73,7 +74,7 @@
 {{ govukButton({
   text: "Continue"
 }) }}
-
+<p>{{ data['query-act-two'] }}</p>
 </form>
   <!--<p>{{ data['query-content'] }}</p>-->
 
