@@ -172,10 +172,24 @@
                             </script>
             </li>
             <li class="app-task-list__item">
-              <a href="#" aria-describedby="company-information-status">
+              <a href="taking-nutrition" aria-describedby="company-information-status">
                 Taking nutrition
                 </a>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+                <script type="text/javascript">
+
+                          var testE = "{{ data['query-act-two'] }}";
+
+                            if (testE) {
+
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">In progress</strong>');
+                                }
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>');
+                              }
+
+                              //document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
+                            </script>
+              <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
             </li>
             <li class="app-task-list__item">
               <a href="#" aria-describedby="company-information-status">
