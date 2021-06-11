@@ -7,8 +7,8 @@ router.use(radioButtonRedirect)
 
 module.exports = router
 
-router.all('/current/check-router', function(req, res, next){
-  var testQ = req.session.data['query-content']
+//router.all('/current/check-router', function(req, res, next){
+//  var testQ = req.session.data['query-content']
 
 /*var preparingFood = "";
   if (req.session.data['query-content'] && req.session.data['query-content'] == "true") {
@@ -25,4 +25,4 @@ router.all('/current/check-router', function(req, res, next){
   }
 });*/
 
-});
+//});

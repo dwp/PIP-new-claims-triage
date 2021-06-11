@@ -24,31 +24,26 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        Create query
+      <h1 class="govuk-heading-l">
+        Justification for this descriptor
       </h1>
-<form action="set-action" method="post">
-      <div class="govuk-form-group">
-          <label class="govuk-label" for="more-detail">
-              What is your query?
-          </label>
-          <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
-      </div>
-      <!--<input name="query-content" value="{{ data['query-content'] }}">-->
 
-      {% from "govuk/components/button/macro.njk" import govukButton %}
+      <h2 class="govuk-heading-m">
+        How well can the claimant cook food?
+      </h2>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-</form>
+      <h2 class="govuk-heading-m">
+        What is the reason for this answer?
+      </h2>
+
+
+
+
+
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
-          <aside class="app-related-items" role="complementary">
-          </aside>
-        </div>
+
 
   </div>
 
