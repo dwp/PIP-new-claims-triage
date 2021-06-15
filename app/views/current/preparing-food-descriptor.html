@@ -31,12 +31,12 @@
                             safely cooking or heating food on a cooker hob or in a microwave oven.</p>
 
         <h2 class="govuk-heading-m">
-            Descriptor: E
+            {{ data['letter'] }}
         </h2>
 
-        {{ govukInsetText({
-          text: data['prepare-meal']
-      }) }}
+      <div class="govuk-inset-text">
+        {{ data['set-action'] }}
+      </div>
 
       <a href="descriptor-justification" aria-describedby="company-information-status">
         View your justification for this descriptor
