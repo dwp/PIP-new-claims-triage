@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+{% include "./preparing-food-descriptor.html" %}
 {% block main %}
 
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
@@ -24,7 +25,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="preparing-food-descriptor">
+      <form method="post" action="preparing-food-descriptor" onclick=" checkButton()">
+
+
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -71,6 +74,24 @@
         }
       ]
     }) }}
+
+    <script type="text/javascript">
+      function checkButton(element) {
+        var letters = "A";
+
+      if(document.getElementById('A').checked) {
+            document.getElementById("disp").innerHTML
+                = letters;
+        }
+        else if(document.getElementById('B').checked) {
+            document.getElementById("disp").innerHTML
+                = "B";
+        }
+      }
+    </script>
+
+    <h3 id="disp" style= "color:green"> </h3>
+    <h3 id="disp" style= "color:green"> </h3>
 
 
 <div class="govuk-form-group">
