@@ -24,5 +24,14 @@ module.exports = router
     console.log(preparingFood);
   }
 });*/
-
+/*function checkButton() {
+if(document.getElementById('A').checked) {
+      document.getElementById("disp").innerHTML
+          = "A";
+  }
+  else if(document.getElementById('B').checked) {
+      document.getElementById("disp").innerHTML
+          = "B";
+  }
+*/
 //});
