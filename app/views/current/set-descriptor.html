@@ -29,7 +29,7 @@
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      idPrefix: "set-action",
+      idPrefix: "letter",
       name: "set-action",
       fieldset: {
         legend: {
@@ -40,33 +40,33 @@
       },
       items: [
         {
-          id: "prepare-cook-meal",
-          value: "data['prepare-meal']",
+          id: "A",
+          value: "Can prepare and cook a simple meal unaided",
           text: "Can prepare and cook a simple meal unaided"
         },
         {
-          id: "use-aid-or-appliance",
-          value: "aid~/current/task-list",
+          id: "B",
+          value: "Needs to use an aid or appliance to be able to either prepare or cook a simple meal",
           text: "Needs to use an aid or appliance to be able to either prepare or cook a simple meal"
         },
         {
-          id: "cannot-cook-but-use-microwave",
-          value: "cannot~/#",
+          id: "C",
+          value: "Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave",
           text: "Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave"
         },
         {
-          id: "needs-prompting-to-cook",
-          value: "prompting~/#",
+          id: "D",
+          value: "Needs prompting to be able to either prepare or cook a simple meal",
           text: "Needs prompting to be able to either prepare or cook a simple meal"
         },
         {
-          id: "needs-supervision",
-          value: "supervision~/#",
+          id: "E",
+          value: "Needs supervision or assistance to either prepare or cook a simple meal",
           text: "Needs supervision or assistance to either prepare or cook a simple meal"
         },
         {
-          id: "cannot-cook-food",
-          value: "cannotCook~/#",
+          id: "F",
+          value: "Cannot prepare and cook food at all",
           text: "Cannot prepare and cook food at all"
         }
       ]
