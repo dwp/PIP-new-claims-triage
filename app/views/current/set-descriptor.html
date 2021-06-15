@@ -24,7 +24,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="#">
+      <form method="post" action="preparing-food-descriptor">
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -41,12 +41,12 @@
       items: [
         {
           id: "prepare-cook-meal",
-          value: "prepare~/#",
+          value: "data['prepare-meal']",
           text: "Can prepare and cook a simple meal unaided"
         },
         {
           id: "use-aid-or-appliance",
-          value: "aid~/#",
+          value: "aid~/current/task-list",
           text: "Needs to use an aid or appliance to be able to either prepare or cook a simple meal"
         },
         {
@@ -73,18 +73,12 @@
     }) }}
 
 
-{{ govukTextarea({
-  name: "more-detail",
-  id: "more-detail",
-  label: {
-    text: "What is the reason for this answer?",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  hint: {
-
-  }
-}) }}
+<div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+        What is the reason for this answer?
+    </label>
+    <textarea class="govuk-textarea" id="justif" name="justification" value="{{ data['justification'] }}" rows="5"></textarea>
+</div>
 
     {{ govukButton({
       text: "Save and continue"
