@@ -33,7 +33,7 @@
 
 {{ govukRadios({
   idPrefix: "set-action",
-  name: "set-action",
+  name: "set-an-action",
   fieldset: {
     legend: {
       text: "Set an action",
@@ -50,22 +50,22 @@
     },
     {
       id: "cons-ref-materials",
-      value: "consult~/current/task-list#action",
+      value: "consult~/current/task-list",
       text: "Consult reference materials"
     },
     {
       id: "req-further-evidence-from-hcp",
-      value: "req~/current/task-list#action",
+      value: "req~/current/task-list",
       text: "Request further evidence or information from the claimant's healthcare provider"
     },
     {
       id: "contact-claimant",
-      value: "contact~/current/task-list-contact-claimant#action",
+      value: "contact~/current/task-list",
       text: "Contact the claimant"
     },
     {
       id: "agent-action",
-      value: "agent-defined-action",
+      value: "agent~/current/task-list",
       text: "Agent defined action"
     }
   ]
