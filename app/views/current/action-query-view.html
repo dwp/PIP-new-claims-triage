@@ -25,32 +25,29 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l">
-         Need to clarify some evidence
+         Contact the claimant
       </h1>
-      <p>I need to contact the claimant to clarify some evidence in the attached GP's letter.</p>
+      <p>{{ data['query-content'] }}</p>
 
       <h2 class="govuk-heading-m">
         Notes about this query
       </h2>
 
       <h3 class="govuk-heading-s">
-        Action
+        Action added
       </h3>
+        <p>{{ data['evidence-capture'] }}</p>
 
-      {{ govukTextarea({
-          name: "more-detail",
-          id: "more-detail",
-          label: {
-            text: "Evidence capture?",
-            classes: "govuk-label--m",
-            isPageHeading: true
-          },
-          hint: {
+<form action="task-list" method="post">
+  <div class="govuk-form-group">
+      <label class="govuk-heading-m" for="evidence-cap">
+          Evidence capture
+      </label>
+      <textarea class="govuk-textarea" id="evidence-cap" name="evidence-capture" value="{{ data['evidence-capture'] }}" rows="5"></textarea>
+  </div>
+  
 
-          }
-  }) }}
 
-  <form method="post" action="#">
   {{ govukRadios({
   idPrefix: "query-resolved",
   name: "query-resolved",

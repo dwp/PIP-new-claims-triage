@@ -24,18 +24,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <h1 class="govuk-heading-xl">
-        Evidence
-      </h1>
-
 
     {% from "govuk/components/table/macro.njk" import govukTable %}
 
     <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Contact  claimant</caption>
+      <caption class="govuk-table__caption govuk-table__caption--l">Contact  claimant</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Query</th>
+          <th scope="col" class="govuk-table__header">Action</th>
           <th scope="col" class="govuk-table__header">Date created</th>
           <th scope="col" class="govuk-table__header">Activity</th>
           <th scope="col" class="govuk-table__header">Status</th>
@@ -43,28 +39,10 @@
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell"><a href="#">Need to clarify some evidence</a></td>
+          <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>
           <td class="govuk-table__cell">12 March 2021</td>
-          <td class="govuk-table__cell">Preparing food</td>
+          <td class="govuk-table__cell">N/A</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag govuk-!-margin-left-60" id="list-convictions-status">Not started</strong></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell"><a href="#">Question about food types</a></td>
-          <td class="govuk-table__cell">12 March 2021</td>
-          <td class="govuk-table__cell">Taking nutrition</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag" id="list-convictions-status">Not started</strong></td
-        </tr>
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell"><a href="#">Notsure about support or  aid</a></td>
-          <td class="govuk-table__cell">12 March 2021</td>
-          <td class="govuk-table__cell">Washing and bathing</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag" id="list-convictions-status">Not started</strong></td
-        </tr>
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell"><a href="#">Need to check budget details</a></td>
-          <td class="govuk-table__cell">12 March 2021</td>
-          <td class="govuk-table__cell">Budgeting</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag" id="list-convictions-status">Not started</strong></td
         </tr>
       </tbody>
     </table>
