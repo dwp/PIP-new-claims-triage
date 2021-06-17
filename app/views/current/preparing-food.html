@@ -102,7 +102,7 @@
                     document.write('<p><a href="#">Request further evidence or information from the claimants healthcare provider</a></p>');
                   }
                   else if (showAction == "contact") {
-                    document.write('<p><a href="#">Contact the claimant</a></p>');
+                    document.write('<p><a href="action-query-view">Contact the claimant</a></p>');
                   }
                   else if (showAction == "agent") {
                     document.write('<p><a href="#">Agent defined action</a></p>');
@@ -127,7 +127,7 @@
             Create query
           </button>-->
 
-          
+
           {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
