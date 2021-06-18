@@ -160,15 +160,29 @@
                 <script type="text/javascript">
 
                           var testQ = "{{ data['query-content'] }}";
+                          var descriptorFood = "{{ data['set-descriptor'] }}" + "1";
+
+                          var desOne = "Can prepare and cook a simple meal unaided";
+                          var desTwo = "Needs to use an aid or appliance to be able to either prepare or cook a simple meal";
+                          var desThree = "Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave";
+                          var desFour = "Needs prompting to be able to either prepare or cook a simple meal";
+                          var desFive = "Needs supervision or assistance to either prepare or cook a simple meal";
+                          var desSix = "Cannot prepare and cook food at all";
+                          console.log(testQ);
+                          console.log(descriptorFood);
+                          //console.log(desOne);
 
                             if (testQ) {
-
                                 document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">In progress</strong>');
+                                var testQ;
+                                console.log(testQ);
                                 }
+                                /*else if (descriptorFood = "desOne" || "desTwo" || "desThree" || "desFour" || "desFive" || "desSix") {
+                                  document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">Completed</strong>');
+                                }*/
                               else {
                                 document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>');
                               }
-
                               //document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
                             </script>
             </li>
@@ -179,14 +193,20 @@
                 <script type="text/javascript">
 
                           var testE = "{{ data['query-act-two'] }}";
+                          var descriptorNut = "{{ data['set-descriptor'] }}";
+                          console.log(descriptorNut);
 
                             if (testE) {
 
                                 document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">In progress</strong>');
                                 }
+                              /*else if (descriptorNut && !testE) {
+                                  document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">Completed</strong>');
+                                }*/
                               else {
                                 document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>');
                               }
+
 
                               //document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
                             </script>
