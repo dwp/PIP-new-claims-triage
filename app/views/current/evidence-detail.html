@@ -19,7 +19,7 @@
   </section>
 
 <div class="govuk-width-container">
-  <a href="#" class="govuk-back-link">Back</a>
+  <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
 
   <main class="govuk-main-wrapper">
 
@@ -35,6 +35,19 @@
       </h1>
 
       <img src="/public/images/evidence.jpg" alt="doctors-note" width="800px" height="400">
+
+      <br>
+      <br>
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+      text: "Create query",
+      classes: "govuk-button--secondary",
+      href: "create-query.html"
+      }) }}
+
+      <br>
 
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
