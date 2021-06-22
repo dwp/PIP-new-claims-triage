@@ -5,8 +5,28 @@ router.use(radioButtonRedirect)
 
 // Add your routes here - above the module.exports line
 
-module.exports = router
 
+
+
+router.post('/current/queries/create-query', (req, res, next) => {
+  console.log("test");
+const queryName = req.session.data['query-content'];
+
+const queries = req.session.data.queries || [];
+queries.push( {name: queryName});
+req.session.data.queries = queries;
+res.redirect('/current/set-action/set-action-preparing-food');
+});
+
+router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
+  console.log('this is preparing food');
+  /*console.log(req.session.data);
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action'];
+  console.log(1,req.session.data);
+res.redirect('/current/task-list')*/
+});
+
+module.exports = router
 //router.all('/current/check-router', function(req, res, next){
 //  var testQ = req.session.data['query-content']
 
