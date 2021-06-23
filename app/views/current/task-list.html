@@ -288,35 +288,9 @@
       <div id="req-medical-advice"></div>
 
       <h2 class="govuk-heading-m" id="action">Actions</h2>
-       <script type="text/javascript">
-                var showAction = "{{ data['set-an-action'] }}";
-                console.log("{{ data['set-an-action'] }}");
-
-                var actionOne = "{{ '<p><a href="#">Request medical advice</a></p>' }}";
-                console.log(actionOne);
-
-                  if (showAction == "request" && "consult") {
-                      document.write('<p><a href="#">Request medical advice</a></p>');
-                      document.write('<p><a href="#">Consult reference materials</a></p>');
-                      }
-                    else if (showAction == "consult" && "request") {
-                      document.write('<p><a href="#">Consult reference materials</a></p>');
-                    }
-                    else if (showAction == "req") {
-                      document.write('<p><a href="#">Request further evidence or information from the claimants healthcare provider</a></p>');
-                    }
-                    else if (showAction == "contact") {
-                      document.write('<p><a href="contact-claimant-action">Contact the claimant</a></p>');
-                    }
-                    else if (showAction == "agent") {
-                      document.write('<p><a href="#">Agent defined action</a></p>');
-                    }
-                    else if (showAction == "") {
-                    document.write('<p>There are no outstanding actions at the moment.</p>');
-                  }
-
-                    //document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
-        </script>
+      {% for query in data['queries'] %}
+      <p><a href="#">{{ query.action }}</a></p>
+      {% endfor %}
 
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
