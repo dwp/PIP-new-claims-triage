@@ -27,9 +27,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {{data | dump}}
 
-  <form method="post" action="#">
+
+  <form action="#" method="post">
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -46,28 +46,28 @@
   items: [
     {
       id: "req-med-advice",
-      value: "request~/current/task-list",
+      value: "request-med",
       text: "Request medical advice",
       conditional: "2"
     },
     {
       id: "cons-ref-materials",
-      value: "consult~/current/task-list",
+      value: "consult",
       text: "Consult reference materials"
     },
     {
       id: "req-further-evidence-from-hcp",
-      value: "req~/current/task-list",
+      value: "request-fe",
       text: "Request further evidence or information from the claimant's healthcare provider"
     },
     {
-      id: "contact-claimant",
-      value: "contact~/current/task-list",
+      id: "contact",
+      value: "Contact the claimant",
       text: "Contact the claimant"
     },
     {
       id: "agent-action",
-      value: "agent~/current/task-list",
+      value: "agent",
       text: "Agent defined action"
     }
   ]

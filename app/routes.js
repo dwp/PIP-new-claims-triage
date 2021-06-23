@@ -1,30 +1,28 @@
 const express = require('express')
 const router = express.Router()
-const radioButtonRedirect = require('radio-button-redirect')
-router.use(radioButtonRedirect)
+// const radioButtonRedirect = require('radio-button-redirect')
+// router.use(radioButtonRedirect)
 
 // Add your routes here - above the module.exports line
 
-
-
-
 router.post('/current/queries/create-query', (req, res, next) => {
-  console.log("test");
-const queryName = req.session.data['query-content'];
+  console.log('/current/queries/create-query', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
 
-const queries = req.session.data.queries || [];
-queries.push( {name: queryName});
-req.session.data.queries = queries;
-res.redirect('/current/set-action/set-action-preparing-food');
-});
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-preparing-food')
+})
 
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
-  console.log('this is preparing food');
-  /*console.log(req.session.data);
-  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action'];
-  console.log(1,req.session.data);
-res.redirect('/current/task-list')*/
-});
+  console.log('this is preparing food')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
 
 module.exports = router
 //router.all('/current/check-router', function(req, res, next){
@@ -36,7 +34,6 @@ module.exports = router
     console.log(preparingFood);
   }
 });*/
-
 
 /*router.all('/current/query-check', function(req, res) {
   if (req.session.data['query-content'] && req.session.data['query-content'] == "true") {
