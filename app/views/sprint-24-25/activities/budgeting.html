@@ -1,0 +1,163 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jayne Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>31 December 1999</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Budgeting
+      </h1>
+       <p class="govuk-body">This includes food preparation such as peeling, chopping or opening packaging and
+                            safely cooking or heating food on a cooker hob or in a microwave oven.</p>
+
+
+        <h2 class="govuk-heading-m">Claimants account</h2>
+        <p class="govuk-body">I find it increasingly difficult to cook a hotmeal due to pans being to heavy and opening cans.
+          Standing for long peroids of time hurt my legs. I prepare veg sitting down. I rely heavily on my husband to do the cooking.</p>
+
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Evidence</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Filename</th>
+                <th scope="col" class="govuk-table__header">Source</th>
+                <th scope="col" class="govuk-table__header">Date received</th>
+                <th scope="col" class="govuk-table__header">Original evidence</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Doctors note</th>
+                <td class="govuk-table__cell">Claimant</td>
+                <td class="govuk-table__cell">01 12 2020</td>
+                <td class="govuk-table__cell"><a href="evidence-detail">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="govuk-heading-m">Queries</h2>
+          <script defer type="text/javascript">
+
+            var noQuery = "{{ data['set-an-action'] }}";
+
+            if (noQuery) {
+
+                document.write('');
+                }
+              else {
+                document.write('<p class="govuk-body">There are no queries for this activity.</p>');
+                window.onload = function(){
+                document.getElementById('queryTable').style.display = 'none';
+              }
+            }
+
+            </script>
+
+<div id="queryTable">
+  <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Action</th>
+              <th scope="col" class="govuk-table__header">Date created</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+            <script type="text/javascript">
+
+              var showAction = "{{ data['set-an-action'] }}";
+              console.log("{{ data['set-an-action'] }}");
+
+                if (showAction == "request" && "consult") {
+                    document.write('<p><a href="#">Request medical advice</a></p>');
+                    document.write('<p><a href="#">Consult reference materials</a></p>');
+                    }
+                  else if (showAction == "consult" && "request") {
+                    document.write('<p><a href="#">Consult reference materials</a></p>');
+                  }
+                  else if (showAction == "req") {
+                    document.write('<p><a href="#">Request further evidence or information from the claimants healthcare provider</a></p>');
+                  }
+                  else if (showAction == "contact") {
+                    document.write('<p><a href="action-query-view">Contact the claimant</a></p>');
+                  }
+                  else if (showAction == "agent") {
+                    document.write('<p><a href="#">Agent defined action</a></p>');
+                  }
+                  else if (showAction == "") {
+                  document.write('<p>There are no outstanding actions at the moment.</p>');
+                }
+              </script>
+
+               </td>
+              <td class="govuk-table__cell">12 March 2021</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+            <!--  <td class="govuk-table__cell"></td>-->
+              <!--<td class="govuk-table__cell"></td>-->
+          </tr>
+        </tbody>
+</table>
+</div>
+        <!--  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Create query
+          </button>-->
+
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+          text: "Create query",
+          classes: "govuk-button--secondary",
+          href: "../queries/create-query-budgeting.html"
+          }) }}
+
+          <br>
+
+              {{ govukButton({
+                text: "Set descriptor",
+                href: "set-descriptor"
+              }) }}
+
+
+
+
+    </div>
+
+              <!--<div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                    </aside>
+                  </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}
