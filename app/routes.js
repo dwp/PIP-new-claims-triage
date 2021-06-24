@@ -106,6 +106,66 @@ router.post('/current/set-action/set-action-managing-toilet-needs', (req, res, n
   res.redirect('/current/task-list')
 })
 
+//Create query dressing and undressing activity
+router.post('/current/queries/create-query-dressing-and-undressing', (req, res, next) => {
+  console.log('/current/queries/create-query-dressing-and-undressing', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-dressing-and-undressing')
+})
+
+router.post('/current/set-action/set-action-dressing-and-undressing', (req, res, next) => {
+  console.log('this is dressing and undressing')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Create query communicating verbally activity
+router.post('/current/queries/create-query-communicating-verbally', (req, res, next) => {
+  console.log('/current/queries/create-query-communicating-verbally', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-communicating-verbally')
+})
+
+router.post('/current/set-action/set-action-communicating-verbally', (req, res, next) => {
+  console.log('this is communicating verbally')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Create query reading and understanding activity
+router.post('/current/queries/create-query-reading-and-understanding', (req, res, next) => {
+  console.log('/current/queries/create-query-reading-and-understanding', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-reading-and-understanding')
+})
+
+router.post('/current/set-action/set-action-reading-and-understanding', (req, res, next) => {
+  console.log('this is reading and understanding')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
 // sprint 24 and 25 // *****************************************************************************************************************
 router.post('/sprint-24-25/queries/create-query', (req, res, next) => {
   console.log('/sprint-24-25/queries/create-query', req.session.data)
