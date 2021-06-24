@@ -5,7 +5,8 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-// current sprint
+// current sprint 26 // *****************************************************************************************************************
+//Create query preparing food activity
 router.post('/current/queries/create-query', (req, res, next) => {
   console.log('/current/queries/create-query', req.session.data)
   const name = req.session.data['query-content']
@@ -25,7 +26,87 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
   res.redirect('/current/task-list')
 })
 
-// sprint 24 and 25
+//Create query taking nutrition activity
+router.post('/current/queries/create-query-taking-nutrition', (req, res, next) => {
+  console.log('/current/queries/create-query-taking-nutrition', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-taking-nutrition')
+})
+
+router.post('/current/set-action/set-action-taking-nutrition', (req, res, next) => {
+  console.log('this is taking nutrition')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Create query managing therapy activity
+router.post('/current/queries/create-query-managing-therapy', (req, res, next) => {
+  console.log('/current/queries/create-query-managing-therapy', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-managing-therapy')
+})
+
+router.post('/current/set-action/set-action-managing-therapy', (req, res, next) => {
+  console.log('this is managing therapy')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Create query washing and bathing activity
+router.post('/current/queries/create-query-washing-and-bathing', (req, res, next) => {
+  console.log('/current/queries/create-query-washing-and-bathing', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-washing-and-bathing')
+})
+
+router.post('/current/set-action/set-action-washing-and-bathing', (req, res, next) => {
+  console.log('this is washing and bathing')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Create query managing toilet needs activity
+router.post('/current/queries/create-query-managing-toilet-needs', (req, res, next) => {
+  console.log('/current/queries/create-query-managing-toilet-needs', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-managing-toilet-needs')
+})
+
+router.post('/current/set-action/set-action-managing-toilet-needs', (req, res, next) => {
+  console.log('this is managing toilet needs')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+// sprint 24 and 25 // *****************************************************************************************************************
 router.post('/sprint-24-25/queries/create-query', (req, res, next) => {
   console.log('/sprint-24-25/queries/create-query', req.session.data)
   const name = req.session.data['query-content']
