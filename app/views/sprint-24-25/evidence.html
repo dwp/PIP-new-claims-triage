@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+{% block main %}
+<link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jayne Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>31 December 1999</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Evidence
+      </h1>
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Evidence submitted by claimant</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Filename</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date received</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Careplan</a></td>
+          <td class="govuk-table__cell">Claimant</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="evidence-detail.html">Doctors note</a></td>
+          <td class="govuk-table__cell">Claimant</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">UC50</a></td>
+          <td class="govuk-table__cell">Claimant</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">PIP2 form</a></td>
+          <td class="govuk-table__cell">Claimant</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Medical evidence</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Filename</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date received</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Consultant letter</a></td>
+          <td class="govuk-table__cell">General hospital</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">MRI scan</a></td>
+          <td class="govuk-table__cell">General hospital</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Doctors letter</a></td>
+          <td class="govuk-table__cell">Green street doctors surgery</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Phone transcript</a></td>
+          <td class="govuk-table__cell">DWP</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Evidence from across DWP</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Filename</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date received</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">ESA report</a></td>
+          <td class="govuk-table__cell">DWP</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">UC report</a></td>
+          <td class="govuk-table__cell">DWP</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Phone transcript</a></td>
+          <td class="govuk-table__cell">DWP</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Evidence from charities and third parties</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Filename</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date received</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="#">Action plan</a></td>
+          <td class="govuk-table__cell">Clarion</td>
+          <td class="govuk-table__cell">01 December 2020</td>
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

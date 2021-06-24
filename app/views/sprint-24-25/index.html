@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+          Sprint 24/25
+        <span class="govuk-caption-xl">Created new prototype to validate new concpets with case managers within PIP.</span>
+
+{{ govukDetails({
+          summaryText: "Notes on this sprint",
+          html: '
+          <p>This sprint we:</p>
+
+          <ul class="govuk-list  govuk-list--bullet">
+              <li>Put our design concepts into the prototype kit</li>
+              <li>Getting the designs ready for user testing sessions to help validate brand new concepts</li>
+          </ul>'
+
+                  }) }}
+
+
+
+
+  <h3 class="govuk-heading-m">Link to pages</h3>
+   <br>
+  <ul class="govuk-list">
+      <li><a class="govuk-link" href="/sprint-24-25/task-list">Tasklist</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/evidence">Evidence</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/evidence-detail">Evidence detail</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/create-query">Create query</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/set-action">Set an action</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/contact-claimant-action">Action/Query</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/action-query-view">Action/Query view</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/set-descriptor">Set descriptor</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/preparing-food-descriptor">Descriptor within activity</a></li>
+      <li><a class="govuk-link" href="/sprint-24-25/descriptor-justification">Descriptor justification</a></li>
+  </ul>
+
+  <!--<h3 class="govuk-heading-m">Tasklist action variations</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/current/task-list">Tasklist - no actions</a></li>
+        <li><a class="govuk-link" href="/current/task-list-contact-claimant">Tasklist - contact claimant</a></li>
+  </ul>-->
+
+  <h3 class="govuk-heading-m">Activities</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/sprint-24-25/activities/preparing-food">Preparing food</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/taking-nutrition">Taking nutrition</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/managing-therapy">Managing therapy</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/washing-and-bathing">Washing and bathing</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/managing-toilet-needs">Managing toilet needs</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/dressing-and-undressing">Dressing and undressing</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/communicating-verbally">Communicating verbally</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/reading-and-understanding">Reading and understanding signs, symbols and words</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/engaging-face-to-face">Engaging face to face</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/budgeting">Budgeting</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/planning-and-following-journeys">Planning and following journeys</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/activities/moving-around">Moving around</a></li>
+  </ul>
+
+  <h3 class="govuk-heading-m">Test/experimental pages</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/sprint-24-25/taking-nutrition">Taking nutrition</a></li>
+        <li><a class="govuk-link" href="/sprint-24-25/create-query-activity-two">Create query</a></li>
+  </ul>
+
+    </div>
+</div>
+
+
+{% endblock %}
