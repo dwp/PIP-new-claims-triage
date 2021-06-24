@@ -27,7 +27,9 @@
       <h1 class="govuk-heading-xl">
         Create query
       </h1>
-<form action="set-action" method="post">
+        {{ data | dump }}
+<form action="#" method="post">
+  <input type="hidden" value="{{ data.source }}"/>
       <div class="govuk-form-group">
           <label class="govuk-label" for="more-detail">
               What is your query?
