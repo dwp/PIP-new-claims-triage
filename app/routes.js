@@ -166,6 +166,86 @@ router.post('/current/set-action/set-action-reading-and-understanding', (req, re
   res.redirect('/current/task-list')
 })
 
+//Create query engaging face to face activity
+router.post('/current/queries/create-query-engage-face-to-face', (req, res, next) => {
+  console.log('/current/queries/create-query-engage-face-to-face', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-engage-face-to-face')
+})
+
+router.post('/current/set-action/set-action-engage-face-to-face', (req, res, next) => {
+  console.log('this is engaging face to face')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Create query budgeting activity
+router.post('/current/queries/create-query-budgeting', (req, res, next) => {
+  console.log('/current/queries/create-query-budgeting', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-budgeting')
+})
+
+router.post('/current/set-action/set-action-budgeting', (req, res, next) => {
+  console.log('this is budgeting')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Create query planning and following journeys activity
+router.post('/current/queries/create-query-planning-and-following-journeys', (req, res, next) => {
+  console.log('/current/queries/create-query-planning-and-following-journeys', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-planning-and-following-journeys')
+})
+
+router.post('/current/set-action/set-action-planning-and-following-journeys', (req, res, next) => {
+  console.log('this is planning and following journeys')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Create query moving around activity
+router.post('/current/queries/create-query-moving-around', (req, res, next) => {
+  console.log('/current/queries/create-query-moving-around', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/set-action/set-action-moving-around')
+})
+
+router.post('/current/set-action/set-action-moving-around', (req, res, next) => {
+  console.log('this is moving around')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
 // sprint 24 and 25 // *****************************************************************************************************************
 router.post('/sprint-24-25/queries/create-query', (req, res, next) => {
   console.log('/sprint-24-25/queries/create-query', req.session.data)
