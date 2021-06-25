@@ -85,42 +85,17 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
+            {% for query in data['queries'] %}
+            {% if query.section == 'moving-around' %}
             <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-            <script type="text/javascript">
-
-              var showAction = "{{ data['set-an-action'] }}";
-              console.log("{{ data['set-an-action'] }}");
-
-                if (showAction == "request" && "consult") {
-                    document.write('<p><a href="#">Request medical advice</a></p>');
-                    document.write('<p><a href="#">Consult reference materials</a></p>');
-                    }
-                  else if (showAction == "consult" && "request") {
-                    document.write('<p><a href="#">Consult reference materials</a></p>');
-                  }
-                  else if (showAction == "req") {
-                    document.write('<p><a href="#">Request further evidence or information from the claimants healthcare provider</a></p>');
-                  }
-                  else if (showAction == "contact") {
-                    document.write('<p><a href="action-query-view">Contact the claimant</a></p>');
-                  }
-                  else if (showAction == "agent") {
-                    document.write('<p><a href="#">Agent defined action</a></p>');
-                  }
-                  else if (showAction == "") {
-                  document.write('<p>There are no outstanding actions at the moment.</p>');
-                }
-              </script>
-
+              <td class="govuk-table__cell">
+                    <a href="#">{{ query.action }}</a>
                </td>
               <td class="govuk-table__cell">12 March 2021</td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>
             </tr>
-            <tr class="govuk-table__row">
-            <!--  <td class="govuk-table__cell"></td>-->
-              <!--<td class="govuk-table__cell"></td>-->
-          </tr>
+            {% endif %}
+            {% endfor %}
         </tbody>
 </table>
 </div>
@@ -134,7 +109,7 @@
           {{ govukButton({
           text: "Create query",
           classes: "govuk-button--secondary",
-          href: "../queries/create-query-moving-around.html"
+          href: "../queries/create-query-moving-around?source=moving-around"
           }) }}
 
           <br>
