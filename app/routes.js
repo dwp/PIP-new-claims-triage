@@ -246,6 +246,76 @@ router.post('/current/set-action/set-action-moving-around', (req, res, next) => 
   res.redirect('/current/task-list')
 })
 
+//**************************************************************************************************************************************
+//Routes for queries linked to Evidence
+
+router.post('/current/evidence-detail', (req, res, next) => {
+    if (req.session.data['tagging-evidence'] == "evidence-query" ) {
+      console.log('/current/evidence-detail', req.session.data)
+      const name = req.session.data['evidence-query']
+      const section = req.session.data.source
+
+      const queriesEvidence = req.session.data.queriesEvidence || []
+      queriesEvidence.push({ name, section })
+      req.session.data.queriesEvidence = queriesEvidence
+      res.redirect('/current/set-action/set-action-evidence')
+
+  } else {
+
+    //Routes for tagged documents linked to Evidence
+        console.log('/current/evidence-detail', req.session.data)
+        const name = req.session.data['evidence-query']
+        const section = req.session.data.source
+
+        const conditionsEvidence = req.session.data.conditionsEvidence || []
+        conditionsEvidence.push({ name, section })
+        req.session.data.conditionsEvidence = conditionsEvidence
+        res.redirect('/current/tagging')
+    }
+    })
+
+    router.post('/current/tagging', (req, res, next) => {
+      console.log('this is evidence')
+      console.log(req.session.data)
+      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].evidence = req.session.data['evidence-query']
+      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].action = req.session.data['conditions']
+      console.log(1, req.session.data)
+      res.redirect('/current/evidence-detail')
+    })
+
+// follow up route for linking queries to evidence
+router.post('/current/set-action/set-action-evidence', (req, res, next) => {
+  console.log('this is evidence')
+  console.log(req.session.data)
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/evidence-detail')
+})
+
+//Routes for tagged documents linked to Evidence
+// router.post('/current/evidence-detail', (req, res, next) => {
+//     console.log('/current/evidence-detail', req.session.data)
+//     const name = req.session.data['evidence-query']
+//     const section = req.session.data.source
+//
+//     const conditionsEvidence = req.session.data.conditionsEvidence || []
+//     conditionsEvidence.push({ name, section })
+//     req.session.data.conditionsEvidence = conditionsEvidence
+//     res.redirect('/current/current/tagging')
+//
+// })
+//
+// router.post('/current/tagging', (req, res, next) => {
+//   console.log('this is evidence')
+//   console.log(req.session.data)
+//   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
+//   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['conditions']
+//   console.log(1, req.session.data)
+//   res.redirect('/current/evidence-detail')
+// })
+
+
 // sprint 24 and 25 // *****************************************************************************************************************
 router.post('/sprint-24-25/queries/create-query', (req, res, next) => {
   console.log('/sprint-24-25/queries/create-query', req.session.data)
