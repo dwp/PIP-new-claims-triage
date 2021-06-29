@@ -39,30 +39,102 @@
       <br>
       <br>
 
+      <!--{{ data | dump }}-->
+
+<form action="#" method="post">
+  <input type="hidden" value="{{ data.source }}"/>
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+              {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "tagging",
+                name: "tagging-evidence",
+                fieldset: {
+                  legend: {
+                    text: "Add a note about this piece of evidence",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: ""
+                },
+                items: [
+                  {
+                    value: "tag-evidence",
+                    text: "Important on this case"
+                  },
+                  {
+                    value: "evidence-query",
+                    text: "Issue to resolve"
+                  }
+                ]
+            }) }}
+
+
+          <div class="govuk-form-group">
+                <textarea class="govuk-textarea" id="evidence-query-box" name="evidence-query" value="{{ data['evidence-query'] }}" rows="5" aria-describedby="more-detail-hint"></textarea>
+        </div>
+
+        {% for query in data['queries'] %}
+        <p><a href="#">{{ query.action }}</a></p>
+        {% endfor %}
+
+
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
       {{ govukButton({
-      text: "Create query",
-      classes: "govuk-button--secondary",
-      href: "create-query.html"
+        text: "Add link"
       }) }}
+</form>
 
-      <br>
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Issues to resolve</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Issue</th>
+      <th scope="col" class="govuk-table__header">How to resolve it</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+    </tr>
+  </thead>
+  {% for query in data['queriesEvidence'] %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <a href="#">{{ query.evidence }}</a>
+      </td>
+      <td class="govuk-table__cell">{{ query.action }}</td>
+      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 
-      {% from "govuk/components/button/macro.njk" import govukButton %}
-
-        {{ govukButton({
-          text: "Save and continue",
-          href: "task-list.html"
-        }) }}
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Statements</th>
+      <th scope="col" class="govuk-table__header">Linked to</th>
+    </tr>
+  </thead>
+  {% for condition in data['conditionsEvidence'] %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        <a href="#">{{ condition.evidence }}</a>
+      </td>
+      <td class="govuk-table__cell">
+        {{ condition.action }}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
     </div>
-
-    <div class="govuk-grid-column-one-third">
-          <aside class="app-related-items" role="complementary">
-          </aside>
-        </div>
 
   </div>
 

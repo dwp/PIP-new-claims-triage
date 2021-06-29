@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+  <section class="key-details-bar" role="contentinfo" aria-label="Key details">
+      <dl class="key-details-bar__key-details">
+        <div class="key-details-bar__top-block">
+          <dt class="govuk-visually-hidden">Name:</dt>
+          <dt class="key-details-bar__name">Jayne Smith</dt>
+
+          <dt class="govuk-visually-hidden">National Insurance number:</dt>
+          <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+        </div>
+
+        <div class="key-details-bar__bottom-block">
+          <dt>Date of birth:</dt>
+          <dd>31 December 1999</dd>
+        </div>
+      </dl>
+  </section>
+
+<div class="govuk-width-container">
+  <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper">
+
+
+    <!--<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        What is this note linked to
+      </h1>
+<form action="#" method="post">
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+              {{ govukCheckboxes({
+              idPrefix: "options",
+              name: "conditions",
+              fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+              },
+              hint: {
+              text: ""
+              },
+              items: [
+              {
+                value: "Fibromyalgia",
+                text: "Fibromyalgia "
+              },
+              {
+                value: "Underactive thyroid",
+                text: "Underactive thyroid"
+              },
+              {
+                value: "Preparing food",
+                text: "Preparing food"
+              },
+              {
+                value: "Taking nutrition",
+                text: "Taking nutrition"
+              },
+              {
+                value: "Managing therapy",
+                text: "Managing therapy"
+              },
+              {
+                value: "Washing and bathing",
+                text: "Washing and bathing"
+              },
+              {
+                value: "Managing toilet needs",
+                text: "Managing toilet needs"
+              },
+              {
+                value: "Dressing and undressing",
+                text: "Dressing and undressing"
+              },
+              {
+                value: "Communicating verbally",
+                text: "Communicating verbally"
+              },
+              {
+                value: "Reading and understanding signs, symbols and words",
+                text: "Reading and understanding signs, symbols and words"
+              },
+              {
+                value: "Engaging face to face",
+                text: "Engaging face to face"
+              },
+              {
+                value: "Budgeting",
+                text: "Budgeting"
+              },
+              {
+                value: "Planning and following journeys",
+                text: "Planning and following journeys"
+              },
+              {
+                value: "Moving around",
+                text: "Moving around"
+              }
+              ]
+              }) }}
+
+
+                  {{ govukButton({
+                      text: "Add links"
+                    }) }}
+</form>
+    </div>
+  </div>
+
+
+
+      </main>
+      </div>
+
+{% endblock %}
