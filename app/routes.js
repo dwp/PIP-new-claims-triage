@@ -18,7 +18,6 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
   res.redirect('/current/set-action/set-action-preparing-food')
 })
 
-
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
   console.log('this is preparing food')
   console.log(req.session.data)
@@ -29,11 +28,10 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
 })
 
 //Create query taking nutrition activity
-router.post('/current/queries/create-query-taking-nutrition', (req, res, next) => {
-  console.log('/current/queries/create-query-taking-nutrition', req.session.data)
+router.post('/current/activities/taking-nutrition', (req, res, next) => {
+  console.log('/current/activities/taking-nutrition', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -43,17 +41,17 @@ router.post('/current/queries/create-query-taking-nutrition', (req, res, next) =
 router.post('/current/set-action/set-action-taking-nutrition', (req, res, next) => {
   console.log('this is taking nutrition')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query managing therapy activity
-router.post('/current/queries/create-query-managing-therapy', (req, res, next) => {
-  console.log('/current/queries/create-query-managing-therapy', req.session.data)
+router.post('/current/activities/managing-therapy', (req, res, next) => {
+  console.log('/current/activities/managing-therapy', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -63,17 +61,17 @@ router.post('/current/queries/create-query-managing-therapy', (req, res, next) =
 router.post('/current/set-action/set-action-managing-therapy', (req, res, next) => {
   console.log('this is managing therapy')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query washing and bathing activity
-router.post('/current/queries/create-query-washing-and-bathing', (req, res, next) => {
-  console.log('/current/queries/create-query-washing-and-bathing', req.session.data)
+router.post('/current/activities/washing-and-bathing', (req, res, next) => {
+  console.log('/current/activities/washing-and-bathing', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -83,17 +81,17 @@ router.post('/current/queries/create-query-washing-and-bathing', (req, res, next
 router.post('/current/set-action/set-action-washing-and-bathing', (req, res, next) => {
   console.log('this is washing and bathing')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query managing toilet needs activity
-router.post('/current/queries/create-query-managing-toilet-needs', (req, res, next) => {
-  console.log('/current/queries/create-query-managing-toilet-needs', req.session.data)
+router.post('/current/activities/managing-toilet-needs', (req, res, next) => {
+  console.log('/current/activities/managing-toilet-needs', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -103,17 +101,17 @@ router.post('/current/queries/create-query-managing-toilet-needs', (req, res, ne
 router.post('/current/set-action/set-action-managing-toilet-needs', (req, res, next) => {
   console.log('this is managing toilet needs')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query dressing and undressing activity
-router.post('/current/queries/create-query-dressing-and-undressing', (req, res, next) => {
-  console.log('/current/queries/create-query-dressing-and-undressing', req.session.data)
+router.post('/current/activities/dressing-and-undressing', (req, res, next) => {
+  console.log('/current/activities/dressing-and-undressing', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -123,17 +121,17 @@ router.post('/current/queries/create-query-dressing-and-undressing', (req, res, 
 router.post('/current/set-action/set-action-dressing-and-undressing', (req, res, next) => {
   console.log('this is dressing and undressing')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query communicating verbally activity
-router.post('/current/queries/create-query-communicating-verbally', (req, res, next) => {
-  console.log('/current/queries/create-query-communicating-verbally', req.session.data)
+router.post('/current/activities/communicating-verbally', (req, res, next) => {
+  console.log('/current/activities/communicating-verbally', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -143,17 +141,17 @@ router.post('/current/queries/create-query-communicating-verbally', (req, res, n
 router.post('/current/set-action/set-action-communicating-verbally', (req, res, next) => {
   console.log('this is communicating verbally')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query reading and understanding activity
-router.post('/current/queries/create-query-reading-and-understanding', (req, res, next) => {
-  console.log('/current/queries/create-query-reading-and-understanding', req.session.data)
+router.post('/current/activities/reading-and-understanding', (req, res, next) => {
+  console.log('/current/activities/reading-and-understanding', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -163,17 +161,17 @@ router.post('/current/queries/create-query-reading-and-understanding', (req, res
 router.post('/current/set-action/set-action-reading-and-understanding', (req, res, next) => {
   console.log('this is reading and understanding')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query engaging face to face activity
-router.post('/current/queries/create-query-engage-face-to-face', (req, res, next) => {
-  console.log('/current/queries/create-query-engage-face-to-face', req.session.data)
+router.post('/current/activities/engaging-face-to-face', (req, res, next) => {
+  console.log('/current/activities/engaging-face-to-face', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -183,17 +181,17 @@ router.post('/current/queries/create-query-engage-face-to-face', (req, res, next
 router.post('/current/set-action/set-action-engage-face-to-face', (req, res, next) => {
   console.log('this is engaging face to face')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query budgeting activity
-router.post('/current/queries/create-query-budgeting', (req, res, next) => {
-  console.log('/current/queries/create-query-budgeting', req.session.data)
+router.post('/current/activities/budgeting', (req, res, next) => {
+  console.log('/current/activities/budgeting', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -203,17 +201,17 @@ router.post('/current/queries/create-query-budgeting', (req, res, next) => {
 router.post('/current/set-action/set-action-budgeting', (req, res, next) => {
   console.log('this is budgeting')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query planning and following journeys activity
-router.post('/current/queries/create-query-planning-and-following-journeys', (req, res, next) => {
-  console.log('/current/queries/create-query-planning-and-following-journeys', req.session.data)
+router.post('/current/activities/planning-and-following-journeys', (req, res, next) => {
+  console.log('/current/activities/planning-and-following-journeys', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -223,17 +221,17 @@ router.post('/current/queries/create-query-planning-and-following-journeys', (re
 router.post('/current/set-action/set-action-planning-and-following-journeys', (req, res, next) => {
   console.log('this is planning and following journeys')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
 
 //Create query moving around activity
-router.post('/current/queries/create-query-moving-around', (req, res, next) => {
-  console.log('/current/queries/create-query-moving-around', req.session.data)
+router.post('/current/activities/moving-around', (req, res, next) => {
+  console.log('/current/activities/moving-around', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
-
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
@@ -243,6 +241,7 @@ router.post('/current/queries/create-query-moving-around', (req, res, next) => {
 router.post('/current/set-action/set-action-moving-around', (req, res, next) => {
   console.log('this is moving around')
   console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/task-list')

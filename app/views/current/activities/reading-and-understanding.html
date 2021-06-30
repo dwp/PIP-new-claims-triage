@@ -53,7 +53,23 @@
                               </tbody>
                             </table>
 
-          <h2 class="govuk-heading-m">Queries</h2>
+                            <h2 class="govuk-heading-m">Add a query</h2>
+
+                            <form action="#" method="post">
+                                <input type="hidden" value="{{ data.source }}"/>
+                                  <div class="govuk-form-group">
+                                      <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+                                  </div>
+                                  <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+
+                                  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                                  {{ govukButton({
+                                  text: "Create query",
+                                  classes: "govuk-button--secondary"
+                                  }) }}
+                            </form>
+
           <script defer type="text/javascript">
 
             var noQuery = "{{ data['set-an-action'] }}";
@@ -76,8 +92,8 @@
           <caption class="govuk-table__caption govuk-table__caption--m"></caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Action</th>
-              <th scope="col" class="govuk-table__header">Date created</th>
+              <th scope="col" class="govuk-table__header">Issue</th>
+              <th scope="col" class="govuk-table__header">How to resolve it</th>
               <th scope="col" class="govuk-table__header">Status</th>
             </tr>
           </thead>
@@ -86,11 +102,11 @@
             {% if query.section == 'reading-and-understanding' %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
-                  <a href="#">{{ query.action }}</a>
-
-
+                 <a href="#">{{ query.content }}</a>
                </td>
-              <td class="govuk-table__cell">12 March 2021</td>
+              <td class="govuk-table__cell">
+                    <a href="#">{{ query.action }}</a>
+              </td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>
             </tr>
             {% endif %}
@@ -102,14 +118,6 @@
             Create query
           </button>-->
 
-
-          {% from "govuk/components/button/macro.njk" import govukButton %}
-
-          {{ govukButton({
-          text: "Create query",
-          classes: "govuk-button--secondary",
-          href: "../queries/create-query-reading-and-understanding?source=reading-and-understanding"
-          }) }}
 
           <br>
 
