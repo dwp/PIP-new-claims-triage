@@ -265,10 +265,12 @@ router.post('/current/evidence-detail', (req, res, next) => {
     //Routes for tagged documents linked to Evidence
         console.log('/current/evidence-detail', req.session.data)
         const name = req.session.data['evidence-query']
+        const pageURL = req.session.data['page-URL'][1]['contact-claimant-page']
+        console.log(pageURL)
         const section = req.session.data.source
 
         const conditionsEvidence = req.session.data.conditionsEvidence || []
-        conditionsEvidence.push({ name, section })
+        conditionsEvidence.push({ name, section, pageURL })
         req.session.data.conditionsEvidence = conditionsEvidence
         res.redirect('/current/tagging')
     }
@@ -279,7 +281,8 @@ router.post('/current/evidence-detail', (req, res, next) => {
       console.log(req.session.data)
       req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].evidence = req.session.data['evidence-query']
       req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].action = req.session.data['conditions']
-      console.log(1, req.session.data)
+      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.conditionsEvidence)
       res.redirect('/current/evidence-detail')
     })
 

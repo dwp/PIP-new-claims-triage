@@ -20,5 +20,23 @@ Example usage:
 module.exports = {
 
   // Insert values here
-
+  'page-URL': [{
+      'contact-claimant-page': 'current/contact-claimant-action'
+    }, {
+      'contact-claimant-page': 'current/contact-claimant-action'
+    }, {
+        'contact-claimant-page': 'current/contact-claimant-action'
+      },
+      {
+          'contact-claimant-page': 'current/contact-claimant-action'
+        },
+        {
+            'contact-claimant-page': 'current/contact-claimant-action'
+          },
+          {
+              'contact-claimant-page': 'current/contact-claimant-action'
+            },
+            {
+                'contact-claimant-page': 'current/contact-claimant-action'
+}]
 }
