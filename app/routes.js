@@ -21,8 +21,31 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
   console.log('this is preparing food')
   console.log(req.session.data)
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case('Healthcare provider 1'):
+    href = '/current/healthcare-provider-one-action';
+    break;
+    case('Healthcare provider 2'):
+    href = '/current/healthcare-provider-two-action';
+    break;
+    case('VAL'):
+    href = '/current/VAL-action';
+    break;
+    case('none of these'):
+    href = '/current/none-of-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/contact-claimant-action';
+  }
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
