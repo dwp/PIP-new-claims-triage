@@ -15,7 +15,7 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
-  res.redirect('/current/tasklist')
+  res.redirect('/current/set-action/set-action-preparing-food')
 })
 
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
@@ -24,7 +24,7 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
-  res.redirect('/current/activities/preparing-food')
+  res.redirect('/current/task-list')
 })
 
 //Create query taking nutrition activity
