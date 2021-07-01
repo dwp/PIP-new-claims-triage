@@ -52,7 +52,7 @@
                               </tbody>
                             </table>
 
-                        <h2 class="govuk-heading-m">Add a query</h2>
+                        <h2 class="govuk-heading-m">Add an issue to be resolved</h2>
 
                             <form action="#" method="post">
                                 <input type="hidden" value="{{ data.source }}"/>
@@ -64,10 +64,13 @@
                                   {% from "govuk/components/button/macro.njk" import govukButton %}
 
                                   {{ govukButton({
-                                  text: "Create query",
+                                  text: "Add this issue",
                                   classes: "govuk-button--secondary"
                                   }) }}
                             </form>
+
+                <h2 class="govuk-heading-m">Issues to resolve</h2>
+
 
           <script defer type="text/javascript">
 
