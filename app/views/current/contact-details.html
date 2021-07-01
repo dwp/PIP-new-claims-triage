@@ -1,14 +1,27 @@
 {% extends "layout.html" %}
+{% block main %}
+<link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
 
-{% block pageTitle %}
-  Check your answers
-{% endblock %}
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
 
-{% block beforeContent %}
-<a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
-{% endblock %}
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
 
-{% block content %}
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="task-list" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
@@ -62,7 +75,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             <p>07700 900457</p>
-            <p>sarah.phillips@example.com</p>
+            <p>jim.smith@example.com</p>
           </dd>
         </div>
       </dl>
