@@ -31,7 +31,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        What is this note linked to
+        What is this note linked to?
       </h1>
 <form action="#" method="post">
       {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
@@ -51,12 +51,36 @@
               },
               items: [
               {
-                value: "Fibromyalgia",
-                text: "Fibromyalgia "
+                value: "Diabetes",
+                text: "Diabetes",
               },
               {
-                value: "Underactive thyroid",
-                text: "Underactive thyroid"
+                value: "Prostate cancer",
+                text: "Prostate cancer"
+              },
+              {
+                value: "Angina",
+                text: "Angina"
+              },
+              {
+                value: "COPD",
+                text: "COPD"
+              },
+              {
+                value: "Blood pressure",
+                text: "Blood pressure"
+              },
+              {
+                value: "Incontinence",
+                text: "Incontinence"
+              },
+              {
+                value: "Irregular heartbeat",
+                text: "Irregular heartbeat"
+              },
+              {
+                value: "Hot flushes",
+                text: "Hot flushes"
               },
               {
                 value: "Preparing food",
@@ -67,16 +91,16 @@
                 text: "Taking nutrition"
               },
               {
-                value: "Managing therapy",
-                text: "Managing therapy"
+                value: "Managing therapy or monitoring a health condition",
+                text: "Managing therapy or monitoring a health condition"
               },
               {
                 value: "Washing and bathing",
                 text: "Washing and bathing"
               },
               {
-                value: "Managing toilet needs",
-                text: "Managing toilet needs"
+                value: "Managing toilet needs or incontinence",
+                text: "Managing toilet needs or incontinence"
               },
               {
                 value: "Dressing and undressing",
@@ -87,16 +111,16 @@
                 text: "Communicating verbally"
               },
               {
-                value: "Reading and understanding signs, symbols and words",
-                text: "Reading and understanding signs, symbols and words"
+                value: "Reading and understanding symbols and words",
+                text: "Reading and understanding symbols and words"
               },
               {
-                value: "Engaging face to face",
-                text: "Engaging face to face"
+                value: "Engaging with other people face to face",
+                text: "Engaging with other people face to face"
               },
               {
-                value: "Budgeting",
-                text: "Budgeting"
+                value: "Making budgeting decisions",
+                text: "Making budgeting decisions"
               },
               {
                 value: "Planning and following journeys",
@@ -105,6 +129,10 @@
               {
                 value: "Moving around",
                 text: "Moving around"
+              },
+              {
+                value: "None of these",
+                text: "None of these"
               }
               ]
               }) }}

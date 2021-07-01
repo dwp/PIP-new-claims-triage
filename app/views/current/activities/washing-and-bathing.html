@@ -28,35 +28,47 @@
       <h1 class="govuk-heading-xl">
         Washing and bathing
       </h1>
-       <p class="govuk-body">This includes food preparation such as peeling, chopping or opening packaging and
-                            safely cooking or heating food on a cooker hob or in a microwave oven.</p>
+       <p class="govuk-body">This means things like washing your body, limbs, face, underarms and hair, and using a standard bath or shower.</p>
 
+                            <h2 class="govuk-heading-l">Claimant's account</h2>
+                             <p class="govuk-body">I struggle to wash my feet and knees. I get a pain in my back and hips. I use a long handed sponge. My son stands outside the bathroom door and waits.</p>
 
-        <h2 class="govuk-heading-m">Claimants account</h2>
-        <p class="govuk-body">I find it increasingly difficult to cook a hotmeal due to pans being to heavy and opening cans.
-          Standing for long peroids of time hurt my legs. I prepare veg sitting down. I rely heavily on my husband to do the cooking.</p>
+                             <table class="govuk-table">
+                              <thead class="govuk-table__head">
+                               <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-half">Question in PIP2</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Answer</th>
+                               </tr>
+                              </thead>
+                              <tbody class="govuk-table__body">
+                               <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Do you need to use an aid or appliance to wash and bathe yourself, including using a bath or shower?</th>
+                                 <td class="govuk-table__cell">Yes</td>
+                               </tr>
+                               <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Do you need help from another person to wash and bathe?</th>
+                                 <td class="govuk-table__cell">No</td>
+                               </tr>
+                              </tbody>
+                            </table>
 
-          <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--m">Evidence</caption>
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Filename</th>
-                <th scope="col" class="govuk-table__header">Source</th>
-                <th scope="col" class="govuk-table__header">Date received</th>
-                <th scope="col" class="govuk-table__header">Original evidence</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Doctors note</th>
-                <td class="govuk-table__cell">Claimant</td>
-                <td class="govuk-table__cell">01 12 2020</td>
-                <td class="govuk-table__cell"><a href="evidence-detail">View</a></td>
-              </tr>
-            </tbody>
-          </table>
+                            <h2 class="govuk-heading-m">Add a query</h2>
 
-          <h2 class="govuk-heading-m">Queries</h2>
+                            <form action="#" method="post">
+                                <input type="hidden" value="{{ data.source }}"/>
+                                  <div class="govuk-form-group">
+                                      <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+                                  </div>
+                                  <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+
+                                  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                                  {{ govukButton({
+                                  text: "Create query",
+                                  classes: "govuk-button--secondary"
+                                  }) }}
+                            </form>
+
           <script defer type="text/javascript">
 
             var noQuery = "{{ data['set-an-action'] }}";
@@ -79,8 +91,8 @@
           <caption class="govuk-table__caption govuk-table__caption--m"></caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Action</th>
-              <th scope="col" class="govuk-table__header">Date created</th>
+              <th scope="col" class="govuk-table__header">Issue</th>
+              <th scope="col" class="govuk-table__header">How to resolve it</th>
               <th scope="col" class="govuk-table__header">Status</th>
             </tr>
           </thead>
@@ -89,11 +101,11 @@
             {% if query.section == 'wash-and-bath' %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
-                  <a href="#">{{ query.action }}</a>
-
-
+                {{ query.content }}
                </td>
-              <td class="govuk-table__cell">12 March 2021</td>
+              <td class="govuk-table__cell">
+                {{ query.action }}
+              </td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>
             </tr>
             {% endif %}
@@ -104,15 +116,6 @@
         <!--  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Create query
           </button>-->
-
-
-          {% from "govuk/components/button/macro.njk" import govukButton %}
-
-          {{ govukButton({
-          text: "Create query",
-          classes: "govuk-button--secondary",
-          href: "../queries/create-query-washing-and-bathing?source=wash-and-bath"
-          }) }}
 
           <br>
 

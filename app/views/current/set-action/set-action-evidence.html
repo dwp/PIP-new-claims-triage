@@ -31,47 +31,48 @@
 
   <form action="#" method="post">
 
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
-  idPrefix: "set-action",
-  name: "set-an-action",
-  fieldset: {
-    legend: {
-      text: "Who do you need to contact to resolve this issue?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
+idPrefix: "set-action",
+name: "set-an-action",
+fieldset: {
+  legend: {
+    text: "Who do you need to contact to resolve this issue?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--l"
+  }
+},
+items: [
+  {
+    id: "req-med-advice",
+    value: "The claimant",
+    text: "The claimant",
+    conditional: "2"
   },
-  items: [
-    {
-      id: "req-med-advice",
-      value: "Contact the claimant",
-      text: "The claimant",
-      conditional: "2"
-    },
-    {
-      id: "cons-ref-materials",
-      value: "Contact Healthcare provider 1",
-      text: "Healthcare provider 1"
-    },
-    {
-      id: "req-further-evidence-from-hcp",
-      value: "Contact Healthcare provider 2",
-      text: "Healthcare provider 2"
-    },
-    {
-      id: "contact",
-      value: "Contact VAL",
-      text: "VAL"
-    },
-    {
-      id: "agent-action",
-      value: "None of these",
-      text: "None of these"
-    }
-  ]
+  {
+    id: "cons-ref-materials",
+    value: "Healthcare provider 1",
+    text: "Healthcare provider 1"
+  },
+  {
+    id: "req-further-evidence-from-hcp",
+    value: "Healthcare provider 2",
+    text: "Healthcare provider 2"
+  },
+  {
+    id: "contact",
+    value: "VAL",
+    text: "VAL"
+  },
+  {
+    id: "agent-action",
+    value: "None of these",
+    text: "None of these"
+  }
+]
 }) }}
+
 
 {{ govukButton({
   text: "Continue"
