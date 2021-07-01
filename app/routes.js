@@ -21,7 +21,7 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
   console.log('this is preparing food')
   console.log(req.session.data)
-  req.session.data.queries[req.session.data.queries.length - 1].contentQ = req.session.data['query-content']
+  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/activities/preparing-food')
@@ -295,6 +295,28 @@ router.post('/current/set-action/set-action-evidence', (req, res, next) => {
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/evidence-detail')
+})
+
+
+//Routes for queries appearing on action page
+
+router.post('/current/contact-claimant-action', (req, res, next) => {
+  console.log('/current/contact-claimant-action', req.session.data)
+  const name = req.session.data['query-content']
+  const section = req.session.data.source
+  const queries = req.session.data.queries || []
+  queries.push({ name, section })
+  req.session.data.queries = queries
+  res.redirect('/current/contact-claimant-action')
+})
+
+router.post('/current/contact-claimant-action', (req, res, next) => {
+  console.log('this is contact claimant action')
+  console.log(req.session.data)
+  req.session.data.queries[req.session.data.queries.length - 1].contentQ = req.session.data['query-content']
+  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+  console.log(1, req.session.data)
+  res.redirect('/current/contact-claimant-action')
 })
 
 //Routes for tagged documents linked to Evidence
