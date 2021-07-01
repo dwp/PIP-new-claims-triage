@@ -39,12 +39,19 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+        {% for query in data['queries'] %}
         <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>
-          <td class="govuk-table__cell"></td>
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ query.content }}
+          </td>
+          <td class="govuk-table__cell">
+            {{ query.action }}
+          </td>
           <td class="govuk-table__cell">12 March 2021</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey action-query__tag govuk-!-margin-left-60" id="list-convictions-status">Not started</strong></td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
 
