@@ -31,52 +31,52 @@
 
   <form action="#" method="post">
 
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-  {{ govukRadios({
-  idPrefix: "set-action",
-  name: "set-an-action",
-  fieldset: {
-    legend: {
-      text: "Who do you need to contact to resolve this issue?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
+{{ govukRadios({
+idPrefix: "set-action",
+name: "set-an-action",
+fieldset: {
+  legend: {
+    text: "Who do you need to contact to resolve this issue?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--l"
+  }
+},
+items: [
+  {
+    id: "req-med-advice",
+    value: "The claimant",
+    text: "The claimant",
+    conditional: "2"
   },
-  items: [
-    {
-      id: "req-med-advice",
-      value: "The claimant",
-      text: "The claimant",
-      conditional: "2"
-    },
-    {
-      id: "cons-ref-materials",
-      value: "Healthcare provider 1",
-      text: "The claimant's doctor"
-    },
-    {
-      id: "req-further-evidence-from-hcp",
-      value: "Healthcare provider 2",
-      text: "The claimant's urologist"
-    },
-    {
-      id: "additional-hcp",
-      value: "Healthcare provider 3",
-      text: "The claimant's consultant clinical urologist"
-    },
-    {
-      id: "contact",
-      value: "VAL",
-      text: "VAL"
-    },
-    {
-      id: "agent-action",
-      value: "None of these",
-      text: "None of these"
-    }
-  ]
-  }) }}
+  {
+    id: "cons-ref-materials",
+    value: "The claimant's doctor",
+    text: "The claimant's doctor"
+  },
+  {
+    id: "req-further-evidence-from-hcp",
+    value: "The claimant's urologist",
+    text: "The claimant's urologist"
+  },
+  {
+    id: "additional-hcp",
+    value: "The claimant's consultant clinical urologist",
+    text: "The claimant's consultant clinical urologist"
+  },
+  {
+    id: "contact",
+    value: "VAL",
+    text: "VAL"
+  },
+  {
+    id: "agent-action",
+    value: "None of these",
+    text: "None of these"
+  }
+]
+}) }}
 
 {{ govukButton({
   text: "Continue"
