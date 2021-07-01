@@ -27,21 +27,24 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
@@ -70,21 +73,24 @@ router.post('/current/set-action/set-action-taking-nutrition', (req, res, next) 
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -113,21 +119,24 @@ router.post('/current/set-action/set-action-managing-therapy', (req, res, next) 
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   console.log(req.session.data)
@@ -159,21 +168,24 @@ router.post('/current/set-action/set-action-washing-and-bathing', (req, res, nex
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -204,21 +216,24 @@ router.post('/current/set-action/set-action-managing-toilet-needs', (req, res, n
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -249,21 +264,24 @@ router.post('/current/set-action/set-action-dressing-and-undressing', (req, res,
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -294,21 +312,24 @@ router.post('/current/set-action/set-action-communicating-verbally', (req, res, 
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -339,21 +360,24 @@ router.post('/current/set-action/set-action-reading-and-understanding', (req, re
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -384,21 +408,24 @@ router.post('/current/set-action/set-action-engage-face-to-face', (req, res, nex
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -429,21 +456,24 @@ router.post('/current/set-action/set-action-budgeting', (req, res, next) => {
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -474,21 +504,24 @@ router.post('/current/set-action/set-action-planning-and-following-journeys', (r
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -519,21 +552,24 @@ router.post('/current/set-action/set-action-moving-around', (req, res, next) => 
     case('The claimant'):
     href = '/current/contact-claimant-action';
     break;
-    case('Healthcare provider 1'):
-    href = '/current/healthcare-provider-one-action';
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
     break;
-    case('Healthcare provider 2'):
-    href = '/current/healthcare-provider-two-action';
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
     break;
     case('VAL'):
-    href = '/current/VAL-action';
+    href = '/current/contact-val-action';
     break;
-    case('none of these'):
-    href = '/current/none-of-these-action';
+    case('None of these'):
+    href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/contact-claimant-action';
+    href = '/current/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
