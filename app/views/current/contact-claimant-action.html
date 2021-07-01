@@ -48,6 +48,18 @@
         </tr>
         {% endif %}
         {% endfor %}
+
+        {% for query in data['queriesConditions'] %}
+          {% if query.action == 'The claimant' %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ query.contentCon }}
+          </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
       </tbody>
     </table>
 

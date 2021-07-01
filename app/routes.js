@@ -53,6 +53,7 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
   res.redirect('/current/task-list')
 })
 
+
 //Create query taking nutrition activity
 router.post('/current/activities/taking-nutrition', (req, res, next) => {
   console.log('/current/activities/taking-nutrition', req.session.data)
@@ -649,6 +650,398 @@ router.post('/current/contact-claimant-action', (req, res, next) => {
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   console.log(1, req.session.data)
   res.redirect('/current/contact-claimant-action')
+})
+
+//Routes for query condtion1
+
+router.post('/current/condition-one', (req, res, next) => {
+  console.log('/current/condition-one', req.session.data)
+  const name = req.session.data['condition-query']
+  const section = req.session.data.source
+  const queriesCondition = req.session.data.queriesCondition || []
+  queriesCondition.push({ name, section })
+  req.session.data.queriesCondition = queriesCondition
+  res.redirect('/current/set-action/set-action-condition-one')
+})
+
+router.post('/current/set-action/set-action-condition-one', (req, res, next) => {
+  console.log('this is condition one')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Routes for query condtion2
+
+router.post('/current/condition-two', (req, res, next) => {
+  console.log('/current/condition-two', req.session.data)
+  const name = req.session.data['condition-query']
+  const section = req.session.data.source
+  const queriesCondition = req.session.data.queriesCondition || []
+  queriesCondition.push({ name, section })
+  req.session.data.queriesCondition = queriesCondition
+  res.redirect('/current/set-action/set-action-condition-two')
+})
+
+router.post('/current/set-action/set-action-condition-two', (req, res, next) => {
+  console.log('this is condition two')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Routes for query condtion3
+
+router.post('/current/condition-three', (req, res, next) => {
+  console.log('/current/condition-three', req.session.data)
+  const name = req.session.data['condition-query']
+  const section = req.session.data.source
+  const queriesCondition = req.session.data.queriesCondition || []
+  queriesCondition.push({ name, section })
+  req.session.data.queriesCondition = queriesCondition
+  res.redirect('/current/set-action/set-action-condition-three')
+})
+
+router.post('/current/set-action/set-action-condition-three', (req, res, next) => {
+  console.log('this is condition three')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Routes for query condtion4
+
+router.post('/current/condition-four', (req, res, next) => {
+  console.log('/current/condition-four', req.session.data)
+  const name = req.session.data['condition-query']
+  const section = req.session.data.source
+  const queriesCondition = req.session.data.queriesCondition || []
+  queriesCondition.push({ name, section })
+  req.session.data.queriesCondition = queriesCondition
+  res.redirect('/current/set-action/set-action-condition-four')
+})
+
+router.post('/current/set-action/set-action-condition-four', (req, res, next) => {
+  console.log('this is condition four')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Routes for query condtion5
+
+router.post('/current/condition-five', (req, res, next) => {
+  console.log('/current/condition-five', req.session.data)
+  const name = req.session.data['condition-query']
+  const section = req.session.data.source
+  const queriesCondition = req.session.data.queriesCondition || []
+  queriesCondition.push({ name, section })
+  req.session.data.queriesCondition = queriesCondition
+  res.redirect('/current/set-action/set-action-condition-five')
+})
+
+router.post('/current/set-action/set-action-condition-five', (req, res, next) => {
+  console.log('this is condition five')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Routes for query condtion6
+
+router.post('/current/condition-six', (req, res, next) => {
+  console.log('/current/condition-six', req.session.data)
+  const name = req.session.data['condition-query']
+  const section = req.session.data.source
+  const queriesCondition = req.session.data.queriesCondition || []
+  queriesCondition.push({ name, section })
+  req.session.data.queriesCondition = queriesCondition
+  res.redirect('/current/set-action/set-action-condition-six')
+})
+
+router.post('/current/set-action/set-action-condition-six', (req, res, next) => {
+  console.log('this is condition six')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Routes for query condtion7
+
+router.post('/current/condition-seven', (req, res, next) => {
+  console.log('/current/condition-seven', req.session.data)
+  const name = req.session.data['condition-query']
+  const section = req.session.data.source
+  const queriesCondition = req.session.data.queriesCondition || []
+  queriesCondition.push({ name, section })
+  req.session.data.queriesCondition = queriesCondition
+  res.redirect('/current/set-action/set-action-condition-seven')
+})
+
+router.post('/current/set-action/set-action-condition-seven', (req, res, next) => {
+  console.log('this is condition seven')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+//Routes for query condtion8
+
+router.post('/current/condition-eight', (req, res, next) => {
+  console.log('/current/condition-eight', req.session.data)
+  const name = req.session.data['condition-query']
+  const section = req.session.data.source
+  const queriesCondition = req.session.data.queriesCondition || []
+  queriesCondition.push({ name, section })
+  req.session.data.queriesCondition = queriesCondition
+  res.redirect('/current/set-action/set-action-condition-eight')
+})
+
+router.post('/current/set-action/set-action-condition-eight', (req, res, next) => {
+  console.log('this is condition eight')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
 })
 
 //Routes for tagged documents linked to Evidence
