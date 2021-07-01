@@ -31,10 +31,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Hot flushes
+        Blood pressure
       </h1>
       <h2 class="govuk-heading-m">Approximate start date</h2>
-      <p>July 2019</p>
+      <p>May 2014</p>
       <br>
       <br>
       <h2 class="govuk-heading-m">Add an issue to be resolved</h2>
@@ -45,7 +45,7 @@
   <input type="hidden" value="{{ data.source }}"/>
 
           <div class="govuk-form-group">
-                <textarea class="govuk-textarea" id="evidence-query-box" name="evidence-query" value="{{ data['evidence-query'] }}" rows="5" aria-describedby="more-detail-hint"></textarea>
+                <textarea class="govuk-textarea" id="condition-query-box" name="condition-query" value="{{ data['condition-query'] }}" rows="5" aria-describedby="more-detail-hint"></textarea>
         </div>
 
         {% for query in data['queries'] %}
@@ -70,11 +70,11 @@
       <th scope="col" class="govuk-table__header">Status</th>
     </tr>
   </thead>
-  {% for query in data['queriesEvidence'] %}
+  {% for query in data['queriesCondition'] %}
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-        {{ query.evidence }}
+        {{ query.contentCon }}
       </td>
       <td class="govuk-table__cell">{{ query.action }}</td>
       <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>
