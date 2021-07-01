@@ -31,7 +31,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        What is this note linked to
+        What is this note linked to?
       </h1>
 <form action="#" method="post">
       {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
@@ -129,6 +129,10 @@
               {
                 value: "Moving around",
                 text: "Moving around"
+              },
+              {
+                value: "None of these",
+                text: "None of these"
               }
               ]
               }) }}
