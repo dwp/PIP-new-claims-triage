@@ -15,7 +15,7 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
-  res.redirect('/current/set-action/set-action-preparing-food')
+  res.redirect('/current/tasklist')
 })
 
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
