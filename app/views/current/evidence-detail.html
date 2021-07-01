@@ -102,7 +102,7 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-        <a href="#">{{ query.evidence }}</a>
+        {{ query.evidence }}
       </td>
       <td class="govuk-table__cell">{{ query.action }}</td>
       <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>
@@ -124,7 +124,7 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-        <a href="{{ condition.page }}">{{ condition.evidence }}</a>
+        {{ condition.evidence }}
       </td>
       <td class="govuk-table__cell">
         {{ condition.action }}
