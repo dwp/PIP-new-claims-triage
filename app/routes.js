@@ -53,7 +53,7 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   req.session.data.queries[req.session.data.queries.length - 1].section = section;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/preparing-food')
 })
 
 
@@ -101,7 +101,7 @@ router.post('/current/set-action/set-action-taking-nutrition', (req, res, next) 
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/taking-nutrition')
 })
 
 //Create query managing therapy activity
@@ -148,7 +148,7 @@ router.post('/current/set-action/set-action-managing-therapy', (req, res, next) 
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/managing-therapy')
 })
 
 //Create query washing and bathing activity
@@ -196,7 +196,7 @@ router.post('/current/set-action/set-action-washing-and-bathing', (req, res, nex
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/washing-and-bathing')
 })
 
 //Create query managing toilet needs activity
@@ -244,7 +244,7 @@ router.post('/current/set-action/set-action-managing-toilet-needs', (req, res, n
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/managing-toilet-needs')
 })
 
 //Create query dressing and undressing activity
@@ -292,7 +292,7 @@ router.post('/current/set-action/set-action-dressing-and-undressing', (req, res,
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/dressing-and-undressing')
 })
 
 //Create query communicating verbally activity
@@ -340,7 +340,7 @@ router.post('/current/set-action/set-action-communicating-verbally', (req, res, 
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/communicating-verbally')
 })
 
 //Create query reading and understanding activity
@@ -388,7 +388,7 @@ router.post('/current/set-action/set-action-reading-and-understanding', (req, re
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/reading-and-understanding')
 })
 
 //Create query engaging face to face activity
@@ -436,7 +436,7 @@ router.post('/current/set-action/set-action-engage-face-to-face', (req, res, nex
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/engaging-face-to-face')
 })
 
 //Create query budgeting activity
@@ -484,7 +484,7 @@ router.post('/current/set-action/set-action-budgeting', (req, res, next) => {
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/budgeting')
 })
 
 //Create query planning and following journeys activity
@@ -532,7 +532,7 @@ router.post('/current/set-action/set-action-planning-and-following-journeys', (r
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/planning-and-following-journeys')
 })
 
 //Create query moving around activity
@@ -580,7 +580,7 @@ router.post('/current/set-action/set-action-moving-around', (req, res, next) => 
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/activities/moving-around')
 })
 
 //**************************************************************************************************************************************
@@ -658,7 +658,7 @@ router.post('/current/set-action/set-action-evidence', (req, res, next) => {
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/evidence-detail')
 })
 
 
@@ -775,7 +775,7 @@ router.post('/current/set-action/set-action-evidence-two', (req, res, next) => {
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/evidence-detail-two')
 })
 
 
@@ -849,7 +849,7 @@ router.post('/current/set-action/set-action-condition-one', (req, res, next) => 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/condition-one')
 })
 
 //Routes for query condtion2
@@ -898,7 +898,7 @@ router.post('/current/set-action/set-action-condition-two', (req, res, next) => 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/condition-two')
 })
 
 //Routes for query condtion3
@@ -947,7 +947,7 @@ router.post('/current/set-action/set-action-condition-three', (req, res, next) =
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/condition-three')
 })
 
 //Routes for query condtion4
@@ -989,7 +989,7 @@ router.post('/current/set-action/set-action-condition-four', (req, res, next) =>
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/tasklist';
+    href = '/current/condition-four';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -1045,7 +1045,7 @@ router.post('/current/set-action/set-action-condition-five', (req, res, next) =>
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/condition-five')
 })
 
 //Routes for query condtion6
@@ -1087,14 +1087,14 @@ router.post('/current/set-action/set-action-condition-six', (req, res, next) => 
     break;
     //this is the hardcoded bit if one of the links fails
     default:
-    href = '/current/tasklist';
+    href = '/current/condition-six';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/condition-six')
 })
 
 //Routes for query condtion7
@@ -1143,7 +1143,7 @@ router.post('/current/set-action/set-action-condition-seven', (req, res, next) =
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/condition-seven')
 })
 
 //Routes for query condtion8
@@ -1192,7 +1192,7 @@ router.post('/current/set-action/set-action-condition-eight', (req, res, next) =
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/task-list')
+  res.redirect('/current/condition-eight')
 })
 
 //Routes for tagged documents linked to Evidence
