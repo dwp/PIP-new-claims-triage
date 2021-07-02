@@ -41,7 +41,7 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -89,7 +89,7 @@ router.post('/current/set-action/set-action-taking-nutrition', (req, res, next) 
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -135,7 +135,7 @@ router.post('/current/set-action/set-action-managing-therapy', (req, res, next) 
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -184,7 +184,7 @@ router.post('/current/set-action/set-action-washing-and-bathing', (req, res, nex
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -232,7 +232,7 @@ router.post('/current/set-action/set-action-managing-toilet-needs', (req, res, n
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -280,7 +280,7 @@ router.post('/current/set-action/set-action-dressing-and-undressing', (req, res,
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -328,7 +328,7 @@ router.post('/current/set-action/set-action-communicating-verbally', (req, res, 
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -376,7 +376,7 @@ router.post('/current/set-action/set-action-reading-and-understanding', (req, re
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -424,7 +424,7 @@ router.post('/current/set-action/set-action-engage-face-to-face', (req, res, nex
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -472,7 +472,7 @@ router.post('/current/set-action/set-action-budgeting', (req, res, next) => {
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -520,7 +520,7 @@ router.post('/current/set-action/set-action-planning-and-following-journeys', (r
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -568,7 +568,7 @@ router.post('/current/set-action/set-action-moving-around', (req, res, next) => 
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -646,7 +646,7 @@ router.post('/current/set-action/set-action-evidence', (req, res, next) => {
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -724,7 +724,7 @@ router.post('/current/set-action/set-action-evidence', (req, res, next) => {
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -763,7 +763,7 @@ router.post('/current/set-action/set-action-evidence-two', (req, res, next) => {
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -837,7 +837,7 @@ router.post('/current/set-action/set-action-condition-one', (req, res, next) => 
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -886,7 +886,7 @@ router.post('/current/set-action/set-action-condition-two', (req, res, next) => 
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -935,7 +935,7 @@ router.post('/current/set-action/set-action-condition-three', (req, res, next) =
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -984,7 +984,7 @@ router.post('/current/set-action/set-action-condition-four', (req, res, next) =>
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -1033,7 +1033,7 @@ router.post('/current/set-action/set-action-condition-five', (req, res, next) =>
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -1082,7 +1082,7 @@ router.post('/current/set-action/set-action-condition-six', (req, res, next) => 
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -1131,7 +1131,7 @@ router.post('/current/set-action/set-action-condition-seven', (req, res, next) =
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails
@@ -1180,7 +1180,7 @@ router.post('/current/set-action/set-action-condition-eight', (req, res, next) =
     case('VAL'):
     href = '/current/contact-val-action';
     break;
-    case('None of these'):
+    case('Resolve this issue another way'):
     href = '/current/none-these-action';
     break;
     //this is the hardcoded bit if one of the links fails

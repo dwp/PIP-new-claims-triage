@@ -38,7 +38,7 @@
       </thead>
       <tbody class="govuk-table__body">
         {% for query in data['queries'] %}
-            {% if query.action == "None of these" %}
+            {% if query.action == "Resolve this issue another way" %}
         <tr class="govuk-table__row">
         <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
           <td scope="row" class="govuk-table__cell">
@@ -50,7 +50,7 @@
         {% endfor %}
 
         {% for query in data['queriesCondition'] %}
-        {% if query.action == "None of these" %}
+        {% if query.action == "Resolve this issue another way" %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
               {{ query.content }}
@@ -63,7 +63,7 @@
           {% endfor %}
 
           {% for query in data['queriesEvidence'] %}
-          {% if query.action == "None of these" %}
+          {% if query.action == "Resolve this issue another way" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 {{ query.evidence }}
