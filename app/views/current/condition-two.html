@@ -49,7 +49,11 @@
         </div>
 
         {% for query in data['queries'] %}
+        {% if query.section == 'prostate-cancer' %}
+
         <p><a href="#">{{ query.action }}</a></p>
+
+          {% endif %}
         {% endfor %}
 
 
