@@ -323,7 +323,7 @@
 
       <div id="req-medical-advice"></div>
 
-      <h2 class="govuk-heading-m" id="action">Actions</h2>
+      <h2 class="govuk-heading-m" id="action">Who to contact to resolve issues</h2>
       {% for query in data['queries'] %}
       <p><a href="{{ query.href }}">{{ query.action }}</a></p>
       {% endfor %}
@@ -336,13 +336,16 @@
       <p><a href="{{ query.href }}">{{ query.action }}</a></p>
       {% endfor %}
 
-      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <!--    {% from "govuk/components/button/macro.njk" import govukButton %} -->
+
+     
 
           {{ govukButton({
             text: "Review activity descriptors",
             classes: "govuk-button--secondary",
             href: "#"
-          }) }}
+          }) }}-->
 
           <br>
 <!--<p>{{ data['query-content'] }}</p>-->
@@ -350,7 +353,7 @@
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
           {{ govukButton({
-            text: "Make recommendation or referral",
+            text: "Make a recommendation or referral",
             href: "next-step"
           }) }}
     </div>
