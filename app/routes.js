@@ -21,7 +21,9 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
   console.log('this is preparing food')
   console.log(req.session.data)
+  const section = req.session.data.source
   let href;
+
 
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
@@ -49,6 +51,7 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
+  req.session.data.queries[req.session.data.queries.length - 1].section = section;
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
