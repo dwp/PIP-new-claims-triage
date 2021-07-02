@@ -894,7 +894,7 @@ router.post('/current/set-action/set-action-condition-two', (req, res, next) => 
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
@@ -943,7 +943,7 @@ router.post('/current/set-action/set-action-condition-three', (req, res, next) =
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
@@ -992,7 +992,7 @@ router.post('/current/set-action/set-action-condition-four', (req, res, next) =>
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
@@ -1041,7 +1041,7 @@ router.post('/current/set-action/set-action-condition-five', (req, res, next) =>
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
@@ -1090,7 +1090,7 @@ router.post('/current/set-action/set-action-condition-six', (req, res, next) => 
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
@@ -1139,7 +1139,7 @@ router.post('/current/set-action/set-action-condition-seven', (req, res, next) =
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
@@ -1188,7 +1188,7 @@ router.post('/current/set-action/set-action-condition-eight', (req, res, next) =
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
