@@ -63,7 +63,7 @@
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Issue</th>
       <th scope="col" class="govuk-table__header">How to resolve it</th>
-      <th scope="col" class="govuk-table__header">Status</th>
+      <!--<th scope="col" class="govuk-table__header">Status</th>-->
     </tr>
   </thead>
   {% for query in data['queriesCondition'] %}
@@ -74,7 +74,7 @@
         {{ query.content }}
       </td>
       <td class="govuk-table__cell">{{ query.action }}</td>
-      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>
+      <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
     </tr>
     {% endif %}
     {% endfor %}
