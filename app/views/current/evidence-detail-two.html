@@ -31,10 +31,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Evidence 1
+        Evidence 2
       </h1>
 
-      <img src="/public/images/evidence-3.png" alt="doctors-note" width="703px" height="887">
+      <img src="/public/images/evidence-4.jpg" alt="doctors-note" width="620px" height="876px">
 
       <br>
       <br>
@@ -94,12 +94,12 @@
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Issue</th>
-      <th scope="col" class="govuk-table__header">Who to contact to resolve this issue</th>
-      <!--<th scope="col" class="govuk-table__header">Status</th>-->
+      <th scope="col" class="govuk-table__header">How to resolve it</th>
+    <!--  <th scope="col" class="govuk-table__header">Status</th>-->
     </tr>
   </thead>
   {% for query in data['queriesEvidence'] %}
-  {% if query.section == 'evidence-one' %}
+  {% if query.section == 'evidence-two' %}
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
@@ -123,7 +123,7 @@
     </tr>
   </thead>
   {% for condition in data['conditionsEvidence'] %}
-  {% if condition.section == 'evidence-one' %}
+  {% if condition.section == 'evidence-two' %}
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
@@ -133,12 +133,11 @@
         {{ condition.action }}
       </td>
     </tr>
-    {% endif %}
+     {% endif %}
     {% endfor %}
   </tbody>
 </table>
-<p>{{ data['page-URL'][1]['contact-claimant-page'] }}</p>
-<!--<p>{{ data['items'][1]['href'] }}</p>-->
+
     </div>
 
   </div>
