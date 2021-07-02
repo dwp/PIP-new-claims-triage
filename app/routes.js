@@ -622,12 +622,40 @@ router.post('/current/evidence-detail', (req, res, next) => {
 
 // follow up route for linking queries to evidence
 router.post('/current/set-action/set-action-evidence', (req, res, next) => {
-  console.log('this is evidence')
+  console.log('this is evidence query')
   console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/current/evidence-detail')
+  res.redirect('/current/task-list')
 })
 
 
@@ -694,7 +722,7 @@ router.post('/current/set-action/set-action-condition-one', (req, res, next) => 
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].contentCon = req.session.data['condition-query']
+  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
   console.log(1, req.session.data)
