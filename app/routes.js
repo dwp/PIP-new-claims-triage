@@ -581,7 +581,7 @@ router.post('/current/set-action/set-action-moving-around', (req, res, next) => 
 })
 
 //**************************************************************************************************************************************
-//Routes for queries linked to Evidence
+//Routes for queries linked to Evidence number 1
 
 router.post('/current/evidence-detail', (req, res, next) => {
     if (req.session.data['tagging-evidence'] == "evidence-query" ) {
@@ -620,7 +620,7 @@ router.post('/current/evidence-detail', (req, res, next) => {
       res.redirect('/current/evidence-detail')
     })
 
-// follow up route for linking queries to evidence
+// follow up route for linking queries to evidence number 1
 router.post('/current/set-action/set-action-evidence', (req, res, next) => {
   console.log('this is evidence query')
   console.log(req.session.data)
@@ -657,6 +657,126 @@ router.post('/current/set-action/set-action-evidence', (req, res, next) => {
   console.log(1, req.session.data)
   res.redirect('/current/task-list')
 })
+
+
+//Routes for queries linked to Evidence number 2
+
+router.post('/current/evidence-detail-two', (req, res, next) => {
+    if (req.session.data['tagging-evidence'] == "evidence-query" ) {
+      console.log('/current/evidence-detail', req.session.data)
+      const name = req.session.data['evidence-query']
+      const section = req.session.data.source
+
+      const queriesEvidence = req.session.data.queriesEvidence || []
+      queriesEvidence.push({ name, section })
+      req.session.data.queriesEvidence = queriesEvidence
+      res.redirect('/current/set-action/set-action-evidence-two')
+
+  } else {
+
+    //Routes for tagged documents linked to Evidence number 2
+        console.log('/current/evidence-detail', req.session.data)
+        const name = req.session.data['evidence-query']
+        const pageURL = req.session.data['page-URL'][1]['contact-claimant-page']
+        console.log(pageURL)
+        const section = req.session.data.source
+
+        const conditionsEvidence = req.session.data.conditionsEvidence || []
+        conditionsEvidence.push({ name, section, pageURL })
+        req.session.data.conditionsEvidence = conditionsEvidence
+        res.redirect('/current/tagging')
+    }
+    })
+
+    router.post('/current/tagging', (req, res, next) => {
+      console.log('this is evidence')
+      console.log(req.session.data)
+      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].evidence = req.session.data['evidence-query']
+      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].action = req.session.data['conditions']
+      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.conditionsEvidence)
+      res.redirect('/current/evidence-detail')
+    })
+
+// follow up route for linking queries to evidence number 1
+router.post('/current/set-action/set-action-evidence', (req, res, next) => {
+  console.log('this is evidence query')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+
+// follow up route for linking queries to evidence number 2*****************************************************************************************
+router.post('/current/set-action/set-action-evidence-two', (req, res, next) => {
+  console.log('this is evidence query')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('None of these'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/task-list')
+})
+
+
+
 
 
 //Routes for queries appearing on action page
