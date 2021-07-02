@@ -48,6 +48,33 @@
         </tr>
         {% endif %}
         {% endfor %}
+
+
+        {% for query in data['queriesCondition'] %}
+        {% if query.action == "The claimant's doctor" %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              {{ query.content }}
+            </td>
+            <td class="govuk-table__cell">
+              05 July 2021
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+
+          {% for query in data['queriesEvidence'] %}
+          {% if query.action == "The claimant's doctor" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ query.evidence }}
+              </td>
+              <td class="govuk-table__cell">
+                  05 July 2021
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
       </tbody>
     </table>
 
