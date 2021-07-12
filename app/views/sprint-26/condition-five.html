@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <a href="task-list" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper">
+
+
+    <!--<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Blood pressure
+      </h1>
+      <h2 class="govuk-heading-m">Approximate start date</h2>
+      <p>May 2014</p>
+      <br>
+      <br>
+      <h2 class="govuk-heading-m">Add an issue to be resolved</h2>
+
+      <!--{{ data | dump }}-->
+
+<form action="#" method="post">
+  <input type="hidden" value="{{ data.source }}"/>
+
+          <div class="govuk-form-group">
+                <textarea class="govuk-textarea" id="condition-query-box" name="condition-query" value="{{ data['condition-query'] }}" rows="5" aria-describedby="more-detail-hint"></textarea>
+        </div>
+
+        {% for query in data['queries'] %}
+        <!--<p><a href="#">{{ query.action }}</a></p>-->
+        {% endfor %}
+
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Add this issue"
+      }) }}
+</form>
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Issues to resolve</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Issue</th>
+      <th scope="col" class="govuk-table__header">Who to contact to resolve this issue</th>
+    <!--  <th scope="col" class="govuk-table__header">Status</th>-->
+    </tr>
+  </thead>
+  {% for query in data['queriesCondition'] %}
+  {% if query.section == 'blood-pressure' %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        {{ query.content }}
+      </td>
+      <td class="govuk-table__cell">{{ query.action }}</td>
+    <!--  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+
+    </div>
+
+  </div>
+
+
+
+      </main>
+      </div>
+
+{% endblock %}
