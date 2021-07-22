@@ -24,11 +24,19 @@
 
 
 
+                  <p>This prototype starts with Case details page.<br><br>
+                  {% from "govuk/components/button/macro.njk" import govukButton %}
 
-  <h3 class="govuk-heading-m">Link to pages</h3>
-   <br>
+{{ govukButton({
+  text: "Start prototype",
+  href: "/current/task-list"
+}) }}
+</p>
+  <h3 class="govuk-heading-m">Seperate shortcuts to all the pages</h3>
+
+
   <ul class="govuk-list">
-      <li><a class="govuk-link" href="/current/task-list">Case Details</a> (formerly Task list)</li>
+      <li><a class="govuk-link" href="/current/task-list">Case details</a> (formerly Task list)</li>
       <li><a class="govuk-link" href="/current/evidence">Evidence</a></li>
       <li><a class="govuk-link" href="/current/evidence-detail">Evidence detail</a></li>
       <li><a class="govuk-link" href="/current/medication">Medication</a></li>
