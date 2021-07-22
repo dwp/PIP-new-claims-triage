@@ -1,0 +1,101 @@
+<!--{% set link = "1-ni-number" %}-->
+{% extends "layout.html" %}
+<!--{% set redirect = [{id : "req-med-advice", page: link }, {id: "cons-ref-materials", page: "unhappy-2"}, {id: "req-further-evidence-from-hcp", page: "unhappy-2"}, {id: "contact-claimant", page: "unhappy-2"}, {id: "agent-action", page: "unhappy-2"}] %}-->
+{% block main %}
+
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+  <form action="#" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  idPrefix: "assessment-type",
+  name: "assessment-type",
+  fieldset: {
+    legend: {
+      text: "What type of assessment do you want to recommend?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      id: "f2f",
+      value: "f2f",
+      text: "Face to face"
+    },
+    {
+      id: "tel",
+      value: "tel",
+      text: "Telephone"
+    },
+    {
+      id: "video",
+      value: "video",
+      text: "Video"
+    },
+    {
+      id: "pbr",
+      value: "pbr",
+      text: "Paper-based review"
+    },
+    {
+      id: "home",
+      value: "home",
+      text: "Home visit"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+<!--<p>{{ data['query-content'] }}</p>-->
+</form>
+  <!--<p>{{ data['query-content'] }}</p>-->
+
+<!--<a href="task-list" aria-describedby="company-information-status">
+  return to tasks
+  </a>-->
+
+
+
+    </div>
+
+    <!--<div class="govuk-grid-column-one-third">
+          <aside class="app-related-items" role="complementary">
+          </aside>
+        </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

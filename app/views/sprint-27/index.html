@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+          Sprint 27
+        <span class="govuk-caption-xl">Created new prototype to validate new concpets with case managers within PIP.</span>
+
+{{ govukDetails({
+          summaryText: "Notes on this sprint",
+          html: '
+          <p>This sprint we:</p>
+
+          <ul class="govuk-list  govuk-list--bullet">
+              <li></li>
+              <li></li>
+          </ul>'
+
+                  }) }}
+
+
+
+
+  <h3 class="govuk-heading-m">Link to pages</h3>
+   <br>
+  <ul class="govuk-list">
+      <li><a class="govuk-link" href="/sprint-27/task-list">Tasklist</a></li>
+      <li><a class="govuk-link" href="/sprint-27/evidence">Evidence</a></li>
+      <li><a class="govuk-link" href="/sprint-27/evidence-detail">Evidence detail</a></li>
+      <li><a class="govuk-link" href="/sprint-27/medication">Medication</a></li>
+      <li><a class="govuk-link" href="/sprint-27/additional-information">Additional information</a></li>
+      <li><a class="govuk-link" href="/sprint-27/condition-1">Condition detail</a></li>
+      <li><a class="govuk-link" href="/sprint-27/create-query">Create query</a></li>
+      <li><a class="govuk-link" href="/sprint-27/set-action">Set an action</a></li>
+      <li><a class="govuk-link" href="/sprint-27/contact-claimant-action">Action/Query</a></li>
+      <li><a class="govuk-link" href="/sprint-27/action-query-view">Action/Query view</a></li>
+      <li><a class="govuk-link" href="/sprint-27/set-descriptor">Set descriptor</a></li>
+      <li><a class="govuk-link" href="/sprint-27/preparing-food-descriptor">Descriptor within activity</a></li>
+      <li><a class="govuk-link" href="/sprint-27/descriptor-justification">Descriptor justification</a></li>
+  </ul>
+
+  <!--<h3 class="govuk-heading-m">Tasklist action variations</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/sprint-27/task-list">Tasklist - no actions</a></li>
+        <li><a class="govuk-link" href="/sprint-27/task-list-contact-claimant">Tasklist - contact claimant</a></li>
+  </ul>-->
+
+  <h3 class="govuk-heading-m">Activities</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/sprint-27/activities/preparing-food">Preparing food</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/taking-nutrition">Taking nutrition</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/managing-therapy">Managing therapy</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/washing-and-bathing">Washing and bathing</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/managing-toilet-needs">Managing toilet needs</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/dressing-and-undressing">Dressing and undressing</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/communicating-verbally">Communicating verbally</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/reading-and-understanding">Reading and understanding signs, symbols and words</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/engaging-face-to-face">Engaging face to face</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/budgeting">Budgeting</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/planning-and-following-journeys">Planning and following journeys</a></li>
+        <li><a class="govuk-link" href="/sprint-27/activities/moving-around">Moving around</a></li>
+  </ul>
+
+  <h3 class="govuk-heading-m">Other designs</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/sprint-27/other/list-of-activities">List of activities</a></li>
+  </ul>
+
+  <h3 class="govuk-heading-m">Test/experimental pages</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/sprint-27/taking-nutrition">Taking nutrition</a></li>
+        <li><a class="govuk-link" href="/sprint-27/create-query-activity-two">Create query</a></li>
+  </ul>
+
+    </div>
+</div>
+
+
+{% endblock %}
