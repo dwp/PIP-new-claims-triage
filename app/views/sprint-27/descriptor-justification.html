@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Justification for this descriptor
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        How well can the claimant cook food?
+      </h2>
+
+      <p>{{ data['set-descriptor'] }}</p>
+
+      <h2 class="govuk-heading-m">
+        What is the reason for this answer?
+      </h2>
+
+        <p>{{ data['justification'] }}</p>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}
