@@ -73,7 +73,7 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
 
 // follow up route for linking questions to: preparing food
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
-  console.log('this is evidence query')
+  console.log('this is prep food questions')
   console.log(req.session.data)
 
   let href;
@@ -102,7 +102,7 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].evidence = req.session.data['evidence-query']
+  req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].content = req.session.data['query-content']
   req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].href = href;
   console.log(1, req.session.data)
