@@ -7,24 +7,76 @@ const router = express.Router()
 
 // current sprint 28 //***********************************************************************************************************
 
-//Create query preparing food activity
-// router.post('/current/activities/preparing-food', (req, res, next) => {
+
+//Routes for tagging, questions and  out of scope for preparing food activity
+
+//Start routes for preparing food: questions
 router.post('/current/activities/preparing-food', (req, res, next) => {
-  console.log('/current/activities/preparing-food', req.session.data)
-  const name = req.session.data['query-content']
-  const section = req.session.data.source
-  const queries = req.session.data.queries || []
-  queries.push({ name, section })
-  req.session.data.queries = queries
-  res.redirect('/current/set-action/set-action-preparing-food')
-})
+    if (req.session.data['preparing-food-note'] == "question-about-this-condition" ) {
+      console.log('/current/evidence-detail', req.session.data)
+      const name = req.session.data['question-about-this-condition']
+      const section = req.session.data.source
 
+      const queriesPrepFood = req.session.data.queriesPrepFood || []
+      queriesPrepFood.push({ name, section })
+      req.session.data.queriesPrepFood = queriesPrepFood
+      res.redirect('/current/set-action/set-action-preparing-food')
+
+      //Routes for tagged documents linked to: preparing food
+  } else if (req.session.data['preparing-food-note'] == "important-to-this-case" ){
+
+        console.log('/current/activities/preparing-food', req.session.data)
+        const name = req.session.data['question-about-this-condition']
+        const pageURL = req.session.data['page-URL'][1]['contact-claimant-page']
+        console.log(pageURL)
+        const section = req.session.data.source
+
+        const taggingPrepFood = req.session.data.taggingPrepFood || []
+        conditionsEvidence.push({ name, section, pageURL })
+        req.session.data.taggingPrepFood = taggingPrepFood
+        res.redirect('/current/tagging')
+
+    } else {
+      console.log('/current/activities/preparing-food', req.session.data)
+      const name = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const outScopePrepFood = req.session.data.outScopePrepFood || []
+      outScopePrepFood.push({ name, section })
+      req.session.data.outScopePrepFood = outScopePrepFood
+      res.redirect('/current/activites/preparing-food')
+    }
+    })
+
+    // follow up tagging code for: preparing food
+    router.post('/current/tagging', (req, res, next) => {
+      console.log('this is prepfood tagging')
+      console.log(req.session.data)
+      req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].evidence = req.session.data['evidence-query']
+      req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].action = req.session.data['conditions']
+      req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.taggingPrepFood)
+      res.redirect('/current/evidence-detail')
+    })
+
+    // follow up code for out of scope for: preparing food
+    router.post('/current/activites/preparing-food', (req, res, next) => {
+      console.log('this is prepfood out of scope')
+      console.log(req.session.data)
+
+      req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].evidence = req.session.data['evidence-query']
+      req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+      req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+      console.log(1, req.session.data)
+      res.redirect('/current/activites/preparing-food')
+    })
+
+// follow up route for linking questions to: preparing food
 router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
-  console.log('this is preparing food')
+  console.log('this is evidence query')
   console.log(req.session.data)
-  const section = req.session.data.source
-  let href;
 
+  let href;
 
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
@@ -49,13 +101,63 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
     default:
     href = '/current/tasklist';
   }
-  req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
-  req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queries[req.session.data.queries.length - 1].href = href;
-  req.session.data.queries[req.session.data.queries.length - 1].section = section;
+
+  req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].evidence = req.session.data['evidence-query']
+  req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].href = href;
   console.log(1, req.session.data)
   res.redirect('/current/activities/preparing-food')
 })
+
+//Create query preparing food activity
+// router.post('/current/activities/preparing-food', (req, res, next) => {
+// router.post('/current/activities/preparing-food', (req, res, next) => {
+//   console.log('/current/activities/preparing-food', req.session.data)
+//   const name = req.session.data['query-content']
+//   const section = req.session.data.source
+//   const queries = req.session.data.queries || []
+//   queries.push({ name, section })
+//   req.session.data.queries = queries
+//   res.redirect('/current/set-action/set-action-preparing-food')
+// })
+//
+// router.post('/current/set-action/set-action-preparing-food', (req, res, next) => {
+//   console.log('this is preparing food')
+//   console.log(req.session.data)
+//   const section = req.session.data.source
+//   let href;
+//
+//
+//   switch (req.session.data['set-an-action']) {
+//     case('The claimant'):
+//     href = '/current/contact-claimant-action';
+//     break;
+//     case("The claimant's doctor"):
+//     href = '/current/contact-hcp1-action';
+//     break;
+//     case("The claimant's urologist"):
+//     href = '/current/contact-hcp2-action';
+//     break;
+//     case("The claimant's consultant clinical urologist"):
+//     href = '/current/contact-hcp3-action';
+//     break;
+//     case('VAL'):
+//     href = '/current/contact-val-action';
+//     break;
+//     case('Resolve this issue another way'):
+//     href = '/current/none-these-action';
+//     break;
+//     //this is the hardcoded bit if one of the links fails
+//     default:
+//     href = '/current/tasklist';
+//   }
+//   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
+//   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
+//   req.session.data.queries[req.session.data.queries.length - 1].href = href;
+//   req.session.data.queries[req.session.data.queries.length - 1].section = section;
+//   console.log(1, req.session.data)
+//   res.redirect('/current/activities/preparing-food')
+// })
 
 
 //Create query taking nutrition activity
