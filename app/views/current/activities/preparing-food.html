@@ -178,15 +178,15 @@
       <th scope="col" class="govuk-table__header"></th>
     </tr>
   </thead>
-  {% for condition in data['outScopePrepFood'] %}
-  {% if condition.section == 'prep-food' %}
+  {% for noScopePrepFood in data['outScopePrepFood'] %}
+  {% if noScopePrepFood.section == 'prep-food' %}
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-        {{ condition.evidence }}
+        {{ noScopePrepFood.scopePrepFood }}
       </td>
       <td class="govuk-table__cell">
-        {{ condition.action }}
+        <!--{{ noScopePrepFood.action }}-->
       </td>
     </tr>
     {% endif %}
