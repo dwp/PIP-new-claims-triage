@@ -36,13 +36,13 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
 
     } else {
       console.log('/current/activities/preparing-food', req.session.data)
-      const name = req.session.data['query-content']
+      const name = req.session.data['out-of-scope']
       const section = req.session.data.source
 
       const outScopePrepFood = req.session.data.outScopePrepFood || []
       outScopePrepFood.push({ name, section })
       req.session.data.outScopePrepFood = outScopePrepFood
-      res.redirect('/current/activites/preparing-food')
+      res.redirect('/current/out-scope-activities/preparing-food')
     }
     })
 
@@ -58,15 +58,15 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
     })
 
     // follow up code for out of scope for: preparing food
-    router.post('/current/activites/preparing-food', (req, res, next) => {
+    router.post('/current/out-scope-activities/preparing-food', (req, res, next) => {
       console.log('this is prepfood out of scope')
       console.log(req.session.data)
 
-      req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].evidence = req.session.data['evidence-query']
-      req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
-      req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+      req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].scopePrepFood = req.session.data['query-content']
+    //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+      //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
       console.log(1, req.session.data)
-      res.redirect('/current/activites/preparing-food')
+      res.redirect('/current/activities/preparing-food')
     })
 
 // follow up route for linking questions to: preparing food
