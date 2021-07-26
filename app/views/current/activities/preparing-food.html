@@ -154,15 +154,15 @@
       <th scope="col" class="govuk-table__header">Linked to</th>
     </tr>
   </thead>
-  {% for condition in data['taggingPrepFood'] %}
-  {% if condition.section == 'prep-food' %}
+  {% for taggedPrepFood in data['taggingPrepFood'] %}
+  {% if taggedPrepFood.section == 'prep-food' %}
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
-        {{ condition.evidence }}
+        {{ taggedPrepFood.tagContent }}
       </td>
       <td class="govuk-table__cell">
-        {{ condition.action }}
+        {{ taggedPrepFood.action }}
       </td>
     </tr>
     {% endif %}
