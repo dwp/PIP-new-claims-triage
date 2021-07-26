@@ -26,13 +26,11 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
   } else if (req.session.data['preparing-food-note'] == "important-to-this-case" ){
 
         console.log('/current/activities/preparing-food', req.session.data)
-        const name = req.session.data['question-about-this-condition']
-        const pageURL = req.session.data['page-URL'][1]['contact-claimant-page']
-        console.log(pageURL)
+        const name = req.session.data['important-to-this-case']
         const section = req.session.data.source
 
         const taggingPrepFood = req.session.data.taggingPrepFood || []
-        conditionsEvidence.push({ name, section, pageURL })
+        taggingPrepFood.push({ name, section })
         req.session.data.taggingPrepFood = taggingPrepFood
         res.redirect('/current/tagging')
 
@@ -52,11 +50,11 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
     router.post('/current/tagging', (req, res, next) => {
       console.log('this is prepfood tagging')
       console.log(req.session.data)
-      req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].evidence = req.session.data['evidence-query']
-      req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].action = req.session.data['conditions']
-      req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].tagContent = req.session.data['query-content']
+      req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].action = req.session.data['tagConditionActivities']
+    //  req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
       console.log(1, req.session.data.taggingPrepFood)
-      res.redirect('/current/evidence-detail')
+      res.redirect('/current/activities/preparing-food')
     })
 
     // follow up code for out of scope for: preparing food
