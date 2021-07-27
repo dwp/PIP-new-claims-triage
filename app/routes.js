@@ -37,12 +37,13 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
     } else {
       console.log('/current/activities/preparing-food', req.session.data)
       const name = req.session.data['out-of-scope']
+      const scopeNote = req.session.data['query-content']
       const section = req.session.data.source
 
       const outScopePrepFood = req.session.data.outScopePrepFood || []
-      outScopePrepFood.push({ name, section })
+      outScopePrepFood.push({ name, section, scopeNote })
       req.session.data.outScopePrepFood = outScopePrepFood
-      res.redirect('/current/out-scope-activities/preparing-food')
+      res.redirect('/current/activities/preparing-food')
     }
     })
 
@@ -58,7 +59,7 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
     })
 
     // follow up code for out of scope for: preparing food
-    router.post('/current/out-scope-activities/preparing-food', (req, res, next) => {
+    router.post('/current/activities/preparing-food', (req, res, next) => {
       console.log('this is prepfood out of scope')
       console.log(req.session.data)
 
