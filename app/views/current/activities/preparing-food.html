@@ -94,57 +94,12 @@
                 {% from "govuk/components/button/macro.njk" import govukButton %}
 
                 {{ govukButton({
-                text: "Add this issue",
-                classes: "govuk-button--secondary"
+                  text: "Add this note"
                 }) }}
           </form>
 
-          <h2 class="govuk-heading-m">Issues to resolve</h2>
-          <script defer type="text/javascript">
 
-            var noQuery = "{{ data['set-an-action'] }}";
 
-            if (noQuery) {
-
-                document.write('');
-                }
-              else {
-                document.write('<p class="govuk-body">There are no queries for this activity.</p>');
-                window.onload = function(){
-                document.getElementById('queryTable').style.display = 'none';
-              }
-            }
-
-            </script>
-
-<div id="queryTable">
-  <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Issue</th>
-              <th scope="col" class="govuk-table__header">Who to contact to resolve this issue</th>
-              <!--<th scope="col" class="govuk-table__header">Status</th>-->
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-          {% for query in data['queriesPrepFood'] %}
-          {% if query.section == 'prep-food' %}
-          <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                {{ query.content }}
-              </td>
-              <td class="govuk-table__cell">
-                {{ query.action }}
-              </td>
-              <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
-          </tr>
-          {% endif %}
-          {% endfor %}
-
-        </tbody>
-</table>
-</div>
 
 <table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
@@ -169,6 +124,55 @@
     {% endfor %}
   </tbody>
 </table>
+
+<h2 class="govuk-heading-m">Questions about the claimant's account</h2>
+<script defer type="text/javascript">
+
+  var noQuery = "{{ data['set-an-action'] }}";
+
+  if (noQuery) {
+
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">There are no queries for this activity.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
+
+  </script>
+
+<div id="queryTable">
+  <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Question</th>
+              <th scope="col" class="govuk-table__header">Who to contact</th>
+              <!--<th scope="col" class="govuk-table__header">Status</th>-->
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for query in data['queriesPrepFood'] %}
+          {% if query.section == 'prep-food' %}
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ query.content }}
+              </td>
+              <td class="govuk-table__cell">
+                {{ query.action }}
+              </td>
+              <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
+          </tr>
+          {% endif %}
+          {% endfor %}
+
+        </tbody>
+</table>
+</div>
+
+
 
 <table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
