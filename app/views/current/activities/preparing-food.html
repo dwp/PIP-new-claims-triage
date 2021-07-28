@@ -83,7 +83,7 @@
             ]
           }) }}
 
-          <h2 class="govuk-heading-m">Add an issue to be resolved</h2>
+          <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
 
 
                 <div class="govuk-form-group">
@@ -118,6 +118,7 @@
       </td>
       <td class="govuk-table__cell">
         {{ taggedPrepFood.action }}
+
       </td>
     </tr>
     {% endif %}
@@ -156,9 +157,11 @@
           <tbody class="govuk-table__body">
           {% for query in data['queriesPrepFood'] %}
           {% if query.section == 'prep-food' %}
+
           <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 {{ query.content }}
+
               </td>
               <td class="govuk-table__cell">
                 {{ query.action }}
