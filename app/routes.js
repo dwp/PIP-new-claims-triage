@@ -26,11 +26,11 @@ router.post('/current/activities/preparing-food', (req, res, next) => {
   } else if (req.session.data['preparing-food-note'] == "important-to-this-case" ){
 
         console.log('/current/activities/preparing-food', req.session.data)
-        const name = req.session.data['important-to-this-case']
+        const tagOption = req.session.data['important-to-this-case']
         const section = req.session.data.source
 
         const taggingPrepFood = req.session.data.taggingPrepFood || []
-        taggingPrepFood.push({ name, section })
+        taggingPrepFood.push({ tagOption, section })
         req.session.data.taggingPrepFood = taggingPrepFood
         res.redirect('/current/tagging')
 

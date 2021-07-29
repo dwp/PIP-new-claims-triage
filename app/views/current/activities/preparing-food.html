@@ -110,7 +110,7 @@
     </tr>
   </thead>
   {% for taggedPrepFood in data['taggingPrepFood'] %}
-  {% if taggedPrepFood.section == 'prep-food' %}
+  {% if taggedPrepFood.section == 'Preparing food' %}
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
@@ -156,7 +156,7 @@
           </thead>
           <tbody class="govuk-table__body">
           {% for query in data['queriesPrepFood'] %}
-          {% if query.section == 'prep-food' %}
+          {% if query.section == 'Preparing food' %}
 
           <tr class="govuk-table__row">
               <td class="govuk-table__cell">
@@ -186,7 +186,7 @@
     </tr>
   </thead>
   {% for noScopePrepFood in data['outScopePrepFood'] %}
-  {% if noScopePrepFood.section == 'prep-food' %}
+  {% if noScopePrepFood.section == 'Preparing food' %}
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">
