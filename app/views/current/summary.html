@@ -40,12 +40,18 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% for query in data['queries'] %}
-          {% if query.action == 'The claimant' %}
+        {% for showImportantInfo in data['taggingPrepFood'] %}
+          {% if data['preparing-food-note']  == 'important-to-this-case' %}
         <tr class="govuk-table__row">
         <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
           <td scope="row" class="govuk-table__cell">
-                {{ query.content }}
+                {{ showImportantInfo.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfo.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfo.section }}
           </td>
           <td class="govuk-table__cell">05 July 2021</td>
         </tr>
