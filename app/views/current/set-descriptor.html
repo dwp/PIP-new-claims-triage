@@ -27,14 +27,14 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-      <form method="post" action="#" onclick=" checkButton()" class="score">
-
+      <form method="post" action="#">
+          <input type="hidden" value="{{ data.scoreNumber }}"/>
 
 
           {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      idPrefix: "letter",
+      idPrefix: "",
       name: "set-descriptor",
       fieldset: {
         legend: {
@@ -104,8 +104,7 @@
 </div>
 
     {{ govukButton({
-      text: "Save and continue",
-      href: "review-activity-descriptors-completed"
+      text: "Save and continue"
     }) }}
 
     </form>

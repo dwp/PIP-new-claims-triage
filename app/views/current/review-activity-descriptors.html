@@ -38,13 +38,19 @@
             <th scope="col" class="govuk-table__header">Summary Review</th>
           </tr>
         </thead>
+
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="set-descriptor" class="govuk-link">Preparing food</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="set-descriptor?scoreNumber=2" class="govuk-link">Preparing food</a></td>
+            <td class="govuk-table__cell">  {{ data['set-descriptor'] }} </td>
+            {% for scoring in data['scoresChoice'] %}
+
+            <td class="govuk-table__cell"> {{ scoring.dOne }} </td>
+              {% endfor %}
             <td class="govuk-table__cell"><a href="summary" class="govuk-link">View</a></td>
           </tr>
+
+
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="#" class="govuk-link">Taking nutrition</a></td>
             <td class="govuk-table__cell">No descriptor set yet</td>
