@@ -112,36 +112,36 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
 router.post('/current/set-descriptor', (req, res, next) => {
   //  if (req.session.data['set-descriptor'] == "Can prepare and cook a simple meal unaided" ) {
     console.log('/current/set-descriptor', req.session.data)
-    const name = req.session.data['set-descriptor']
+    const descriptor = req.session.data['set-descriptor']
 
-        let dOne;
+        let points;
 
         switch (req.session.data['set-descriptor']) {
           case('Can prepare and cook a simple meal unaided'):
-          dOne = '5';
+          points = '0';
           break;
           case('Needs to use an aid or appliance to be able to either prepare or cook a simple meal'):
-          dOne = '8';
+          points = '2';
           break;
           case('Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave'):
-          dOne = '6';
+          points = '2';
           break;
           case('Needs prompting to be able to either prepare or cook a simple meal'):
-          dOne = '9';
+          points = '2';
           break;
           case('Needs supervision or assistance to either prepare or cook a simple meal'):
-          dOne = '2';
+          points = '4';
           break;
           case('Cannot prepare and cook food at all'):
-          dOne = '4';
+          points = '8';
           break;
           //this is the hardcoded bit if one of the links fails
           default:
-          dOne = '/current/tasklist';
+          points = '/current/tasklist';
         }
 
       const scoresChoice = req.session.data.scoresChoice || []
-      scoresChoice.push({ name, dOne })
+      scoresChoice.push({ descriptor, points })
       req.session.data.scoresChoice = scoresChoice
       res.redirect('/current/review-activity-descriptors')
     //}
@@ -151,8 +151,8 @@ router.post('/current/review-activity-descriptors', (req, res, next) => {
   console.log('this is scoring')
   console.log(req.session.data)
 
-  req.session.data.scoresChoice[req.session.data.scoresChoice.length - 1].dOne = dOne;
-  
+  req.session.data.scoresChoice[req.session.data.scoresChoice.length - 1].points = points;
+
   console.log(1, req.session.data.scoresChoice)
   res.redirect('/current/review-activity-descriptors')
 })
