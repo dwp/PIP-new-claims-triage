@@ -41,5 +41,12 @@ module.exports = function (env) {
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
+  //filter split..
+  filters.split = (string, splitCharacter) => {
+    if (!string || typeof string != "string") return
+    else return string.split(splitCharacter)
+  }
+
+  
   return filters
 }

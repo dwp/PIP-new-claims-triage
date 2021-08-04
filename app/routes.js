@@ -140,8 +140,8 @@ router.post('/current/set-descriptor', (req, res, next) => {
           points = '/current/tasklist';
         }
 
-      const scoresChoice = req.session.data.scoresChoice || []
-      scoresChoice.push({ descriptor, points })
+     const scoresChoice = req.session.data.scoresChoice || []
+     scoresChoice.push({ descriptor, points })
       req.session.data.scoresChoice = scoresChoice
       res.redirect('/current/review-activity-descriptors')
     //}
@@ -3725,6 +3725,11 @@ router.post('/sprint-26/set-action/set-action-condition-eight', (req, res, next)
   console.log(1, req.session.data)
   res.redirect('/sprint-26/condition-eight')
 })
+
+//routes for scoring MG
+//var fruitData = req.session.data['fruit'].split(";")
+//var fruitName = fruitData[0]
+//var fruitScore = fruitData[1]
 
 //Routes for tagged documents linked to Evidence
 // router.post('/current/evidence-detail', (req, res, next) => {
