@@ -1,0 +1,206 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">Summary</h1>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Notes</th>
+          <th scope="col" class="govuk-table__header">Linked to</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for showImportantInfo in data['taggingPrepFood'] %}
+          {% if data['preparing-food-note']  == 'important-to-this-case' %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfo.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfo.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfo.section }}
+          </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+
+        {% for query in data['queriesCondition'] %}
+        {% if query.action == 'The claimant' %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              {{ query.content }}
+            </td>
+            <td class="govuk-table__cell">
+              05 July 2021
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+
+          {% for query in data['queriesEvidence'] %}
+          {% if query.action == 'The claimant' %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ query.evidence }}
+              </td>
+              <td class="govuk-table__cell">
+                  05 July 2021
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+      </tbody>
+    </table>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Questions about this case</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Who to contact</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for query in data['queries'] %}
+          {% if query.action == 'The claimant' %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ query.content }}
+          </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+
+        {% for query in data['queriesCondition'] %}
+        {% if query.action == 'The claimant' %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              {{ query.content }}
+            </td>
+            <td class="govuk-table__cell">
+              05 July 2021
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+
+          {% for query in data['queriesEvidence'] %}
+          {% if query.action == 'The claimant' %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ query.evidence }}
+              </td>
+              <td class="govuk-table__cell">
+                  05 July 2021
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+      </tbody>
+    </table>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for query in data['queries'] %}
+          {% if query.action == 'The claimant' %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ query.content }}
+          </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+
+        {% for query in data['queriesCondition'] %}
+        {% if query.action == 'The claimant' %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              {{ query.content }}
+            </td>
+            <td class="govuk-table__cell">
+              05 July 2021
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+
+          {% for query in data['queriesEvidence'] %}
+          {% if query.action == 'The claimant' %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ query.evidence }}
+              </td>
+              <td class="govuk-table__cell">
+                  05 July 2021
+              </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+      </tbody>
+    </table>
+
+    {{ govukButton({
+      text: "Continue and decide next steps",
+      href: "/current/ready-to-make-next-step"
+    }) }}
+
+
+    </div>
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

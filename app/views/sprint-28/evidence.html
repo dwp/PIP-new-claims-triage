@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block main %}
+<link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="task-list" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Evidence
+      </h1>
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Evidence submitted by the claimant</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">File name</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date received</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="evidence-detail?source=evidence-one">Evidence 1</a></td>
+          <td class="govuk-table__cell">Claimant</td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="evidence-detail-two?source=evidence-two">Evidence 2</a></td>
+          <td class="govuk-table__cell">Claimant</td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+    </div>
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

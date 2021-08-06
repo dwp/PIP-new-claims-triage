@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Start page example
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">Activities</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-full">
+
+      <h1 class="govuk-heading-xl">
+        {% if serviceName %} {{ serviceName }} {% endif %}
+      </h1>
+      <h2 class="govuk-heading-m">Overall score</h2>
+      <h2 class="govuk-heading-m">A</h2>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Individual activities</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Activity name</th>
+            <th scope="col" class="govuk-table__header">Points awarded</th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Preparing food</a></th>
+            <td class="govuk-table__cell">A</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Taking Nutrition</a></th>
+            <td class="govuk-table__cell">B</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Managing therapy</a></th>
+            <td class="govuk-table__cell">A</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Washing and Bathing</a></th>
+            <td class="govuk-table__cell">A</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Managing toilet needs</a></th>
+            <td class="govuk-table__cell">A</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Dressing and undressing</a></th>
+            <td class="govuk-table__cell">B</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Communicating verbally</a></th>
+            <td class="govuk-table__cell">A</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Reading and understading signs and symbols</a></th>
+            <td class="govuk-table__cell">B</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Engaging face to face</a></th>
+            <td class="govuk-table__cell">A</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Budgetting</a></th>
+            <td class="govuk-table__cell">B</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Planning and following journeys</a></th>
+            <td class="govuk-table__cell">B</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"> <a href="#" class="govuk-link">Moving around</a></th>
+            <td class="govuk-table__cell">B</td>
+            <td class="govuk-table__cell"> <a href="#" class="govuk-link">change descriptor</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+     
+    </div>
+
+  </div>
+{% endblock %}
