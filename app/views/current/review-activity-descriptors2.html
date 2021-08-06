@@ -41,65 +41,131 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-preparing-food" class="govuk-link">Preparing food</a></td>
-              <td class="govuk-table__cell">  {% if data['preparing-food-score'] %}
-                {% set foodscoreData = data['preparing-food-score'] | split(" | ") %} {{foodscoreData[0]}} </td>
-            <td class="govuk-table__cell">{{foodscoreData[1]}}
-              {% endif %} </td>
+              <td class="govuk-table__cell">
+                {% if data['preparing-food-score'] %}
+                      {% set foodscoreData = data['preparing-food-score'] | split(" | ") %} {{foodscoreData[0]}}
+
+              </td>
+            <td class="govuk-table__cell">
+              {{foodscoreData[1]}}
+
+              {% elseif data['preparing-food-score'] %}
+                  No descriptor set yet
+
+              {% else %}
+                  0
+                {% endif %}
+            </td>
           </tr>
 
 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-taking-nutrition" class="govuk-link">Taking nutrition</a></td>
-              <td class="govuk-table__cell">  {% if data['taking-nutrition-score'] %}
-                  {% set nutritionscoreData = data['taking-nutrition-score'] | split(" | ") %} {{nutritionscoreData[0]}}</td>
-            <td class="govuk-table__cell">{{ nutritionscoreData[1]  }}
-           {% endif %}  </td>
+              <td class="govuk-table__cell">
+                  {% if data['taking-nutrition-score'] %}
+                  {% set nutritionscoreData = data['taking-nutrition-score'] | split(" | ") %} {{nutritionscoreData[0]}}
+              </td>
+            <td class="govuk-table__cell">
+              {{ nutritionscoreData[1] }}
+              {% endif %}
+            </td>
 
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Managing therapy</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="score-managing-therapy" class="govuk-link">Managing therapy</a></td>
+            <td class="govuk-table__cell">
+              {% if data['managing-therapy-score'] %}
+              {% set therapyScoreData = data['managing-therapy-score'] | split(" | ") %} {{therapyScoreData[0]}}
+            </td>
+            <td class="govuk-table__cell">
+              {{ therapyScoreData[1] }}
+              {% endif %}
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Washing and bathing</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="score-washing-and-bathing" class="govuk-link">Washing and bathing</a></td>
+            <td class="govuk-table__cell">
+              {% if data['washing-bathing-score'] %}
+              {% set washingScoreData = data['washing-bathing-score'] | split(" | ") %} {{washingScoreData[0]}}
+            <td class="govuk-table__cell">
+              {{ washingScoreData[1] }}
+              {% endif %}
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Managing toilet needs</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="score-managing-toilet-needs" class="govuk-link">Managing toilet needs</a></td>
+            <td class="govuk-table__cell">
+              {% if data['managing-toilet-needs-score'] %}
+              {% set toiletNeedsScoreData = data['managing-toilet-needs-score'] | split(" | ") %} {{toiletNeedsScoreData[0]}}
+            </td>
+            <td class="govuk-table__cell">
+              {{ toiletNeedsScoreData[1] }}
+              {% endif %}
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Dressing and undressing</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="score-dressing-and-undressing" class="govuk-link">Dressing and undressing</a></td>
+            <td class="govuk-table__cell">
+              {% if data['dressing-undressing-score'] %}
+              {% set dressingScoreData = data['dressing-undressing-score'] | split(" | ") %} {{dressingScoreData[0]}}
+            </td>
+            <td class="govuk-table__cell">
+              {{ dressingScoreData[1] }}
+              {% endif %}
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Communicating verbally</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="score-communicating-verbally" class="govuk-link">Communicating verbally</a></td>
+            <td class="govuk-table__cell">
+              {% if data['communicating-verbally-score'] %}
+              {% set communicatingScoreData = data['communicating-verbally-score'] | split(" | ") %} {{communicatingScoreData[0]}}
+            </td>
+            <td class="govuk-table__cell">
+              {{ communicatingScoreData[1] }}
+              {% endif %}
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Reading and understading signs and symbols</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="score-reading-understanding" class="govuk-link">Reading and understading signs and symbols</a></td>
+            <td class="govuk-table__cell">
+              {% if data['reading-understanding-score'] %}
+              {% set readingScoreData = data['reading-understanding-score'] | split(" | ") %} {{readingScoreData[0]}}
+            </td>
+            <td class="govuk-table__cell">
+              {{ readingScoreData[1] }}
+              {% endif %}
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Engaging face to face</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="score-engaging-face-to-face" class="govuk-link">Engaging face to face</a></td>
+            <td class="govuk-table__cell">
+              {% if data['engaging-score'] %}
+              {% set engagingScoreData = data['engaging-score'] | split(" | ") %} {{engagingScoreData[0]}}
+            </td>
+            <td class="govuk-table__cell">
+              {{ engagingScoreData[1] }}
+              {% endif %}
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="#" class="govuk-link">Budgeting</a></td>
-            <td class="govuk-table__cell">No descriptor set yet</td>
-            <td class="govuk-table__cell">0</td>
+            <td class="govuk-table__cell"><a href="score-budgeting" class="govuk-link">Budgeting</a></td>
+            <td class="govuk-table__cell">
+              {% if data['budgeting-score'] %}
+              {% set budgetingScoreData = data['budgeting-score'] | split(" | ") %} {{budgetingScoreData[0]}}
+            </td>
+            <td class="govuk-table__cell">
+              {{ budgetingScoreData[1] }}
+              {% endif %}
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Daily living total - </th>
+            <th scope="row" class="govuk-table__header">Daily living total</th>
             <td class="govuk-table__cell" style='visibility:collapse'>0</td>
-            <td class="govuk-table__cell"><b>{% set combined = (nutritionscoreData[1] | int) + (foodscoreData[1] | int) %} {{ combined }}</b>
+            <td class="govuk-table__cell">
+              <b>{% set combined = (nutritionscoreData[1] | int) + (foodscoreData[1] | int) + (therapyScoreData[1] | int)
+                + (washingScoreData[1] | int) + (toiletNeedsScoreData[1] | int) + (dressingScoreData[1] | int)
+                + (communicatingScoreData[1] | int) + (readingScoreData[1] | int) + (readingScoreData[1] | int)
+                + (engagingScoreData[1] | int) + (budgetingScoreData[1] | int) %} {{ combined }}</b>
             </td>
             <td class="govuk-table__cell" style='visibility:collapse'>0</td>
           </tr>
@@ -118,12 +184,12 @@
 
     <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="#" class="govuk-link">Planning and following journeys</a></td>
+          <td class="govuk-table__cell"><a href="score-planning-following-journeys" class="govuk-link">Planning and following journeys</a></td>
           <td class="govuk-table__cell">No descriptor set yet</td>
           <td class="govuk-table__cell">0</td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="#" class="govuk-link">Moving around</a></td>
+          <td class="govuk-table__cell"><a href="score-moving-around" class="govuk-link">Moving around</a></td>
           <td class="govuk-table__cell">No descriptor set yet</td>
           <td class="govuk-table__cell">0</td>
         </tr>
