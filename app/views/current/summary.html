@@ -41,7 +41,6 @@
       </thead>
       <tbody class="govuk-table__body">
         {% for showImportantInfo in data['taggingPrepFood'] %}
-          {% if data['preparing-food-note']  == 'important-to-this-case' %}
         <tr class="govuk-table__row">
         <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
           <td scope="row" class="govuk-table__cell">
@@ -55,11 +54,10 @@
           </td>
           <td class="govuk-table__cell">05 July 2021</td>
         </tr>
-        {% endif %}
         {% endfor %}
 
 
-        {% for query in data['queriesCondition'] %}
+      <!--  {% for query in data['queriesCondition'] %}
         {% if query.action == 'The claimant' %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
@@ -83,7 +81,7 @@
               </td>
             </tr>
             {% endif %}
-            {% endfor %}
+            {% endfor %} -->
       </tbody>
     </table>
 
@@ -98,20 +96,20 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% for query in data['queries'] %}
-          {% if query.action == 'The claimant' %}
+        {% for questions in data['queriesPrepFood'] %}
         <tr class="govuk-table__row">
         <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
           <td scope="row" class="govuk-table__cell">
-                {{ query.content }}
+                {{ questions.content }}
           </td>
+          <td class="govuk-table__cell"> {{ questions.action }} </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
           <td class="govuk-table__cell">05 July 2021</td>
         </tr>
-        {% endif %}
         {% endfor %}
 
 
-        {% for query in data['queriesCondition'] %}
+        <!--{% for query in data['queriesCondition'] %}
         {% if query.action == 'The claimant' %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
@@ -135,7 +133,7 @@
               </td>
             </tr>
             {% endif %}
-            {% endfor %}
+            {% endfor %}-->
       </tbody>
     </table>
 
@@ -148,20 +146,18 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% for query in data['queries'] %}
-          {% if query.action == 'The claimant' %}
+        {% for outScope in data['outScopePrepFood'] %}
         <tr class="govuk-table__row">
         <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
           <td scope="row" class="govuk-table__cell">
-                {{ query.content }}
+                {{ outScope.scopeNote }}
           </td>
           <td class="govuk-table__cell">05 July 2021</td>
         </tr>
-        {% endif %}
         {% endfor %}
 
 
-        {% for query in data['queriesCondition'] %}
+        <!--{% for query in data['queriesCondition'] %}
         {% if query.action == 'The claimant' %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
@@ -185,7 +181,7 @@
               </td>
             </tr>
             {% endif %}
-            {% endfor %}
+            {% endfor %}-->
       </tbody>
     </table>
 
