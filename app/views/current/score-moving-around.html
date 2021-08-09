@@ -77,10 +77,10 @@
 
     {{ govukRadios({
       idPrefix: "",
-      name: "managing-therapy-score",
+      name: "moving-around-score",
       fieldset: {
         legend: {
-          text: "How well can the claimant cook food?",
+          text: "How well can the claimant move around?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
@@ -88,37 +88,37 @@
       items: [
         {
           id: "A",
-          value: "Can take nutrition unaided | 0",
-          text: "Can take nutrition unaided"
+          value: "Can stand and then move more than 200 metres, either aided or unaided | 0",
+          text: "Can stand and then move more than 200 metres, either aided or unaided"
         },
         {
           id: "B",
-          value: "(i) to use an aid or appliance to be able to take nutrition; or
-(ii) supervision to be able to take nutrition; or
-(iii) assistance to be able to cut up food. | 2",
-          text: "(i) to use an aid or appliance to be able to take nutrition; or
-        (ii) supervision to be able to take nutrition; or
-(iii) assistance to be able to cut up food."
+          value: "Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided | 4",
+          text: "Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided"
         },
         {
           id: "C",
-          value: "Needs a therapeutic source to be able to take nutrition | 2",
-          text: "Needs a therapeutic source to be able to take nutrition"
+          value: "Can stand and then move more than 20 metres but no more than 50 metres, either aided or unaided | 8",
+          text: "Can stand and then move more than 20 metres but no more than 50 metres, either aided or unaided"
         },
         {
           id: "D",
-          value: "Needs prompting to be able to take nutrition | 2",
-          text: "Needs prompting to be able to take nutrition"
+          value: "Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres | 10",
+          text: "Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres"
         },
         {
           id: "E",
-          value: "Needs assistance to be able to manage a therapeutic source to take nutrition. | 4",
-          text: "Needs assistance to be able to manage a therapeutic source to take nutrition."
+          value: "Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided | 12",
+          text: "Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided"
         },
         {
           id: "F",
-          value: "Cannot convey food or drink to their mouth and needs another person to do so | 8",
-          text: "Cannot convey food or drink to their mouth and needs another person to do so"
+          value: "Cannot, either aided or unaided, -
+                    (i) stand; or
+                    (ii) move more than 1 metre | 12",
+          text: "Cannot, either aided or unaided, -
+                    (i) stand; or
+                    (ii) move more than 1 metre"
         }
       ]
     }) }}
