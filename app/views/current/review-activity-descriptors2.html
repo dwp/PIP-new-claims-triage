@@ -248,10 +248,10 @@
             <th scope="row" class="govuk-table__header">Daily living total</th>
             <td class="govuk-table__cell" style='visibility:collapse'>0</td>
             <td class="govuk-table__cell">
-              <b>{% set combined = (nutritionscoreData[1] | int) + (foodscoreData[1] | int) + (therapyScoreData[1] | int)
+              <b>{% set combinedDailyLiving = (nutritionscoreData[1] | int) + (foodscoreData[1] | int) + (therapyScoreData[1] | int)
                 + (washingScoreData[1] | int) + (toiletNeedsScoreData[1] | int) + (dressingScoreData[1] | int)
                 + (communicatingScoreData[1] | int) + (readingScoreData[1] | int) + (readingScoreData[1] | int)
-                + (engagingScoreData[1] | int) + (budgetingScoreData[1] | int) %} {{ combined }}</b>
+                + (engagingScoreData[1] | int) + (budgetingScoreData[1] | int) %} {{ combinedDailyLiving }}</b>
             </td>
             <td class="govuk-table__cell" style='visibility:collapse'>0</td>
           </tr>
@@ -322,8 +322,17 @@
     </tbody>
 </table>
 
+        <div>
+              {% if combinedMobilityTotal >= 20 %}
 
-    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Enhanced</strong></h3>
+                    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Enhanced Daily Living</strong></h3>
+
+              {% elseif combinedMobilityTotal <= 5 %}
+                  <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Enhanced Mobility</strong></h3>
+
+              {% endif %}
+      </div>
+
 
         {{ govukButton({
             text: "View summary",
