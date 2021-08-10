@@ -321,14 +321,34 @@
         </tr>
     </tbody>
 </table>
-
+          <!-- logic for daily living scores -->
         <div>
-              {% if combinedMobilityTotal >= 20 %}
+              {% if combinedDailyLiving < '8' %}
 
-                    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Enhanced Daily Living</strong></h3>
+                    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Daily Living Nil</strong></h3>
 
-              {% elseif combinedMobilityTotal <= 5 %}
-                  <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Enhanced Mobility</strong></h3>
+              {% elseif combinedDailyLiving >= '8' and combinedDailyLiving < '12' %}
+
+              <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Daily Living Standard</strong></h3>
+
+              {% elseif combinedDailyLiving >= '12' %}
+                  <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Daily Living Enhanced</strong></h3>
+
+              {% endif %}
+        </div>
+
+        <!-- logic for mobility scores --->
+        <div>
+              {% if combinedMobilityTotal < '8' %}
+
+                    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Mobility Nil</strong></h3>
+
+              {% elseif combinedMobilityTotal >= '8' and combinedMobilityTotal < '12' %}
+
+              <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Mobility Standard</strong></h3>
+
+              {% elseif combinedMobilityTotal >= '12' %}
+                  <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Mobility Enhanced</strong></h3>
 
               {% endif %}
       </div>
