@@ -107,6 +107,301 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
   res.redirect('/current/activities/preparing-food')
 })
 
+//Start routes for taking nutrition: questions
+router.post('/current/activities/taking-nutrition', (req, res, next) => {
+    if (req.session.data['taking-nutrition-note'] == "question-about-this-condition" ) {
+      console.log('/current/evidence-detail', req.session.data)
+      const name = req.session.data['question-about-this-condition']
+      const section = req.session.data.source
+
+      const queriesTakeNutrition = req.session.data.queriesTakeNutrition || []
+      queriesTakeNutrition.push({ name, section })
+      req.session.data.queriesTakeNutrition = queriesTakeNutrition
+      res.redirect('/current/set-action/set-action-taking-nutrition')
+
+      //Routes for tagged documents linked to: taking nutrition
+  } else if (req.session.data['taking-nutrition-note'] == "important-to-this-case" ){
+
+        console.log('/current/activities/taking-nutrition', req.session.data)
+        const tagOption = req.session.data['important-to-this-case']
+        const section = req.session.data.source
+
+        const taggingTakeNutrition = req.session.data.taggingTakeNutrition || []
+        taggingTakeNutrition.push({ tagOption, section })
+        req.session.data.taggingTakeNutrition = taggingTakeNutrition
+        res.redirect('/current/tagging-activities/taking-nutrition')
+
+    } else {
+      console.log('/current/activities/taking-nutrition', req.session.data)
+      const name = req.session.data['out-of-scope']
+      const scopeNote = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const outScopeTakeNutrition = req.session.data.outScopeTakeNutrition || []
+      outScopeTakeNutrition.push({ name, section, scopeNote })
+      req.session.data.outScopeTakeNutrition = outScopeTakeNutrition
+      res.redirect('/current/activities/taking-nutrition')
+    }
+    })
+
+    // follow up tagging code for: taking nutrition
+    router.post('/current/tagging-activities/taking-nutrition', (req, res, next) => {
+      console.log('this is taking nutrition tagging')
+      console.log(req.session.data)
+      req.session.data.taggingTakeNutrition[req.session.data.taggingTakeNutrition.length - 1].tagContent = req.session.data['query-content']
+      req.session.data.taggingTakeNutrition[req.session.data.taggingTakeNutrition.length - 1].action = req.session.data['tagConditionActivities']
+    //  req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.taggingTakeNutrition)
+      res.redirect('/current/activities/taking-nutrition')
+    })
+
+    // follow up code for out of scope for: taking nutrition
+    router.post('/current/activities/taking-nutrition', (req, res, next) => {
+      console.log('this is taking nutrition out of scope')
+      console.log(req.session.data)
+
+      req.session.data.outScopeTakeNutrition[req.session.data.outScopeTakeNutrition.length - 1].scopeNote = req.session.data['query-content']
+    //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+      //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+      console.log(1, req.session.data)
+      res.redirect('/current/activities/taking-nutrition')
+    })
+
+// follow up route for linking questions to: taking nutrition
+router.post('/current/set-action/set-action-taking-nutrition', (req, res, next) => {
+  console.log('this is taking nutrition questions')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('Resolve this issue another way'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/activities/taking-nutrition')
+})
+
+//Start routes for managing therapy: questions
+router.post('/current/activities/managing-therapy', (req, res, next) => {
+    if (req.session.data['managing-therapy-note'] == "question-about-this-condition" ) {
+      console.log('/current/evidence-detail', req.session.data)
+      const name = req.session.data['question-about-this-condition']
+      const section = req.session.data.source
+
+      const queriesManageTherapy = req.session.data.queriesManageTherapy || []
+      queriesManageTherapy.push({ name, section })
+      req.session.data.queriesManageTherapy = queriesManageTherapy
+      res.redirect('/current/set-action/set-action-managing-therapy')
+
+      //Routes for tagged documents linked to: managing therapy
+  } else if (req.session.data['managing-therapy-note'] == "important-to-this-case" ){
+
+        console.log('/current/activities/managing-therapy', req.session.data)
+        const tagOption = req.session.data['important-to-this-case']
+        const section = req.session.data.source
+
+        const taggingManageTherapy = req.session.data.taggingManageTherapy || []
+        taggingManageTherapy.push({ tagOption, section })
+        req.session.data.taggingManageTherapy = taggingManageTherapy
+        res.redirect('/current/tagging-activities/managing-therapy')
+
+    } else {
+      console.log('/current/activities/managing-therapy', req.session.data)
+      const name = req.session.data['out-of-scope']
+      const scopeNote = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const outScopeManageTherapy = req.session.data.outScopeManageTherapy || []
+      outScopeManageTherapy.push({ name, section, scopeNote })
+      req.session.data.outScopeManageTherapy = outScopeManageTherapy
+      res.redirect('/current/activities/managing-therapy')
+    }
+    })
+
+    // follow up tagging code for: managing therapy
+    router.post('/current/tagging-activities/managing-therapy', (req, res, next) => {
+      console.log('this is managing therapy tagging')
+      console.log(req.session.data)
+      req.session.data.taggingManageTherapy[req.session.data.taggingManageTherapy.length - 1].tagContent = req.session.data['query-content']
+      req.session.data.taggingManageTherapy[req.session.data.taggingManageTherapy.length - 1].action = req.session.data['tagConditionActivities']
+    //  req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.taggingManageTherapy)
+      res.redirect('/current/activities/managing-therapy')
+    })
+
+    // follow up code for out of scope for: managing therapy
+    router.post('/current/activities/managing-therapy', (req, res, next) => {
+      console.log('this is managing therapy out of scope')
+      console.log(req.session.data)
+
+      req.session.data.outScopeManageTherapy[req.session.data.outScopeManageTherapy.length - 1].scopeNote = req.session.data['query-content']
+    //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+      //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+      console.log(1, req.session.data)
+      res.redirect('/current/activities/managing-therapy')
+    })
+
+// follow up route for linking questions to: managing therapy
+router.post('/current/set-action/set-action-managing-therapy', (req, res, next) => {
+  console.log('this is managing therapy questions')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('Resolve this issue another way'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesManageTherapy[req.session.data.queriesManageTherapy.length - 1].content = req.session.data['query-content']
+  req.session.data.queriesManageTherapy[req.session.data.queriesManageTherapy.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesManageTherapy[req.session.data.queriesManageTherapy.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/activities/managing-therapy')
+})
+
+
+//Start routes for managing therapy: questions
+router.post('/current/activities/washing-and-bathing', (req, res, next) => {
+    if (req.session.data['washing-and-bathing-note'] == "question-about-this-condition" ) {
+      console.log('/current/evidence-detail', req.session.data)
+      const name = req.session.data['question-about-this-condition']
+      const section = req.session.data.source
+
+      const queriesWashingBathing = req.session.data.queriesWashingBathing || []
+      queriesWashingBathing.push({ name, section })
+      req.session.data.queriesWashingBathing = queriesWashingBathing
+      res.redirect('/current/set-action/set-action-washing-and-bathing')
+
+      //Routes for tagged documents linked to: managing therapy
+  } else if (req.session.data['washing-and-bathing-note'] == "important-to-this-case" ){
+
+        console.log('/current/activities/washing-and-bathing', req.session.data)
+        const tagOption = req.session.data['important-to-this-case']
+        const section = req.session.data.source
+
+        const taggingWashingBathing = req.session.data.taggingWashingBathing || []
+        taggingWashingBathing.push({ tagOption, section })
+        req.session.data.taggingWashingBathing = taggingWashingBathing
+        res.redirect('/current/tagging-activities/washing-and-bathing')
+
+    } else {
+      console.log('/current/activities/washing-and-bathing', req.session.data)
+      const name = req.session.data['out-of-scope']
+      const scopeNote = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const outScopeWashingBathing = req.session.data.outScopeWashingBathing || []
+      outScopeWashingBathing.push({ name, section, scopeNote })
+      req.session.data.outScopeWashingBathing = outScopeWashingBathing
+      res.redirect('/current/activities/washing-and-bathing')
+    }
+    })
+
+    // follow up tagging code for: managing therapy
+    router.post('/current/tagging-activities/washing-and-bathing', (req, res, next) => {
+      console.log('this is managing therapy tagging')
+      console.log(req.session.data)
+      req.session.data.taggingWashingBathing[req.session.data.taggingWashingBathing.length - 1].tagContent = req.session.data['query-content']
+      req.session.data.taggingWashingBathing[req.session.data.taggingWashingBathing.length - 1].action = req.session.data['tagConditionActivities']
+    //  req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.taggingWashingBathing)
+      res.redirect('/current/activities/washing-and-bathing')
+    })
+
+    // follow up code for out of scope for: managing therapy
+    router.post('/current/activities/washing-and-bathing', (req, res, next) => {
+      console.log('this is washing and bathing out of scope')
+      console.log(req.session.data)
+
+      req.session.data.outScopeWashingBathing[req.session.data.outScopeWashingBathing.length - 1].scopeNote = req.session.data['query-content']
+    //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+      //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+      console.log(1, req.session.data)
+      res.redirect('/current/activities/washing-and-bathing')
+    })
+
+// follow up route for linking questions to: managing therapy
+router.post('/current/set-action/set-action-washing-and-bathing', (req, res, next) => {
+  console.log('this is washing and bathing questions')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('Resolve this issue another way'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesWashingBathing[req.session.data.queriesWashingBathing.length - 1].content = req.session.data['query-content']
+  req.session.data.queriesWashingBathing[req.session.data.queriesWashingBathing.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesWashingBathing[req.session.data.queriesWashingBathing.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/activities/washing-and-bathing')
+})
+
 //Start routes for scoring
 router.post('/current/set-descriptor', (req, res, next) => {
   //  if (req.session.data['set-descriptor'] == "Can prepare and cook a simple meal unaided" ) {
