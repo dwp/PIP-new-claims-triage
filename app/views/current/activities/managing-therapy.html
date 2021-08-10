@@ -108,15 +108,15 @@
                         <th scope="col" class="govuk-table__header">Linked to</th>
                       </tr>
                     </thead>
-                    {% for taggedPrepFood in data['taggingPrepFood'] %}
-                    {% if taggedPrepFood.section == 'manage-therapy' %}
+                    {% for taggedTherapy in data['taggingManageTherapy'] %}
+                    {% if taggedTherapy.section == 'Managing therapy' %}
                     <tbody class="govuk-table__body">
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell">
-                          {{ taggedPrepFood.tagContent }}
+                          {{ taggedTherapy.tagContent }}
                         </td>
                         <td class="govuk-table__cell">
-                          {{ taggedPrepFood.action }}
+                          {{ taggedTherapy.action }}
 
                         </td>
                       </tr>
@@ -154,8 +154,8 @@
                               </tr>
                             </thead>
                             <tbody class="govuk-table__body">
-                            {% for query in data['queriesPrepFood'] %}
-                            {% if query.section == 'manage-therapy' %}
+                            {% for query in data['queriesManageTherapy'] %}
+                            {% if query.section == 'Managing therapy' %}
 
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell">
@@ -184,12 +184,12 @@
                         <th scope="col" class="govuk-table__header"></th>
                       </tr>
                     </thead>
-                    {% for noScopePrepFood in data['outScopePrepFood'] %}
-                    {% if noScopePrepFood.section == 'manage-therapy' %}
+                    {% for noScopeTherapy in data['outScopeManageTherapy'] %}
+                    {% if noScopeTherapy.section == 'Managing therapy' %}
                     <tbody class="govuk-table__body">
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell">
-                          {{ noScopePrepFood.scopeNote }}
+                          {{ noScopeTherapy.scopeNote }}
                         </td>
                         <td class="govuk-table__cell">
                           <!--{{ noScopePrepFood.action }}-->

@@ -108,15 +108,15 @@
             <th scope="col" class="govuk-table__header">Linked to</th>
           </tr>
         </thead>
-        {% for taggedPrepFood in data['taggingPrepFood'] %}
-        {% if taggedPrepFood.section == 'wash-and-bath' %}
+        {% for taggedWashingBathing in data['taggingWashingBathing'] %}
+        {% if taggedWashingBathing.section == 'Washing and bathing' %}
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              {{ taggedPrepFood.tagContent }}
+              {{ taggedWashingBathing.tagContent }}
             </td>
             <td class="govuk-table__cell">
-              {{ taggedPrepFood.action }}
+              {{ taggedWashingBathing.action }}
 
             </td>
           </tr>
@@ -154,8 +154,8 @@
                   </tr>
                 </thead>
                 <tbody class="govuk-table__body">
-                {% for query in data['queriesPrepFood'] %}
-                {% if query.section == 'wash-and-bath' %}
+                {% for query in data['queriesWashingBathing'] %}
+                {% if query.section == 'Washing and bathing' %}
 
                 <tr class="govuk-table__row">
                     <td class="govuk-table__cell">
@@ -184,12 +184,12 @@
             <th scope="col" class="govuk-table__header"></th>
           </tr>
         </thead>
-        {% for noScopePrepFood in data['outScopePrepFood'] %}
-        {% if noScopePrepFood.section == 'wash-and-bath' %}
+        {% for noScopeWashingBathing in data['outScopeWashingBathing'] %}
+        {% if noScopeWashingBathing.section == 'Washing and bathing' %}
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              {{ noScopePrepFood.scopeNote }}
+              {{ noScopeWashingBathing.scopeNote }}
             </td>
             <td class="govuk-table__cell">
               <!--{{ noScopePrepFood.action }}-->
