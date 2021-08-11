@@ -19,9 +19,9 @@ Example usage:
 
 module.exports = {
 
-  // Insert values here
-//   'scoreTime': [{
-//       'descriptorNoOne': '3'
+// Insert values here
+//   'scores': [{
+//       'mobility': '0'
 //     }, {
 //       'descriptorNoTwo': '6'
 // }]
