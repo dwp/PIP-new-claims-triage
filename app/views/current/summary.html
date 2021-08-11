@@ -164,116 +164,6 @@
       </tbody>
     </table>
 
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Questions about this case</caption>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Questions</th>
-          <th scope="col" class="govuk-table__header">Who to contact</th>
-          <th scope="col" class="govuk-table__header">Source</th>
-          <th scope="col" class="govuk-table__header">Date</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        {% for questions in data['queriesPrepFood'] %}
-        <tr class="govuk-table__row">
-        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
-          <td scope="row" class="govuk-table__cell">
-                {{ questions.content }}
-          </td>
-          <td class="govuk-table__cell"> {{ questions.action }} </td>
-          <td class="govuk-table__cell"> {{ questions.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
-        </tr>
-        {% endfor %}
-
-        {% for questionsTakeNutrition in data['queriesTakeNutrition'] %}
-        <tr class="govuk-table__row">
-        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
-          <td scope="row" class="govuk-table__cell">
-                {{ questionsTakeNutrition.content }}
-          </td>
-          <td class="govuk-table__cell"> {{ questionsTakeNutrition.action }} </td>
-          <td class="govuk-table__cell"> {{ questionsTakeNutrition.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
-        </tr>
-        {% endfor %}
-
-        {% for questionsTherapy in data['queriesManageTherapy'] %}
-        <tr class="govuk-table__row">
-        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
-          <td scope="row" class="govuk-table__cell">
-                {{ questionsTherapy.content }}
-          </td>
-          <td class="govuk-table__cell"> {{ questionsTherapy.action }} </td>
-          <td class="govuk-table__cell"> {{ questionsTherapy.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
-        </tr>
-        {% endfor %}
-
-        {% for questionsWashing in data['queriesWashingBathing'] %}
-        <tr class="govuk-table__row">
-        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
-          <td scope="row" class="govuk-table__cell">
-                {{ questionsWashing.content }}
-          </td>
-          <td class="govuk-table__cell"> {{ questionsWashing.action }} </td>
-          <td class="govuk-table__cell"> {{ questionsWashing.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
-        </tr>
-        {% endfor %}
-
-        {% for questionsToilet in data['queriesToiletneeds'] %}
-        <tr class="govuk-table__row">
-        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
-          <td scope="row" class="govuk-table__cell">
-                {{ questionsToilet.content }}
-          </td>
-          <td class="govuk-table__cell"> {{ questionsToilet.action }} </td>
-          <td class="govuk-table__cell"> {{ questionsToilet.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
-        </tr>
-        {% endfor %}
-
-        {% for questionsDressing in data['queriesDressing'] %}
-        <tr class="govuk-table__row">
-        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
-          <td scope="row" class="govuk-table__cell">
-                {{ questionsDressing.content }}
-          </td>
-          <td class="govuk-table__cell"> {{ questionsDressing.action }} </td>
-          <td class="govuk-table__cell"> {{ questionsDressing.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
-        </tr>
-        {% endfor %}
-
-        <!--{% for query in data['queriesCondition'] %}
-        {% if query.action == 'The claimant' %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-              {{ query.content }}
-            </td>
-            <td class="govuk-table__cell">
-              05 July 2021
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-
-          {% for query in data['queriesEvidence'] %}
-          {% if query.action == 'The claimant' %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                {{ query.evidence }}
-              </td>
-              <td class="govuk-table__cell">
-                  05 July 2021
-              </td>
-            </tr>
-            {% endif %}
-            {% endfor %}-->
-      </tbody>
-    </table>
 
     <table class="govuk-table">
       <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
@@ -370,6 +260,117 @@
             </tr>
             {% endif %}
             {% endfor %}-->
+      </tbody>
+    </table>
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Open questions about this case</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Who to contact</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for questions in data['queriesPrepFood'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.action }} </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsTakeNutrition in data['queriesTakeNutrition'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsTakeNutrition.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsTakeNutrition.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsTakeNutrition.section }} </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsTherapy in data['queriesManageTherapy'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsTherapy.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsTherapy.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsTherapy.section }} </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsWashing in data['queriesWashingBathing'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsWashing.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsWashing.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsWashing.section }} </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsToilet in data['queriesToiletneeds'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsToilet.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsToilet.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsToilet.section }} </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsDressing in data['queriesDressing'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsDressing.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsDressing.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsDressing.section }} </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+      <br>
+      <br>
+      <br>
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Resolved questions about this case</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Who to contact</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Need to clarify some evidence about preparing food</td>
+          <td class="govuk-table__cell">Evidence has been provided</td>
+          <td class="govuk-table__cell">Contact the claimant</td>
+          <td class="govuk-table__cell">Diabeties</td>
+        </tr>
+
       </tbody>
     </table>
 
