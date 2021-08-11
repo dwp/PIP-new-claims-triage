@@ -304,7 +304,7 @@ router.post('/current/set-action/set-action-managing-therapy', (req, res, next) 
 })
 
 
-//Start routes for managing therapy: questions
+//Start routes for washing and bathing: questions
 router.post('/current/activities/washing-and-bathing', (req, res, next) => {
     if (req.session.data['washing-and-bathing-note'] == "question-about-this-condition" ) {
       console.log('/current/evidence-detail', req.session.data)
@@ -316,7 +316,7 @@ router.post('/current/activities/washing-and-bathing', (req, res, next) => {
       req.session.data.queriesWashingBathing = queriesWashingBathing
       res.redirect('/current/set-action/set-action-washing-and-bathing')
 
-      //Routes for tagged documents linked to: managing therapy
+      //Routes for tagged documents linked to: washing and bathing
   } else if (req.session.data['washing-and-bathing-note'] == "important-to-this-case" ){
 
         console.log('/current/activities/washing-and-bathing', req.session.data)
@@ -341,7 +341,7 @@ router.post('/current/activities/washing-and-bathing', (req, res, next) => {
     }
     })
 
-    // follow up tagging code for: managing therapy
+    // follow up tagging code for: washing and bathing
     router.post('/current/tagging-activities/washing-and-bathing', (req, res, next) => {
       console.log('this is managing therapy tagging')
       console.log(req.session.data)
@@ -352,7 +352,7 @@ router.post('/current/activities/washing-and-bathing', (req, res, next) => {
       res.redirect('/current/activities/washing-and-bathing')
     })
 
-    // follow up code for out of scope for: managing therapy
+    // follow up code for out of scope for: washing and bathing
     router.post('/current/activities/washing-and-bathing', (req, res, next) => {
       console.log('this is washing and bathing out of scope')
       console.log(req.session.data)
@@ -364,7 +364,7 @@ router.post('/current/activities/washing-and-bathing', (req, res, next) => {
       res.redirect('/current/activities/washing-and-bathing')
     })
 
-// follow up route for linking questions to: managing therapy
+// follow up route for linking questions to: washing and bathing
 router.post('/current/set-action/set-action-washing-and-bathing', (req, res, next) => {
   console.log('this is washing and bathing questions')
   console.log(req.session.data)
@@ -400,6 +400,203 @@ router.post('/current/set-action/set-action-washing-and-bathing', (req, res, nex
   req.session.data.queriesWashingBathing[req.session.data.queriesWashingBathing.length - 1].href = href;
   console.log(1, req.session.data)
   res.redirect('/current/activities/washing-and-bathing')
+})
+
+
+//Start routes for managing toilet needs: questions
+router.post('/current/activities/managing-toilet-needs', (req, res, next) => {
+    if (req.session.data['managing-toilet-needs-note'] == "question-about-this-condition" ) {
+      console.log('/current/evidence-detail', req.session.data)
+      const name = req.session.data['question-about-this-condition']
+      const section = req.session.data.source
+
+      const queriesToiletneeds = req.session.data.queriesToiletneeds || []
+      queriesToiletneeds.push({ name, section })
+      req.session.data.queriesToiletneeds = queriesToiletneeds
+      res.redirect('/current/set-action/set-action-managing-toilet-needs')
+
+      //Routes for tagged documents linked to: managing toilet needs
+  } else if (req.session.data['managing-toilet-needs-note'] == "important-to-this-case" ){
+
+        console.log('/current/activities/managing-toilet-needs', req.session.data)
+        const tagOption = req.session.data['important-to-this-case']
+        const section = req.session.data.source
+
+        const taggingToiletneeds = req.session.data.taggingToiletneeds || []
+        taggingToiletneeds.push({ tagOption, section })
+        req.session.data.taggingToiletneeds = taggingToiletneeds
+        res.redirect('/current/tagging-activities/managing-toilet-needs')
+
+    } else {
+      console.log('/current/activities/managing-toilet-needs', req.session.data)
+      const name = req.session.data['out-of-scope']
+      const scopeNote = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const outScopeToiletneeds = req.session.data.outScopeToiletneeds || []
+      outScopeToiletneeds.push({ name, section, scopeNote })
+      req.session.data.outScopeToiletneeds = outScopeToiletneeds
+      res.redirect('/current/activities/managing-toilet-needs')
+    }
+    })
+
+    // follow up tagging code for: managing toilet needs
+    router.post('/current/tagging-activities/managing-toilet-needs', (req, res, next) => {
+      console.log('this is managing toilet needs tagging')
+      console.log(req.session.data)
+      req.session.data.taggingToiletneeds[req.session.data.taggingToiletneeds.length - 1].tagContent = req.session.data['query-content']
+      req.session.data.taggingToiletneeds[req.session.data.taggingToiletneeds.length - 1].action = req.session.data['tagConditionActivities']
+    //  req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.taggingToiletneeds)
+      res.redirect('/current/activities/managing-toilet-needs')
+    })
+
+    // follow up code for out of scope for: managing toilet needs
+    router.post('/current/activities/managing-toilet-needs', (req, res, next) => {
+      console.log('this is managing toilet needs out of scope')
+      console.log(req.session.data)
+
+      req.session.data.outScopeToiletneeds[req.session.data.outScopeToiletneeds.length - 1].scopeNote = req.session.data['query-content']
+    //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+      //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+      console.log(1, req.session.data)
+      res.redirect('/current/activities/managing-toilet-needs')
+    })
+
+// follow up route for linking questions to: managing toilet needs
+router.post('/current/set-action/set-action-managing-toilet-needs', (req, res, next) => {
+  console.log('this is managing toilet needs questions')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('Resolve this issue another way'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesToiletneeds[req.session.data.queriesToiletneeds.length - 1].content = req.session.data['query-content']
+  req.session.data.queriesToiletneeds[req.session.data.queriesToiletneeds.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesToiletneeds[req.session.data.queriesToiletneeds.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/activities/managing-toilet-needs')
+})
+
+//Start routes for dressing and undressing: questions
+router.post('/current/activities/dressing-and-undressing', (req, res, next) => {
+    if (req.session.data['dressing-and-undressing-note'] == "question-about-this-condition" ) {
+      console.log('/current/evidence-detail', req.session.data)
+      const name = req.session.data['question-about-this-condition']
+      const section = req.session.data.source
+
+      const queriesDressing = req.session.data.queriesDressing || []
+      queriesDressing.push({ name, section })
+      req.session.data.queriesDressing = queriesDressing
+      res.redirect('/current/set-action/set-action-dressing-and-undressing')
+
+      //Routes for tagged documents linked to: dressing and undressing
+  } else if (req.session.data['dressing-and-undressing-note'] == "important-to-this-case" ){
+
+        console.log('/current/activities/dressing-and-undressing', req.session.data)
+        const tagOption = req.session.data['important-to-this-case']
+        const section = req.session.data.source
+
+        const taggingDressing = req.session.data.taggingDressing || []
+        taggingDressing.push({ tagOption, section })
+        req.session.data.taggingDressing = taggingDressing
+        res.redirect('/current/tagging-activities/dressing-and-undressing')
+
+    } else {
+      console.log('/current/activities/dressing-and-undressing', req.session.data)
+      const name = req.session.data['out-of-scope']
+      const scopeNote = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const outScopeDressing = req.session.data.outScopeDressing || []
+      outScopeDressing.push({ name, section, scopeNote })
+      req.session.data.outScopeDressing = outScopeDressing
+      res.redirect('/current/activities/dressing-and-undressing')
+    }
+    })
+
+    // follow up tagging code for: dressing and undressing
+    router.post('/current/tagging-activities/dressing-and-undressing', (req, res, next) => {
+      console.log('this is dressing and undressing tagging')
+      console.log(req.session.data)
+      req.session.data.taggingDressing[req.session.data.taggingDressing.length - 1].tagContent = req.session.data['query-content']
+      req.session.data.taggingDressing[req.session.data.taggingDressing.length - 1].action = req.session.data['tagConditionActivities']
+    //  req.session.data.taggingPrepFood[req.session.data.taggingPrepFood.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.taggingDressing)
+      res.redirect('/current/activities/dressing-and-undressing')
+    })
+
+    // follow up code for out of scope for: dressing and undressing
+    router.post('/current/activities/dressing-and-undressing', (req, res, next) => {
+      console.log('this is dressing and undressing out of scope')
+      console.log(req.session.data)
+
+      req.session.data.outScopeDressing[req.session.data.outScopeDressing.length - 1].scopeNote = req.session.data['query-content']
+    //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+      //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+      console.log(1, req.session.data)
+      res.redirect('/current/activities/dressing-and-undressing')
+    })
+
+// follow up route for linking questions to: dressing and undressing
+router.post('/current/set-action/set-action-dressing-and-undressing', (req, res, next) => {
+  console.log('this is dressing and undressing questions')
+  console.log(req.session.data)
+
+  let href;
+
+  switch (req.session.data['set-an-action']) {
+    case('The claimant'):
+    href = '/current/contact-claimant-action';
+    break;
+    case("The claimant's doctor"):
+    href = '/current/contact-hcp1-action';
+    break;
+    case("The claimant's urologist"):
+    href = '/current/contact-hcp2-action';
+    break;
+    case("The claimant's consultant clinical urologist"):
+    href = '/current/contact-hcp3-action';
+    break;
+    case('VAL'):
+    href = '/current/contact-val-action';
+    break;
+    case('Resolve this issue another way'):
+    href = '/current/none-these-action';
+    break;
+    //this is the hardcoded bit if one of the links fails
+    default:
+    href = '/current/tasklist';
+  }
+
+  req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].content = req.session.data['query-content']
+  req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/activities/dressing-and-undressing')
 })
 
 //Start routes for scoring
