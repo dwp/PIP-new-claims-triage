@@ -104,6 +104,37 @@
         </tr>
         {% endfor %}
 
+        {% for showImportantInfoToilet in data['taggingToiletneeds'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoToilet.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoToilet.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoToilet.section }}
+          </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoDressing in data['taggingDressing'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoDressing.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoDressing.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoDressing.section }}
+          </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
 
       <!--  {% for query in data['queriesCondition'] %}
         {% if query.action == 'The claimant' %}
@@ -192,6 +223,29 @@
         </tr>
         {% endfor %}
 
+        {% for questionsToilet in data['queriesToiletneeds'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsToilet.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsToilet.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsToilet.section }} </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsDressing in data['queriesDressing'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsDressing.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsDressing.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsDressing.section }} </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
 
         <!--{% for query in data['queriesCondition'] %}
         {% if query.action == 'The claimant' %}
@@ -266,6 +320,26 @@
         <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
           <td scope="row" class="govuk-table__cell">
                 {{ outScopeWashing.scopeNote }}
+          </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeToilet in data['outScopeToiletneeds'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ outScopeToilet.scopeNote }}
+          </td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeDressing in data['outScopeDressing'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ outScopeDressing.scopeNote }}
           </td>
           <td class="govuk-table__cell">05 July 2021</td>
         </tr>

@@ -109,15 +109,15 @@
                         <th scope="col" class="govuk-table__header">Linked to</th>
                       </tr>
                     </thead>
-                    {% for taggedPrepFood in data['taggingPrepFood'] %}
-                    {% if taggedPrepFood.section == 'toilet-needs' %}
+                    {% for taggedToilet in data['taggingToiletneeds'] %}
+                    {% if taggedToilet.section == 'Managing toilet needs or incontinence' %}
                     <tbody class="govuk-table__body">
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell">
-                          {{ taggedPrepFood.tagContent }}
+                          {{ taggedToilet.tagContent }}
                         </td>
                         <td class="govuk-table__cell">
-                          {{ taggedPrepFood.action }}
+                          {{ taggedToilet.action }}
 
                         </td>
                       </tr>
@@ -155,8 +155,8 @@
                               </tr>
                             </thead>
                             <tbody class="govuk-table__body">
-                            {% for query in data['queriesPrepFood'] %}
-                            {% if query.section == 'toilet-needs' %}
+                            {% for query in data['queriesToiletneeds'] %}
+                            {% if query.section == 'Managing toilet needs or incontinence' %}
 
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell">
@@ -185,12 +185,12 @@
                         <th scope="col" class="govuk-table__header"></th>
                       </tr>
                     </thead>
-                    {% for noScopePrepFood in data['outScopePrepFood'] %}
-                    {% if noScopePrepFood.section == 'toilet-needs' %}
+                    {% for noScopeToilet in data['outScopeToiletneeds'] %}
+                    {% if noScopeToilet.section == 'Managing toilet needs or incontinence' %}
                     <tbody class="govuk-table__body">
                       <tr class="govuk-table__row">
                         <td class="govuk-table__cell">
-                          {{ noScopePrepFood.scopeNote }}
+                          {{ noScopeToilet.scopeNote }}
                         </td>
                         <td class="govuk-table__cell">
                           <!--{{ noScopePrepFood.action }}-->
