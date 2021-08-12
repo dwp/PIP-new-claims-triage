@@ -307,7 +307,7 @@
 
           <td class="govuk-table__cell">
           {% if data['moving-around-score'] == null %}
-               0
+               {% set moveAroundScoreData = "0" %} {{ moveAroundScoreData }}
           {% endif %}
           </td>
         </tr>

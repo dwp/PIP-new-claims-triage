@@ -4,7 +4,10 @@ const router = express.Router()
 // router.use(radioButtonRedirect)
 
 // Add your routes here - above the module.exports line
-
+// router.post('/current/review-activity-descriptors2', (req, res, next) => {
+//           const score = req.session.data['scores'][1]['mobility']
+//           console.log(score)
+//     })
 // current sprint 29 //***********************************************************************************************************
 
 //Routes for tagging, questions and  out of scope for preparing food activity
