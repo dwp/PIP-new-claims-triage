@@ -123,11 +123,17 @@
                       </tr>
                       {% endif %}
                       {% endfor %}
+
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">The radiotherapy treatment has left me incontinent</td>
+                        <td class="govuk-table__cell"></td>
+                      </tr>
+
                     </tbody>
                   </table>
 
                   <h2 class="govuk-heading-m">Questions about the claimant's account</h2>
-                  <script defer type="text/javascript">
+                  <!--<script defer type="text/javascript">
 
                     var noQuery = "{{ data['set-an-action'] }}";
 
@@ -142,7 +148,7 @@
                       }
                     }
 
-                    </script>
+                    </script>-->
 
                   <div id="queryTable">
                     <table class="govuk-table">
@@ -166,10 +172,24 @@
                                 <td class="govuk-table__cell">
                                   {{ query.action }}
                                 </td>
-                                <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
                             </tr>
                             {% endif %}
                             {% endfor %}
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Do you have any aids, raised toilet seat, rails fitted?</td>
+                                <td class="govuk-table__cell">The claimant</td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Have you been prescribed pads for incontinence? Are you currently under any treatment for incontinence?</td>
+                                <td class="govuk-table__cell">The claimant</td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">How often do you have urinary incontinence?</td>
+                                <td class="govuk-table__cell">The claimant</td>
+                            </tr>
 
                           </tbody>
                   </table>
