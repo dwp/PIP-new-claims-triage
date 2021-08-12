@@ -136,31 +136,41 @@
         </tr>
         {% endfor %}
 
-      <!--  {% for query in data['queriesCondition'] %}
-        {% if query.action == 'The claimant' %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-              {{ query.content }}
-            </td>
-            <td class="govuk-table__cell">
-              05 July 2021
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Problem with standing too long</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Preparing food</td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
 
-          {% for query in data['queriesEvidence'] %}
-          {% if query.action == 'The claimant' %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                {{ query.evidence }}
-              </td>
-              <td class="govuk-table__cell">
-                  05 July 2021
-              </td>
-            </tr>
-            {% endif %}
-            {% endfor %} -->
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Dosette box</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Managing therapy or monitoring a health condition</td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Long handled sponge</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Washing and bathing</td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">The radiotherapy treatment has left me incontinent</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Managing toilet needs or​ incontinence</td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">(Copies socks and shoes information) seems to be consistent so nothing to resolve.</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Dressing and undressing</td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+
       </tbody>
     </table>
 
@@ -235,31 +245,11 @@
         </tr>
         {% endfor %}
 
-        <!--{% for query in data['queriesCondition'] %}
-        {% if query.action == 'The claimant' %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-              {{ query.content }}
-            </td>
-            <td class="govuk-table__cell">
-              05 July 2021
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Issue with bending to reach oven</td>
+          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
 
-          {% for query in data['queriesEvidence'] %}
-          {% if query.action == 'The claimant' %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                {{ query.evidence }}
-              </td>
-              <td class="govuk-table__cell">
-                  05 July 2021
-              </td>
-            </tr>
-            {% endif %}
-            {% endfor %}-->
       </tbody>
     </table>
 
@@ -359,16 +349,110 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Questions</th>
           <th scope="col" class="govuk-table__header">Answers</th>
-          <th scope="col" class="govuk-table__header">Who to contact</th>
+          <th scope="col" class="govuk-table__header">Who was contacted</th>
           <th scope="col" class="govuk-table__header">Source</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">Need to clarify some evidence about preparing food</td>
-          <td class="govuk-table__cell">Evidence has been provided</td>
-          <td class="govuk-table__cell">Contact the claimant</td>
-          <td class="govuk-table__cell">Diabeties</td>
+          <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
+          <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Preparing food</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often are your angina attacks?</td>
+          <td class="govuk-table__cell">Fluctuates, majority of days are good days. Impacts his mobility.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Preparing food</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
+          <td class="govuk-table__cell">He can peel and chop vegetables if he was sat down.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Preparing food</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">discuss cognitive - no cognitive restrictions listed under conditions, but the dosette box suggests this</td>
+          <td class="govuk-table__cell">Dosette box prepared by the chemist. I take so many throughout the day that I do sometimes forget so my wife is always asking me if I’ve taken them.
+                                        Sometimes I already have, sometimes I haven’t.
+                                        He can remember to take his medication majority of times. He can get them out of the packets.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Managing therapy or monitoring a health condition </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Were you prescribed the long handled sponge?</td>
+          <td class="govuk-table__cell">Bought himself.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Washing and bathing</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any other aids in the bathroom, eg stool, grab rails?</td>
+          <td class="govuk-table__cell">Has recently had bath taken out and shower cubicle put in. Has had a raised toilet put in.
+                                        He holds onto the shower pipe in the shower.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Washing and bathing</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any aids, raised toilet seat, rails fitted?</td>
+          <td class="govuk-table__cell">He has a raised toilet. He holds onto the sink to sit and stand from the toilet.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Managing toilet needs or​ incontinence</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Have you been prescribed pads for incontinence? Are you currently under any treatment for incontinence?</td>
+          <td class="govuk-table__cell">Does not wear pads. When he has urinary retention he has to self catheterise, he does this on occasion.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Managing toilet needs or​ incontinence</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often do you have urinary incontinence?</td>
+          <td class="govuk-table__cell">This does not fluctuate, every day is a bad day. This has got worse in the last 12 months.
+                                        He has had no hospital admissions.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Managing toilet needs or​ incontinence</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Is the claimant able to communicate over the phone? Does the claimant have any speech restrictions?</td>
+          <td class="govuk-table__cell">Can communicate needs and be understood by others without support on the majority of days.
+                                        Speech was fully intelligible over the phone.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Dressing and undressing</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Were aids provided by OH?  Are you able to grip aids?</td>
+          <td class="govuk-table__cell">Sock aid bought himself. Shoe horn bought himself.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Communicating verbally</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">investigate further - no anxiety noted on conditions. Are you currently under mental health services or your GP?</td>
+          <td class="govuk-table__cell">Anxiety diagnosed 10 years ago by GP, currently managed by GP, no mental health input.  Never had suicidal thoughts, never self-harmed.
+                                        This has got worse in the last 12 months. No hospital admissions.</td>
+          <td class="govuk-table__cell">Claimants healthcare provider</td>
+          <td class="govuk-table__cell">Engaging face to face</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often are you having anxiety attacks? What symptoms do you have when having a panic attack?</td>
+          <td class="govuk-table__cell">Panic attacks – come without warning. This fluctuates - 4 bad days a week. Symptoms include palpitations, sweats, cries and panic attacks.
+                                        I need to find somewhere to sit down or if I’m driving, I’ll need to quickly pull over.
+                                        If im in the car alone and if for example I realise Im in the wrong lane, that will set my panic attacks off.
+                                        They take around 2 or 3 minutes to wear off. I panic when I’m talking to people with authority, that’s why I wanted my wife with me now.
+                                        I can get quite emotional when I get panicky. I don’t take any medication for these attacks.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Engaging face to face</td>
         </tr>
 
       </tbody>
