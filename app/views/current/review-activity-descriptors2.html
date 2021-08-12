@@ -25,7 +25,7 @@
 <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-xl">
-        Review your activity descriptors
+        Select the activity descriptors
       </h1>
 
       <table class="govuk-table">
@@ -33,7 +33,7 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Activity</th>
-            <th scope="col" class="govuk-table__header">Descriptors</th>
+            <th scope="col" class="govuk-table__header">Descriptor</th>
             <th scope="col" class="govuk-table__header">Points</th>
           </tr>
         </thead>
@@ -84,7 +84,7 @@
 
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="score-managing-therapy" class="govuk-link">Managing therapy</a></td>
+            <td class="govuk-table__cell"><a href="score-managing-therapy" class="govuk-link">Managing therapy or monitoring a health condition</a></td>
             <td class="govuk-table__cell">
               {% if data['managing-therapy-score'] %}
               {% set therapyScoreData = data['managing-therapy-score'] | split(" | ") %} {{ therapyScoreData[0] }}
@@ -125,7 +125,7 @@
 
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="score-managing-toilet-needs" class="govuk-link">Managing toilet needs</a></td>
+            <td class="govuk-table__cell"><a href="score-managing-toilet-needs" class="govuk-link">Managing toilet needs or incontinence</a></td>
             <td class="govuk-table__cell">
               {% if data['managing-toilet-needs-score'] %}
               {% set toiletNeedsScoreData = data['managing-toilet-needs-score'] | split(" | ") %} {{ toiletNeedsScoreData[0] }}
@@ -185,7 +185,7 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="score-reading-understanding" class="govuk-link">Reading and understading signs and symbols</a></td>
+            <td class="govuk-table__cell"><a href="score-reading-understanding" class="govuk-link">Reading and understanding symbols and words</a></td>
             <td class="govuk-table__cell">
               {% if data['reading-understanding-score'] %}
               {% set readingScoreData = data['reading-understanding-score'] | split(" | ") %} {{ readingScoreData[0] }}
@@ -205,7 +205,7 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="score-engaging-face-to-face" class="govuk-link">Engaging face to face</a></td>
+            <td class="govuk-table__cell"><a href="score-engaging-face-to-face" class="govuk-link">Engaging with other people face to face</a></td>
             <td class="govuk-table__cell">
               {% if data['engaging-score'] %}
               {% set engagingScoreData = data['engaging-score'] | split(" | ") %} {{ engagingScoreData[0] }}
@@ -225,7 +225,7 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell"><a href="score-budgeting" class="govuk-link">Budgeting</a></td>
+            <td class="govuk-table__cell"><a href="score-budgeting" class="govuk-link">Making budgeting decisions</a></td>
             <td class="govuk-table__cell">
               {% if data['budgeting-score'] %}
               {% set budgetingScoreData = data['budgeting-score'] | split(" | ") %} {{budgetingScoreData[0]}}
@@ -263,7 +263,7 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Activity</th>
-            <th scope="col" class="govuk-table__header">Descriptors</th>
+            <th scope="col" class="govuk-table__header">Descriptor</th>
             <th scope="col" class="govuk-table__header">Points</th>
           </tr>
         </thead>
@@ -325,14 +325,14 @@
         <div>
               {% if combinedDailyLiving < '8' %}
 
-                    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Daily Living Nil</strong></h3>
+                    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">No daily living award</strong></h3>
 
               {% elseif combinedDailyLiving >= '8' and combinedDailyLiving < '12' %}
 
-              <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Daily Living Standard</strong></h3>
+              <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Standard daily living award</strong></h3>
 
               {% elseif combinedDailyLiving >= '12' %}
-                  <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Daily Living Enhanced</strong></h3>
+                  <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Enhanced daily living award</strong></h3>
 
               {% endif %}
         </div>
@@ -341,14 +341,14 @@
         <div>
               {% if combinedMobilityTotal < '8' %}
 
-                    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Mobility Nil</strong></h3>
+                    <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">No mobility award</strong></h3>
 
               {% elseif combinedMobilityTotal >= '8' and combinedMobilityTotal < '12' %}
 
-              <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Mobility Standard</strong></h3>
+              <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Standard moility award</strong></h3>
 
               {% elseif combinedMobilityTotal >= '12' %}
-                  <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Mobility Enhanced</strong></h3>
+                  <h3 class="govuk-heading-s">Indicated award level: <strong class="govuk-tag">Enhanced mobility award</strong></h3>
 
               {% endif %}
       </div>
