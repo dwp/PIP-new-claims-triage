@@ -20,9 +20,10 @@ Example usage:
 module.exports = {
 
 // Insert values here
-//   'scores': [{
-//       'mobility': '0'
-//     }, {
-//       'descriptorNoTwo': '6'
-// }]
+//
+  'scores': [{
+      'mobility': '0'
+    }, {
+      'descriptorNoTwo': '6'
+}]
 }
