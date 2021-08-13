@@ -1249,9 +1249,9 @@ router.post('/current/evidence-detail', (req, res, next) => {
             //console.log(pageURL)
             const section = req.session.data.source
 
-            const conditionsEvidence = req.session.data.conditionsEvidence || []
-            conditionsEvidence.push({ name, section })
-            req.session.data.conditionsEvidence = conditionsEvidence
+            const conditionsEvidenceOne = req.session.data.conditionsEvidenceOne || []
+            conditionsEvidenceOne.push({ name, section })
+            req.session.data.conditionsEvidenceOne = conditionsEvidenceOne
             res.redirect('/current/tagging-evidence/evidence-one')
 
   } else {
@@ -1270,12 +1270,12 @@ router.post('/current/evidence-detail', (req, res, next) => {
 
 // follow up for tagging important info: evidence one
     router.post('/current/tagging-evidence/evidence-one', (req, res, next) => {
-      console.log('this is evidence')
+      console.log('this is evidence one')
       console.log(req.session.data)
-      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].evidenceNote = req.session.data['query-content']
-      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].action = req.session.data['tagConditionEvidence']
+      req.session.data.conditionsEvidenceOne[req.session.data.conditionsEvidenceOne.length - 1].evidenceNoteOne = req.session.data['query-content']
+      req.session.data.conditionsEvidenceOne[req.session.data.conditionsEvidenceOne.length - 1].action = req.session.data['tagConditionEvidence']
       //req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
-      console.log(1, req.session.data.conditionsEvidence)
+      console.log(1, req.session.data.conditionsEvidenceOne)
       res.redirect('/current/evidence-detail')
     })
 
