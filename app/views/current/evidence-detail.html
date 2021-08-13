@@ -97,12 +97,12 @@
     <th scope="col" class="govuk-table__header">Linked to</th>
     </tr>
     </thead>
-    {% for taggedEvidenceOne in data['conditionsEvidence'] %}
+    {% for taggedEvidenceOne in data['conditionsEvidenceOne'] %}
     {% if taggedEvidenceOne.section == 'evidence-one' %}
     <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
     <td class="govuk-table__cell">
-    {{ taggedEvidenceOne.evidenceNote }}
+    {{ taggedEvidenceOne.evidenceNoteOne }}
     </td>
     <td class="govuk-table__cell">
     {{ taggedEvidenceOne.action }}

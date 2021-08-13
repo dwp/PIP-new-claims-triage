@@ -129,6 +129,36 @@
         </tr>
         {% endfor %}
 
+        {% for showImportantInfoEvidenceOne in data['conditionsEvidenceOne'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoEvidenceOne.evidenceNoteOne }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoEvidenceOne.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoEvidenceOne.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoEvidenceTwo in data['conditionsEvidence'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoEvidenceTwo.evidenceNote }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoEvidenceTwo.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoEvidenceTwo.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Problem with standing too long</td>
           <td class="govuk-table__cell">Atorvastatin,Tamsulosin,Moving around</td>
@@ -226,6 +256,24 @@
         </tr>
         {% endfor %}
 
+        {% for outScopeEvidenceOne in data['outScopeEvidenceOne'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ outScopeEvidenceOne.scopeEvidenceOne }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeEvidenceTwo in data['outScopeEvidenceTwo'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ outScopeEvidenceTwo.scopeEvidenceTwo }}
+          </td>
+        </tr>
+        {% endfor %}
+
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Issue with bending to reach oven</td>
         </tr>
@@ -311,6 +359,28 @@
           </td>
           <td class="govuk-table__cell"> {{ questionsDressing.action }} </td>
           <td class="govuk-table__cell"> {{ questionsDressing.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsEvidenceOne in data['queriesEvidence'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsEvidenceOne.evidence }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceOne.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceOne.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsEvidenceTwo in data['queriesEvidenceTwo'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsEvidenceTwo.evidence }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceTwo.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceTwo.section }} </td>
         </tr>
         {% endfor %}
 
