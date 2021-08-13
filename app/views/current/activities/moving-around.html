@@ -130,22 +130,7 @@
                   </table>
 
                   <h2 class="govuk-heading-m">Questions about the claimant's account</h2>
-                  <script defer type="text/javascript">
 
-                    var noQuery = "{{ data['set-an-action'] }}";
-
-                    if (noQuery) {
-
-                        document.write('');
-                        }
-                      else {
-                        document.write('<p class="govuk-body">There are no queries for this activity.</p>');
-                        window.onload = function(){
-                        document.getElementById('queryTable').style.display = 'none';
-                      }
-                    }
-
-                    </script>
 
                   <div id="queryTable">
                     <table class="govuk-table">
@@ -173,7 +158,14 @@
                             </tr>
                             {% endif %}
                             {% endfor %}
-
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Do you have aids from the GP or that you've bought yourself?</td>
+                                <td class="govuk-table__cell">The claimant</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">How long can you walk for (not just distance)?</td>
+                                <td class="govuk-table__cell">The claimant</td>
+                            </tr>
                           </tbody>
                   </table>
                   </div>
