@@ -19,7 +19,7 @@
 </section>
 
 <div class="govuk-width-container">
-  <a href="task-list" class="govuk-back-link">Back</a> 
+  <a href="task-list" class="govuk-back-link">Back</a>
 <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
 <div class="govuk-grid-row">
@@ -55,9 +55,7 @@
             </td>
 
             <td class="govuk-table__cell">
-              {% if data['preparing-food-score'] == null %}
--
-              {% endif %}
+
 
             </td>
           </tr>
@@ -66,193 +64,129 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-taking-nutrition" class="govuk-link">Taking nutrition</a></td>
               <td class="govuk-table__cell">
-                  {% if data['taking-nutrition-score'] %}
-                  {% set nutritionscoreData = data['taking-nutrition-score'] | split(" | ") %} {{ nutritionscoreData[0] }}
+                2a. Can take nutrition unaided.
               </td>
             <td class="govuk-table__cell">
-              {{ nutritionscoreData[1] }}
-
-              {% elseif data['taking-nutrition-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+            0
             </td>
 
             <td class="govuk-table__cell">
-              {% if data['taking-nutrition-score'] == null %}
--
-              {% endif %}
+
             </td>
 
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-managing-therapy" class="govuk-link">Managing therapy or monitoring a health condition</a></td>
             <td class="govuk-table__cell">
-              {% if data['managing-therapy-score'] %}
-              {% set therapyScoreData = data['managing-therapy-score'] | split(" | ") %} {{ therapyScoreData[0] }}
+              3b. Needs any one or more of the following:
+(i) to use an aid or appliance to be able to manage medication;
+(ii) supervision, prompting or assistance to be able to manage medication
+(iii) supervision, prompting or assistance to be able to monitor a health
             </td>
             <td class="govuk-table__cell">
-              {{ therapyScoreData[1] }}
-
-              {% elseif data['managing-therapy-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+              1
             </td>
 
             <td class="govuk-table__cell">
-              {% if data['managing-therapy-score'] == null %}
-                  -
-              {% endif %}
+
             </td>
 
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-washing-and-bathing" class="govuk-link">Washing and bathing</a></td>
             <td class="govuk-table__cell">
-              {% if data['washing-bathing-score'] %}
-              {% set washingScoreData = data['washing-bathing-score'] | split(" | ") %} {{ washingScoreData[0] }}
+            4b. Needs to use an aid or appliance to be able to wash or bathe.
             <td class="govuk-table__cell">
-              {{ washingScoreData[1] }}
-
-              {% elseif data['washing-bathing-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+            2
             </td>
 
             <td class="govuk-table__cell">
-              {% if data['washing-bathing-score'] == null %}
-                  -
-              {% endif %}
+
             </td>
 
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-managing-toilet-needs" class="govuk-link">Managing toilet needs or incontinence</a></td>
             <td class="govuk-table__cell">
-              {% if data['managing-toilet-needs-score'] %}
-              {% set toiletNeedsScoreData = data['managing-toilet-needs-score'] | split(" | ") %} {{ toiletNeedsScoreData[0] }}
+              5b. Needs to use an aid or appliance to be able to manage toilet needs or incontinence.
             </td>
             <td class="govuk-table__cell">
-              {{ toiletNeedsScoreData[1] }}
-
-              {% elseif data['managing-toilet-needs-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+              2
             </td>
 
             <td class="govuk-table__cell">
-              {% if data['managing-toilet-needs-score'] == null %}
-                  -
-              {% endif %}
+
             </td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-dressing-and-undressing" class="govuk-link">Dressing and undressing</a></td>
             <td class="govuk-table__cell">
-              {% if data['dressing-undressing-score'] %}
-              {% set dressingScoreData = data['dressing-undressing-score'] | split(" | ") %} {{ dressingScoreData[0] }}
+              6b. Needs to use an aid or appliance to be able to dress or undress.
             </td>
             <td class="govuk-table__cell">
-              {{ dressingScoreData[1] }}
-
-              {% elseif data['dressing-undressing-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+            2
             </td>
 
             <td class="govuk-table__cell">
-            {% if data['dressing-undressing-score'] == null %}
-                -
-            {% endif %}
+
             </td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-communicating-verbally" class="govuk-link">Communicating verbally</a></td>
+            <td class="govuk-table__cell">  7a. Can express and understand verbal information unaided.
+              </td>
             <td class="govuk-table__cell">
-              {% if data['communicating-verbally-score'] %}
-              {% set communicatingScoreData = data['communicating-verbally-score'] | split(" | ") %} {{ communicatingScoreData[0] }}
-            </td>
-            <td class="govuk-table__cell">
-              {{ communicatingScoreData[1] }}
-
-              {% elseif data['communicating-verbally-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+            0
             </td>
 
             <td class="govuk-table__cell">
-            {% if data['communicating-verbally-score'] == null %}
-                -
-            {% endif %}
+
             </td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-reading-understanding" class="govuk-link">Reading and understanding symbols and words</a></td>
             <td class="govuk-table__cell">
-              {% if data['reading-understanding-score'] %}
-              {% set readingScoreData = data['reading-understanding-score'] | split(" | ") %} {{ readingScoreData[0] }}
+              8a. Can read and understand basic and complex written information either unaided or using signs, spectacles or contact lenses.
             </td>
             <td class="govuk-table__cell">
-              {{ readingScoreData[1] }}
-
-              {% elseif data['reading-understanding-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+              0
             </td>
 
             <td class="govuk-table__cell">
-            {% if data['reading-understanding-score'] == null %}
-                -
-            {% endif %}
+
             </td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-engaging-face-to-face" class="govuk-link">Engaging with other people face to face</a></td>
             <td class="govuk-table__cell">
-              {% if data['engaging-score'] %}
-              {% set engagingScoreData = data['engaging-score'] | split(" | ") %} {{ engagingScoreData[0] }}
+              9b. Needs prompting to be able to engage with other people.
             </td>
             <td class="govuk-table__cell">
-              {{ engagingScoreData[1] }}
-
-              {% elseif data['engaging-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+              2
             </td>
 
             <td class="govuk-table__cell">
-            {% if data['engaging-score'] == null %}
-                -
-            {% endif %}
+
             </td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell"><a href="score-budgeting" class="govuk-link">Making budgeting decisions</a></td>
             <td class="govuk-table__cell">
-              {% if data['budgeting-score'] %}
-              {% set budgetingScoreData = data['budgeting-score'] | split(" | ") %} {{budgetingScoreData[0]}}
+            10a. Can manage complex budgeting decisions unaided.
             </td>
             <td class="govuk-table__cell">
-              {{ budgetingScoreData[1] }}
-
-              {% elseif data['budgeting-score'] == null %}
-                  No descriptor set yet
-              {% endif %}
+            0
             </td>
 
             <td class="govuk-table__cell">
-            {% if data['budgeting-score'] == null %}
-                -
-            {% endif %}
+
             </td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Daily living total</th>
             <td class="govuk-table__cell" style='visibility:collapse'>0</td>
             <td class="govuk-table__cell">
-              <b>{% set combinedDailyLiving = (nutritionscoreData[1] | int) + (foodscoreData[1] | int) + (therapyScoreData[1] | int)
-                + (washingScoreData[1] | int) + (toiletNeedsScoreData[1] | int) + (dressingScoreData[1] | int)
-                + (communicatingScoreData[1] | int) + (readingScoreData[1] | int) + (readingScoreData[1] | int)
-                + (engagingScoreData[1] | int) + (budgetingScoreData[1] | int) %} {{ (combinedDailyLiving | int) }}
+              <b>13
               </b>
             </td>
             <td class="govuk-table__cell" style='visibility:collapse'>0</td>
@@ -262,18 +196,8 @@
 
       <!-- logic for daily living scores -->
     <div>
-          {% if combinedDailyLiving < '8' %}
 
-                <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">No daily living award</strong></h3>
-
-          {% elseif combinedDailyLiving >= '8' and combinedDailyLiving < '12' %}
-
-          <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">Standard daily living award</strong></h3>
-
-          {% elseif combinedDailyLiving >= '12' %}
-              <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">Enhanced daily living award</strong></h3>
-
-          {% endif %}
+                           <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">Enhanced daily living award</strong></h3>
           <br>
     </div>
 
@@ -291,55 +215,32 @@
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"><a href="score-planning-following-journeys" class="govuk-link">Planning and following journeys</a></td>
           <td class="govuk-table__cell">
-            {% if data['follow-journey-score'] %}
-            {% set followJourneyScoreData = data['follow-journey-score'] | split(" | ") %} {{ followJourneyScoreData[0] }}
+            11a. Can plan and follow the route of a journey unaided.
           </td>
 
           <td class="govuk-table__cell">
-            {{ followJourneyScoreData[1] }}
-
-            {% elseif data['follow-journey-score'] == null %}
-                No descriptor set yet
-            {% endif %}
+            0
           </td>
-
           <td class="govuk-table__cell govuk-table__cell">
-          {% if data['follow-journey-score'] == null %}
-          -
-
-          {% endif %}
-
           </td>
         </tr>
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"><a href="score-moving-around" class="govuk-link">Moving around</a></td>
           <td class="govuk-table__cell">
-            {% if data['moving-around-score'] %}
-            {% set moveAroundScoreData = data['moving-around-score'] | split(" | ") %} {{ moveAroundScoreData[0] }}
+            12c. Can stand and then move more than 20 metres but no more than 50 metres, either aided or unaided.﻿
           </td>
-
           <td class="govuk-table__cell">
-            {{ moveAroundScoreData[1] }}
-
-            {% elseif data['moving-around-score'] == null %}
-                No descriptor set yet
-
-            {% endif %}
+        8
           </td>
 
           <td class="govuk-table__cell govuk-table__cell">
-          {% if data['moving-around-score'] == null %}
-          -
-                {% endif %}
-
-
           </td>
         </tr>
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Mobility total</th>
               <td class="govuk-table__cell" style='visibility:collapse'>0</td>
               <td class="govuk-table__cell">
-                <b>{% set combinedMobilityTotal = (followJourneyScoreData[1] | int) + (moveAroundScoreData[1] | int) %} {{ (combinedMobilityTotal | int) }}</b>
+                <b>8
               </td>
               <td class="govuk-table__cell govuk-table__cell" style='visibility:collapse'>0</td>
         </tr>
@@ -349,18 +250,12 @@
 
         <!-- logic for mobility scores --->
         <div>
-              {% if combinedMobilityTotal < '8' %}
 
-                    <h3 class="govuk-heading-s">Indicated mobility award level: <strong class="govuk-tag">No mobility award</strong></h3>
 
-              {% elseif combinedMobilityTotal >= '8' and combinedMobilityTotal < '12' %}
 
               <h3 class="govuk-heading-s">Indicated mobility award level: <strong class="govuk-tag">Standard mobility award</strong></h3>
 
-              {% elseif combinedMobilityTotal >= '12' %}
-                  <h3 class="govuk-heading-s">Indicated mobility award level: <strong class="govuk-tag">Enhanced mobility award</strong></h3>
 
-              {% endif %}
               <br>
       </div>
 
