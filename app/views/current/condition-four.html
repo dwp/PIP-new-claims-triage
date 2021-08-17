@@ -37,11 +37,11 @@
       <p>January 2020</p>
       <br>
       <br>
-      <h2 class="govuk-heading-m">Add an issue to be resolved</h2>
+<!--      <h2 class="govuk-heading-m">Add an issue to be resolved</h2>
 
       <!--{{ data | dump }}-->
 
-<form action="#" method="post">
+<!--<form action="#" method="post">
   <input type="hidden" value="{{ data.source }}"/>
 
           <div class="govuk-form-group">
@@ -58,15 +58,14 @@
       {{ govukButton({
         text: "Add this issue"
       }) }}
-</form>
-
+<!--</form>-->
 
 <table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Issues to resolve</caption>
+  <caption class="govuk-table__caption govuk-table__caption--m">Questions about the claimant's account</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Issue</th>
-      <th scope="col" class="govuk-table__header">Who to contact to resolve this issue</th>
+      <th scope="col" class="govuk-table__header">Question</th>
+      <th scope="col" class="govuk-table__header">Who to contact</th>
       <!--<th scope="col" class="govuk-table__header">Status</th>-->
     </tr>
   </thead>
@@ -82,6 +81,18 @@
     </tr>
     {% endif %}
     {% endfor %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Are you currently under any specialists, how often are you reviewed, planned ongoing treatments?</td>
+      <td class="govuk-table__cell">The claimant</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Is it COPD that's causing issues bending?</td>
+      <td class="govuk-table__cell">The claimant</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Check COPD medication and dizziness</td>
+      <td class="govuk-table__cell">The claimant</td>
+    </tr>
   </tbody>
 </table>
 

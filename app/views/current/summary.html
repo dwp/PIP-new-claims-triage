@@ -36,7 +36,6 @@
           <th scope="col" class="govuk-table__header">Notes</th>
           <th scope="col" class="govuk-table__header">Linked to</th>
           <th scope="col" class="govuk-table__header">Source</th>
-          <th scope="col" class="govuk-table__header">Date</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -52,7 +51,6 @@
           <td class="govuk-table__cell">
               {{ showImportantInfo.section }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -68,7 +66,6 @@
           <td class="govuk-table__cell">
               {{ showImportantInfoNutrition.section }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -84,7 +81,6 @@
           <td class="govuk-table__cell">
               {{ showImportantInfoTherapy.section }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -100,7 +96,6 @@
           <td class="govuk-table__cell">
               {{ showImportantInfoWashing.section }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -116,7 +111,6 @@
           <td class="govuk-table__cell">
               {{ showImportantInfoToilet.section }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -132,43 +126,67 @@
           <td class="govuk-table__cell">
               {{ showImportantInfoDressing.section }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoEvidenceOne in data['conditionsEvidenceOne'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoEvidenceOne.evidenceNoteOne }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoEvidenceOne.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoEvidenceOne.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoEvidenceTwo in data['conditionsEvidence'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoEvidenceTwo.evidenceNote }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoEvidenceTwo.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoEvidenceTwo.section }}
+          </td>
         </tr>
         {% endfor %}
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Problem with standing too long</td>
-          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Atorvastatin,Tamsulosin,Moving around</td>
           <td class="govuk-table__cell">Preparing food</td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Dosette box</td>
           <td class="govuk-table__cell"></td>
           <td class="govuk-table__cell">Managing therapy or monitoring a health condition</td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Long handled sponge</td>
-          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Dressing and undressing</td>
           <td class="govuk-table__cell">Washing and bathing</td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">The radiotherapy treatment has left me incontinent</td>
-          <td class="govuk-table__cell">Managing toilet needs or​ incontinence</td>
+          <td class="govuk-table__cell">Managing toilet needs or​ incontinence,Evidence 2,Incontinence,Prostate cancer</td>
           <td class="govuk-table__cell">Additional information</td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">I have an aid to put my socks on and shoes. I wear slip on shoes when I can.</td>
-          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">Washing and bathing,Preparing Food,Atorvastatin,Tamsulosin</td>
           <td class="govuk-table__cell">Dressing and undressing</td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
 
       </tbody>
@@ -179,8 +197,7 @@
       <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Source</th>
-          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Notes</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -190,7 +207,6 @@
           <td scope="row" class="govuk-table__cell">
                 {{ outScope.scopeNote }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -200,7 +216,6 @@
           <td scope="row" class="govuk-table__cell">
                 {{ outScopeTakeNutrition.scopeNote }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -211,7 +226,6 @@
           <td scope="row" class="govuk-table__cell">
                 {{ outScopeTherapy.scopeNote }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -221,7 +235,6 @@
           <td scope="row" class="govuk-table__cell">
                 {{ outScopeWashing.scopeNote }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -231,7 +244,6 @@
           <td scope="row" class="govuk-table__cell">
                 {{ outScopeToilet.scopeNote }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -241,18 +253,33 @@
           <td scope="row" class="govuk-table__cell">
                 {{ outScopeDressing.scopeNote }}
           </td>
-          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeEvidenceOne in data['outScopeEvidenceOne'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ outScopeEvidenceOne.scopeEvidenceOne }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeEvidenceTwo in data['outScopeEvidenceTwo'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ outScopeEvidenceTwo.scopeEvidenceTwo }}
+          </td>
         </tr>
         {% endfor %}
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Issue with bending to reach oven</td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
 
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Being near a toilet is out of scope eg 'I have got to go to the toilet straight away not wait'</td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
 
       </tbody>
@@ -266,7 +293,6 @@
           <th scope="col" class="govuk-table__header">Questions</th>
           <th scope="col" class="govuk-table__header">Who to contact</th>
           <th scope="col" class="govuk-table__header">Source</th>
-          <th scope="col" class="govuk-table__header">Date</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -278,7 +304,6 @@
           </td>
           <td class="govuk-table__cell"> {{ questions.action }} </td>
           <td class="govuk-table__cell"> {{ questions.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -290,7 +315,6 @@
           </td>
           <td class="govuk-table__cell"> {{ questionsTakeNutrition.action }} </td>
           <td class="govuk-table__cell"> {{ questionsTakeNutrition.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -302,7 +326,6 @@
           </td>
           <td class="govuk-table__cell"> {{ questionsTherapy.action }} </td>
           <td class="govuk-table__cell"> {{ questionsTherapy.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -314,7 +337,6 @@
           </td>
           <td class="govuk-table__cell"> {{ questionsWashing.action }} </td>
           <td class="govuk-table__cell"> {{ questionsWashing.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -326,7 +348,6 @@
           </td>
           <td class="govuk-table__cell"> {{ questionsToilet.action }} </td>
           <td class="govuk-table__cell"> {{ questionsToilet.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
         </tr>
         {% endfor %}
 
@@ -338,7 +359,28 @@
           </td>
           <td class="govuk-table__cell"> {{ questionsDressing.action }} </td>
           <td class="govuk-table__cell"> {{ questionsDressing.section }} </td>
-          <td class="govuk-table__cell">05 July 2021</td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsEvidenceOne in data['queriesEvidence'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsEvidenceOne.evidence }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceOne.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceOne.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsEvidenceTwo in data['queriesEvidenceTwo'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questionsEvidenceTwo.evidence }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceTwo.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceTwo.section }} </td>
         </tr>
         {% endfor %}
 
@@ -445,7 +487,7 @@
           <td scope="row" class="govuk-table__cell">investigate further - no anxiety noted on conditions. Are you currently under mental health services or your GP?</td>
           <td class="govuk-table__cell">Anxiety diagnosed 10 years ago by GP, currently managed by GP, no mental health input.  Never had suicidal thoughts, never self-harmed.
                                         This has got worse in the last 12 months. No hospital admissions.</td>
-          <td class="govuk-table__cell">Claimants healthcare provider</td>
+          <td class="govuk-table__cell">Claimant's healthcare provider</td>
           <td class="govuk-table__cell">Engaging with other people face to face</td>
         </tr>
 

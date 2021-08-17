@@ -1231,7 +1231,7 @@ router.post('/current/set-action/set-action-moving-around', (req, res, next) => 
 //Routes for queries linked to Evidence number 1
 
 router.post('/current/evidence-detail', (req, res, next) => {
-    if (req.session.data['tagging-evidence'] == "evidence-query" ) {
+    if (req.session.data['evidence-one-note'] == "question-about-this-condition" ) {
       console.log('/current/evidence-detail', req.session.data)
       const name = req.session.data['evidence-query']
       const section = req.session.data.source
@@ -1241,29 +1241,41 @@ router.post('/current/evidence-detail', (req, res, next) => {
       req.session.data.queriesEvidence = queriesEvidence
       res.redirect('/current/set-action/set-action-evidence')
 
+    } else if (req.session.data['evidence-one-note'] == "important-to-this-case" ) {
+        //Routes for tagged documents linked to Evidence
+            console.log('/current/evidence-detail', req.session.data)
+            const name = req.session.data['evidence-query']
+            //const pageURL = req.session.data['page-URL'][1]['contact-claimant-page']
+            //console.log(pageURL)
+            const section = req.session.data.source
+
+            const conditionsEvidenceOne = req.session.data.conditionsEvidenceOne || []
+            conditionsEvidenceOne.push({ name, section })
+            req.session.data.conditionsEvidenceOne = conditionsEvidenceOne
+            res.redirect('/current/tagging-evidence/evidence-one')
+
   } else {
+    console.log('/current/evidence-detail', req.session.data)
+    const name = req.session.data['out-of-scope']
+    const scopeEvidenceOne = req.session.data['query-content']
+    const section = req.session.data.source
 
-    //Routes for tagged documents linked to Evidence
-        console.log('/current/evidence-detail', req.session.data)
-        const name = req.session.data['evidence-query']
-        const pageURL = req.session.data['page-URL'][1]['contact-claimant-page']
-        console.log(pageURL)
-        const section = req.session.data.source
+    const outScopeEvidenceOne = req.session.data.outScopeEvidenceOne || []
+    outScopeEvidenceOne.push({ name, section, scopeEvidenceOne })
+    req.session.data.outScopeEvidenceOne = outScopeEvidenceOne
+    res.redirect('/current/evidence-detail')
 
-        const conditionsEvidence = req.session.data.conditionsEvidence || []
-        conditionsEvidence.push({ name, section, pageURL })
-        req.session.data.conditionsEvidence = conditionsEvidence
-        res.redirect('/current/tagging')
     }
     })
 
-    router.post('/current/tagging', (req, res, next) => {
-      console.log('this is evidence')
+// follow up for tagging important info: evidence one
+    router.post('/current/tagging-evidence/evidence-one', (req, res, next) => {
+      console.log('this is evidence one')
       console.log(req.session.data)
-      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].evidence = req.session.data['evidence-query']
-      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].action = req.session.data['conditions']
-      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
-      console.log(1, req.session.data.conditionsEvidence)
+      req.session.data.conditionsEvidenceOne[req.session.data.conditionsEvidenceOne.length - 1].evidenceNoteOne = req.session.data['query-content']
+      req.session.data.conditionsEvidenceOne[req.session.data.conditionsEvidenceOne.length - 1].action = req.session.data['tagConditionEvidence']
+      //req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      console.log(1, req.session.data.conditionsEvidenceOne)
       res.redirect('/current/evidence-detail')
     })
 
@@ -1298,93 +1310,77 @@ router.post('/current/set-action/set-action-evidence', (req, res, next) => {
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
+  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['query-content']
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].href = href;
   console.log(1, req.session.data)
   res.redirect('/current/evidence-detail')
 })
 
+// follow up roiute for out of scope: evidence one
+router.post('/current/evidence-detail', (req, res, next) => {
+  console.log('this is evidence one out of scope')
+  console.log(req.session.data)
+
+  req.session.data.outScopeEvidenceOne[req.session.data.outScopeEvidenceOne.length - 1].scopeEvidenceOne = req.session.data['query-content']
+//  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+  //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/evidence-detail')
+})
 
 //Routes for queries linked to Evidence number 2
 
 router.post('/current/evidence-detail-two', (req, res, next) => {
-    if (req.session.data['tagging-evidence'] == "evidence-query" ) {
+    if (req.session.data['evidence-note-two'] == "question-about-this-condition" ) {
       console.log('/current/evidence-detail', req.session.data)
       const name = req.session.data['evidence-query']
       const section = req.session.data.source
 
-      const queriesEvidence = req.session.data.queriesEvidence || []
-      queriesEvidence.push({ name, section })
-      req.session.data.queriesEvidence = queriesEvidence
+      const queriesEvidenceTwo = req.session.data.queriesEvidenceTwo || []
+      queriesEvidenceTwo.push({ name, section })
+      req.session.data.queriesEvidenceTwo = queriesEvidenceTwo
       res.redirect('/current/set-action/set-action-evidence-two')
 
+    } else if (req.session.data['evidence-note-two'] == "important-to-this-case" ) {
+        //Routes for tagged documents linked to Evidence
+            console.log('/current/evidence-detail-two', req.session.data)
+            const name = req.session.data['query-content']
+            //const pageURL = req.session.data['page-URL'][1]['contact-claimant-page']
+            //console.log(pageURL)
+            const section = req.session.data.source
+
+            const conditionsEvidence = req.session.data.conditionsEvidence || []
+            conditionsEvidence.push({ name, section })
+            req.session.data.conditionsEvidence = conditionsEvidence
+            res.redirect('/current/tagging-evidence/evidence-two')
+
   } else {
+    console.log('/current/evidence-detail-two', req.session.data)
+    const name = req.session.data['out-of-scope']
+    const scopeEvidenceTwo = req.session.data['query-content']
+    const section = req.session.data.source
 
-    //Routes for tagged documents linked to Evidence number 2
-        console.log('/current/evidence-detail-two', req.session.data)
-        const name = req.session.data['evidence-query']
-        const pageURL = req.session.data['page-URL'][1]['contact-claimant-page']
-        console.log(pageURL)
-        const section = req.session.data.source
+    const outScopeEvidenceTwo = req.session.data.outScopeEvidenceTwo || []
+    outScopeEvidenceTwo.push({ name, section, scopeEvidenceTwo })
+    req.session.data.outScopeEvidenceTwo = outScopeEvidenceTwo
+    res.redirect('/current/evidence-detail-two')
 
-        const conditionsEvidence = req.session.data.conditionsEvidence || []
-        conditionsEvidence.push({ name, section, pageURL })
-        req.session.data.conditionsEvidence = conditionsEvidence
-        res.redirect('/current/tagging-two')
     }
     })
 
-    router.post('/current/tagging-two', (req, res, next) => {
-      console.log('this is evidence two')
+// follow up for tagging important info: evidence two
+    router.post('/current/tagging-evidence/evidence-two', (req, res, next) => {
+      console.log('this is evidence')
       console.log(req.session.data)
-      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].evidence = req.session.data['evidence-query']
-      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].action = req.session.data['conditions']
-      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
+      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].evidenceNote = req.session.data['query-content']
+      req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].action = req.session.data['tagConditionEvidence']
+      //req.session.data.conditionsEvidence[req.session.data.conditionsEvidence.length - 1].page = req.session.data['page-URL'][1]['contact-claimant-page']
       console.log(1, req.session.data.conditionsEvidence)
       res.redirect('/current/evidence-detail-two')
     })
 
-// follow up route for linking queries to evidence number 1
-router.post('/current/set-action/set-action-evidence', (req, res, next) => {
-  console.log('this is evidence query')
-  console.log(req.session.data)
-
-  let href;
-
-  switch (req.session.data['set-an-action']) {
-    case('The claimant'):
-    href = '/current/contact-claimant-action';
-    break;
-    case("The claimant's doctor"):
-    href = '/current/contact-hcp1-action';
-    break;
-    case("The claimant's urologist"):
-    href = '/current/contact-hcp2-action';
-    break;
-    case("The claimant's consultant clinical urologist"):
-    href = '/current/contact-hcp3-action';
-    break;
-    case('VAL'):
-    href = '/current/contact-val-action';
-    break;
-    case('Resolve this issue another way'):
-    href = '/current/none-these-action';
-    break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/current/tasklist';
-  }
-
-  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
-  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].href = href;
-  console.log(1, req.session.data)
-  res.redirect('/current/task-list')
-})
-
-
-// follow up route for linking queries to evidence number 2*****************************************************************************************
+// follow up route for linking queries to evidence number two
 router.post('/current/set-action/set-action-evidence-two', (req, res, next) => {
   console.log('this is evidence query')
   console.log(req.session.data)
@@ -1415,17 +1411,24 @@ router.post('/current/set-action/set-action-evidence-two', (req, res, next) => {
     href = '/current/tasklist';
   }
 
-  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
-  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].href = href;
+  req.session.data.queriesEvidenceTwo[req.session.data.queriesEvidenceTwo.length - 1].evidence = req.session.data['query-content']
+  req.session.data.queriesEvidenceTwo[req.session.data.queriesEvidenceTwo.length - 1].action = req.session.data['set-an-action']
+  req.session.data.queriesEvidenceTwo[req.session.data.queriesEvidenceTwo.length - 1].href = href;
   console.log(1, req.session.data)
   res.redirect('/current/evidence-detail-two')
 })
 
+// follow up route for out of scope: evidence two
+router.post('/current/evidence-detail-two', (req, res, next) => {
+  console.log('this is evidence two out of scope')
+  console.log(req.session.data)
 
-
-
-
+  req.session.data.outScopeEvidenceTwo[req.session.data.outScopeEvidenceTwo.length - 1].scopeEvidenceTwo = req.session.data['query-content']
+//  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+  //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+  console.log(1, req.session.data)
+  res.redirect('/current/evidence-detail-two')
+})
 //Routes for queries appearing on action page
 
 router.post('/current/contact-claimant-action', (req, res, next) => {
