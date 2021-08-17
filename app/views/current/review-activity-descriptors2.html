@@ -1,3 +1,4 @@
+
 {% extends "layout.html" %}
 {% block main %}
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
@@ -56,8 +57,9 @@
 
             <td class="govuk-table__cell">
               {% if data['preparing-food-score'] == null %}
-                  0
+-
               {% endif %}
+
             </td>
           </tr>
 
@@ -78,7 +80,7 @@
 
             <td class="govuk-table__cell">
               {% if data['taking-nutrition-score'] == null %}
-                  0
+-
               {% endif %}
             </td>
 
@@ -99,7 +101,7 @@
 
             <td class="govuk-table__cell">
               {% if data['managing-therapy-score'] == null %}
-                  0
+                  -
               {% endif %}
             </td>
 
@@ -119,7 +121,7 @@
 
             <td class="govuk-table__cell">
               {% if data['washing-bathing-score'] == null %}
-                  0
+                  -
               {% endif %}
             </td>
 
@@ -140,7 +142,7 @@
 
             <td class="govuk-table__cell">
               {% if data['managing-toilet-needs-score'] == null %}
-                  0
+                  -
               {% endif %}
             </td>
           </tr>
@@ -160,7 +162,7 @@
 
             <td class="govuk-table__cell">
             {% if data['dressing-undressing-score'] == null %}
-                0
+                -
             {% endif %}
             </td>
           </tr>
@@ -180,7 +182,7 @@
 
             <td class="govuk-table__cell">
             {% if data['communicating-verbally-score'] == null %}
-                0
+                -
             {% endif %}
             </td>
           </tr>
@@ -200,7 +202,7 @@
 
             <td class="govuk-table__cell">
             {% if data['reading-understanding-score'] == null %}
-                0
+                -
             {% endif %}
             </td>
           </tr>
@@ -220,7 +222,7 @@
 
             <td class="govuk-table__cell">
             {% if data['engaging-score'] == null %}
-                0
+                -
             {% endif %}
             </td>
           </tr>
@@ -240,7 +242,7 @@
 
             <td class="govuk-table__cell">
             {% if data['budgeting-score'] == null %}
-                0
+                -
             {% endif %}
             </td>
           </tr>
@@ -251,12 +253,30 @@
               <b>{% set combinedDailyLiving = (nutritionscoreData[1] | int) + (foodscoreData[1] | int) + (therapyScoreData[1] | int)
                 + (washingScoreData[1] | int) + (toiletNeedsScoreData[1] | int) + (dressingScoreData[1] | int)
                 + (communicatingScoreData[1] | int) + (readingScoreData[1] | int) + (readingScoreData[1] | int)
-                + (engagingScoreData[1] | int) + (budgetingScoreData[1] | int) %} {{ combinedDailyLiving }}</b>
+                + (engagingScoreData[1] | int) + (budgetingScoreData[1] | int) %} {{ (combinedDailyLiving | int) }}
+              </b>
             </td>
             <td class="govuk-table__cell" style='visibility:collapse'>0</td>
           </tr>
         </tbody>
       </table>
+
+      <!-- logic for daily living scores -->
+    <div>
+          {% if combinedDailyLiving < '8' %}
+
+                <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">No daily living award</strong></h3>
+
+          {% elseif combinedDailyLiving >= '8' and combinedDailyLiving < '12' %}
+
+          <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">Standard daily living award</strong></h3>
+
+          {% elseif combinedDailyLiving >= '12' %}
+              <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">Enhanced daily living award</strong></h3>
+
+          {% endif %}
+          <br>
+    </div>
 
   <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--l">Mobility</caption>
@@ -264,7 +284,7 @@
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Activity</th>
             <th scope="col" class="govuk-table__header">Descriptor</th>
-            <th scope="col" class="govuk-table__header">Points</th>
+            <th scope="col" class="govuk-table__header govuk-table__header">Points</th>
           </tr>
         </thead>
 
@@ -284,10 +304,12 @@
             {% endif %}
           </td>
 
-          <td class="govuk-table__cell">
+          <td class="govuk-table__cell govuk-table__cell">
           {% if data['follow-journey-score'] == null %}
-              0
+          -
+
           {% endif %}
+
           </td>
         </tr>
         <tr class="govuk-table__row">
@@ -302,40 +324,29 @@
 
             {% elseif data['moving-around-score'] == null %}
                 No descriptor set yet
+
             {% endif %}
           </td>
 
-          <td class="govuk-table__cell">
+          <td class="govuk-table__cell govuk-table__cell">
           {% if data['moving-around-score'] == null %}
-               {% set moveAroundScoreData = "0" %} {{ moveAroundScoreData }}
-          {% endif %}
+          -
+                {% endif %}
+
+
           </td>
         </tr>
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Mobility total</th>
               <td class="govuk-table__cell" style='visibility:collapse'>0</td>
               <td class="govuk-table__cell">
-                <b>{% set combinedMobilityTotal = (followJourneyScoreData[1] | int) + (moveAroundScoreData[1] | int) %} {{ combinedMobilityTotal }}</b>
+                <b>{% set combinedMobilityTotal = (followJourneyScoreData[1] | int) + (moveAroundScoreData[1] | int) %} {{ (combinedMobilityTotal | int) }}</b>
               </td>
-              <td class="govuk-table__cell" style='visibility:collapse'>0</td>
+              <td class="govuk-table__cell govuk-table__cell" style='visibility:collapse'>0</td>
         </tr>
     </tbody>
 </table>
-          <!-- logic for daily living scores -->
-        <div>
-              {% if combinedDailyLiving < '8' %}
 
-                    <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">No daily living award</strong></h3>
-
-              {% elseif combinedDailyLiving >= '8' and combinedDailyLiving < '12' %}
-
-              <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">Standard daily living award</strong></h3>
-
-              {% elseif combinedDailyLiving >= '12' %}
-                  <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">Enhanced daily living award</strong></h3>
-
-              {% endif %}
-        </div>
 
         <!-- logic for mobility scores --->
         <div>
@@ -345,17 +356,18 @@
 
               {% elseif combinedMobilityTotal >= '8' and combinedMobilityTotal < '12' %}
 
-              <h3 class="govuk-heading-s">Indicated mobility award level: <strong class="govuk-tag">Standard moility award</strong></h3>
+              <h3 class="govuk-heading-s">Indicated mobility award level: <strong class="govuk-tag">Standard mobility award</strong></h3>
 
               {% elseif combinedMobilityTotal >= '12' %}
                   <h3 class="govuk-heading-s">Indicated mobility award level: <strong class="govuk-tag">Enhanced mobility award</strong></h3>
 
               {% endif %}
+              <br>
       </div>
 
 
         {{ govukButton({
-            text: "View summary",
+            text: "Back to case summary",
             href: "summary",
             classes: "govuk-button--secondary"
         }) }}
