@@ -1,0 +1,369 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Tasklist
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+
+        <!--  <dd><strong class="govuk-tag govuk-tag--grey">Additional support</strong></dd>
+          <dd><strong class="govuk-tag app-task-list__tag" id="company-information-status">Additional support</strong></dd>
+        -->
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Case details
+      </h1>
+
+
+      <ol class="app-task-list">
+        <h2 class="app-task-list__section">
+           Case contact information
+        </h2>
+        <li>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="contact-details" aria-describedby="eligibility-status">
+                  Contact details
+                </a>
+              </span>
+            <!--  <strong class="govuk-tag app-task-list__tag" id="eligibility-status">Completed</strong>-->
+            </li>
+          </ul>
+        </li>
+
+        <h2 class="app-task-list__section">
+          Evidence
+        </h2>
+        <li>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="evidence" aria-describedby="company-information-status">
+                  Case evidence
+                </a>
+              </span>
+              <!--<strong class="govuk-tag app-task-list__tag" id="company-information-status">Completed</strong>-->
+            </li>
+            <!--<li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="contact-details-status">
+                  Your contact details
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="contact-details-status">In progress</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="#" aria-describedby="list-convictions-status">
+                  List convictions
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                Provide financial evidence
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="financial-evidence-status">Cannot start yet</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                Give medical information
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="medical-information-status">Cannot start yet</strong>
+            </li>-->
+          </ul>
+        </li>
+
+        <h2 class="app-task-list__section">
+          Medication
+        </h2>
+        <li>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <a href="medication" aria-describedby="company-information-status">
+                Medication
+                </a>
+              <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>-->
+            </li>
+          </ul>
+        </li>
+
+        <h2 class="app-task-list__section">
+          Additional information in the PIP 2
+        </h2>
+        <li>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <a id="conditions" href="additional-information" aria-describedby="company-information-status">
+                Additional information
+                </a>
+              <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>-->
+            </li>
+          </ul>
+        </li>
+
+        <h2 class="app-task-list__section">
+          Conditions
+        </h2>
+        <li>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <a href="condition-one?source=diabetes" aria-describedby="company-information-status">
+                Diabetes
+                </a>
+              <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="condition-two?source=prostate-cancer" aria-describedby="list-convictions-status">
+                  Prostate cancer
+                </a>
+              </span>
+              <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="condition-three?source=angina" aria-describedby="company-information-status">
+                Angina
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="condition-four?source=copd" aria-describedby="company-information-status">
+                COPD
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="condition-five?source=blood-pressure" aria-describedby="company-information-status">
+                Blood pressure
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="condition-six?source=incontinence" aria-describedby="company-information-status">
+                Incontinence
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="condition-seven?source=irregular-heartbeat" aria-describedby="company-information-status">
+                Irregular heartbeat
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a id="activities" href="condition-eight?source=hot-flushes" aria-describedby="company-information-status">
+                Hot flushes
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+          </ul>
+        </li>
+
+        <h2 class="app-task-list__section">
+          Day to day life
+        </h2>
+        <li>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+
+
+            <li class="app-task-list__item">
+              <a href="activities/preparing-food.html?source=Preparing food" aria-describedby="company-information-status">
+                Preparing food
+                </a>
+                <!--<script type="text/javascript">
+
+                          var testQ = "{{ data['query-content'] }}";
+                          var descriptorFood = "{{ data['set-descriptor'] }}" + "1";
+
+                          var desOne = "Can prepare and cook a simple meal unaided";
+                          var desTwo = "Needs to use an aid or appliance to be able to either prepare or cook a simple meal";
+                          var desThree = "Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave";
+                          var desFour = "Needs prompting to be able to either prepare or cook a simple meal";
+                          var desFive = "Needs supervision or assistance to either prepare or cook a simple meal";
+                          var desSix = "Cannot prepare and cook food at all";
+                          console.log(testQ);
+                          console.log(descriptorFood);
+                          //console.log(desOne);
+
+                            if (testQ) {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">In progress</strong>');
+                                var testQ;
+                                console.log(testQ);
+                                }
+                                /*else if (descriptorFood = "desOne" || "desTwo" || "desThree" || "desFour" || "desFive" || "desSix") {
+                                  document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">Completed</strong>');
+                                }*/
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>');
+                              }
+                              //document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
+                            </script>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/taking-nutrition?source=Taking nutrition" aria-describedby="company-information-status">
+                Taking nutrition
+                </a>
+              <!--  <script type="text/javascript">
+
+                          var testE = "{{ data['query-act-two'] }}";
+                          var descriptorNut = "{{ data['set-descriptor'] }}";
+                          console.log(descriptorNut);
+
+                            if (testE) {
+
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">In progress</strong>');
+                                }
+                              /*else if (descriptorNut && !testE) {
+                                  document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">Completed</strong>');
+                                }*/
+                              else {
+                                document.write('<strong class="govuk-tag govuk-tag--grey app-task-list__tag">Not started</strong>');
+                              }
+
+
+                              //document.write('<strong class="govuk-tag govuk-tag app-task-list__tag">In progress</strong>');
+                            </script>-->
+              <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/managing-therapy?source=Managing therapy" aria-describedby="company-information-status">
+                Managing therapy or monitoring a health condition
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/washing-and-bathing?source=Washing and bathing" aria-describedby="company-information-status">
+                Washing and bathing
+                </a>
+          <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/managing-toilet-needs?source=Managing toilet needs or incontinence" aria-describedby="company-information-status">
+                Managing toilet needs or​ incontinence
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/dressing-and-undressing?source=Dressing and undressing" aria-describedby="company-information-status">
+                Dressing and undressing
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/communicating-verbally?source=communicating-verbally" aria-describedby="company-information-status">
+                Communicating verbally
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/reading-and-understanding?source=reading-and-understanding" aria-describedby="company-information-status">
+                Reading and understanding​ s​ymbols and words
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/engaging-face-to-face?source=face-to-face" aria-describedby="company-information-status">
+                Engaging with other people face to face
+                </a>
+          <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/budgeting?source=budgeting" aria-describedby="company-information-status">
+                Making budgeting decisions
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+          </ul>
+        </li>
+
+        <h2 class="app-task-list__section">
+          Mobility and getting around
+        </h2>
+        <li>
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <a id="mobility-activity" href="activities/planning-and-following-journeys?source=plan-follow-journeys" aria-describedby="company-information-status">
+                Planning and following journeys
+                </a>
+              <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/moving-around?source=moving-around" aria-describedby="company-information-status">
+                Moving around
+                </a>
+            <!--  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong>-->
+            </li>
+          </ul>
+        </li>
+
+      </ol>
+
+      <div id="req-medical-advice"></div>
+
+      <!--<h2 class="govuk-heading-m" id="action">Who to contact to resolve issues</h2>--->
+    <!--  {% for query in data['queries'] %} -->
+    <!--  <p><a href="{{ query.href }}">{{ query.action }}</a></p>
+      {% endfor %}-->
+
+      <!--{% for query in data['queriesCondition'] %}
+      <p><a href="{{ query.href }}">{{ query.action }}</a></p>
+      {% endfor %}-->
+
+      <!--{% for query in data['queriesEvidence'] %}
+      <p><a href="{{ query.href }}">{{ query.action }}</a></p>
+      {% endfor %}-->
+
+
+  <!--    {% from "govuk/components/button/macro.njk" import govukButton %} -->
+
+
+
+        <!--  {{ govukButton({
+            text: "Review activity descriptors",
+            classes: "govuk-button--secondary",
+            href: "#"
+          }) }}-->
+
+          <!--<br>--?
+<!--<p>{{ data['query-content'] }}</p>-->
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "View summary",
+            href: "summary"
+          }) }}
+    </div>
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jayne Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>31 December 1999</dd>
+      </div>
+    </dl>
+</section>
+
+{% block pageTitle %}
+  Test page
+{% endblock %}
+
+{% block content %}
+<p>Test</p>
+
+{% endblock %}
