@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block main %}
+
+    <div class="govuk-width-container">
+      <a href="task-list" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-l">Scenario 2</h1>
+
+            <p>The user researcher will explain what to do next.</p>
+
+
+
+    {{ govukButton({
+      text: "Continue",
+      href: "review-activity-descriptors2"
+    }) }}
+
+
+    </div>
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

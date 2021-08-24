@@ -1,0 +1,107 @@
+<!--{% set link = "1-ni-number" %}-->
+{% extends "layout.html" %}
+<!--{% set redirect = [{id : "req-med-advice", page: link }, {id: "cons-ref-materials", page: "unhappy-2"}, {id: "req-further-evidence-from-hcp", page: "unhappy-2"}, {id: "contact-claimant", page: "unhappy-2"}, {id: "agent-action", page: "unhappy-2"}] %}-->
+{% block main %}
+
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+  <form action="#" method="post">
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+idPrefix: "set-action",
+name: "set-an-action",
+fieldset: {
+  legend: {
+    text: "Who do you need to contact to resolve this issue?",
+    isPageHeading: true,
+    classes: "govuk-fieldset__legend--l"
+  }
+},
+items: [
+  {
+    id: "req-med-advice",
+    value: "The claimant",
+    text: "The claimant",
+    conditional: "2"
+  },
+  {
+    id: "cons-ref-materials",
+    value: "The claimant's doctor",
+    text: "The claimant's doctor"
+  },
+  {
+    id: "req-further-evidence-from-hcp",
+    value: "The claimant's urologist",
+    text: "The claimant's urologist"
+  },
+  {
+    id: "additional-hcp",
+    value: "The claimant's consultant clinical urologist",
+    text: "The claimant's consultant clinical urologist"
+  },
+  {
+    id: "contact",
+    value: "VAL",
+    text: "VAL"
+  },
+  {
+    id: "agent-action",
+    value: "Resolve this issue another way",
+    text: "Resolve this issue another way"
+  }
+]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+<!--<p>{{ data['query-content'] }}</p>-->
+</form>
+  <!--<p>{{ data['query-content'] }}</p>-->
+
+<!--<a href="task-list" aria-describedby="company-information-status">
+  return to tasks
+  </a>-->
+
+
+
+    </div>
+
+    <!--<div class="govuk-grid-column-one-third">
+          <aside class="app-related-items" role="complementary">
+          </aside>
+        </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

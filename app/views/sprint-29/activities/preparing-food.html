@@ -1,0 +1,262 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="/current/task-list#activities" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Preparing food
+      </h1>
+       <p class="govuk-body">This includes food preparation such as peeling, chopping or opening packaging and
+                            safely cooking or heating food on a cooker hob or in a microwave oven.</p>
+
+      <h2 class="govuk-heading-l">Claimant's account</h2>
+      <p class="govuk-body">On a good day I can use a microwave, but have difficult using an oven. Bending and standing too long gives me pain in lower back and hips. On a bad day, if i get angina attack, hot flushes, dizzy spell, nothing gets done. Bad days more often than not.</p>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-one-half">Question in PIP2</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Answer</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Do you need to use an aid or appliance to prepare or cook a simple meal?</th>
+              <td class="govuk-table__cell">No</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Do you need help from another person to prepare or cook a simple meal?</th>
+              <td class="govuk-table__cell">Yes</td>
+            </tr>
+          </tbody>
+          </table>
+
+          <form action="#" method="post">
+              <input type="hidden" value="{{ data.source }}"/>
+
+          {{ govukRadios({
+            idPrefix: "activity-one-note",
+            name: "preparing-food-note",
+            fieldset: {
+              legend: {
+                text: "Add a note about this activity",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "important-to-this-case",
+                text: "Important to this case"
+              },
+              {
+                value: "question-about-this-condition",
+                text: "Question about this condition"
+              },
+              {
+                value: "out-of-scope",
+                text: "Out of scope"
+              }
+
+            ]
+          }) }}
+
+          <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
+
+
+                <div class="govuk-form-group">
+                    <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+                </div>
+                <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+
+                {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                {{ govukButton({
+                  text: "Add this note"
+                }) }}
+          </form>
+
+
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Notes</th>
+      <th scope="col" class="govuk-table__header">Linked to</th>
+    </tr>
+  </thead>
+  {% for taggedPrepFood in data['taggingPrepFood'] %}
+  {% if taggedPrepFood.section == 'Preparing food' %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        {{ taggedPrepFood.tagContent }}
+      </td>
+      <td class="govuk-table__cell">
+        {{ taggedPrepFood.action }}
+
+      </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Problem with standing too long</td>
+      <td class="govuk-table__cell">Atorvastatin,Tamsulosin,Moving around</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-m">Questions about the claimant's account</h2>
+<!--<script defer type="text/javascript">
+
+  var noQuery = "{{ data['set-an-action'] }}";
+
+  if (noQuery) {
+
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">No questions have been added to this activity yet.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
+
+  </script>-->
+
+<div id="queryTable">
+  <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Question</th>
+              <th scope="col" class="govuk-table__header">Who to contact</th>
+              <!--<th scope="col" class="govuk-table__header">Status</th>-->
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for query in data['queriesPrepFood'] %}
+          {% if query.section == 'Preparing food' %}
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ query.content }}
+
+              </td>
+              <td class="govuk-table__cell">
+                {{ query.action }}
+              </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
+              <td class="govuk-table__cell">The claimant</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">How often are your angina attacks?</td>
+              <td class="govuk-table__cell">The claimant</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
+              <td class="govuk-table__cell">The claimant</td>
+          </tr>
+
+        </tbody>
+</table>
+</div>
+
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header"></th>
+      <th scope="col" class="govuk-table__header"></th>
+    </tr>
+  </thead>
+  {% for noScopePrepFood in data['outScopePrepFood'] %}
+  {% if noScopePrepFood.section == 'Preparing food' %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        {{ noScopePrepFood.scopeNote }}
+      </td>
+      <td class="govuk-table__cell">
+        <!--{{ noScopePrepFood.action }}-->
+      </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Issue with bending to reach oven</td>
+      <td class="govuk-table__cell">
+        <!--{{ noScopePrepFood.action }}-->
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+        <!--  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Create query
+          </button>
+
+
+
+
+          <br>
+
+              {{ govukButton({
+                text: "Set descriptor",
+                href: "set-descriptor"
+              }) }}
+
+
+
+
+    </div>
+
+              <div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                    </aside>
+                  </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <a href="/current/task-list#conditions" class="govuk-back-link">Back to case details</a>
+
+  <main class="govuk-main-wrapper">
+
+
+    <!--<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Diabetes
+      </h1>
+      <h2 class="govuk-heading-m">Approximate start date</h2>
+      <p>June 2011</p>
+      <br>
+      <br>
+<!--
+      <form action="#" method="post">
+          <input type="hidden" value="{{ data.source }}"/>
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  idPrefix: "conditon-one-note",
+  name: "conditon-one-note",
+  fieldset: {
+    legend: {
+      text: "Add a note about this condition",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "important-to-this-case",
+      text: "Important to this case"
+    },
+    {
+      value: "qestion-about-this-condition",
+      text: "Question about this condition"
+    },
+    {
+      value: "out-of-scope",
+      text: "Out of scope"
+    }
+
+  ]
+}) }}
+-->
+
+
+      <!--{{ data | dump }}-->
+      <!--
+      <div class="govuk-form-group">
+          <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+      </div>
+      <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+<!--
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Add this note"
+      }) }}
+    </form>
+
+
+
+
+    <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">Notes</th>
+    <th scope="col" class="govuk-table__header">Linked to</th>
+    </tr>
+    </thead>
+    {% for taggedPrepFood in data['taggingPrepFood'] %}
+    {% if taggedPrepFood.section == 'diabetes' %}
+    <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    {{ taggedPrepFood.tagContent }}
+    </td>
+    <td class="govuk-table__cell">
+    {{ taggedPrepFood.action }}
+
+    </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </tbody>
+    </table>
+
+    <h2 class="govuk-heading-m">Questions about the claimant's account</h2>
+    <script defer type="text/javascript">
+
+    var noQuery = "{{ data['set-an-action'] }}";
+
+    if (noQuery) {
+
+    document.write('');
+    }
+    else {
+    document.write('<p class="govuk-body">There are no queries for this activity.</p>');
+    window.onload = function(){
+    document.getElementById('queryTable').style.display = 'none';
+    }
+    }
+
+    </script>
+
+    <div id="queryTable">
+        <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Question</th>
+        <th scope="col" class="govuk-table__header">Who to contact</th>
+        <!--<th scope="col" class="govuk-table__header">Status</th>-->
+
+      <!--  </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        {% for query in data['queriesPrepFood'] %}
+        {% if query.section == 'diabetes' %}
+
+        <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          {{ query.content }}
+
+        </td>
+        <td class="govuk-table__cell">
+          {{ query.action }}
+        </td>
+        <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
+ <!--  </tr>
+        {% endif %}
+        {% endfor %}
+
+        </tbody>
+        </table>
+</div>
+
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header"></th>
+        <th scope="col" class="govuk-table__header"></th>
+      </tr>
+    </thead>
+    {% for noScopePrepFood in data['outScopePrepFood'] %}
+    {% if noScopePrepFood.section == 'diabetes' %}
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          {{ noScopePrepFood.scopeNote }}
+        </td>
+        <td class="govuk-table__cell">
+          <!--{{ noScopePrepFood.action }}-->
+<!--      </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+
+-->
+    </div>
+
+</div>
+
+
+      </main>
+      </div>
+
+{% endblock %}
