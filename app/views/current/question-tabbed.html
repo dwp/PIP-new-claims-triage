@@ -30,7 +30,7 @@
   <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
 
-              <h1 class="govuk-heading-xl">
+              <h1 class="govuk-heading-l">
                 Bad day - further info needed, how many good days or bad days?
               </h1>
 
@@ -38,103 +38,77 @@
               {% from "govuk/components/table/macro.njk" import govukTable %}
 
               {% set pastDayHtml %}
-              <h2 class="govuk-heading-l">Answer</h2>
-              {{ govukTable({
-              head: [
-                {
-                  text: "Case manager"
-                },
-                {
-                  text: "Cases opened"
-                },
-                {
-                  text: "Cases closed"
-                }
-              ],
-              rows: [
-                [
-                  {
-                    text: "David Francis"
-                  },
-                  {
-                    text: "3"
-                  },
-                  {
-                    text: "0"
-                  }
-                ],
-                [
-                  {
-                    text: "Paul Farmer"
-                  },
-                  {
-                    text: "1"
-                  },
-                  {
-                    text: "0"
-                  }
-                ],
-                [
-                  {
-                    text: "Rita Patel"
-                  },
-                  {
-                    text: "2"
-                  },
-                  {
-                    text: "0"
-                  }
-                ]
-              ]
-              }) }}
+              <h2 class="govuk-heading-m">Answer</h2>
+
+                <h3 class="govuk-heading-s">Linked to <p>Preparing food</p></h3>
+
+                <div class="govuk-form-group">
+                    <h3 class="govuk-heading-s">Answer</h3>
+                      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+                </div>
+
+                {{ govukRadios({
+                      classes: "govuk-radios--inline",
+                      idPrefix: "changed-name",
+                      name: "changed-name",
+                      fieldset: {
+                        legend: {
+                          text: "Has this answered your question?",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--m"
+                        }
+                      },
+                      items: [
+                        {
+                          value: "yes",
+                          text: "Yes"
+                        },
+                        {
+                          value: "no",
+                          text: "No"
+                        }
+                      ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Save and continue"
+                }) }}
+
               {% endset -%}
 
               {% set pastWeekHtml %}
-              <h2 class="govuk-heading-l">Claimants account</h2>
+              <h2 class="govuk-heading-m">Preparing food</h2>
+
+              <p class="govuk-body">This includes food preparation such as peeling, chopping or opening packaging and
+                                   safely cooking or heating food on a cooker hob or in a microwave oven.</p>
+
+             <h2 class="govuk-heading-m">Claimant's account</h2>
+             <p class="govuk-body">On a good day I can use a microwave, but have difficult using an oven. Bending and standing too long gives me pain in lower back and hips. On a bad day, if i get angina attack, hot flushes, dizzy spell, nothing gets done. Bad days more often than not.</p>
+
               {{ govukTable({
               head: [
                 {
-                  text: "Case manager"
+                  text: "Question in PIP2"
                 },
                 {
-                  text: "Cases opened"
-                },
-                {
-                  text: "Cases closed"
+                  text: "Answer"
                 }
               ],
               rows: [
                 [
                   {
-                    text: "David Francis"
+                    text: "Do you need to use an aid or appliance to prepare or cook a simple meal?"
                   },
                   {
-                    text: "24"
-                  },
-                  {
-                    text: "18"
+                    text: "No"
                   }
                 ],
                 [
                   {
-                    text: "Paul Farmer"
+                    text: "Do you need help from another person to prepare or cook a simple meal?"
                   },
                   {
-                    text: "16"
-                  },
-                  {
-                    text: "20"
-                  }
-                ],
-                [
-                  {
-                    text: "Rita Patel"
-                  },
-                  {
-                    text: "24"
-                  },
-                  {
-                    text: "27"
+                    text: "Yes"
                   }
                 ]
               ]
@@ -143,58 +117,6 @@
 
               {% set pastMonthHtml %}
 
-              {% endset -%}
-
-              {% set pastYearHtml %}
-              <h2 class="govuk-heading-l">Past year</h2>
-              {{ govukTable({
-              head: [
-                {
-                  text: "Case manager"
-                },
-                {
-                  text: "Cases opened"
-                },
-                {
-                  text: "Cases closed"
-                }
-              ],
-              rows: [
-                [
-                  {
-                    text: "David Francis"
-                  },
-                  {
-                    text: "1380"
-                  },
-                  {
-                    text: "1472"
-                  }
-                ],
-                [
-                  {
-                    text: "Paul Farmer"
-                  },
-                  {
-                    text: "1129"
-                  },
-                  {
-                    text: "1083"
-                  }
-                ],
-                [
-                  {
-                    text: "Rita Patel"
-                  },
-                  {
-                    text: "1539"
-                  },
-                  {
-                    text: "1265"
-                  }
-                ]
-              ]
-              }) }}
               {% endset -%}
 
               {{ govukTabs({
@@ -207,7 +129,7 @@
                   }
                 },
                 {
-                  label: "Claimants account",
+                  label: "View claimants account for preparing food",
                   id: "past-week",
                   panel: {
                     html: pastWeekHtml
