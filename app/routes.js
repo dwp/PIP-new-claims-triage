@@ -82,19 +82,19 @@ router.post('/current/set-action/set-action-preparing-food', (req, res, next) =>
 
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
-    href = '/current/contact-claimant-action';
+    href = '/current/questions-claimant';
     break;
     case("The claimant's doctor"):
-    href = '/current/contact-hcp1-action';
+    href = '/current/questions-doctor';
     break;
     case("The claimant's urologist"):
-    href = '/current/contact-hcp2-action';
+    href = '/current/questions-urologist';
     break;
     case("The claimant's consultant clinical urologist"):
-    href = '/current/contact-hcp3-action';
+    href = '/current/questions-consultant';
     break;
     case('VAL'):
-    href = '/current/contact-val-action';
+    href = '/current/questions-val';
     break;
     case('Resolve this issue another way'):
     href = '/current/none-these-action';
@@ -180,19 +180,19 @@ router.post('/current/set-action/set-action-taking-nutrition', (req, res, next) 
 
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
-    href = '/current/contact-claimant-action';
+    href = '/current/questions-claimant';
     break;
     case("The claimant's doctor"):
-    href = '/current/contact-hcp1-action';
+    href = '/current/questions-doctor';
     break;
     case("The claimant's urologist"):
-    href = '/current/contact-hcp2-action';
+    href = '/current/questions-urologist';
     break;
     case("The claimant's consultant clinical urologist"):
-    href = '/current/contact-hcp3-action';
+    href = '/current/questions-consultant';
     break;
     case('VAL'):
-    href = '/current/contact-val-action';
+    href = '/current/questions-val';
     break;
     case('Resolve this issue another way'):
     href = '/current/none-these-action';
@@ -278,19 +278,19 @@ router.post('/current/set-action/set-action-managing-therapy', (req, res, next) 
 
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
-    href = '/current/contact-claimant-action';
+    href = '/current/questions-claimant';
     break;
     case("The claimant's doctor"):
-    href = '/current/contact-hcp1-action';
+    href = '/current/questions-doctor';
     break;
     case("The claimant's urologist"):
-    href = '/current/contact-hcp2-action';
+    href = '/current/questions-urologist';
     break;
     case("The claimant's consultant clinical urologist"):
-    href = '/current/contact-hcp3-action';
+    href = '/current/questions-consultant';
     break;
     case('VAL'):
-    href = '/current/contact-val-action';
+    href = '/current/questions-val';
     break;
     case('Resolve this issue another way'):
     href = '/current/none-these-action';
@@ -377,19 +377,19 @@ router.post('/current/set-action/set-action-washing-and-bathing', (req, res, nex
 
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
-    href = '/current/contact-claimant-action';
+    href = '/current/questions-claimant';
     break;
     case("The claimant's doctor"):
-    href = '/current/contact-hcp1-action';
+    href = '/current/questions-doctor';
     break;
     case("The claimant's urologist"):
-    href = '/current/contact-hcp2-action';
+    href = '/current/questions-urologist';
     break;
     case("The claimant's consultant clinical urologist"):
-    href = '/current/contact-hcp3-action';
+    href = '/current/questions-consultant';
     break;
     case('VAL'):
-    href = '/current/contact-val-action';
+    href = '/current/questions-val';
     break;
     case('Resolve this issue another way'):
     href = '/current/none-these-action';
