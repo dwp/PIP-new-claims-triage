@@ -65,6 +65,62 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+        {% for questions in data['queriesPrepFood'] %}
+        {% if questions.action == "The claimant's doctor" %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.action }} </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for questions in data['queriesTakeNutrition'] %}
+        {% if questions.action == "The claimant's doctor" %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.action }} </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for questions in data['queriesManageTherapy'] %}
+        {% if questions.action == "The claimant's doctor" %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.action }} </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for questions in data['queriesWashingBathing'] %}
+        {% if questions.action == "The claimant's doctor" %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.action }} </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
           <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">How often are your Angina attacks?</td>
           <td class="govuk-table__cell">Condition 2</td>
