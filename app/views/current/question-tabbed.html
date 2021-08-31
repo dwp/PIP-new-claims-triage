@@ -31,7 +31,13 @@
           <div class="govuk-grid-column-two-thirds">
 
               <h1 class="govuk-heading-l">
-                Bad day - further info needed, how many good days or bad days?
+                {% for questions in data['queriesPrepFood'] %}
+                {% if questions.action == "The claimant" %}
+
+                        {{ questions.content }}
+
+                {% endif %}
+                {% endfor %}
               </h1>
 
               {% from "govuk/components/tabs/macro.njk" import govukTabs %}
@@ -40,11 +46,20 @@
               {% set pastDayHtml %}
               <h2 class="govuk-heading-m">Answer</h2>
 
-                <h3 class="govuk-heading-s">Linked to <p>Preparing food</p></h3>
+              {% for questions in data['queriesPrepFood'] %}
+              {% if questions.action == "The claimant" %}
+                <h3 class="govuk-heading-s">Linked to
+                   <p>{{ questions.section }}</p></h3>
 
+                {% endif %}
+                {% endfor %}
+
+
+      <form action="#" method="post">
+          <input type="hidden" value="{{ data.source }}"/>
                 <div class="govuk-form-group">
                     <h3 class="govuk-heading-s">Answer</h3>
-                      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+                      <textarea class="govuk-textarea" id="answers" name="answer" value="{{ data['answered'] }}" rows="5"></textarea>
                 </div>
 
                 {{ govukRadios({
@@ -74,6 +89,7 @@
                     text: "Save and continue"
                 }) }}
 
+            </form>
               {% endset -%}
 
               {% set pastWeekHtml %}
