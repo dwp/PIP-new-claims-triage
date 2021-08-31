@@ -13,6 +13,31 @@ const router = express.Router()
 
 //Routes for tagging, questions and  out of scope for preparing food activity
 
+// Start routes for giving an answer to a question
+router.post('/current/question-tabbed', (req, res, next) => {
+      console.log('/current/question-tabbed', req.session.data)
+
+      const answerNote = req.session.data['answered']
+      const section = req.session.data.source
+
+      const answerQuestion = req.session.data.answerQuestion || []
+      answerQuestion.push({ section, answerNote })
+      req.session.data.outScopePrepFood = answerQuestion
+      res.redirect('/current/questions-claimant')
+    })
+
+    // follow up code for giving an answer to a question
+    router.post('/current/questions-claimant', (req, res, next) => {
+      console.log('this is prepfood out of scope')
+      console.log(req.session.data)
+
+      req.session.data.answerQuestion[req.session.data.answerQuestion.length - 1].answerPrepFood = req.session.data['answered']
+    //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+      //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+      console.log(1, req.session.data)
+      res.redirect('/current/questions-claimant')
+    })
+
 //Start routes for preparing food: questions
 router.post('/current/activities/preparing-food', (req, res, next) => {
     if (req.session.data['preparing-food-note'] == "question-about-this-condition" ) {
