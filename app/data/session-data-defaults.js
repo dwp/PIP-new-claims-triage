@@ -27,4 +27,3 @@ module.exports = {
       'descriptorNoTwo': '6'
 }]
 }
-set (foodscoreData[1] | int) = 0
