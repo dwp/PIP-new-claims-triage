@@ -71,28 +71,7 @@
           <td class="govuk-table__cell"> -</td>
           <td class="govuk-table__cell"><a href="question-tabbed">Edit</a></td>
         </tr>
-      </tbody>
 
-      <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-          <td colspan="5"><br></td>
-        </tr>
-      </tbody>
-
-
-
-
-
-      <!--<caption class="govuk-table__caption govuk-table__caption--m">Resolved questions</caption>-->
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Resolved question</th>
-          <th scope="col" class="govuk-table__header">Linked to</th>
-          <th scope="col" class="govuk-table__header">Answer</th>
-          <th scope="col" class="govuk-table__header">Action</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
         {% for questions in data['queriesPrepFood'] %}
         {% if questions.action == "The claimant" %}
         <tr class="govuk-table__row">
@@ -150,6 +129,35 @@
         {% endfor %}
 
           <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
+          <td class="govuk-table__cell">Preparing food</td>
+          <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
+          <td class="govuk-table__cell"><a href="question-tabbed2">Edit</a></td>
+        </tr>
+      </tbody>
+
+      <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+          <td colspan="5"><br></td>
+        </tr>
+      </tbody>
+
+
+
+
+
+      <!--<caption class="govuk-table__caption govuk-table__caption--m">Resolved questions</caption>-->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Resolved question</th>
+          <th scope="col" class="govuk-table__header">Linked to</th>
+          <th scope="col" class="govuk-table__header">Answer</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
           <td class="govuk-table__cell">Preparing food</td>
           <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
