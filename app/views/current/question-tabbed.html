@@ -93,15 +93,11 @@
               {% endset -%}
 
               {% set pastWeekHtml %}
-              <h2 class="govuk-heading-m">Preparing food</h2>
-
-              <p class="govuk-body">This includes food preparation such as peeling, chopping or opening packaging and
-                                   safely cooking or heating food on a cooker hob or in a microwave oven.</p>
 
              <h2 class="govuk-heading-m">Claimant's account</h2>
-             <p class="govuk-body">On a good day I can use a microwave, but have difficult using an oven. Bending and standing too long gives me pain in lower back and hips. On a bad day, if i get angina attack, hot flushes, dizzy spell, nothing gets done. Bad days more often than not.</p>
-
-              {{ govukTable({
+             <p class="govuk-body">Approximate start date May 2014</p>
+<br><!--
+               {{ govukTable({
               head: [
                 {
                   text: "Question in PIP2"
@@ -131,6 +127,7 @@
               }) }}
               {% endset -%}
 
+
               {% set pastMonthHtml %}
 
               {% endset -%}
@@ -145,7 +142,7 @@
                   }
                 },
                 {
-                  label: "View claimants account for preparing food",
+                  label: "View claimants account for Angina",
                   id: "past-week",
                   panel: {
                     html: pastWeekHtml
@@ -155,7 +152,7 @@
               }) }}
 
 
-
+--><br>
 
 
 

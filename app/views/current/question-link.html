@@ -31,13 +31,19 @@
           <div class="govuk-grid-column-two-thirds">
 
               <h1 class="govuk-heading-l">
-                Bad day - further info needed, how many good days or bad days?
+
+
+                {% for questions in data['queriesPrepFood'] %}
+                {% if questions.action == "The claimant" %}
+                  {{ questions.content }}
+                  {% endif %}
+                  {% endfor %}
               </h1>
 
               <h2 class="govuk-heading-m">
                 Linked to
               </h2>
-              <p><a href="activities/preparing-food" target="new">Preparing food (opens in a new tab)</a></p>
+              <p><!-- <a href="activities/preparing-food" target="new"-->Preparing food <!--</a>--></p>
 
 
 
