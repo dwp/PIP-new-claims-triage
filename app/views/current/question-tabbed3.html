@@ -19,7 +19,7 @@
 </section>
 
 <div class="govuk-width-container">
-  <a href="/current/questions-claimant2" class="govuk-back-link">Back to open questions</a>
+  <a href="/current/questions-claimant" class="govuk-back-link">Back to open questions</a>
 
   <main class="govuk-main-wrapper">
 
@@ -30,14 +30,14 @@
   <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
 
-              <h1 class="govuk-heading-l">How often are your Angina attacks?
-              <!--  {% for questions in data['queriesPrepFood'] %}
+              <h1 class="govuk-heading-l">
+                {% for questions in data['queriesPrepFood'] %}
                 {% if questions.action == "The claimant" %}
 
                         {{ questions.content }}
 
                 {% endif %}
-                {% endfor %}-->
+                {% endfor %}
               </h1>
 
               {% from "govuk/components/tabs/macro.njk" import govukTabs %}
@@ -94,65 +94,64 @@
 
               {% set pastWeekHtml %}
 
-             <h2 class="govuk-heading-m">Claimant's account</h2>
-             <p class="govuk-body">Approximate start date May 2014</p>
-<br><!--
+              <h2 class="govuk-heading-m">Claimant's account</h2>
+              <p class="govuk-body">On a good day I can use a microwave, but have difficult using an oven. Bending and standing too long gives me pain in lower back and hips. On a bad day, if i get angina attack, hot flushes, dizzy spell, nothing gets done. Bad days more often than not.</p>
+
                {{ govukTable({
-              head: [
-                {
-                  text: "Question in PIP2"
-                },
-                {
-                  text: "Answer"
-                }
-              ],
-              rows: [
-                [
-                  {
-                    text: "Do you need to use an aid or appliance to prepare or cook a simple meal?"
-                  },
-                  {
-                    text: "No"
-                  }
-                ],
-                [
-                  {
-                    text: "Do you need help from another person to prepare or cook a simple meal?"
-                  },
-                  {
-                    text: "Yes"
-                  }
-                ]
-              ]
-              }) }}
-              {% endset -%}
+               head: [
+                 {
+                   text: "Question in PIP2"
+                 },
+                 {
+                   text: "Answer"
+                 }
+               ],
+               rows: [
+                 [
+                   {
+                     text: "Do you need to use an aid or appliance to prepare or cook a simple meal?"
+                   },
+                   {
+                     text: "No"
+                   }
+                 ],
+                 [
+                   {
+                     text: "Do you need help from another person to prepare or cook a simple meal?"
+                   },
+                   {
+                     text: "Yes"
+                   }
+                 ]
+               ]
+               }) }}
+               {% endset -%}
+
+               {% set pastMonthHtml %}
+
+               {% endset -%}
+
+               {{ govukTabs({
+               items: [
+                 {
+                   label: "Answer",
+                   id: "past-day",
+                   panel: {
+                     html: pastDayHtml
+                   }
+                 },
+                 {
+                   label: "View claimants account for preparing food",
+                   id: "past-week",
+                   panel: {
+                     html: pastWeekHtml
+                   }
+                 }
+               ]
+               }) }}
 
 
-              {% set pastMonthHtml %}
-
-              {% endset -%}
-
-              {{ govukTabs({
-              items: [
-                {
-                  label: "Answer",
-                  id: "past-day",
-                  panel: {
-                    html: pastDayHtml
-                  }
-                },
-                {
-                  label: "View claimants account for Angina",
-                  id: "past-week",
-                  panel: {
-                    html: pastWeekHtml
-                  }
-                }
-              ]
-              }) }}
-
-
---><br>
+ <br>
 
 
 
