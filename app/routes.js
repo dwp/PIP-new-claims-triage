@@ -23,7 +23,8 @@ router.post('/current/question-tabbed', (req, res, next) => {
       const answerQuestion = req.session.data.answerQuestion || []
       answerQuestion.push({ section, answerNote })
       req.session.data.outScopePrepFood = answerQuestion
-      res.redirect('/current/questions-claimant')
+      res.redirect('/current/questions-claimant2')
+      //martin hack
     })
 
     // follow up code for giving an answer to a question
@@ -36,6 +37,7 @@ router.post('/current/question-tabbed', (req, res, next) => {
       //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
       console.log(1, req.session.data)
       res.redirect('/current/questions-claimant')
+
     })
 
 //Start routes for preparing food: questions
