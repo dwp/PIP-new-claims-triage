@@ -55,6 +55,35 @@ router.post('/current/question-tabbed', (req, res, next) => {
           //martin hack
         })
 
+        // Start routes for giving an answer to a question -- question tabbed doctor page
+        router.post('/current/question-tabbed-doctor', (req, res, next) => {
+              console.log('/current/question-tabbed-doctor', req.session.data)
+
+              const answerDoctorNote = req.session.data['answers']
+              const answerDoctorTherapyNote = req.session.data['answered']
+              const section = req.session.data.source
+
+              const answerDoctorQuestion = req.session.data.answerDoctorQuestion || []
+              answerDoctorQuestion.push({ section, answerDoctorNote, answerDoctorTherapyNote })
+              req.session.data.outScopePrepFood = answerDoctorQuestion
+              res.redirect('/current/questions-doctor')
+              //martin hack
+            })
+
+            // follow up code for giving an answer to a question on doctors questions
+            router.post('/current/questions-doctor', (req, res, next) => {
+              console.log('this is tabbed doctor answer')
+              console.log(req.session.data)
+
+              req.session.data.answerDoctorQuestion[req.session.data.answerDoctorQuestion.length - 1].answerDoctorPrepFood = req.session.data['answered']
+              req.session.data.answerDoctorQuestion[req.session.data.answerDoctorQuestion.length - 1].answerDoctorPrepFood = req.session.data['answers']
+            //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
+              //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
+              console.log(1, req.session.data)
+              res.redirect('/current/questions-doctor')
+
+            })
+
         // // follow up code for giving an answer to a question
         // router.post('/current/questions-claimant', (req, res, next) => {
         //   console.log('this is tabbed3 answer question')
