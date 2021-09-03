@@ -64,6 +64,26 @@
           <th scope="col" class="govuk-table__header">Action</th>
         </tr>
       </thead>
+
+      <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+          <td colspan="5"><br> </td>
+        </tr>
+      </tbody>
+
+
+
+
+
+      <!--<caption class="govuk-table__caption govuk-table__caption--m">Resolved questions</caption>-->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Resolved questions</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Answer</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
       <tbody class="govuk-table__body">
         {% for questions in data['queriesPrepFood'] %}
         {% if questions.action == "The claimant's doctor" %}
@@ -128,26 +148,6 @@
           <td class="govuk-table__cell"><a href="#">Edit</a></td>
         </tr>-->
       </tbody>
-
-      <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-          <td colspan="5"><br></td>
-        </tr>
-      </tbody>
-
-
-
-
-
-      <!--<caption class="govuk-table__caption govuk-table__caption--m">Resolved questions</caption>-->
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Resolved questions</th>
-          <th scope="col" class="govuk-table__header">Source</th>
-          <th scope="col" class="govuk-table__header">Answer</th>
-          <th scope="col" class="govuk-table__header">Action</th>
-        </tr>
-      </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
         <td scope="row" class="govuk-table__cell">Dates of treatment?</td>
