@@ -66,7 +66,7 @@ router.post('/current/question-tabbed', (req, res, next) => {
               const answerDoctorQuestion = req.session.data.answerDoctorQuestion || []
               answerDoctorQuestion.push({ section, answerDoctorNote, answerDoctorTherapyNote })
               req.session.data.outScopePrepFood = answerDoctorQuestion
-              res.redirect('/current/questions-doctor')
+              res.redirect('/current/questions-doctor2')
               //martin hack
             })
 
