@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+        <a href="task-list" class="govuk-back-link">Back to case details</a>
+
+  <main class="govuk-main-wrapper">
+
+
+    <!--<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Additional information
+      </h1>
+      <h2 class="govuk-heading-l">Claimant's account</h2>
+      <p>Since having my diagnisis for cancer my confidence is not the same as it used to be. The radiotherapy treatment has left me incontinent. I rely on the support of my wife a great deal. In the past I've had 3 stends in heart and a blood clot removed and a min stroke. Because of my incontinence I am awake most of the night and very tired through the day which means I fall asleep during daytime.</p>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Notes</th>
+            <th scope="col" class="govuk-table__header">Linked to</th>
+          </tr>
+        </thead>
+        {% for taggedToilet in data['taggingToiletneeds'] %}
+        {% if taggedToilet.section == 'Managing toilet needs or incontinence' %}
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              {{ taggedToilet.tagContent }}
+            </td>
+            <td class="govuk-table__cell">
+              {{ taggedToilet.action }}
+
+            </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+          <br>
+          <br>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">The radiotherapy treatment has left me incontinent</td>
+            <td class="govuk-table__cell">Managing toilet needs or​ incontinence,Evidence 2,Incontinence,Prostate cancer</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+
+      </main>
+      </div>
+
+{% endblock %}
