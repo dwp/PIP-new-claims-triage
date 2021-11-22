@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post" action="#" onclick=" checkButton()" class="score">
+
+
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      idPrefix: "decision-point-descriptor-assessment",
+      name: "next-step",
+      fieldset: {
+        legend: {
+          text: "Are you ready to make a recommendation or referral?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          value: "Yes make an award decision",
+          text: "Yes, recommend an award decision"
+        },
+        {
+          value: "Yes refer for an assessment",
+          text: "Yes, refer for an assessment"
+        },
+        {
+          id: "C",
+          value: "No not ready yet",
+          text: "No, I'm not ready yet"
+        }
+      ]
+    }) }}
+
+
+    {{ govukButton({
+      text: "Continue",
+      href: "break-screen"
+    }) }}
+
+    </form>
+
+
+
+    </div>
+
+              <!--<div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                    </aside>
+                  </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

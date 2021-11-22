@@ -59,8 +59,9 @@
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Open questions</th>
-          <th scope="col" class="govuk-table__header">Linked to</th>
+          <th scope="col" class="govuk-table__header">Source<br> (links open in a new tab)</th>
           <th scope="col" class="govuk-table__header">Answer</th>
+            <th scope="col" class="govuk-table__header">Status</th>
           <th scope="col" class="govuk-table__header">Action</th>
         </tr>
       </thead>
@@ -75,7 +76,8 @@
                 {{ questions.content }}
           </td>
           <td class="govuk-table__cell"> {{ questions.section }} </td>
-          <td class="govuk-table__cell">  </td>
+          <td class="govuk-table__cell">  ddd</td>
+
           <td class="govuk-table__cell"><a href="question-tabbed3">Edit</a></td>
         </tr>
         {% endif %}
@@ -86,7 +88,7 @@
         <tr class="govuk-table__row">
         <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
           <td scope="row" class="govuk-table__cell">
-                {{ questions.content }}
+             {{ questions.content }}
           </td>
           <td class="govuk-table__cell"> {{ questions.action }} </td>
           <td class="govuk-table__cell"> {{ questions.section }} </td>
@@ -122,6 +124,21 @@
         </tr>
         {% endif %}
         {% endfor %}
+
+
+
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+              How often are your Angina attacks?
+          </td>
+          <td class="govuk-table__cell"> <a href="#">Preparing food</a></td>
+          <td class="govuk-table__cell">  These are every 2 days, most are bad</td>
+            <td class="govuk-table__cell">  <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">Answered</strong></td>
+          <td class="govuk-table__cell"><a href="question-tabbed3">Edit</a></td>
+        </tr>
+
+
+
 
 
 
