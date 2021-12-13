@@ -41,6 +41,7 @@
               <h2 class="govuk-heading-l">
                 Add / edit queston and answer
               </h2>
+
               <div class="govuk-form-group">
                     <h3 class="govuk-heading-m">
                     Question
@@ -54,36 +55,58 @@
                     <h3 class="govuk-heading-m">
                       Add an answer
                     </h3>
-                  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+                  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5">{{ data['question'] }} How often are your Angina attacks?</textarea>
             </div>
-
-            {{ govukRadios({
-                classes: "govuk-radios--inline",
-                idPrefix: "a-question",
-                name: "answered-question",
-                fieldset: {
-                  legend: {
-                    text: "Has this answered your question?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                items: [
-                  {
-                    value: "yes",
-                    text: "Yes"
-                  },
-                  {
-                    value: "no",
-                    text: "No"
-                  }
-                ]
-              }) }}
+             <h3 class="govuk-heading-m">Who is this question for?
+            </h3> <p>The Claimant </p><br><Br>
 
 
-              {{ govukButton({
-                  text: " Continue"
-                }) }}
+              <div class="govuk-form-group">
+                    <h3 class="govuk-heading-m">
+                      Add an answer
+                    </h3>
+
+
+
+                  <form action="questions-claimant2" method="post">
+                      <input type="hidden" value="{{ data.source }}"/>
+                            <div class="govuk-form-group">
+
+                                  <textarea class="govuk-textarea" id="answers" name="answer"   rows="5">{{ data['answer'] }}</textarea>
+                            </div>
+
+                            {{ govukRadios({
+                                  classes: "govuk-radios--inline",
+                                  idPrefix: "answeredquestion",
+                                  name: "answeredquestion",
+                                  fieldset: {
+                                    legend: {
+                                      text: "Has this answered your question?",
+                                      isPageHeading: true,
+                                      classes: "govuk-fieldset__legend--m"
+                                    }
+                                  },
+                                  items: [
+                                    {
+                                      value: "yes",
+                                      text: "Yes"
+                                    },
+                                    {
+                                      value: "no",
+                                      checked: "true",
+                                      text: "No"
+                                    }
+                                  ]
+                            }) }}
+
+<p><br> </p>
+                            {{ govukButton({
+                                text: "Save and continue"
+
+                            }) }}
+
+                        </form>
+            </div>
 
 
             </div>

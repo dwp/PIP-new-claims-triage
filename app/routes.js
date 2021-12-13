@@ -41,9 +41,9 @@ router.post('/current/question-tabbed', (req, res, next) => {
 
     })
 
-    // Start routes for giving an answer to a question -- tabbed3 page
-    router.post('/current/question-tabbed3', (req, res, next) => {
-          console.log('/current/question-tabbed3', req.session.data)
+    // Start routes for giving an answer to a question -- link to claimant2 to answer top question
+    router.post('/newnav/question-link', (req, res, next) => {
+          console.log('/newnav/question-link', req.session.data)
 
           const answerNote = req.session.data['answers']
           const section = req.session.data.source
@@ -51,7 +51,7 @@ router.post('/current/question-tabbed', (req, res, next) => {
           const answerQuestion = req.session.data.answerQuestion || []
           answerQuestion.push({ section, answerNote })
           req.session.data.outScopePrepFood = answerQuestion
-          res.redirect('/current/questions-claimant')
+          res.redirect('/current/questions-claimant2')
           //martin hack
         })
 
