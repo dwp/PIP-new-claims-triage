@@ -25,24 +25,98 @@
     font-size: 1rem;
     line-height: 3em
   }
+.moj-side-navigation{font-family:"GDS Transport",arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:14px;font-size:.875rem;line-height:1.14286}
 
-
-
-
-
+@media print{.moj-side-navigation{font-family:sans-serif}}
+@media (min-width: 40.0625em){.moj-side-navigation{font-size:16px;font-size:1rem;line-height:1.25}}
+@media print{.moj-side-navigation{font-size:14pt;line-height:1.2}}
+@media (max-width: 40.0525em){.moj-side-navigation{display:flex;overflow-x:scroll}}
+@media (min-width: 40.0625em){.moj-side-navigation{display:block;padding:20px 0 0}}
+.moj-side-navigation__title{font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:16px;font-size:1rem;line-height:1.25;color:#505a5f;font-weight:normal;margin:0;padding:10px;padding-left:14px}
+@media print{.moj-side-navigation__title{font-family:sans-serif}}
+@media (min-width: 40.0625em){.moj-side-navigation__title{font-size:19px;font-size:1.1875rem;line-height:1.31579}}
+@media print{.moj-side-navigation__title{font-size:14pt;line-height:1.15}}
+@media (max-width: 40.0525em){.moj-side-navigation__title{display:none}}.moj-side-navigation__list{list-style:none;margin:0;padding:0}
+@media (max-width: 40.0525em){.moj-side-navigation__list{display:flex;margin:0;white-space:nowrap}}
+@media (min-width: 40.0625em){.moj-side-navigation__list{margin-bottom:20px}}
+@media (max-width: 40.0525em){.moj-side-navigation__item{display:flex}}
+.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{background-color:inherit;color:#1d70b8;display:block;text-decoration:none}
+@media (max-width: 40.0525em){.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{border-bottom:4px solid transparent;padding:15px;padding-bottom:11px}}
+@media (min-width: 40.0625em){.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{background-color:inherit;border-left:4px solid transparent;padding:10px}}
+.moj-side-navigation__item a:hover{border-color:#5694ca}.moj-side-navigation__item a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent;position:relative}
+.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{border-color:#1d70b8;color:#1d70b8;font-weight:bold}
+.moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent}
+@media (min-width: 40.0625em){.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{background-color:#f3f2f1}
+.moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;border-color:transparent}}
 </style>
 <div class="govuk-width-container">
-  <a href="conditions" class="govuk-back-link">Back</a>
-  <!--  <a href="condition" class="govuk-next-link" > All conditions  &gt; </a> -->
+    <div class="column-full">
+      <nav class="navigation-secondary">
+        <ul>
+          <li>
+            <a href="contact-details">Contact Details</a>
+          </li>
+          <li>
+            <a href="evidence">Evidence</a>
+          </li>
+          <li>
+            <a href="conditions" class="active" aria-current="section">Conditions</a>
+          </li>
+          <li>
+            <a href="activities">Activities</a>
+          </li>
+          <li>
+            <a href="questions">Questions</a>
+          </li>
+          <li>
+            <a href="summary"  >Summary</a>
+          </li>
+        </ul>
+      </nav>
 
-
+    </div>
 
   <main class="govuk-main-wrapper">
 
    <div class="govuk-grid-row">
+<div class="govuk-grid-column-one-quarter">
+     <nav class="moj-side-navigation" aria-label="Side navigation">
+         <!-- <h4 class="moj-side-navigation__title">Conditions</h4>-->
+         <ul class="moj-side-navigation__list">
+           <li class="moj-side-navigation__item">
+             <a href="condition-one">Diabetes</a>
+           </li>
+
+           <li class="moj-side-navigation__item">
+             <a href="condition-two">Prostate cancer</a>
+           </li>
+
+           <li class="moj-side-navigation__item">
+             <a href="condition-three">Angina</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-four">COPD</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-five">Blood pressure</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-six">Incontinence</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-seven">Irregular heartbeat</a>
+           </li>
+           <li class="moj-side-navigation__item moj-side-navigation__item--active">
+             <a href="condition-eight" aria-current="location">Hot flushes</a>
+           </li>
+         </ul>
 
 
-    <div class="govuk-grid-column-two-thirds">
+     </div>
+
+    <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-l">Hot flushes</h1>
 
@@ -165,23 +239,7 @@
 </tr>
 </tbody>
 </table>
-
-<li class="gem-c-pagination__item gem-c-pagination__item--previous">
-        <a href="previous-page" class="govuk-link gem-c-pagination__link" rel="prev" data-track-category="contentsClicked" data-track-action="previous" data-track-label="previous-page" data-track-dimension="previous" data-track-dimension-index="29">
-          <span class="gem-c-pagination__link-title">
-            <svg class="gem-c-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
-              <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
-            </svg>
-            <span class="gem-c-pagination__link-text">Previous</span>
-          </span>
-            <span class="gem-c-pagination__link-divider visually-hidden">:</span>
-            <span class="gem-c-pagination__link-label">Applying for a provisional lorry or bus licence</span>
-        </a>
-      </li>
 </div>
-
-
-
 </div>
 
 </main>
