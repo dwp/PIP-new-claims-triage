@@ -22,21 +22,135 @@
       </div>
     </dl>
 </section>
+<style>
+.govuk-next-link {
+  float:right;
+  font-size: 16px;
+    font-size: 1rem;
+    line-height: 3em
+  }
+.moj-side-navigation{font-family:"GDS Transport",arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:14px;font-size:.875rem;line-height:1.14286}
 
-    <div class="govuk-width-container">
-    <a href="../activities" class="govuk-back-link">Back</a>
-    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+@media print{.moj-side-navigation{font-family:sans-serif}}
+@media (min-width: 40.0625em){.moj-side-navigation{font-size:16px;font-size:1rem;line-height:1.25}}
+@media print{.moj-side-navigation{font-size:14pt;line-height:1.2}}
+@media (max-width: 40.0525em){.moj-side-navigation{display:flex;overflow-x:scroll}}
+@media (min-width: 40.0625em){.moj-side-navigation{display:block;padding:20px 0 0}}
+.moj-side-navigation__title{font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:16px;font-size:1rem;line-height:1.25;color:#505a5f;font-weight:normal;margin:0;padding:10px;padding-left:14px}
+@media print{.moj-side-navigation__title{font-family:sans-serif}}
+@media (min-width: 40.0625em){.moj-side-navigation__title{font-size:19px;font-size:1.1875rem;line-height:1.31579}}
+@media print{.moj-side-navigation__title{font-size:14pt;line-height:1.15}}
+@media (max-width: 40.0525em){.moj-side-navigation__title{display:none}}.moj-side-navigation__list{list-style:none;margin:0;padding:0}
+@media (max-width: 40.0525em){.moj-side-navigation__list{display:flex;margin:0;white-space:nowrap}}
+@media (min-width: 40.0625em){.moj-side-navigation__list{margin-bottom:20px}}
+@media (max-width: 40.0525em){.moj-side-navigation__item{display:flex}}
+.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{background-color:inherit;color:#1d70b8;display:block;text-decoration:none}
+@media (max-width: 40.0525em){.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{border-bottom:4px solid transparent;padding:15px;padding-bottom:11px}}
+@media (min-width: 40.0625em){.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{background-color:inherit;border-left:4px solid transparent;padding:10px}}
+.moj-side-navigation__item a:hover{border-color:#5694ca}.moj-side-navigation__item a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent;position:relative}
+.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{border-color:#1d70b8;color:#1d70b8;font-weight:bold}
+.moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent}
+@media (min-width: 40.0625em){.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{background-color:#f3f2f1}
+.moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;border-color:transparent}}
+</style>
+<div class="govuk-width-container">
+    <div class="column-full">
+      <nav class="navigation-secondary">
+        <ul>
+          <li>
+            <a href="../contact-details">Contact details</a>
+          </li>
+          <li>
+            <a href="../evidence">Evidence</a>
+          </li>
+          <li>
+            <a href="../conditions" >Conditions</a>
+          </li>
+          <li>
+            <a href="../activities" class="active" aria-current="section">Activities</a>
+          </li>
+          <li>
+            <a href="../questions">Questions</a>
+          </li>
+          <li>
+            <a href="../summary"  >Summary</a>
+          </li>
+        </ul>
+      </nav>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    </div>
 
-      <h1 class="govuk-heading-xl">
-        Preparing food
-      </h1>
-       <p class="govuk-body">This includes food preparation such as peeling, chopping or opening packaging and
-                            safely cooking or heating food on a cooker hob or in a microwave oven.</p>
+  <main class="govuk-main-wrapper">
 
-      <h2 class="govuk-heading-l">Claimant's account</h2>
+   <div class="govuk-grid-row">
+<div class="govuk-grid-column-one-quarter">
+  <nav class="moj-side-navigation" aria-label="Side navigation">
+      <h4 class="moj-side-navigation__title">Day to day life</h4>
+      <ul class="moj-side-navigation__list">
+        <li class="moj-side-navigation__item moj-side-navigation__item--active">
+          <a href="preparing-food" aria-current="location">Preparing food</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="taking-nutrition">Eating and drinking</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="managing-therapy">Managing treatments</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="washing-and-bathing">Washing and bathing</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="managing-toilet-needs">Using the toilet and managing incontinence</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="dressing-and-undressing">Dressing and undressing</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="communicating-verbally">Talking, listening and understanding</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="reading-and-understanding">Reading</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="engaging-face-to-face">Mixing with other people</a>
+        </li>
+        <li class="moj-side-navigation__item">
+            <a href="budgeting">Managing money</a>
+        </li>
+      </ul>
+
+  <h4 class="moj-side-navigation__title">Mobility</h4>
+      <ul class="moj-side-navigation__list">
+        <li class="moj-side-navigation__item">
+          <a href="planning-and-following-journeys">Planning and following journeys</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="moving-around">Moving around</a>
+        </li>
+      </ul>
+
+      <h4 class="moj-side-navigation__title">Additional information to the PIP</h4>
+          <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item">
+              <a href="../additional-information">Additional Information</a>
+            </li>
+          </ul>
+        </nav>
+
+
+     </div>
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">Preparing food</h1>
+
+
+  <h2 class="govuk-heading-m">Approximate start date</h2>
+      <p> 27 August 2009</p>
+
+      <h3 class="govuk-heading-m">Claimant's account</h3>
       <p class="govuk-body">On a good day I can use a microwave, but have difficult using an oven. Bending and standing too long gives me pain in lower back and hips. On a bad day, if i get angina attack, hot flushes, dizzy spell, nothing gets done. Bad days more often than not.</p>
 
         <table class="govuk-table">
