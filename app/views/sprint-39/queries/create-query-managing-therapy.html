@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Create query
+      </h1>
+
+      {{ data | dump }}
+<form action="#" method="post">
+  <input type="hidden" value="{{ data.source }}"/>
+      <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+              What is your query?
+          </label>
+          <textarea class="govuk-textarea" id="more-detail" name="query-act-two" value="{{ data['query-act-two'] }}" rows="5"></textarea>
+      </div>
+      <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+</form>
+
+    </div>
+
+    <!--<div class="govuk-grid-column-one-third">
+          <aside class="app-related-items" role="complementary">
+          </aside>
+        </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

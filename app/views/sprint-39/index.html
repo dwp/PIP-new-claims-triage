@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+          Sprint 30
+        <span class="govuk-caption-xl">Created new prototype to validate new concepts with case managers within PIP.</span>
+
+{{ govukDetails({
+          summaryText: "Notes on this sprint",
+          html: '
+          <p>This sprint we:</p>
+
+          <ul class="govuk-list  govuk-list--bullet">
+              <li></li>
+              <li></li>
+          </ul>'
+
+                  }) }}
+
+
+
+                  <p>This prototype starts with Case details page.<br><br>
+                  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  text: "Start prototype",
+  href: "/current/task-list"
+}) }}
+</p>
+  <h3 class="govuk-heading-m">Seperate shortcuts to all the pages</h3>
+
+
+  <ul class="govuk-list">
+      <li><a class="govuk-link" href="/current/task-list">Case details</a> (formerly Task list)</li>
+      <li><a class="govuk-link" href="/current/evidence">Evidence</a></li>
+      <li><a class="govuk-link" href="/current/evidence-detail">Evidence detail</a></li>
+      <li><a class="govuk-link" href="/current/medication">Medication</a></li>
+      <li><a class="govuk-link" href="/current/additional-information">Additional information</a></li>
+      <li><a class="govuk-link" href="/current/condition-1">Condition detail</a></li>
+      <li><a class="govuk-link" href="/current/create-query">Create query</a></li>
+      <li><a class="govuk-link" href="/current/set-action">Set an action</a></li>
+      <li><a class="govuk-link" href="/current/contact-claimant-action">Action/Query</a></li>
+      <li><a class="govuk-link" href="/current/summary">Summary</a></li>
+      <li><a class="govuk-link" href="/current/action-query-view">Action/Query view</a></li>
+      <li><a class="govuk-link" href="/current/set-descriptor">Set descriptor</a></li>
+      <li><a class="govuk-link" href="/current/preparing-food-descriptor">Descriptor within activity</a></li>
+      <li><a class="govuk-link" href="/current/descriptor-justification">Descriptor justification</a></li>
+  </ul>
+
+  <!--<h3 class="govuk-heading-m">Tasklist action variations</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/current/task-list">Tasklist - no actions</a></li>
+        <li><a class="govuk-link" href="/current/task-list-contact-claimant">Tasklist - contact claimant</a></li>
+  </ul>-->
+
+  <h3 class="govuk-heading-m">Activities</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/current/activities/preparing-food">Preparing food</a></li>
+        <li><a class="govuk-link" href="/current/activities/taking-nutrition">Taking nutrition</a></li>
+        <li><a class="govuk-link" href="/current/activities/managing-therapy">Managing therapy</a></li>
+        <li><a class="govuk-link" href="/current/activities/washing-and-bathing">Washing and bathing</a></li>
+        <li><a class="govuk-link" href="/current/activities/managing-toilet-needs">Managing toilet needs</a></li>
+        <li><a class="govuk-link" href="/current/activities/dressing-and-undressing">Dressing and undressing</a></li>
+        <li><a class="govuk-link" href="/current/activities/communicating-verbally">Communicating verbally</a></li>
+        <li><a class="govuk-link" href="/current/activities/reading-and-understanding">Reading and understanding signs, symbols and words</a></li>
+        <li><a class="govuk-link" href="/current/activities/engaging-face-to-face">Engaging face to face</a></li>
+        <li><a class="govuk-link" href="/current/activities/budgeting">Budgeting</a></li>
+        <li><a class="govuk-link" href="/current/activities/planning-and-following-journeys">Planning and following journeys</a></li>
+        <li><a class="govuk-link" href="/current/activities/moving-around">Moving around</a></li>
+  </ul>
+<!--
+  <h3 class="govuk-heading-m">Other designs</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/current/other/list-of-activities">List of activities</a></li>
+  </ul>
+
+  <h3 class="govuk-heading-m">Test/experimental pages</h3>
+  <ul class="govuk-list">
+        <li><a class="govuk-link" href="/current/taking-nutrition">Taking nutrition</a></li>
+        <li><a class="govuk-link" href="/current/create-query-activity-two">Create query</a></li>
+  </ul>
+-->
+    </div>
+</div>
+
+
+{% endblock %}

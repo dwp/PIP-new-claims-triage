@@ -1,0 +1,343 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Activities - Preparing Food
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+<style>
+.govuk-next-link {
+  float:right;
+  font-size: 16px;
+    font-size: 1rem;
+    line-height: 3em
+  }
+.moj-side-navigation{font-family:"GDS Transport",arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:14px;font-size:.875rem;line-height:1.14286}
+
+@media print{.moj-side-navigation{font-family:sans-serif}}
+@media (min-width: 40.0625em){.moj-side-navigation{font-size:16px;font-size:1rem;line-height:1.25}}
+@media print{.moj-side-navigation{font-size:14pt;line-height:1.2}}
+@media (max-width: 40.0525em){.moj-side-navigation{display:flex;overflow-x:scroll}}
+@media (min-width: 40.0625em){.moj-side-navigation{display:block;padding:20px 0 0}}
+.moj-side-navigation__title{font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:16px;font-size:1rem;line-height:1.25;color:#505a5f;font-weight:normal;margin:0;padding:10px;padding-left:14px}
+@media print{.moj-side-navigation__title{font-family:sans-serif}}
+@media (min-width: 40.0625em){.moj-side-navigation__title{font-size:19px;font-size:1.1875rem;line-height:1.31579}}
+@media print{.moj-side-navigation__title{font-size:14pt;line-height:1.15}}
+@media (max-width: 40.0525em){.moj-side-navigation__title{display:none}}.moj-side-navigation__list{list-style:none;margin:0;padding:0}
+@media (max-width: 40.0525em){.moj-side-navigation__list{display:flex;margin:0;white-space:nowrap}}
+@media (min-width: 40.0625em){.moj-side-navigation__list{margin-bottom:20px}}
+@media (max-width: 40.0525em){.moj-side-navigation__item{display:flex}}
+.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{background-color:inherit;color:#1d70b8;display:block;text-decoration:none}
+@media (max-width: 40.0525em){.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{border-bottom:4px solid transparent;padding:15px;padding-bottom:11px}}
+@media (min-width: 40.0625em){.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{background-color:inherit;border-left:4px solid transparent;padding:10px}}
+.moj-side-navigation__item a:hover{border-color:#5694ca}.moj-side-navigation__item a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent;position:relative}
+.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{border-color:#1d70b8;color:#1d70b8;font-weight:bold}
+.moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent}
+@media (min-width: 40.0625em){.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{background-color:#f3f2f1}
+.moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;border-color:transparent}}
+</style>
+<div class="govuk-width-container">
+    <div class="column-full">
+      <nav class="navigation-secondary">
+        <ul>
+          <li>
+            <a href="../contact-details">Contact details</a>
+          </li>
+          <li>
+            <a href="../conditions" >Conditions</a>
+          </li>
+          <li>
+            <a href="../activities" class="active" aria-current="section">Activities</a>
+          </li>
+          <li>
+            <a href="../questions">Questions</a>
+          </li>
+          <li>
+            <a href="../summary"  >Summary</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+
+  <main class="govuk-main-wrapper">
+
+   <div class="govuk-grid-row">
+<div class="govuk-grid-column-one-quarter">
+  <nav class="moj-side-navigation" aria-label="Side navigation">
+      <h4 class="moj-side-navigation__title">Day to day life</h4>
+      <ul class="moj-side-navigation__list">
+        <li class="moj-side-navigation__item">
+          <a href="preparing-food" >Preparing food</a>
+        </li>
+        <li class="moj-side-navigation__item moj-side-navigation__item--active">
+          <a href="taking-nutrition" aria-current="location">Eating and drinking</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="managing-therapy">Managing treatments</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="washing-and-bathing">Washing and bathing</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="managing-toilet-needs">Using the toilet and managing incontinence</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="dressing-and-undressing">Dressing and undressing</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="communicating-verbally">Talking, listening and understanding</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="reading-and-understanding">Reading</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="engaging-face-to-face">Mixing with other people</a>
+        </li>
+        <li class="moj-side-navigation__item">
+            <a href="budgeting">Managing money</a>
+        </li>
+      </ul>
+
+  <h4 class="moj-side-navigation__title">Mobility</h4>
+      <ul class="moj-side-navigation__list">
+        <li class="moj-side-navigation__item">
+          <a href="planning-and-following-journeys">Planning and following journeys</a>
+        </li>
+        <li class="moj-side-navigation__item">
+          <a href="moving-around">Moving around</a>
+        </li>
+      </ul>
+
+      <h4 class="moj-side-navigation__title">Additional information to the PIP</h4>
+          <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item">
+              <a href="../additional-information">Additional Information</a>
+            </li>
+          </ul>
+        </nav>
+
+
+     </div>
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">Eating and drinking</h1>
+
+      <h2 class="govuk-heading-m">Claimant's account</h2>
+       <p class="govuk-body">No additional comments from the claimant.</p>
+
+       <table class="govuk-table">
+        <thead class="govuk-table__head">
+         <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half">Question in PIP2</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Answer</th>
+         </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+         <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Do you need to use an aid or appliance to eat and drink?</th>
+           <td class="govuk-table__cell">No</td>
+         </tr>
+         <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Do you use a feeding tube or similar device to eat and drink?</th>
+           <td class="govuk-table__cell">No</td>
+         </tr>
+         <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Do you need help from another person to eat and drink?</th>
+           <td class="govuk-table__cell">No</td>
+         </tr>
+        </tbody>
+      </table>
+
+
+          <form action="#" method="post">
+              <input type="hidden" value="{{ data.source }}"/>
+
+          {{ govukRadios({
+            idPrefix: "activity-two-note",
+            name: "taking-nutrition-note",
+            fieldset: {
+              legend: {
+                text: "Add a note about this activity",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "important-to-this-case",
+                text: "Important to this case"
+              },
+              {
+                value: "question-about-this-activity",
+                text: "Question about this activity"
+              },
+              {
+                value: "out-of-scope",
+                text: "Out of scope"
+              }
+
+            ]
+          }) }}
+
+          <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
+
+
+                <div class="govuk-form-group">
+                    <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+                </div>
+                <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+
+                {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                {{ govukButton({
+                  text: "Add this note"
+                }) }}
+          </form>
+
+
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Notes</th>
+      <th scope="col" class="govuk-table__header">Linked to</th>
+    </tr>
+  </thead>
+  {% for taggedTakeNutrition in data['taggingTakeNutrition'] %}
+  {% if taggedTakeNutrition.section == 'Taking nutrition' %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        {{ taggedTakeNutrition.tagContent }}
+      </td>
+      <td class="govuk-table__cell">
+        {{ taggedTakeNutrition.action }}
+
+      </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2 class="govuk-heading-m">Questions about the claimant's account</h2>
+<script defer type="text/javascript">
+
+  var noQuery = "{{ data['set-an-action'] }}";
+
+  if (noQuery) {
+
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">No questions have been added to this activity yet.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
+
+  </script>
+
+<div id="queryTable">
+  <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Question</th>
+              <th scope="col" class="govuk-table__header">Who to contact</th>
+              <!--<th scope="col" class="govuk-table__header">Status</th>-->
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for query in data['queriesTakeNutrition'] %}
+          {% if query.section == 'Taking nutrition' %}
+
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                {{ query.content }}
+
+              </td>
+              <td class="govuk-table__cell">
+                <a href="{{ query.href }}">{{ query.action }}</a>
+              </td>
+              <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
+          </tr>
+          {% endif %}
+          {% endfor %}
+
+        </tbody>
+</table>
+</div>
+
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header"></th>
+      <th scope="col" class="govuk-table__header"></th>
+    </tr>
+  </thead>
+  {% for noScopeTakeNutrition in data['outScopeTakeNutrition'] %}
+  {% if noScopeTakeNutrition.section == 'Taking nutrition' %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        {{ noScopeTakeNutrition.scopeNote }}
+      </td>
+      <td class="govuk-table__cell">
+        <!--{{ noScopePrepFood.action }}-->
+      </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+        <!--  <br>
+
+          {{ govukButton({
+            text: "Set descriptor",
+            href: "set-descriptor"
+          }) }}
+
+
+
+
+    </div>
+
+            <div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                    </aside>
+                  </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}
