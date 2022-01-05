@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper">
+
+
+    <!--<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        What is this note linked to?
+      </h1>
+<form action="#" method="post">
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+              {{ govukCheckboxes({
+              idPrefix: "options",
+              name: "conditions",
+              fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+              },
+              items: [
+              {
+                value: "Diabetes",
+                text: "Diabetes"
+              },
+              {
+                value: "Prostate cancer",
+                text: "Prostate cancer"
+              },
+              {
+                value: "Angina",
+                text: "Angina"
+              },
+              {
+                value: "COPD",
+                text: "COPD"
+              },
+              {
+                value: "Blood pressure",
+                text: "Blood pressure"
+              },
+              {
+                value: "Incontinence",
+                text: "Incontinence"
+              },
+              {
+                value: "Irregular heartbeat",
+                text: "Irregular heartbeat"
+              },
+              {
+                value: "Hot flushes",
+                text: "Hot flushes"
+              },
+              {
+                value: "Preparing food",
+                text: "Preparing food"
+              },
+              {
+                value: "Taking nutrition",
+                text: "Taking nutrition"
+              },
+              {
+                value: "Managing therapy or monitoring a health condition",
+                text: "Managing therapy or monitoring a health condition"
+              },
+              {
+                value: "Washing and bathing",
+                text: "Washing and bathing"
+              },
+              {
+                value: "Managing toilet needs or incontinence",
+                text: "Managing toilet needs or incontinence"
+              },
+              {
+                value: "Dressing and undressing",
+                text: "Dressing and undressing"
+              },
+              {
+                value: "Communicating verbally",
+                text: "Communicating verbally"
+              },
+              {
+                value: "Reading and understanding symbols and words",
+                text: "Reading and understanding symbols and words"
+              },
+              {
+                value: "Engaging with other people face to face",
+                text: "Engaging with other people face to face"
+              },
+              {
+                value: "Making budgeting decisions",
+                text: "Making budgeting decisions"
+              },
+              {
+                value: "Planning and following journeys",
+                text: "Planning and following journeys"
+              },
+              {
+                value: "Moving around",
+                text: "Moving around"
+              },
+              {
+                value: "None of these",
+                text: "None of these"
+              }
+              ]
+              }) }}
+
+
+                  {{ govukButton({
+                      text: "Add links"
+                    }) }}
+</form>
+    </div>
+  </div>
+
+
+
+      </main>
+      </div>
+
+{% endblock %}

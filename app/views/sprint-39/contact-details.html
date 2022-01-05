@@ -1,0 +1,298 @@
+{% extends "layout.html" %}
+{% block main %}
+<style>
+  .navigation-secondary ul:after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+
+ .navigation-secondary {
+   border-bottom: 1px solid #bfc1c3;
+   margin: auto;
+   max-width: 960px;
+ }
+
+ .navigation-secondary ul {
+   margin: 0 auto;
+   max-width: 960px;
+   padding-left: 0;
+ }
+
+ .navigation-secondary li {
+   float: left;
+   list-style-type: none;
+ }
+
+ @media (max-width: 640px) {
+   .navigation-secondary li {
+     border: 0;
+     width: 100%;
+   }
+ }
+
+ .navigation-secondary a {
+   display: block;
+   padding: 15px;
+ }
+
+ .navigation-secondary a:visited {
+   color: #005ea5;
+ }
+
+ .navigation-secondary a:hover {
+   background-color: #f8f8f8;
+ }
+
+ .navigation-secondary .active {
+   box-shadow: inset 0px -5px 0px 0px #005ea5;
+   color: #0b0c0c;
+   text-decoration: none;
+ }
+
+ .navigation-secondary .active:visited {
+   color: #0b0c0c;
+ }
+
+  </style>
+
+<!-- <link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+ --><section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="contact-details" class="active" aria-current="section">Contact details</a>
+        </li>
+        <li>
+          <a href="evidence" >Evidence</a>
+        </li>
+        <li>
+          <a href="conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <li>
+          <a href="questions">Questions</a>
+        </li>
+        <li>
+          <a href="summary">Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+
+      <h1 class="govuk-heading-l">Contact details</h1>
+      <h2 class="govuk-heading-m">Claimant contact details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row govuk-!-width-one-half">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Preferred method of contact
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Telephone
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            5 January 1978
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact information
+          </dt>
+          <dd class="govuk-summary-list__value">
+            72 Guild Street
+            <br>London
+            <br>SE23 6FH
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>07700 900457</p>
+            <p>jim.smith@example.com</p>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Healthcare professionals</h2>
+
+      <h3 class="govuk-heading-s">Healthcare professional 1</h3>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row govuk-!-width-one-half">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Dr Camilla Stasiak
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            The Vale Medical Centre
+            <br>195-197 Perry Vale
+            <br>Forest Hill
+            <br>London
+            <br>SE23 2JF
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Profession
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Doctor
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            020 8291 7007
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Approximate date of last visit
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No date given
+          </dd>
+        </div>
+      </dl>
+
+      <h3 class="govuk-heading-s">Healthcare professional 2</h3>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row govuk-!-width-one-half">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Mr Ramon Niekrash
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Queen Elizabeth Hospital
+            <br>Stadium Rd
+            <br>Greenwich
+            <br>London
+            <br>SE18 4QH
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Profession
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Urologist
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            020 8836 5435
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Approximate date of last visit
+          </dt>
+          <dd class="govuk-summary-list__value">
+            January 2020
+          </dd>
+        </div>
+      </dl>
+
+      <h3 class="govuk-heading-s">Healthcare professional 3</h3>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row govuk-!-width-one-half">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Kislaya Thakur (Cancer Clinical Lead)
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Suite 8
+            <br>1st  Floor, Pink Zone
+            <br>University Hospital Lewisham High Street
+            <br>Lewisham
+            <br>London
+            <br>SE13 6LH
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Profession
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Consultant clinical oncologist
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            020 8836 6000, Ext. 5648
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Approximate date of last visit
+          </dt>
+          <dd class="govuk-summary-list__value">
+            30 April 2020, by phone (COVID-19)
+          </dd>
+        </div>
+      </dl>
+</div>
+    </div>
+  </div>
+{% endblock %}

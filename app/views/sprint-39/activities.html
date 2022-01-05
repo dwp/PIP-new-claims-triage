@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Activities
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+        <!--<strong class="govuk-tag app-task-list__tag" id="company-information-status">Additional support</strong>
+-->
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="contact-details">Contact details</a>
+        </li>
+        <li>
+          <a href="evidence" >Evidence</a>
+        </li>
+        <li>
+          <a href="conditions" >Conditions</a>
+        </li>
+        <li>
+          <a href="activities" class="active" aria-current="section">Activities</a>
+        </li>
+        <li>
+          <a href="questions">Questions</a>
+        </li>
+        <li>
+          <a href="summary" >Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+      <h1 class="govuk-heading-l">
+        Activities
+      </h1>
+
+
+        <h2 class="app-task-list__section">
+          Day to day life
+        </h2>
+
+
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <a href="activities/preparing-food.html?source=Preparing food" aria-describedby="company-information-status">
+                Preparing food
+                </a>
+
+            </li>
+            <li class="app-task-list__item">
+              <a href="activities/taking-nutrition?source=Taking nutrition" aria-describedby="company-information-status">
+                Eating and drinking
+                </a>
+               </li>
+            <li class="app-task-list__item">
+              <a href="activities/managing-therapy?source=Managing therapy" aria-describedby="company-information-status">
+                Managing treatments
+                </a>
+                <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">All questions answered</strong>
+               </li>
+            <li class="app-task-list__item">
+              <a href="activities/washing-and-bathing?source=Washing and bathing" aria-describedby="company-information-status">
+                Washing and bathing
+                </a>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">3 unanswered questions</strong>
+              </li>
+            <li class="app-task-list__item">
+              <a href="activities/managing-toilet-needs?source=Managing toilet needs or incontinence" aria-describedby="company-information-status">
+                Using the toilet and managing incontinence
+                </a>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">3 unanswered questions</strong>
+              </li>
+            <li class="app-task-list__item">
+              <a href="activities/dressing-and-undressing?source=Dressing and undressing" aria-describedby="company-information-status">
+                Dressing and undressing
+                </a>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">1 unanswered question</strong>
+              </li>
+            <li class="app-task-list__item">
+              <a href="activities/communicating-verbally?source=communicating-verbally" aria-describedby="company-information-status">
+                Talking, listening and understanding
+                </a>
+                <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">All questions resolved</strong>
+               </li>
+            <li class="app-task-list__item">
+              <a href="activities/reading-and-understanding?source=reading-and-understanding" aria-describedby="company-information-status">
+                Reading
+                </a>
+                 </li>
+            <li class="app-task-list__item">
+              <a href="activities/engaging-face-to-face?source=face-to-face" aria-describedby="company-information-status">
+                Mixing with other people
+                </a>
+                <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">All questions resolved</strong>
+               </li>
+            <li class="app-task-list__item">
+              <a href="activities/budgeting?source=budgeting" aria-describedby="company-information-status">
+                Managing money
+                </a>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">2 unanswered questions</strong>
+           </li>
+          </ul>
+
+
+        <h2 class="app-task-list__section">
+          Mobility and getting around
+        </h2>
+
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+              <a id="mobility-activity" href="activities/planning-and-following-journeys?source=plan-follow-journeys" aria-describedby="company-information-status">
+                Planning and following journeys
+                </a>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">1 UNANSWERED QUESTION</strong>
+               </li>
+            <li class="app-task-list__item">
+              <a href="activities/moving-around?source=moving-around" aria-describedby="company-information-status">
+                Moving around
+                </a>
+              </li>
+          </ul>
+
+          <h2 class="app-task-list__section">
+            Additional information to the PIP
+          </h2>
+
+            <ul class="app-task-list__items govuk-!-padding-left-0">
+              <li class="app-task-list__item">
+                <a id="mobility-activity" href="additional-information" aria-describedby="company-information-status">
+                  Additional information
+                  </a>
+                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">1 UNANSWERED QUESTION</strong>
+              </li>
+
+            </ul>
+
+
+  </div>
+
+
+{% endblock %}
