@@ -22,7 +22,7 @@
       </div>
     </dl>
 </section>
-<style>
+<!--<style>
 .govuk-next-link {
   float:right;
   font-size: 16px;
@@ -54,7 +54,7 @@
 .moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent}
 @media (min-width: 40.0625em){.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{background-color:#f3f2f1}
 .moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;border-color:transparent}}
-</style>
+</style>-->
 <div class="govuk-width-container">
     <div class="column-full">
       <nav class="navigation-secondary">
@@ -75,7 +75,7 @@
             <a href="questions">Questions</a>
           </li>
           <li>
-            <a href="summary"  >Summary</a>
+            <a href="summary">Summary</a>
           </li>
         </ul>
       </nav>
@@ -85,7 +85,7 @@
   <main class="govuk-main-wrapper">
 
    <div class="govuk-grid-row">
-<div class="govuk-grid-column-one-quarter">
+<!--<div class="govuk-grid-column-one-quarter">
   <nav class="moj-side-navigation" aria-label="Side navigation">
       <h4 class="moj-side-navigation__title">Day to day life</h4>
       <ul class="moj-side-navigation__list">
@@ -140,11 +140,14 @@
         </nav>
 
 
-     </div>
+     </div>-->
 
     <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-l">Additional information to the PIP</h1>
+      <h1 class="govuk-heading-l">
+          <span class="govuk-caption-l">Activity</span>
+          Additional information
+     </h1>
 
                          <p class="govuk-body">  <h2 class="govuk-heading-m">Claimant's account</h2>
                          <p>Since having my diagnosis for cancer my confidence is not the same as it used to be. The radiotherapy treatment has left me incontinent. I rely on the support of my wife a great deal. In the past I've had 3 stends in heart and a blood clot removed and a min stroke. Because of my incontinence I am awake most of the night and very tired through the day which means I fall asleep during daytime.</p>
@@ -154,7 +157,7 @@
                         <form action="#" method="post">
                             <input type="hidden" value="{{ data.source }}"/>
 
-                        {{ govukRadios({
+                        <!--{{ govukRadios({
                           idPrefix: "activity-tweleve-note",
                           name: "moving-around-note",
                           fieldset: {
@@ -179,11 +182,11 @@
                             }
 
                           ]
-                        }) }}
+                        }) }}-->
 
                         <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
 
-
+                        <h2 class="govuk-heading-m">Add a question about this additional information</h2>
                               <div class="govuk-form-group">
                                   <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                               </div>
@@ -192,37 +195,10 @@
                               {% from "govuk/components/button/macro.njk" import govukButton %}
 
                               {{ govukButton({
-                                text: "Add this note"
+                                text: "Add this question"
                               }) }}
                         </form>
 
-
-
-
-              <table class="govuk-table">
-                <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Notes</th>
-                    <th scope="col" class="govuk-table__header">Linked to</th>
-                  </tr>
-                </thead>
-                {% for taggedPrepFood in data['taggingPrepFood'] %}
-                {% if taggedPrepFood.section == 'moving-around' %}
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
-                      {{ taggedPrepFood.tagContent }}
-                    </td>
-                    <td class="govuk-table__cell">
-                      {{ taggedPrepFood.action }}
-
-                    </td>
-                  </tr>
-                  {% endif %}
-                  {% endfor %}
-                </tbody>
-              </table>
 
               <h2 class="govuk-heading-m">Questions about the claimant's account</h2>
 
@@ -234,7 +210,7 @@
                           <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header">Question</th>
                             <th scope="col" class="govuk-table__header">Who to contact</th>
-                            <!--<th scope="col" class="govuk-table__header">Status</th>-->
+                            <th scope="col" class="govuk-table__header">Status</th>
                           </tr>
                         </thead>
                         <tbody class="govuk-table__body">
@@ -254,42 +230,14 @@
                         {% endif %}
                         {% endfor %}
                         <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Do you have aids from the GP or that you've bought yourself?</td>
-                            <td class="govuk-table__cell">The claimant</td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">How long can you walk for (not just distance)?</td>
-                            <td class="govuk-table__cell">The claimant</td>
+                            <td class="govuk-table__cell">No questions have been added yet</td>
+                            <td class="govuk-table__cell"> </td>
+                            <td class="govuk-table__cell"> </td>
                         </tr>
                       </tbody>
               </table>
               </div>
 
-
-
-              <table class="govuk-table">
-                <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header"></th>
-                    <th scope="col" class="govuk-table__header"></th>
-                  </tr>
-                </thead>
-                {% for noScopePrepFood in data['outScopePrepFood'] %}
-                {% if noScopePrepFood.section == 'moving-around' %}
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
-                      {{ noScopePrepFood.scopeNote }}
-                    </td>
-                    <td class="govuk-table__cell">
-                      <!--{{ noScopePrepFood.action }}-->
-                    </td>
-                  </tr>
-                  {% endif %}
-                  {% endfor %}
-                </tbody>
-              </table>
 </div>
 
 
