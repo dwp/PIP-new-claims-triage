@@ -22,7 +22,7 @@
       </div>
     </dl>
 </section>
-<style>
+<!--<style>
 .govuk-next-link {
   float:right;
   font-size: 16px;
@@ -54,7 +54,7 @@
 .moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent}
 @media (min-width: 40.0625em){.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{background-color:#f3f2f1}
 .moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;border-color:transparent}}
-</style>
+</style>-->
 <div class="govuk-width-container">
     <div class="column-full">
       <nav class="navigation-secondary">
@@ -75,7 +75,7 @@
             <a href="../questions">Questions</a>
           </li>
           <li>
-            <a href="../summary"  >Summary</a>
+            <a href="../summary">Summary</a>
           </li>
         </ul>
       </nav>
@@ -85,7 +85,7 @@
   <main class="govuk-main-wrapper">
 
    <div class="govuk-grid-row">
-<div class="govuk-grid-column-one-quarter">
+<!--<div class="govuk-grid-column-one-quarter">
   <nav class="moj-side-navigation" aria-label="Side navigation">
       <h4 class="moj-side-navigation__title">Day to day life</h4>
       <ul class="moj-side-navigation__list">
@@ -140,37 +140,39 @@
         </nav>
 
 
-     </div>
+     </div>-->
 
     <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-l">Preparing food</h1>
+      <h1 class="govuk-heading-l">
+          <span class="govuk-caption-l">Activity</span>
+          Preparing food
+     </h1>
+
+     <table class="govuk-table">
+       <thead class="govuk-table__head">
+         <tr class="govuk-table__row">
+           <th scope="col" class="govuk-table__header govuk-!-width-one-half">Question in PIP2</th>
+           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Answer</th>
+         </tr>
+       </thead>
+       <tbody class="govuk-table__body">
+         <tr class="govuk-table__row">
+           <td class="govuk-table__cell">Does your condition affect you preparing food, or prevent you from doing so?</td>
+           <td class="govuk-table__cell">Yes</td>
+         </tr>
+       </tbody>
+       </table>
+
       <h2 class="govuk-heading-m">Claimant's account</h2>
       <p class="govuk-body">On a good day I can use a microwave, but have difficult using an oven. Bending and standing too long gives me pain in lower back and hips. On a bad day, if i get angina attack, hot flushes, dizzy spell, nothing gets done. Bad days more often than not.</p>
 
-        <table class="govuk-table">
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header govuk-!-width-one-half">Question in PIP2</th>
-              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Answer</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Do you need to use an aid or appliance to prepare or cook a simple meal?</th>
-              <td class="govuk-table__cell">No</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Do you need help from another person to prepare or cook a simple meal?</th>
-              <td class="govuk-table__cell">Yes</td>
-            </tr>
-          </tbody>
-          </table>
+
 
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
 
-          {{ govukRadios({
+        <!--  {{ govukRadios({
             idPrefix: "activity-one-note",
             name: "preparing-food-note",
             fieldset: {
@@ -195,11 +197,11 @@
               }
 
             ]
-          }) }}
+          }) }}-->
 
           <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
 
-
+          <h2 class="govuk-heading-m">Add a question about this activity</h2>
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                 </div>
@@ -208,14 +210,14 @@
                 {% from "govuk/components/button/macro.njk" import govukButton %}
 
                 {{ govukButton({
-                  text: "Add this note"
+                  text: "Add this question"
                 }) }}
           </form>
 
 
 
 
-<table class="govuk-table">
+<!--<table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -244,7 +246,7 @@
     </tr>
 
   </tbody>
-</table>
+</table>-->
 
 <h2 class="govuk-heading-m">Questions about the claimant's account</h2>
 
@@ -255,7 +257,7 @@
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Question</th>
               <th scope="col" class="govuk-table__header">Who to contact</th>
-              <!--<th scope="col" class="govuk-table__header">Status</th>-->
+              <th scope="col" class="govuk-table__header">Status</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
@@ -275,18 +277,9 @@
           {% endfor %}
 
          <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
-              <td class="govuk-table__cell"><a href="/newnav/questions-claimant">The claimant</a></td>
-          </tr>
-
-          <tr class="govuk-table__row">
-              <td class="govuk-table__cell">How often are your angina attacks?</td>
-              <td class="govuk-table__cell"><a href="/newnav/questions-claimant">The claimant</a></td>
-          </tr>
-
-          <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
-              <td class="govuk-table__cell"><a href="/newnav/questions-claimant">The claimant</a></td>
+              <td class="govuk-table__cell">Is he able to dress his top and lower part whilst sitting down?</td>
+              <td class="govuk-table__cell"><!--<a href="/newnav/questions-claimant">-->Contact the claimant</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong></td>
           </tr>
 
         </tbody>
@@ -295,7 +288,7 @@
 
 
 
-<table class="govuk-table">
+<!--<table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -312,7 +305,7 @@
       </td>
       <td class="govuk-table__cell">
         <!--{{ noScopePrepFood.action }}-->
-      </td>
+      <!--</td>
     </tr>
     {% endif %}
     {% endfor %}
@@ -321,11 +314,11 @@
       <td class="govuk-table__cell">Issue with bending to reach oven</td>
       <td class="govuk-table__cell">
         <!-- {{ noScopePrepFood.action }}-->
-      </td>
+    <!--  </td>
     </tr>
 
   </tbody>
-</table>
+</table>-->
 
   </div>
 
