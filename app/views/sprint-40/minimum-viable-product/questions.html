@@ -10,15 +10,15 @@
     <dl class="key-details-bar__key-details">
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
-        <dt class="key-details-bar__name">Jim Smith</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
 
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
-        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
       </div>
 
       <div class="key-details-bar__bottom-block">
         <dt>Date of birth:</dt>
-        <dd>5 January 1978</dd>
+        <dd>4 June 1972</dd>
 
         <!--  <dd><strong class="govuk-tag govuk-tag--grey">Additional support</strong></dd>
           <dd><strong class="govuk-tag app-task-list__tag" id="company-information-status">Additional support</strong></dd>
@@ -33,9 +33,6 @@
       <ul>
         <li>
           <a href="contact-details">Personal details</a>
-        </li>
-        <li>
-          <a href="evidence">Evidence</a>
         </li>
         <li>
           <a href="conditions">Conditions</a>
@@ -54,46 +51,44 @@
     <p><br></p>
   </div>
 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
       <h1 class="govuk-heading-l">
         Questions
       </h1>
-        <h2 class="govuk-heading-m">Contact the:</h2>
+
+        <h2 class="govuk-heading-m">Contact</h2>
 
           <ul class="app-task-list__items govuk-!-padding-left-0">
             <li class="app-task-list__item">
                 <a href="questions-claimant" id="questions">
                 Claimant
                 </a>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">1 unanswered question</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">2 unanswered questions</strong>
        </li>
             <li class="app-task-list__item">
                 <a href="#questions-doctor" >
-                Claimant's doctor
+                Health professional
                 </a>
-                   <strong class="govuk-tag app-task-list__tag" id="consultant">All questions resolved</strong>
+                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">1 unanswered question</strong>
            </li>
 
-            <li class="app-task-list__item">
-              <a href="#questions-urologist" >
-                Claimant's urologist
-                </a>
-                 <strong class="govuk-tag app-task-list__tag" id="consultant">All questions resolved</strong>
-      </li>
-            <li class="app-task-list__item">
-              <a href="#questions-consultant" >
-                Claimant's consultant clinical oncologist
-                </a>
-               <strong class="govuk-tag app-task-list__tag" id="consultant">All questions resolved</strong>
-            </li>
+            <br>
 
+            <h2 class="govuk-heading-m">Unassigned</h2>
 
-      <div id="req-medical-advice"></div>
+              <ul class="app-task-list__items govuk-!-padding-left-0">
+                <li class="app-task-list__item">
+                    <a href="questions-claimant" id="questions">
+                    Unassigned
+                    </a>
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">1 unanswered question</strong>
+           </li>
 
-
-
-
+    </div>
   </div>
-
+</div>
 
 
 {% endblock %}
