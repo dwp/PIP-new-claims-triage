@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Tasklist
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+
+        <!--  <dd><strong class="govuk-tag govuk-tag--grey">Additional support</strong></dd>
+          <dd><strong class="govuk-tag app-task-list__tag" id="company-information-status">Additional support</strong></dd>
+        -->
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="contact-details">Personal details</a>
+        </li>
+        <li>
+          <a href="evidence">Evidence</a>
+        </li>
+        <li>
+          <a href="conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <li>
+          <a href="questions" class="active" aria-current="section">Questions</a>
+        </li>
+        <li>
+          <a href="summary" >Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+      <h1 class="govuk-heading-l">
+        Questions
+      </h1>
+        <h2 class="govuk-heading-m">Contact the:</h2>
+
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+                <a href="questions-claimant" id="questions">
+                Claimant
+                </a>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">1 unanswered question</strong>
+       </li>
+            <li class="app-task-list__item">
+                <a href="#questions-doctor" >
+                Claimant's doctor
+                </a>
+                   <strong class="govuk-tag app-task-list__tag" id="consultant">All questions resolved</strong>
+           </li>
+
+            <li class="app-task-list__item">
+              <a href="#questions-urologist" >
+                Claimant's urologist
+                </a>
+                 <strong class="govuk-tag app-task-list__tag" id="consultant">All questions resolved</strong>
+      </li>
+            <li class="app-task-list__item">
+              <a href="#questions-consultant" >
+                Claimant's consultant clinical oncologist
+                </a>
+               <strong class="govuk-tag app-task-list__tag" id="consultant">All questions resolved</strong>
+            </li>
+
+
+      <div id="req-medical-advice"></div>
+
+
+
+
+  </div>
+
+
+
+{% endblock %}
