@@ -39,7 +39,7 @@
               </h1>
 
               <h2 class="govuk-heading-l">
-                Add / edit queston and answer
+                Add or edit a question and answer
               </h2>
 
               <div class="govuk-form-group">
@@ -48,8 +48,37 @@
                     </h3>
                   <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5">{{ data['question'] }} How often are your Angina attacks?</textarea>
             </div>
-             <h3 class="govuk-heading-m">Who is this question for?
-            </h3> <p>The Claimant </p><br><Br>
+            
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+            {{ govukRadios({
+              idPrefix: "who-is-question-for",
+              name: "who-is-question-for",
+              fieldset: {
+                legend: {
+                  text: "Who is this question for?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+                {
+                  value: "claimant",
+                  text: "Claimant"
+                },
+                {
+                  value: "health-professional",
+                  text: "Health professional"
+                },
+                {
+                  value: "unassigned",
+                  text: "Unassigned"
+                }
+              ]
+            }) }}
+
+
+
 
               <div class="govuk-form-group">
                     <h3 class="govuk-heading-m">
