@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <a href="evidence" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper">
+
+
+    <!--<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Evidence 2
+      </h1>
+
+      <img src="/public/images/evidence-4.jpg" alt="doctors-note" width="620px" height="876px">
+
+      <br>
+      <br>
+
+      <!--{{ data | dump }}-->
+
+<form action="#" method="post">
+  <input type="hidden" value="{{ data.source }}"/>
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+              {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "tagging",
+                name: "tagging-evidence",
+                fieldset: {
+                  legend: {
+                    text: "Add a note about this piece of evidence",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: ""
+                },
+                items: [
+                  {
+                    value: "tag-evidence",
+                    text: "Important on this case"
+                  },
+                  {
+                    value: "evidence-query",
+                    text: "Issue to resolve"
+                  }
+                ]
+            }) }}
+
+
+          <div class="govuk-form-group">
+                <textarea class="govuk-textarea" id="evidence-query-box" name="evidence-query" value="{{ data['evidence-query'] }}" rows="5" aria-describedby="more-detail-hint"></textarea>
+        </div>
+
+        {% for query in data['queries'] %}
+        <!--<p><a href="#">{{ query.action }}</a></p>-->
+        {% endfor %}
+
+
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Add this note"
+      }) }}
+</form>
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Issues to resolve</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Issue</th>
+      <th scope="col" class="govuk-table__header">Who to contact to resolve this issue</th>
+    <!--  <th scope="col" class="govuk-table__header">Status</th>-->
+    </tr>
+  </thead>
+  {% for query in data['queriesEvidence'] %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        {{ query.evidence }}
+      </td>
+      <td class="govuk-table__cell">{{ query.action }}</td>
+    <!--  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Statements</th>
+      <th scope="col" class="govuk-table__header">Linked to</th>
+    </tr>
+  </thead>
+  {% for condition in data['conditionsEvidence'] %}
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">
+        {{ condition.evidence }}
+      </td>
+      <td class="govuk-table__cell">
+        {{ condition.action }}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </div>
+
+  </div>
+
+
+
+      </main>
+      </div>
+
+{% endblock %}

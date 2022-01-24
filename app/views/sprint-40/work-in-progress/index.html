@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-          Sprint 30
+          Sprint 40
         <span class="govuk-caption-xl">Created new prototype to validate new concepts with case managers within PIP.</span>
 
 {{ govukDetails({
@@ -22,17 +22,24 @@
 
                   }) }}
 
-
-
-                  <p>This prototype starts with Case details page.<br><br>
+                  <h3 class="govuk-heading-m">Work in progress prototype</h3>
+                  <p>This is the start of the 'Work in progress' prototype<br><br>
                   {% from "govuk/components/button/macro.njk" import govukButton %}
 
-{{ govukButton({
-  text: "Start prototype",
-  href: "/current/task-list"
-}) }}
-</p>
-  <h3 class="govuk-heading-m">Seperate shortcuts to all the pages</h3>
+                  {{ govukButton({
+                    text: "Start WIP prototype",
+                    href: "/sprint-40/work-in-progress/task-list"
+                  }) }}
+
+                  <h3 class="govuk-heading-m">Minimum viable product prototype</h3>
+                  <p>This is the start of the 'MVP' prototype<br><br>
+
+                  {{ govukButton({
+                    text: "Start MVP prototype",
+                    href: "/sprint-40/minimum-viable-product/task-list"
+                  }) }}
+                </p>
+<!--  <h3 class="govuk-heading-m">Seperate shortcuts to all the pages</h3>
 
 
   <ul class="govuk-list">
@@ -50,7 +57,7 @@
       <li><a class="govuk-link" href="/current/set-descriptor">Set descriptor</a></li>
       <li><a class="govuk-link" href="/current/preparing-food-descriptor">Descriptor within activity</a></li>
       <li><a class="govuk-link" href="/current/descriptor-justification">Descriptor justification</a></li>
-  </ul>
+  </ul> -->
 
   <!--<h3 class="govuk-heading-m">Tasklist action variations</h3>
   <ul class="govuk-list">
@@ -58,7 +65,7 @@
         <li><a class="govuk-link" href="/current/task-list-contact-claimant">Tasklist - contact claimant</a></li>
   </ul>-->
 
-  <h3 class="govuk-heading-m">Activities</h3>
+  <!--<h3 class="govuk-heading-m">Activities</h3>
   <ul class="govuk-list">
         <li><a class="govuk-link" href="/current/activities/preparing-food">Preparing food</a></li>
         <li><a class="govuk-link" href="/current/activities/taking-nutrition">Taking nutrition</a></li>
@@ -72,7 +79,7 @@
         <li><a class="govuk-link" href="/current/activities/budgeting">Budgeting</a></li>
         <li><a class="govuk-link" href="/current/activities/planning-and-following-journeys">Planning and following journeys</a></li>
         <li><a class="govuk-link" href="/current/activities/moving-around">Moving around</a></li>
-  </ul>
+  </ul>-->
 <!--
   <h3 class="govuk-heading-m">Other designs</h3>
   <ul class="govuk-list">

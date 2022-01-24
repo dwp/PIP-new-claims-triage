@@ -1,0 +1,247 @@
+{% extends "layout.html" %}
+{% block main %}
+
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+
+        <dt class="govuk-visually-hidden">Claim status:</dt>
+      <!-- <dd class="key-details-bar__status">Additional support</dd> -->
+
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="contact-details">Personal details</a>
+        </li>
+        <li>
+          <a href="conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <li>
+          <a href="questions">Questions</a>
+        </li>
+        <li>
+          <a href="summary" class="active" aria-current="section">Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+        <h1 class="govuk-heading-l">Summary</h1>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+
+
+
+     <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}" >
+        <span class="govuk-heading-s">Unanswered <br>questions</span>
+      <span class="govuk-heading-m" style="font-size:85px" ><font color="#d53880">2</font><p><a href="#unanswered">View</a></p></span>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s">Answered <br>questions</span>
+     <span class="govuk-heading-m" style="font-size:85px" ><font color="#28a197">7</font><p><a href="#answered">View</a></p></span>
+    </div>
+
+    <!--<div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s">Important <br>notes</span>
+    <span class="govuk-heading-m" style="font-size:85px" ><font color="#912b88">5</font><p><a href="#important">View</a></p></span>
+    </div>-->
+
+    <!--<div class="govuk-grid-column-one-quarter"   style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+        <span class="govuk-heading-s">Out of <br>scope</span>
+     <span class="govuk-heading-m" style="font-size:85px" ><font color="#5694ca">2</font><p><a href="#outofscope">View</a></p></span>
+   </div>-->
+
+    <table class="govuk-table" id="unanswered">
+      <caption class="govuk-table__caption govuk-table__caption--m" ><br><br>Unanswered questions about this case (<font color="d53880">1 question</font>)</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Contact</th>
+        </tr>
+      </thead>
+     <tbody class="govuk-table__body">
+        <!--{% for questions in data['queriesPrepFood'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.action }} </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsTakeNutrition in data['queriesTakeNutrition'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ questionsTakeNutrition.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsTakeNutrition.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsTakeNutrition.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsTherapy in data['queriesManageTherapy'] %}
+        <tr class="govuk-table__row">
+               <td scope="row" class="govuk-table__cell">
+                {{ questionsTherapy.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsTherapy.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsTherapy.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsWashing in data['queriesWashingBathing'] %}
+        <tr class="govuk-table__row">
+               <td scope="row" class="govuk-table__cell">
+                {{ questionsWashing.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsWashing.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsWashing.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsToilet in data['queriesToiletneeds'] %}
+        <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell">
+                {{ questionsToilet.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsToilet.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsToilet.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsDressing in data['queriesDressing'] %}
+        <tr class="govuk-table__row">
+           <td scope="row" class="govuk-table__cell">
+                {{ questionsDressing.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsDressing.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsDressing.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsEvidenceOne in data['queriesEvidence'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ questionsEvidenceOne.evidence }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceOne.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceOne.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsEvidenceTwo in data['queriesEvidenceTwo'] %}
+        <tr class="govuk-table__row">
+           <td scope="row" class="govuk-table__cell">
+                {{ questionsEvidenceTwo.evidence }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceTwo.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceTwo.section }} </td>
+        </tr>
+        {% endfor %} -->
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">Need to clarify some evidence about preparing food?</td>
+          <td class="govuk-table__cell" style="width:45;">&nbsp;&nbsp; </td>
+          <td class="govuk-table__cell" style="width:12%;">Claimant</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+      <br>
+      <br>
+    <table class="govuk-table" id="answered">
+      <caption class="govuk-table__caption govuk-table__caption--m">Answered questions about this case (<font color="28a197">7 questions</font>) </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Contacted</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
+          <td class="govuk-table__cell">He can peel and chop vegetables if he was sat down.</td>
+          <td class="govuk-table__cell">Claimant</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Were you prescribed the long handled sponge?</td>
+          <td class="govuk-table__cell">Bought himself.</td>
+          <td class="govuk-table__cell">Claimant</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
+          <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
+          <td class="govuk-table__cell">Claimant</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any aids, raised toilet seat, rails fitted?</td>
+          <td class="govuk-table__cell">He has a raised toilet. He holds onto the sink to sit and stand from the toilet.</td>
+          <td class="govuk-table__cell">Claimant</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often do you have urinary incontinence?</td>
+          <td class="govuk-table__cell">This does not fluctuate, every day is a bad day. This has got worse in the last 12 months. He has had no hospital admissions.</td>
+          <td class="govuk-table__cell">Claimant</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How long ago were the mini strokes?</td>
+          <td class="govuk-table__cell">Need to clarify some evidence about preparing food</td>
+          <td class="govuk-table__cell">Claimant</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have aids from the GP or that you've bought yourself?</td>
+          <td class="govuk-table__cell">I didn't know you could get things like handrails from your GP. No, I bought them myself.
+                                          I use the handrail to help me get upstairs. I have fallen twice in the last year,
+                                          thankfully I didn’t end up in hospital though.</td>
+          <td class="govuk-table__cell">Claimant</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+    {{ govukButton({
+      text: "Make a recommendation",
+      href: "ready-to-make-next-step"
+    }) }}
+
+
+</div>
+
+
+
+{% endblock %}
