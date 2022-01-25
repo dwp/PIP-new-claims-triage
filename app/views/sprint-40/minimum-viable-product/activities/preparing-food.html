@@ -169,37 +169,7 @@
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
 
-        <!--  {{ govukRadios({
-            idPrefix: "activity-one-note",
-            name: "preparing-food-note",
-            fieldset: {
-              legend: {
-                text: "Add a note about this activity",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
-            items: [
-              {
-                value: "important-to-this-case",
-                text: "Important to this case"
-              },
-              {
-                value: "question-about-this-activity",
-                text: "Question about this activity"
-              },
-              {
-                value: "out-of-scope",
-                text: "Out of scope"
-              }
-
-            ]
-          }) }}-->
-
-          <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
-
           <!-- text box is here -->
-
           <h2 class="govuk-heading-m">Add a question about the claimant's account</h2>
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
@@ -221,15 +191,15 @@
                   },
                   items: [
                     {
-                      value: "claimant",
+                      value: "Claimant",
                       text: "Claimant"
                     },
                     {
-                      value: "health-professional",
+                      value: "Health Professional",
                       text: "Health professional"
                     },
                     {
-                      value: "unassigned",
+                      value: "Unassigned",
                       text: "Unassigned"
                     }
                   ]
@@ -296,11 +266,13 @@
 
           <tr class="govuk-table__row">
               <td class="govuk-table__cell">
-                {{ query.content }}
-
+                {{ query.textBox }}
               </td>
               <td class="govuk-table__cell">
                 <a href="{{ query.href }}">{{ query.action }}</a>
+              </td>
+              <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong>
               </td>
           </tr>
           {% endif %}
