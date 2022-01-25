@@ -225,15 +225,15 @@
                   },
                   items: [
                     {
-                      value: "claimant",
+                      value: "Claimant",
                       text: "Claimant"
                     },
                     {
-                      value: "health-professional",
+                      value: "Health Professional",
                       text: "Health professional"
                     },
                     {
-                      value: "unassigned",
+                      value: "Unassigned",
                       text: "Unassigned"
                     }
                   ]
@@ -295,16 +295,19 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
-          {% for query in data['queriesPrepFood'] %}
-          {% if query.section == 'Preparing food' %}
+          {% for query in data['queriesTalking'] %}
+          {% if query.section == 'communicating-verbally' %}
 
           <tr class="govuk-table__row">
               <td class="govuk-table__cell">
-                {{ query.content }}
+                {{ query.textBox }}
 
               </td>
               <td class="govuk-table__cell">
                 <a href="{{ query.href }}">{{ query.action }}</a>
+              </td>
+              <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong>
               </td>
           </tr>
           {% endif %}
