@@ -326,6 +326,23 @@
 </table>
 </div>
 
+<script defer type="text/javascript">
+
+  var noQuery = "{{ data['who-is-question-for'] }}";
+
+  if (noQuery) {
+
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">No questions have been added yet.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
+
+  </script>
+
 
 
 <!--<table class="govuk-table">
