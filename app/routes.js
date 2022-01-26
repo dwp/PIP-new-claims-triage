@@ -544,6 +544,43 @@ router.post('/sprint-40/minimum-viable-product/activities/washing-and-bathing', 
                 })
 
 
+                //Start routes for additional information: questions
+                  router.post('/sprint-40/minimum-viable-product/additional-information', (req, res, next) => {
+                      if (req.session.data['who-is-question-for']) {
+                        console.log('is-this-calling', req.session.data)
+                        const textBox = req.session.data['query-content']
+                        const section = req.session.data.source
+
+                        const queriesAdditional = req.session.data.queriesAdditional || []
+                        queriesAdditional.push({ textBox, section })
+                        req.session.data.queriesAdditional = queriesAdditional
+
+                        let href;
+
+                        switch (req.session.data['who-is-question-for']) {
+                          case("Claimant"):
+                          href = '/sprint-40/minimum-viable-product/questions-claimant';
+                          break;
+                          case("Health Professional"):
+                          href = '/sprint-40/minimum-viable-product/questions-health-professional';
+                          break;
+                          case("Unassigned"):
+                          href = '/sprint-40/minimum-viable-product/unassigned-questions';
+                          break;
+                          //this is the hardcoded bit if one of the links fails
+                          default:
+                          href = '/sprint-40/minimum-viable-product/tasklist';
+                        }
+
+                      //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+                        req.session.data.queriesAdditional[req.session.data.queriesAdditional.length - 1].action = req.session.data['who-is-question-for']
+                        req.session.data.queriesAdditional[req.session.data.queriesAdditional.length - 1].href = href;
+                        res.redirect('/sprint-40/minimum-viable-product/additional-information')
+
+                        }
+                      })
+
+
 
 //Start routes for scoring -- Old  stuff???********************************************************************************
 router.post('/sprint-40/minimum-viable-product/set-descriptor', (req, res, next) => {
