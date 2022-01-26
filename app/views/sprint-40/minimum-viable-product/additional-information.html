@@ -157,40 +157,39 @@
                         <form action="#" method="post">
                             <input type="hidden" value="{{ data.source }}"/>
 
-                        <!--{{ govukRadios({
-                          idPrefix: "activity-tweleve-note",
-                          name: "moving-around-note",
-                          fieldset: {
-                            legend: {
-                              text: "Add a note about this activity",
-                              isPageHeading: true,
-                              classes: "govuk-fieldset__legend--m"
-                            }
-                          },
-                          items: [
-                            {
-                              value: "important-to-this-case",
-                              text: "Important to this case"
-                            },
-                            {
-                              value: "question-about-this-additional-information",
-                              text: "Question about this additional information"
-                            },
-                            {
-                              value: "out-of-scope",
-                              text: "Out of scope"
-                            }
-
-                          ]
-                        }) }}-->
-
                         <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
-
                         <h2 class="govuk-heading-m">Add a question about this additional information</h2>
                               <div class="govuk-form-group">
                                   <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                               </div>
-                              <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+
+                              {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+                              {{ govukRadios({
+                                idPrefix: "who-is-question-for",
+                                name: "who-is-question-for",
+                                fieldset: {
+                                  legend: {
+                                    text: "Who is this question for?",
+                                    isPageHeading: true,
+                                    classes: "govuk-fieldset__legend--m"
+                                  }
+                                },
+                                items: [
+                                  {
+                                    value: "Claimant",
+                                    text: "Claimant"
+                                  },
+                                  {
+                                    value: "Health Professional",
+                                    text: "Health professional"
+                                  },
+                                  {
+                                    value: "Unassigned",
+                                    text: "Unassigned"
+                                  }
+                                ]
+                              }) }}
 
                               {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -199,44 +198,45 @@
                               }) }}
                         </form>
 
+                        <h2 class="govuk-heading-m">Questions list</h2>
 
-              <h2 class="govuk-heading-m">Question List</h2>
+                        <div id="queryTable">
+                          <table class="govuk-table">
+                                  <!--<caption class="govuk-table__caption govuk-table__caption--m"></caption>-->
+                                  <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                      <th scope="col" class="govuk-table__header">Question</th>
+                                      <th scope="col" class="govuk-table__header">Contact</th>
+                                      <th scope="col" class="govuk-table__header">Status</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="govuk-table__body">
+                                  {% for query in data['queriesAdditional'] %}
+                                  {% if query.section == 'additional-info' %}
 
+                                  <tr class="govuk-table__row">
+                                      <td class="govuk-table__cell">
+                                        {{ query.textBox }}
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                        <a href="{{ query.href }}">{{ query.action }}</a>
+                                      </td>
+                                      <td class="govuk-table__cell">
+                                          <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong>
+                                      </td>
+                                  </tr>
+                                  {% endif %}
+                                  {% endfor %}
 
-              <div id="queryTable">
-                <table class="govuk-table">
-                        <!--<caption class="govuk-table__caption govuk-table__caption--m"></caption>-->
-                        <thead class="govuk-table__head">
-                          <tr class="govuk-table__row">
-                            <th scope="col" class="govuk-table__header">Question</th>
-                            <th scope="col" class="govuk-table__header">Contact</th>
-                            <th scope="col" class="govuk-table__header">Status</th>
-                          </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                        {% for query in data['queriesPrepFood'] %}
-                        {% if query.section == 'moving-around' %}
+                                 <tr class="govuk-table__row">
+                                      <td class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
+                                      <td class="govuk-table__cell"><a href="/sprint-40/minimum-viable-product/questions-claimant">Claimant</a></td>
+                                      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong></td>
+                                  </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">
-                              {{ query.content }}
-
-                            </td>
-                            <td class="govuk-table__cell">
-                              {{ query.action }}
-                            </td>
-                            <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
-                        </tr>
-                        {% endif %}
-                        {% endfor %}
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">No questions have been added yet</td>
-                            <td class="govuk-table__cell"> </td>
-                            <td class="govuk-table__cell"> </td>
-                        </tr>
-                      </tbody>
-              </table>
-              </div>
+                                </tbody>
+                        </table>
+                        </div>
 
 </div>
 
