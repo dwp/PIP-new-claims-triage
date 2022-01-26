@@ -1468,346 +1468,257 @@ router.post('/sprint-40/minimum-viable-product/condition-one', (req, res, next) 
     })
 
 //Routes for query condtion2
-
 router.post('/sprint-40/minimum-viable-product/condition-two', (req, res, next) => {
-  console.log('/sprint-40/minimum-viable-product/condition-two', req.session.data)
-  const name = req.session.data['condition-query']
-  const section = req.session.data.source
-  const queriesCondition = req.session.data.queriesCondition || []
-  queriesCondition.push({ name, section })
-  req.session.data.queriesCondition = queriesCondition
-  res.redirect('/sprint-40/minimum-viable-product/set-action/set-action-condition-two')
-})
+    if (req.session.data['who-is-question-for']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
 
-router.post('/sprint-40/minimum-viable-product/set-action/set-action-condition-two', (req, res, next) => {
-  console.log('this is condition two')
-  console.log(req.session.data)
+      const queriesConditionTwo = req.session.data.queriesConditionTwo || []
+      queriesConditionTwo.push({ textBox, section })
+      req.session.data.queriesConditionTwo = queriesConditionTwo
 
-  let href;
+      let href;
 
-  switch (req.session.data['set-an-action']) {
-    case('The claimant'):
-    href = '/sprint-40/minimum-viable-product/contact-claimant-action';
-    break;
-    case("The claimant's doctor"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp1-action';
-    break;
-    case("The claimant's urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp2-action';
-    break;
-    case("The claimant's consultant clinical urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp3-action';
-    break;
-    case('VAL'):
-    href = '/sprint-40/minimum-viable-product/contact-val-action';
-    break;
-    case('Resolve this issue another way'):
-    href = '/sprint-40/minimum-viable-product/none-these-action';
-    break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-40/minimum-viable-product/tasklist';
-  }
+      switch (req.session.data['who-is-question-for']) {
+        case("Claimant"):
+        href = '/sprint-40/minimum-viable-product/questions-claimant';
+        break;
+        case("Health Professional"):
+        href = '/sprint-40/minimum-viable-product/questions-health-professional';
+        break;
+        case("Unassigned"):
+        href = '/sprint-40/minimum-viable-product/unassigned-questions';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-40/minimum-viable-product/tasklist';
+      }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
-  console.log(1, req.session.data)
-  res.redirect('/sprint-40/minimum-viable-product/condition-two')
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionTwo[req.session.data.queriesConditionTwo.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesConditionTwo[req.session.data.queriesConditionTwo.length - 1].href = href;
+      res.redirect('/sprint-40/minimum-viable-product/condition-two')
+
+      }
 })
 
 //Routes for query condtion3
-
 router.post('/sprint-40/minimum-viable-product/condition-three', (req, res, next) => {
-  console.log('/sprint-40/minimum-viable-product/condition-three', req.session.data)
-  const name = req.session.data['condition-query']
-  const section = req.session.data.source
-  const queriesCondition = req.session.data.queriesCondition || []
-  queriesCondition.push({ name, section })
-  req.session.data.queriesCondition = queriesCondition
-  res.redirect('/sprint-40/minimum-viable-product/set-action/set-action-condition-three')
-})
+    if (req.session.data['who-is-question-for']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
 
-router.post('/sprint-40/minimum-viable-product/set-action/set-action-condition-three', (req, res, next) => {
-  console.log('this is condition three')
-  console.log(req.session.data)
+      const queriesConditionThree = req.session.data.queriesConditionThree || []
+      queriesConditionThree.push({ textBox, section })
+      req.session.data.queriesConditionThree = queriesConditionThree
 
-  let href;
+      let href;
 
-  switch (req.session.data['set-an-action']) {
-    case('The claimant'):
-    href = '/sprint-40/minimum-viable-product/contact-claimant-action';
-    break;
-    case("The claimant's doctor"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp1-action';
-    break;
-    case("The claimant's urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp2-action';
-    break;
-    case("The claimant's consultant clinical urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp3-action';
-    break;
-    case('VAL'):
-    href = '/sprint-40/minimum-viable-product/contact-val-action';
-    break;
-    case('Resolve this issue another way'):
-    href = '/sprint-40/minimum-viable-product/none-these-action';
-    break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-40/minimum-viable-product/tasklist';
-  }
+      switch (req.session.data['who-is-question-for']) {
+        case("Claimant"):
+        href = '/sprint-40/minimum-viable-product/questions-claimant';
+        break;
+        case("Health Professional"):
+        href = '/sprint-40/minimum-viable-product/questions-health-professional';
+        break;
+        case("Unassigned"):
+        href = '/sprint-40/minimum-viable-product/unassigned-questions';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-40/minimum-viable-product/tasklist';
+      }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
-  console.log(1, req.session.data)
-  res.redirect('/sprint-40/minimum-viable-product/condition-three')
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionThree[req.session.data.queriesConditionThree.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesConditionThree[req.session.data.queriesConditionThree.length - 1].href = href;
+      res.redirect('/sprint-40/minimum-viable-product/condition-three')
+
+      }
 })
 
 //Routes for query condtion4
-
 router.post('/sprint-40/minimum-viable-product/condition-four', (req, res, next) => {
-  console.log('/sprint-40/minimum-viable-product/condition-four', req.session.data)
-  const name = req.session.data['condition-query']
-  const section = req.session.data.source
-  const queriesCondition = req.session.data.queriesCondition || []
-  queriesCondition.push({ name, section })
-  req.session.data.queriesCondition = queriesCondition
-  res.redirect('/sprint-40/minimum-viable-product/set-action/set-action-condition-four')
-})
+    if (req.session.data['who-is-question-for']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
 
-router.post('/sprint-40/minimum-viable-product/set-action/set-action-condition-four', (req, res, next) => {
-  console.log('this is condition four')
-  console.log(req.session.data)
+      const queriesConditionFour = req.session.data.queriesConditionFour || []
+      queriesConditionFour.push({ textBox, section })
+      req.session.data.queriesConditionFour = queriesConditionFour
 
-  let href;
+      let href;
 
-  switch (req.session.data['set-an-action']) {
-    case('The claimant'):
-    href = '/sprint-40/minimum-viable-product/contact-claimant-action';
-    break;
-    case("The claimant's doctor"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp1-action';
-    break;
-    case("The claimant's urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp2-action';
-    break;
-    case("The claimant's consultant clinical urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp3-action';
-    break;
-    case('VAL'):
-    href = '/sprint-40/minimum-viable-product/contact-val-action';
-    break;
-    case('Resolve this issue another way'):
-    href = '/sprint-40/minimum-viable-product/none-these-action';
-    break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-40/minimum-viable-product/condition-four';
-  }
+      switch (req.session.data['who-is-question-for']) {
+        case("Claimant"):
+        href = '/sprint-40/minimum-viable-product/questions-claimant';
+        break;
+        case("Health Professional"):
+        href = '/sprint-40/minimum-viable-product/questions-health-professional';
+        break;
+        case("Unassigned"):
+        href = '/sprint-40/minimum-viable-product/unassigned-questions';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-40/minimum-viable-product/tasklist';
+      }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
-  console.log(1, req.session.data)
-  res.redirect('/sprint-40/minimum-viable-product/task-list')
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionFour[req.session.data.queriesConditionFour.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesConditionFour[req.session.data.queriesConditionFour.length - 1].href = href;
+      res.redirect('/sprint-40/minimum-viable-product/condition-four')
+
+      }
 })
 
 //Routes for query condtion5
-
 router.post('/sprint-40/minimum-viable-product/condition-five', (req, res, next) => {
-  console.log('/sprint-40/minimum-viable-product/condition-five', req.session.data)
-  const name = req.session.data['condition-query']
-  const section = req.session.data.source
-  const queriesCondition = req.session.data.queriesCondition || []
-  queriesCondition.push({ name, section })
-  req.session.data.queriesCondition = queriesCondition
-  res.redirect('/sprint-40/minimum-viable-product/set-action/set-action-condition-five')
-})
+    if (req.session.data['who-is-question-for']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
 
-router.post('/sprint-40/minimum-viable-product/set-action/set-action-condition-five', (req, res, next) => {
-  console.log('this is condition five')
-  console.log(req.session.data)
+      const queriesConditionFive = req.session.data.queriesConditionFive || []
+      queriesConditionFive.push({ textBox, section })
+      req.session.data.queriesConditionFive = queriesConditionFive
 
-  let href;
+      let href;
 
-  switch (req.session.data['set-an-action']) {
-    case('The claimant'):
-    href = '/sprint-40/minimum-viable-product/contact-claimant-action';
-    break;
-    case("The claimant's doctor"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp1-action';
-    break;
-    case("The claimant's urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp2-action';
-    break;
-    case("The claimant's consultant clinical urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp3-action';
-    break;
-    case('VAL'):
-    href = '/sprint-40/minimum-viable-product/contact-val-action';
-    break;
-    case('Resolve this issue another way'):
-    href = '/sprint-40/minimum-viable-product/none-these-action';
-    break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-40/minimum-viable-product/tasklist';
-  }
+      switch (req.session.data['who-is-question-for']) {
+        case("Claimant"):
+        href = '/sprint-40/minimum-viable-product/questions-claimant';
+        break;
+        case("Health Professional"):
+        href = '/sprint-40/minimum-viable-product/questions-health-professional';
+        break;
+        case("Unassigned"):
+        href = '/sprint-40/minimum-viable-product/unassigned-questions';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-40/minimum-viable-product/tasklist';
+      }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
-  console.log(1, req.session.data)
-  res.redirect('/sprint-40/minimum-viable-product/condition-five')
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionFive[req.session.data.queriesConditionFive.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesConditionFive[req.session.data.queriesConditionFive.length - 1].href = href;
+      res.redirect('/sprint-40/minimum-viable-product/condition-five')
+
+      }
 })
 
 //Routes for query condtion6
-
 router.post('/sprint-40/minimum-viable-product/condition-six', (req, res, next) => {
-  console.log('/sprint-40/minimum-viable-product/condition-six', req.session.data)
-  const name = req.session.data['condition-query']
-  const section = req.session.data.source
-  const queriesCondition = req.session.data.queriesCondition || []
-  queriesCondition.push({ name, section })
-  req.session.data.queriesCondition = queriesCondition
-  res.redirect('/sprint-40/minimum-viable-product/set-action/set-action-condition-six')
+    if (req.session.data['who-is-question-for']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionSix = req.session.data.queriesConditionSix || []
+      queriesConditionSix.push({ textBox, section })
+      req.session.data.queriesConditionSix = queriesConditionSix
+
+      let href;
+
+      switch (req.session.data['who-is-question-for']) {
+        case("Claimant"):
+        href = '/sprint-40/minimum-viable-product/questions-claimant';
+        break;
+        case("Health Professional"):
+        href = '/sprint-40/minimum-viable-product/questions-health-professional';
+        break;
+        case("Unassigned"):
+        href = '/sprint-40/minimum-viable-product/unassigned-questions';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-40/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionSix[req.session.data.queriesConditionSix.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesConditionSix[req.session.data.queriesConditionSix.length - 1].href = href;
+      res.redirect('/sprint-40/minimum-viable-product/condition-six')
+
+      }
 })
 
-router.post('/sprint-40/minimum-viable-product/set-action/set-action-condition-six', (req, res, next) => {
-  console.log('this is condition six')
-  console.log(req.session.data)
-
-  let href;
-
-  switch (req.session.data['set-an-action']) {
-    case('The claimant'):
-    href = '/sprint-40/minimum-viable-product/contact-claimant-action';
-    break;
-    case("The claimant's doctor"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp1-action';
-    break;
-    case("The claimant's urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp2-action';
-    break;
-    case("The claimant's consultant clinical urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp3-action';
-    break;
-    case('VAL'):
-    href = '/sprint-40/minimum-viable-product/contact-val-action';
-    break;
-    case('Resolve this issue another way'):
-    href = '/sprint-40/minimum-viable-product/none-these-action';
-    break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-40/minimum-viable-product/condition-six';
-  }
-
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
-  console.log(1, req.session.data)
-  res.redirect('/sprint-40/minimum-viable-product/condition-six')
-})
 
 //Routes for query condtion7
-
 router.post('/sprint-40/minimum-viable-product/condition-seven', (req, res, next) => {
-  console.log('/sprint-40/minimum-viable-product/condition-seven', req.session.data)
-  const name = req.session.data['condition-query']
-  const section = req.session.data.source
-  const queriesCondition = req.session.data.queriesCondition || []
-  queriesCondition.push({ name, section })
-  req.session.data.queriesCondition = queriesCondition
-  res.redirect('/sprint-40/minimum-viable-product/set-action/set-action-condition-seven')
+    if (req.session.data['who-is-question-for']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionSeven = req.session.data.queriesConditionSeven || []
+      queriesConditionSeven.push({ textBox, section })
+      req.session.data.queriesConditionSeven = queriesConditionSeven
+
+      let href;
+
+      switch (req.session.data['who-is-question-for']) {
+        case("Claimant"):
+        href = '/sprint-40/minimum-viable-product/questions-claimant';
+        break;
+        case("Health Professional"):
+        href = '/sprint-40/minimum-viable-product/questions-health-professional';
+        break;
+        case("Unassigned"):
+        href = '/sprint-40/minimum-viable-product/unassigned-questions';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-40/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionSeven[req.session.data.queriesConditionSeven.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesConditionSeven[req.session.data.queriesConditionSeven.length - 1].href = href;
+      res.redirect('/sprint-40/minimum-viable-product/condition-seven')
+
+      }
 })
 
-router.post('/sprint-40/minimum-viable-product/set-action/set-action-condition-seven', (req, res, next) => {
-  console.log('this is condition seven')
-  console.log(req.session.data)
-
-  let href;
-
-  switch (req.session.data['set-an-action']) {
-    case('The claimant'):
-    href = '/sprint-40/minimum-viable-product/contact-claimant-action';
-    break;
-    case("The claimant's doctor"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp1-action';
-    break;
-    case("The claimant's urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp2-action';
-    break;
-    case("The claimant's consultant clinical urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp3-action';
-    break;
-    case('VAL'):
-    href = '/sprint-40/minimum-viable-product/contact-val-action';
-    break;
-    case('Resolve this issue another way'):
-    href = '/sprint-40/minimum-viable-product/none-these-action';
-    break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-40/minimum-viable-product/tasklist';
-  }
-
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
-  console.log(1, req.session.data)
-  res.redirect('/sprint-40/minimum-viable-product/condition-seven')
-})
 
 //Routes for query condtion8
-
 router.post('/sprint-40/minimum-viable-product/condition-eight', (req, res, next) => {
-  console.log('/sprint-40/minimum-viable-product/condition-eight', req.session.data)
-  const name = req.session.data['condition-query']
-  const section = req.session.data.source
-  const queriesCondition = req.session.data.queriesCondition || []
-  queriesCondition.push({ name, section })
-  req.session.data.queriesCondition = queriesCondition
-  res.redirect('/sprint-40/minimum-viable-product/set-action/set-action-condition-eight')
-})
+    if (req.session.data['who-is-question-for']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
 
-router.post('/sprint-40/minimum-viable-product/set-action/set-action-condition-eight', (req, res, next) => {
-  console.log('this is condition eight')
-  console.log(req.session.data)
+      const queriesConditionEight = req.session.data.queriesConditionEight || []
+      queriesConditionEight.push({ textBox, section })
+      req.session.data.queriesConditionEight = queriesConditionEight
 
-  let href;
+      let href;
 
-  switch (req.session.data['set-an-action']) {
-    case('The claimant'):
-    href = '/sprint-40/minimum-viable-product/contact-claimant-action';
-    break;
-    case("The claimant's doctor"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp1-action';
-    break;
-    case("The claimant's urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp2-action';
-    break;
-    case("The claimant's consultant clinical urologist"):
-    href = '/sprint-40/minimum-viable-product/contact-hcp3-action';
-    break;
-    case('VAL'):
-    href = '/sprint-40/minimum-viable-product/contact-val-action';
-    break;
-    case('Resolve this issue another way'):
-    href = '/sprint-40/minimum-viable-product/none-these-action';
-    break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-40/minimum-viable-product/tasklist';
-  }
+      switch (req.session.data['who-is-question-for']) {
+        case("Claimant"):
+        href = '/sprint-40/minimum-viable-product/questions-claimant';
+        break;
+        case("Health Professional"):
+        href = '/sprint-40/minimum-viable-product/questions-health-professional';
+        break;
+        case("Unassigned"):
+        href = '/sprint-40/minimum-viable-product/unassigned-questions';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-40/minimum-viable-product/tasklist';
+      }
 
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].action = req.session.data['set-an-action']
-  req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].href = href;
-  console.log(1, req.session.data)
-  res.redirect('/sprint-40/minimum-viable-product/condition-eight')
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].href = href;
+      res.redirect('/sprint-40/minimum-viable-product/condition-eight')
+
+      }
 })
 
 
