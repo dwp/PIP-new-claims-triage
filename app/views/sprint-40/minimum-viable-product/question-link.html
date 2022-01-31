@@ -31,11 +31,11 @@
               <h1 class="govuk-heading-l">
 
 
-                {% for questions in data['queriesPrepFood'] %}
+                <!--{% for questions in data['queriesPrepFood'] %}
                 {% if questions.action == "The claimant" %}
                   {{ questions.content }}
                   {% endif %}
-                  {% endfor %}
+                  {% endfor %}-->
               </h1>
 
               <h2 class="govuk-heading-l">
@@ -46,14 +46,18 @@
                     <h3 class="govuk-heading-m">
                     Question
                     </h3>
-                  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5">{{ data['question'] }} How often are your Angina attacks?</textarea>
+
+        <form action="#" method="post">
+
+            <input type="hidden" value="{{ data.source }}"/>
+                  <textarea class="govuk-textarea" id="more-detail" name="question" rows="5">{{ data['question'] }}</textarea>
             </div>
-            
+
             {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
             {{ govukRadios({
               idPrefix: "who-is-question-for",
-              name: "who-is-question-for",
+              name: "question-for",
               fieldset: {
                 legend: {
                   text: "Who is this question for?",
@@ -63,15 +67,15 @@
               },
               items: [
                 {
-                  value: "claimant",
+                  value: "Claimant",
                   text: "Claimant"
                 },
                 {
-                  value: "health-professional",
+                  value: "Health Professional",
                   text: "Health professional"
                 },
                 {
-                  value: "unassigned",
+                  value: "Unassigned",
                   text: "Unassigned"
                 }
               ]
@@ -87,17 +91,16 @@
 
 
 
-                  <form action="questions-claimant2" method="post">
-                      <input type="hidden" value="{{ data.source }}"/>
+
                             <div class="govuk-form-group">
 
-                                  <textarea class="govuk-textarea" id="answers" name="answer"   rows="5">{{ data['answer'] }}</textarea>
+                                  <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
                             </div>
 
                             {{ govukRadios({
                                   classes: "govuk-radios--inline",
                                   idPrefix: "answeredquestion",
-                                  name: "answeredquestion",
+                                  name: "answered-question",
                                   fieldset: {
                                     legend: {
                                       text: "Has this answered your question?",
@@ -112,7 +115,6 @@
                                     },
                                     {
                                       value: "no",
-                                      checked: "true",
                                       text: "No"
                                     }
                                   ]
@@ -124,7 +126,7 @@
 
                             }) }}
 
-                        </form>
+                  </form>
             </div>
 
 
