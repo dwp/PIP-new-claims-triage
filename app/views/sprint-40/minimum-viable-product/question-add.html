@@ -50,7 +50,7 @@
         <form action="#" method="post">
 
             <input type="hidden" value="{{ data.source }}"/>
-                  <textarea class="govuk-textarea" id="more-detail" name="question" rows="5">{{ data['question'] }}</textarea>
+                  <textarea class="govuk-textarea" id="more-detail" name="question" rows="5"></textarea>
             </div>
 
             {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -94,7 +94,7 @@
 
                             <div class="govuk-form-group">
 
-                                  <textarea class="govuk-textarea" id="answers" name="answer" rows="5">{{ data['answer'] }}</textarea>
+                                  <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
                             </div>
 
                             {{ govukRadios({
