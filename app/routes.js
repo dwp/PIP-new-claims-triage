@@ -114,22 +114,37 @@ const router = express.Router()
               const questionBox = req.session.data['question']
               const answerBox = req.session.data['answer']
               const answeredQuestion = req.session.data['answered-question']
+              let answered = '<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>'
               const section = req.session.data.source
 
+              if (req.session.data['answered-question'] == "no") {
+                      let answered = "<strong class='govuk-tag govuk-tag--grey app-task-list__tag' id='claimant'>Unanswered</strong>"
+
+
+              } else {
+                      let answered = "<strong class='govuk-tag app-task-list__tag' id='claimant'>Answered</strong>"
+              }
+
               const queriesQuestions = req.session.data.queriesQuestions || []
-              queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
+              queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section, answered })
               req.session.data.queriesQuestions = queriesQuestions
 
               let href;
 
               switch (req.session.data['question-for']) {
-                case("Claimant"):
+                case("Unassigned"):
                 href = '/sprint-40/minimum-viable-product/questions-claimant';
                 break;
-                case("Health Professional"):
+                case("Claimant"):
                 href = '/sprint-40/minimum-viable-product/questions-health-professional';
                 break;
-                case("Unassigned"):
+                case("Internal medical support"):
+                href = '/sprint-40/minimum-viable-product/unassigned-questions';
+                break;
+                case("Internal non medical support"):
+                href = '/sprint-40/minimum-viable-product/unassigned-questions';
+                break;
+                case("External healthcare professional"):
                 href = '/sprint-40/minimum-viable-product/unassigned-questions';
                 break;
                 //this is the hardcoded bit if one of the links fails
@@ -139,11 +154,12 @@ const router = express.Router()
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
               req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
+              req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].answered = answered;
               req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].href = href;
               res.redirect('/sprint-40/minimum-viable-product/questions-claimant')
-
               }
             })
+
 
             router.post('/sprint-40/minimum-viable-product/question-health-add', (req, res, next) => {
                 if (req.session.data['question-for']) {
@@ -160,13 +176,19 @@ const router = express.Router()
                   let href;
 
                   switch (req.session.data['question-for']) {
-                    case("Claimant"):
+                    case("Unassigned"):
                     href = '/sprint-40/minimum-viable-product/questions-claimant';
                     break;
-                    case("Health Professional"):
+                    case("Claimant"):
                     href = '/sprint-40/minimum-viable-product/questions-health-professional';
                     break;
-                    case("Unassigned"):
+                    case("Internal medical support"):
+                    href = '/sprint-40/minimum-viable-product/unassigned-questions';
+                    break;
+                    case("Internal non medical support"):
+                    href = '/sprint-40/minimum-viable-product/unassigned-questions';
+                    break;
+                    case("External healthcare professional"):
                     href = '/sprint-40/minimum-viable-product/unassigned-questions';
                     break;
                     //this is the hardcoded bit if one of the links fails
@@ -198,13 +220,19 @@ const router = express.Router()
                   let href;
 
                   switch (req.session.data['question-for']) {
-                    case("Claimant"):
+                    case("Unassigned"):
                     href = '/sprint-40/minimum-viable-product/questions-claimant';
                     break;
-                    case("Health Professional"):
+                    case("Claimant"):
                     href = '/sprint-40/minimum-viable-product/questions-health-professional';
                     break;
-                    case("Unassigned"):
+                    case("Internal medical support"):
+                    href = '/sprint-40/minimum-viable-product/unassigned-questions';
+                    break;
+                    case("Internal non medical support"):
+                    href = '/sprint-40/minimum-viable-product/unassigned-questions';
+                    break;
+                    case("External healthcare professional"):
                     href = '/sprint-40/minimum-viable-product/unassigned-questions';
                     break;
                     //this is the hardcoded bit if one of the links fails
