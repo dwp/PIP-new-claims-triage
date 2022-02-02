@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Tasklist
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+
+        <!--  <dd><strong class="govuk-tag govuk-tag--grey">Additional support</strong></dd>
+          <dd><strong class="govuk-tag app-task-list__tag" id="company-information-status">Additional support</strong></dd>
+        -->
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="contact-details">Personal details</a>
+        </li>
+        <li>
+          <a href="conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <li>
+          <a href="questions" class="active" aria-current="section">Questions</a>
+        </li>
+        <li>
+          <a href="summary">Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Questions
+      </h1>
+
+          <ul class="app-task-list__items govuk-!-padding-left-0">
+            <li class="app-task-list__item">
+                <a href="questions-claimant?source=claimant" id="questions">
+                Claimant
+                </a>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">2 unanswered questions</strong>
+       </li>
+            <li class="app-task-list__item">
+                <a href="questions-health-professional?source=health-professional" >
+                Health professional
+                </a>
+                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">1 unanswered question</strong>
+           </li>
+
+           <ul class="app-task-list__items govuk-!-padding-left-0">
+             <li class="app-task-list__item">
+                 <a href="unassigned-questions" id="questions">
+                 Unassigned
+                 </a>
+                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">1 unanswered question</strong>
+        </li>
+
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
