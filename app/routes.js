@@ -27,19 +27,11 @@ const router = express.Router()
               const questionBox = req.session.data['question']
               const answerBox = req.session.data['answer']
               const answeredQuestion = req.session.data['answered-question']
-              let answered = '<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>'
+            //  let answered = '<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>'
               const section = req.session.data.source
 
-              if (req.session.data['answered-question'] == "no") {
-                      let answered = "<strong class='govuk-tag govuk-tag--grey app-task-list__tag' id='claimant'>Unanswered</strong>"
-
-
-              } else {
-                      let answered = "<strong class='govuk-tag app-task-list__tag' id='claimant'>Answered</strong>"
-              }
-
               const queriesQuestions = req.session.data.queriesQuestions || []
-              queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section, answered })
+              queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
               req.session.data.queriesQuestions = queriesQuestions
 
               let href;
@@ -67,7 +59,7 @@ const router = express.Router()
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
               req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
-              req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].answered = answered;
+              //req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].answered = answered;
               req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/questions-claimant')
               }
