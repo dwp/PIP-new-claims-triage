@@ -1,0 +1,635 @@
+{% extends "layout.html" %}
+{% block main %}
+
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+
+        <dt class="govuk-visually-hidden">Claim status:</dt>
+      <!-- <dd class="key-details-bar__status">Additional support</dd> -->
+
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="contact-details">Personal details</a>
+        </li>
+        <li>
+          <a href="evidence">Evidence</a>
+        </li>
+        <li>
+          <a href="conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <li>
+          <a href="questions">Questions</a>
+        </li>
+        <li>
+          <a href="summary" class="active" aria-current="section">Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+        <h1 class="govuk-heading-l">Summary</h1>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+
+
+
+     <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}" >
+        <span class="govuk-heading-s">Unanswered <br>questions</span>
+      <span class="govuk-heading-m" style="font-size:85px" ><font color="#d53880">2</font><p><a href="#unanswered">View</a></p></span>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s">Answered <br>questions</span>
+     <span class="govuk-heading-m" style="font-size:85px" ><font color="#28a197">24</font><p><a href="#answered">View</a></p></span>
+    </div>
+    <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s">Important <br>notes</span>
+    <span class="govuk-heading-m" style="font-size:85px" ><font color="#912b88">5</font><p><a href="#important">View</a></p></span>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter"   style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+        <span class="govuk-heading-s">Out of <br>scope</span>
+     <span class="govuk-heading-m" style="font-size:85px" ><font color="#5694ca">2</font><p><a href="#outofscope">View</a></p></span>
+   </div>
+
+    <table class="govuk-table" id="unanswered">
+      <caption class="govuk-table__caption govuk-table__caption--m" ><br><br>Unanswered questions about this case (<font color="d53880">2 questions</font>)</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Who to contact</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for questions in data['queriesPrepFood'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.action }} </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsTakeNutrition in data['queriesTakeNutrition'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ questionsTakeNutrition.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsTakeNutrition.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsTakeNutrition.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsTherapy in data['queriesManageTherapy'] %}
+        <tr class="govuk-table__row">
+               <td scope="row" class="govuk-table__cell">
+                {{ questionsTherapy.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsTherapy.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsTherapy.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsWashing in data['queriesWashingBathing'] %}
+        <tr class="govuk-table__row">
+               <td scope="row" class="govuk-table__cell">
+                {{ questionsWashing.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsWashing.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsWashing.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsToilet in data['queriesToiletneeds'] %}
+        <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell">
+                {{ questionsToilet.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsToilet.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsToilet.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsDressing in data['queriesDressing'] %}
+        <tr class="govuk-table__row">
+           <td scope="row" class="govuk-table__cell">
+                {{ questionsDressing.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsDressing.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsDressing.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsEvidenceOne in data['queriesEvidence'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ questionsEvidenceOne.evidence }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceOne.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceOne.section }} </td>
+        </tr>
+        {% endfor %}
+
+        {% for questionsEvidenceTwo in data['queriesEvidenceTwo'] %}
+        <tr class="govuk-table__row">
+           <td scope="row" class="govuk-table__cell">
+                {{ questionsEvidenceTwo.evidence }}
+          </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceTwo.action }} </td>
+          <td class="govuk-table__cell"> {{ questionsEvidenceTwo.section }} </td>
+        </tr>
+        {% endfor %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">Bad day - further info needed, how many good or bad days?</td>
+          <td class="govuk-table__cell" style="width:45;">&nbsp;&nbsp; </td>
+          <td class="govuk-table__cell" style="width:12%;">The claimant</td>
+          <td class="govuk-table__cell" style="width:15%;">Diabetes</td>
+        </tr>
+
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often are your angina attacks?</td>
+          <td class="govuk-table__cell">&nbsp; </td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Preparing food</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+      <br>
+      <br>
+    <table class="govuk-table" id="answered">
+      <caption class="govuk-table__caption govuk-table__caption--m">Answered questions about this case (<font color="28a197">24 questions</font>) </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Contacted</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
+          <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Preparing food</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often are your angina attacks?</td>
+          <td class="govuk-table__cell">Fluctuates, majority of days are good days. Impacts his mobility.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Preparing food</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
+          <td class="govuk-table__cell">He can peel and chop vegetables if he was sat down.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Preparing food</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Discuss cognitive - no cognitive restrictions listed under conditions, but the dosette box suggests this</td>
+          <td class="govuk-table__cell">Dosette box prepared by the chemist. I take so many throughout the day that I do sometimes forget so my wife is always asking me if I’ve taken them.
+                                        Sometimes I already have, sometimes I haven’t.<br>
+                                        He can remember to take his medication majority of times. He can get them out of the packets.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Managing therapy or monitoring a health condition </td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Were you prescribed the long handled sponge?</td>
+          <td class="govuk-table__cell">Bought himself.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Washing and bathing</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any other aids in the bathroom, eg stool, grab rails?</td>
+          <td class="govuk-table__cell">Has recently had bath taken out and shower cubicle put in. Has had a raised toilet put in.
+                                        He holds onto the shower pipe in the shower.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Washing and bathing</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any aids, raised toilet seat, rails fitted?</td>
+          <td class="govuk-table__cell">He has a raised toilet. He holds onto the sink to sit and stand from the toilet.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Managing toilet needs or​ incontinence</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Have you been prescribed pads for incontinence? Are you currently under any treatment for incontinence?</td>
+          <td class="govuk-table__cell">Does not wear pads. When he has urinary retention he has to self catheterise, he does this on occasion.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Managing toilet needs or​ incontinence</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often do you have urinary incontinence?</td>
+          <td class="govuk-table__cell">This does not fluctuate, every day is a bad day. This has got worse in the last 12 months.
+                                        He has had no hospital admissions.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Managing toilet needs or​ incontinence</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Is the claimant able to communicate over the phone? Does the claimant have any speech restrictions?</td>
+          <td class="govuk-table__cell">Can communicate needs and be understood by others without support on the majority of days.
+                                        Speech was fully intelligible over the phone.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Communicating verbally</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Were aids provided by OH?  Are you able to grip aids?</td>
+          <td class="govuk-table__cell">Sock aid bought himself. Shoe horn bought himself. Claimant can grip, yes. He drives a car most days.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Dressing and undressing</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Investigate further - no anxiety noted on conditions. Are you currently under mental health services or your GP?</td>
+          <td class="govuk-table__cell">Anxiety diagnosed 10 years ago by GP, currently managed by GP, no mental health input.  Never had suicidal thoughts, never self-harmed.
+                                        This has got worse in the last 12 months. No hospital admissions.</td>
+          <td class="govuk-table__cell">Claimant's doctor</td>
+          <td class="govuk-table__cell">Engaging with other people face to face</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often are you having anxiety attacks? What symptoms do you have when having a panic attack?</td>
+          <td class="govuk-table__cell">Panic attacks – come without warning. This fluctuates - 4 bad days a week. Symptoms include palpitations, sweats, cries and panic attacks.
+                                        I need to find somewhere to sit down or if I’m driving, I’ll need to quickly pull over.
+                                        If im in the car alone and if for example I realise Im in the wrong lane, that will set my panic attacks off.
+                                        They take around 2 or 3 minutes to wear off. I panic when I’m talking to people with authority, that’s why I wanted my wife with me now.
+                                        I can get quite emotional when I get panicky. I don’t take any medication for these attacks.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Engaging with other people face to face</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often are you going out?</td>
+          <td class="govuk-table__cell">Driving – to local places only and would usually have somebody with me, makes me less nervous and panicky. If petrol is needed, I can do this myself. Drives a manual car. Will drive 3 times a week. Will drive locally. Cannot drive for more than 20 mins at a time due to pain in his hips. No adaptations to the car. To get into the car he sits down first then lifts his legs into the car. To get out he lifts his legs out then holds onto the car with 2 hands and pull himself up. He can put seatbelt on by himself. Is able to put petrol in the car.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Planning and following journeys</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have aids from the GP or that you've bought yourself?</td>
+          <td class="govuk-table__cell">I didn't know you could get things like handrails from your GP. No, I bought them myself. I use the handrail to help me get upstairs.
+I have fallen twice in the last year, thankfully I didn’t end up in hospital though.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Moving around</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How long can you walk for (not just distance)?</td>
+          <td class="govuk-table__cell">Lots of pain in back, hips and groin. Can walk about 15-20 meters but will then need to stop for a minute before I can carry on again. I can get up and down kerbs okay.
+It absolutely kills my back, hips and groin when I’m going upstairs. I use a handrail to walk upstairs. 20 meters takes me around 4-5 mins then needs tostop for a min or two and then can walk again for 20 ish meters. No more than that though.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Moving around</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Evidence 2  does not state treatment end date. Ask how long  restrictions have lasted.</td>
+          <td class="govuk-table__cell">I had radiotherapy in Feb (20) and my blood and condition is being monitored but as of now there isnt any plan for any more radiotherapy. The cancer was diagnosed in July 19, I was suffering for about 3 months before it was diagnosed. Because of the radiotherapy I'm in constant pain in my back, groin and hip and I have hot flushes throughout the day and night. The pain has got worse over the last 12 months.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Evidence 2</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Dates of treatment?</td>
+          <td class="govuk-table__cell">Completed 20 days of radiotherapy in Feb to March 2020</td>
+          <td class="govuk-table__cell">The claimant's doctor</td>
+          <td class="govuk-table__cell">Evidence 2</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Are you currently under any specialists, how often are you reviewed, planned ongoing treatments?</td>
+          <td class="govuk-table__cell">Diagnosed February 2020 by practice nurse, currently managed by practice nurse, sees them every 3 months.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">COPD</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Is it COPD that's causing issues bending?</td>
+          <td class="govuk-table__cell">Radiotherapy has caused chronic pain in my lower back and hips, thats why I struggle to bend</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">COPD</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Is your COPD medication causing dizziness?</td>
+          <td class="govuk-table__cell">Symptoms include shortness of breath, dizziness and a cough. This fluctuates. He has good and bad days - 3 bad days a week. No hospital admissions. Spiloto respimat 2.5mg 2 puffs twice per day. Ventilin evohaler 2 puffs twice per day. Warfarin 5-6mg per night. Paracetamol 2 tbs 3 times per day but these dont help with the pain. I cant take anything else though because of all the other medications I'm on.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">COPD</td>
+        </tr>
+     <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Prostate cancer - are they going through treatment, and is this an STRI case?</td>
+          <td class="govuk-table__cell">Prostate cancer diagnosed 2019 by specialist, currently managed by specialist. Has had radiotherapy in February 2020. Currently monitoring blood tests and condition, no current plan of further treatment.</td>
+          <td class="govuk-table__cell">The claimant's doctor</td>
+          <td class="govuk-table__cell">Medication</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">There is no mental health meds, nothing for anxiety or panic attacks</td>
+          <td class="govuk-table__cell">I don’t take any medication for panic attacks.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Medication</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How long ago were the mini strokes?</td>
+          <td class="govuk-table__cell">2010 when I had a clot removed from my neck. Thankfully that sorted it and I havent had any repeat TIA's.</td>
+          <td class="govuk-table__cell">The claimant</td>
+          <td class="govuk-table__cell">Additional information</td>
+        </tr>
+      </tbody>
+    </table>
+<br>
+    <table class="govuk-table" id="important">
+      <caption class="govuk-table__caption govuk-table__caption--m">Important to this case (<font color="912b88">5 notes</font>)</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Notes</th>
+          <!-- <th scope="col" class="govuk-table__header">Linked to</th> -->
+          <th scope="col" class="govuk-table__header">Source</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for showImportantInfo in data['taggingPrepFood'] %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the claimant</a></td>
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfo.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfo.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfo.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoNutrition in data['taggingTakeNutrition'] %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the Claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoNutrition.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoNutrition.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoNutrition.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoTherapy in data['taggingManageTherapy'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoTherapy.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoTherapy.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoTherapy.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoWashing in data['taggingWashingBathing'] %}
+        <tr class="govuk-table__row">
+
+          <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoWashing.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoWashing.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoWashing.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoToilet in data['taggingToiletneeds'] %}
+        <tr class="govuk-table__row">
+           <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoToilet.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoToilet.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoToilet.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoDressing in data['taggingDressing'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoDressing.tagContent }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoDressing.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoDressing.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoEvidenceOne in data['conditionsEvidenceOne'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoEvidenceOne.evidenceNoteOne }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoEvidenceOne.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoEvidenceOne.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for showImportantInfoEvidenceTwo in data['conditionsEvidence'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ showImportantInfoEvidenceTwo.evidenceNote }}
+          </td>
+          <td class="govuk-table__cell">
+                {{ showImportantInfoEvidenceTwo.action }}
+          </td>
+          <td class="govuk-table__cell">
+              {{ showImportantInfoEvidenceTwo.section }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Problem with standing too long</td>
+        <!--  <td class="govuk-table__cell">Atorvastatin,Tamsulosin,Moving around</td> -->
+          <td class="govuk-table__cell">Preparing food</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Dosette box</td>
+        <!--        <td class="govuk-table__cell"></td> -->
+    <td class="govuk-table__cell">Managing therapy or monitoring a health condition</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Long handled sponge</td>
+            <!--    <td class="govuk-table__cell">Dressing and undressing</td>-->
+          <td class="govuk-table__cell">Washing and bathing</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">The radiotherapy treatment has left me incontinent</td>
+          <!--<td class="govuk-table__cell">Managing toilet needs or​ incontinence,Evidence 2,Incontinence,Prostate cancer</td>-->
+          <td class="govuk-table__cell">Additional information</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">I have an aid to put my socks on and shoes. I wear slip on shoes when I can.</td>
+          <!--<td class="govuk-table__cell">Washing and bathing,Preparing Food,Atorvastatin,Tamsulosin</td>-->
+          <td class="govuk-table__cell">Dressing and undressing</td>
+        </tr>
+
+      </tbody>
+    </table>
+<br>
+
+
+    <table class="govuk-table" id="outofscope">
+      <caption class="govuk-table__caption govuk-table__caption--m">Out of scope (<font color="#5694ca">2 notes</font>)</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Notes</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for outScope in data['outScopePrepFood'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ outScope.scopeNote }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeTakeNutrition in data['outScopeTakeNutrition'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ outScopeTakeNutrition.scopeNote }}
+          </td>
+        </tr>
+        {% endfor %}
+
+
+        {% for outScopeTherapy in data['outScopeManageTherapy'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ outScopeTherapy.scopeNote }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeWashing in data['outScopeWashingBathing'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ outScopeWashing.scopeNote }}
+          </td>
+        </tr>
+        {% endfor %}
+         {% for outScopeToilet in data['outScopeToiletneeds'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ outScopeToilet.scopeNote }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeDressing in data['outScopeDressing'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ outScopeDressing.scopeNote }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeEvidenceOne in data['outScopeEvidenceOne'] %}
+        <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell">
+                {{ outScopeEvidenceOne.scopeEvidenceOne }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        {% for outScopeEvidenceTwo in data['outScopeEvidenceTwo'] %}
+        <tr class="govuk-table__row">
+               <td scope="row" class="govuk-table__cell">
+                {{ outScopeEvidenceTwo.scopeEvidenceTwo }}
+          </td>
+        </tr>
+        {% endfor %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Issue with bending to reach oven</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Being near a toilet is out of scope eg 'I have got to go to the toilet straight away not wait'</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    {{ govukButton({
+      text: "Make a recommendation or referral",
+      href: "ready-to-make-next-step"
+    }) }}
+
+
+</div>
+
+
+
+{% endblock %}

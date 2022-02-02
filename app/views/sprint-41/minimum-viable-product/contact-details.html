@@ -1,0 +1,399 @@
+{% extends "layout.html" %}
+{% block main %}
+<style>
+  .navigation-secondary ul:after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+
+ .navigation-secondary {
+   border-bottom: 1px solid #bfc1c3;
+   margin: auto;
+   max-width: 960px;
+ }
+
+ .navigation-secondary ul {
+   margin: 0 auto;
+   max-width: 960px;
+   padding-left: 0;
+ }
+
+ .navigation-secondary li {
+   float: left;
+   list-style-type: none;
+ }
+
+ @media (max-width: 640px) {
+   .navigation-secondary li {
+     border: 0;
+     width: 100%;
+   }
+ }
+
+ .navigation-secondary a {
+   display: block;
+   padding: 15px;
+ }
+
+ .navigation-secondary a:visited {
+   color: #005ea5;
+ }
+
+ .navigation-secondary a:hover {
+   background-color: #f8f8f8;
+ }
+
+ .navigation-secondary .active {
+   box-shadow: inset 0px -5px 0px 0px #005ea5;
+   color: #0b0c0c;
+   text-decoration: none;
+ }
+
+ .navigation-secondary .active:visited {
+   color: #0b0c0c;
+ }
+
+  </style>
+
+<!-- <link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+ --><section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="contact-details" class="active" aria-current="section">Personal details</a>
+        </li>
+        <li>
+          <a href="conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <li>
+          <a href="questions">Questions</a>
+        </li>
+        <li>
+          <a href="summary">Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Personal details</h1>
+        <h2 class="govuk-heading-m">Claimant</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row govuk-!-width-one-half">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Claim date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              20 November 2021
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Jane Doe
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Age
+            </dt>
+            <dd class="govuk-summary-list__value">
+              49
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>4 June 1972</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Residential address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>12 Pearl Street<br>
+                  Bristol<br>
+                  BS3 4AB</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Correspondence address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>11 Pearl Street<br>
+                  Bristol<br>
+                  BS3 4AB</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Home number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>01777 7777777</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Mobile number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>07777 7777777</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Textphone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>0777 77777778</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>jane@example.com</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Current accommodation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Hospital</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date entered this accommodation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>12 June 2021</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Accommodation address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>University Hospital Lewisham High Street<br>
+                 Lewisham<br>
+                 London<br>
+                 SE13 6LH</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              SMS opt out
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>No</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nationality
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Swiss</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Were you living in the UK before 1/1/2021?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Yes</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Have you been in the UK for at least 2 of the last 3 years?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Yes</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you, or is a family member, receiving any pensions or benefits from another European Economic Area (EEA) state or Switzerland?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>No</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Are you, or is a family member, working in or paying insurance to another European Economic Area (EEA) state or Switzerland?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Yes</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Can the Department for Work and Pensions contact your health and care professionals for information about you?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Yes</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Do you agree that your health and care professionals can share relevant information about your health conditions to support your claim?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Yes</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Claimant needs communications in another format?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Yes</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Which format do you need?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Braille</p>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Additional information on format
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Additional information</p>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Health professional 1</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row govuk-!-width-one-half">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Dr Camilla Stasiak
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              The Vale Medical Centre
+              <br>195-197 Perry Vale
+              <br>Forest Hill
+              <br>London
+              <br>SE23 2JF
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Profession
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Doctor
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              020 8291 7007
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Approximate date of last visit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No date given
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Additonal support</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row govuk-!-width-one-half">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Claimant needs help from someone else to communicate with us?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Claimant needs help to fill in forms or understand letters?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Someone is helping claimant with this claim?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Their name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              John Doe
+            </dd>
+          </div>
+        </dl>
+
+
+  </div>
+    </div>
+  </div>
+{% endblock %}

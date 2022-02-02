@@ -1,0 +1,190 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <a href="/current/questions-doctor" class="govuk-back-link">Back to your questions</a>
+
+  <main class="govuk-main-wrapper">
+
+
+    <!--<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">-->
+
+  <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+
+              <h1 class="govuk-heading-l">
+                {% for questions in data['queriesPrepFood'] %}
+                {% if questions.action == "The claimant's doctor" %}
+                <tr class="govuk-table__row">
+                <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+                  <td scope="row" class="govuk-table__cell">
+                        {{ questions.content }}
+                  </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                {% for questions in data['queriesTakeNutrition'] %}
+                {% if questions.action == "The claimant's doctor" %}
+                <tr class="govuk-table__row">
+                <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+                      <td scope="row" class="govuk-table__cell">
+                            {{ questions.content }}
+                      </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+
+                {% for questions in data['queriesManageTherapy'] %}
+                {% if questions.action == "The claimant's doctor" %}
+                <tr class="govuk-table__row">
+                <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+                      <td scope="row" class="govuk-table__cell">
+                            {{ questions.content }}
+                      </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+              </h1>
+
+              {% from "govuk/components/tabs/macro.njk" import govukTabs %}
+              {% from "govuk/components/table/macro.njk" import govukTable %}
+
+              {% set pastDayHtml %}
+              <h2 class="govuk-heading-m">Answer</h2>
+
+              {% for questions in data['queriesPrepFood'] %}
+              {% if questions.action == "The claimant" %}
+                <h3 class="govuk-heading-s">Source
+                   <p>{{ questions.section }}</p></h3>
+
+                {% endif %}
+                {% endfor %}
+
+
+      <form action="#" method="post">
+          <input type="hidden" value="{{ data.source }}"/>
+                <div class="govuk-form-group">
+
+                      <textarea class="govuk-textarea" id="answers" name="answerDoctor" value="{{ data['answers'] }}" rows="5"></textarea>
+                </div>
+
+                {{ govukRadios({
+                      classes: "govuk-radios--inline",
+                      idPrefix: "changed-name",
+                      name: "changed-name",
+                      fieldset: {
+                        legend: {
+                          text: "Has this answered your question?",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--m"
+                        }
+                      },
+                      items: [
+                        {
+                          value: "yes",
+                          text: "Yes"
+                        },
+                        {
+                          value: "no",
+                          text: "No"
+                        }
+                      ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Save and continue"
+                }) }}
+
+            </form>
+              {% endset -%}
+
+              {% set pastWeekHtml %}
+
+             <h2 class="govuk-heading-m">Claimant's account</h2>
+             <p class="govuk-body">Approximate start date May 2014</p>
+<br><!--
+               {{ govukTable({
+              head: [
+                {
+                  text: "Question in PIP2"
+                },
+                {
+                  text: "Answer"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: "Do you need to use an aid or appliance to prepare or cook a simple meal?"
+                  },
+                  {
+                    text: "No"
+                  }
+                ],
+                [
+                  {
+                    text: "Do you need help from another person to prepare or cook a simple meal?"
+                  },
+                  {
+                    text: "Yes"
+                  }
+                ]
+              ]
+              }) }}
+              {% endset -%}
+
+
+              {% set pastMonthHtml %}
+
+              {% endset -%}
+
+              {{ govukTabs({
+              items: [
+                {
+                  label: "Answer",
+                  id: "past-day",
+                  panel: {
+                    html: pastDayHtml
+                  }
+                },
+                {
+                  label: "View claimant's account ",
+                  id: "past-week",
+                  panel: {
+                    html: pastWeekHtml
+                  }
+                }
+              ]
+              }) }}
+
+
+--><br>
+
+
+
+            </div>
+
+  </div>
+</main>
+</div>
+
+{% endblock %}

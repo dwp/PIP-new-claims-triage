@@ -1,0 +1,271 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<!--.govuk-next-link {
+  float:right;
+  font-size: 16px;
+    font-size: 1rem;
+    line-height: 3em
+  }
+.moj-side-navigation{font-family:"GDS Transport",arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:14px;font-size:.875rem;line-height:1.14286}
+
+@media print{.moj-side-navigation{font-family:sans-serif}}
+@media (min-width: 40.0625em){.moj-side-navigation{font-size:16px;font-size:1rem;line-height:1.25}}
+@media print{.moj-side-navigation{font-size:14pt;line-height:1.2}}
+@media (max-width: 40.0525em){.moj-side-navigation{display:flex;overflow-x:scroll}}
+@media (min-width: 40.0625em){.moj-side-navigation{display:block;padding:20px 0 0}}
+.moj-side-navigation__title{font-family:"GDS Transport",arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:400;font-size:16px;font-size:1rem;line-height:1.25;color:#505a5f;font-weight:normal;margin:0;padding:10px;padding-left:14px}
+@media print{.moj-side-navigation__title{font-family:sans-serif}}
+@media (min-width: 40.0625em){.moj-side-navigation__title{font-size:19px;font-size:1.1875rem;line-height:1.31579}}
+@media print{.moj-side-navigation__title{font-size:14pt;line-height:1.15}}
+@media (max-width: 40.0525em){.moj-side-navigation__title{display:none}}.moj-side-navigation__list{list-style:none;margin:0;padding:0}
+@media (max-width: 40.0525em){.moj-side-navigation__list{display:flex;margin:0;white-space:nowrap}}
+@media (min-width: 40.0625em){.moj-side-navigation__list{margin-bottom:20px}}
+@media (max-width: 40.0525em){.moj-side-navigation__item{display:flex}}
+.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{background-color:inherit;color:#1d70b8;display:block;text-decoration:none}
+@media (max-width: 40.0525em){.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{border-bottom:4px solid transparent;padding:15px;padding-bottom:11px}}
+@media (min-width: 40.0625em){.moj-side-navigation__item a,.moj-side-navigation__item a:link,.moj-side-navigation__item a:visited{background-color:inherit;border-left:4px solid transparent;padding:10px}}
+.moj-side-navigation__item a:hover{border-color:#5694ca}.moj-side-navigation__item a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent;position:relative}
+.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{border-color:#1d70b8;color:#1d70b8;font-weight:bold}
+.moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;box-shadow:0 -2px #fd0,0 4px #0b0c0c;border-color:#0b0c0c;border-left-color:transparent}
+@media (min-width: 40.0625em){.moj-side-navigation__item--active a:link,.moj-side-navigation__item--active a:visited{background-color:#f3f2f1}
+.moj-side-navigation__item--active a:focus{color:#0b0c0c;background-color:#fd0;border-color:transparent}}
+</style>-->
+<div class="govuk-width-container">
+    <div class="column-full">
+      <nav class="navigation-secondary">
+        <ul>
+          <li>
+            <a href="contact-details">Contact details</a>
+          </li>
+          <li>
+            <a href="conditions" class="active" aria-current="section">Conditions</a>
+          </li>
+          <li>
+            <a href="activities">Activities</a>
+          </li>
+          <li>
+            <a href="questions">Questions</a>
+          </li>
+          <li>
+            <a href="summary">Summary</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+
+  <main class="govuk-main-wrapper">
+
+   <div class="govuk-grid-row">
+<!--<div class="govuk-grid-column-one-quarter">
+     <nav class="moj-side-navigation" aria-label="Side navigation">
+        <!-- <h4 class="moj-side-navigation__title">Conditions</h4>-->
+         <!--<ul class="moj-side-navigation__list">
+           <li class="moj-side-navigation__item moj-side-navigation__item--active">
+             <a href="condition-one" aria-current="location">Diabetes</a>
+           </li>
+
+           <li class="moj-side-navigation__item">
+             <a href="condition-two">Prostate cancer</a>
+           </li>
+
+           <li class="moj-side-navigation__item">
+             <a href="condition-three">Angina</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-four">COPD</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-five">Blood pressure</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-six">Incontinence</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-seven">Irregular heartbeat</a>
+           </li>
+           <li class="moj-side-navigation__item">
+             <a href="condition-eight">Hot flushes</a>
+           </li>
+         </ul>
+
+    <!-- <h4 class="moj-side-navigation__title">Section 2</h4>
+         <ul class="moj-side-navigation__list">
+           <li class="moj-side-navigation__item">
+             <a href="#2.1">Nav item 2.1</a>
+           </li>
+
+           <li class="moj-side-navigation__item">
+             <a href="#2.2">Nav item 2.2</a>
+           </li>
+
+           <li class="moj-side-navigation__item">
+             <a href="#2.3">Nav item 2.3</a>
+           </li>
+         </ul>
+     </nav> --->
+     <!--</div>-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+          <span class="govuk-caption-l">Condition</span>
+          Incontinence
+     </h1>
+
+
+  <h2 class="govuk-heading-m">Approximate start date</h2>
+      <p>09 April 2001</p>
+
+
+      <h3 class="govuk-heading-m">Claimant's account</h3>
+
+        <p>
+          Short paragraph from the claimant about their medication / tablets and the dosage.
+          Any treatments you have had, you are currently having or have planned for the future (include private as well as NHS funded treatments).<br> <br>
+        </p>
+
+
+
+<form action="#" method="post">
+    <input type="hidden" value="{{ data.source }}"/>
+
+<!--{{ govukRadios({
+  idPrefix: "activity-four-note",
+  name: "washing-and-bathing-note",
+  fieldset: {
+    legend: {
+      text: "Add a note about this activity",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "important-to-this-case",
+      text: "Important to this case"
+    },
+    {
+      value: "question-about-this-condition",
+      text: "Question about this condition"
+    },
+    {
+      value: "out-of-scope",
+      text: "Out of scope"
+    }
+
+  ]
+}) }}-->
+
+  <h2 class="govuk-heading-m">Add a question about the claimant's account
+        <div id="passport-issued-hint" class="govuk-hint">
+              This includes the claimant's medications, treatments and side effects.
+            </div>
+  <h2>
+
+      <!-- text box is here -->
+      <div class="govuk-form-group">
+          <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+      </div>
+
+      <!-- radio buttons here -->
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        idPrefix: "who-is-question-for",
+        name: "who-is-question-for",
+        fieldset: {
+          legend: {
+            text: "Who is this question for?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Claimant",
+            text: "Claimant"
+          },
+          {
+            value: "Health Professional",
+            text: "Health professional"
+          },
+          {
+            value: "Unassigned",
+            text: "Unassigned"
+          }
+        ]
+      }) }}
+
+
+      <!-- action button here -->
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+        text: "Add question"
+      }) }}
+      <br><br>
+</form>
+
+
+
+
+
+<h2 class="govuk-heading-m">Questions list</h2>
+
+
+<div id="queryTable">
+<table class="govuk-table">
+
+<thead class="govuk-table__head">
+  <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">Question</th>
+    <th scope="col" class="govuk-table__header">Contact</th>
+    <th scope="col" class="govuk-table__header">Status</th>
+
+  </tr>
+</thead>
+<tbody class="govuk-table__body">
+  {% for query in data['queriesConditionSix'] %}
+  {% if query.section == 'incontinence' %}
+ <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{ query.textBox }}</td>
+    <td class="govuk-table__cell"><a href="{{ query.href }}">{{ query.action }}</a></td>
+    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong></td>
+</tr>
+
+{% endif %}
+{% endfor %}
+
+</tbody>
+</table>
+</div>
+
+    </div>
+  </div>
+</div>
+</main>
+</div>
+
+{% endblock %}
