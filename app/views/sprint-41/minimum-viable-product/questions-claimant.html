@@ -67,13 +67,23 @@
       <tbody class="govuk-table__body">
         {% for query in data['queriesQuestions'] %}
         {% if query.section == 'claimant' %}
+        {% if query.answeredQuestion == 'yes' %}
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
           <td class="govuk-table__cell">Angina</td>
           <td class="govuk-table__cell">{{ query.answerBox }}</td>
-          <td class="govuk-table__cell">{{ query.answered }}</td>
+          <td class="govuk-table__cell"><strong class='govuk-tag app-task-list__tag' id='claimant'>Answered</strong></td>
           <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
         </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell">Angina</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
         {% endif %}
         {% endfor %}
         <tr class="govuk-table__row">
