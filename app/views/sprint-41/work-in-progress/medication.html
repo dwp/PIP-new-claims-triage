@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="task-list" class="govuk-back-link">Back to case details</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Medication
+      </h1>
+
+      <h2 class="govuk-heading-l">Claimant's account</h2>
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-one-third">Medication</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-third">Amount</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-third">Purpose</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Atorvastatin</td>
+              <td class="govuk-table__cell">200mg</td>
+              <td class="govuk-table__cell">Joint pain</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Bisoprolol</td>
+              <td class="govuk-table__cell">10mg</td>
+              <td class="govuk-table__cell">No answer given</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Chemydur</td>
+              <td class="govuk-table__cell">60xl</td>
+              <td class="govuk-table__cell">Lightheaded</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Finasteride</td>
+              <td class="govuk-table__cell">5mg</td>
+              <td class="govuk-table__cell">Enlarged prostate</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Metformin</td>
+              <td class="govuk-table__cell">500mg</td>
+              <td class="govuk-table__cell">Weakness</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Ramipril</td>
+              <td class="govuk-table__cell">10mg</td>
+              <td class="govuk-table__cell">Tiredness</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Tamsulosin</td>
+              <td class="govuk-table__cell">400mg</td>
+              <td class="govuk-table__cell">Back pain</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Glyceryl trinitrate</td>
+              <td class="govuk-table__cell">400mg pump/spray</td>
+              <td class="govuk-table__cell">Headaches</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Spiolto respimat</td>
+              <td class="govuk-table__cell">2.5 microg / 1.5mcg inhalation</td>
+              <td class="govuk-table__cell">No answer given</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Ventolin evohaler</td>
+              <td class="govuk-table__cell">100 micrograms / dose</td>
+              <td class="govuk-table__cell">No answer given</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Warfarin</td>
+              <td class="govuk-table__cell">As directed</td>
+              <td class="govuk-table__cell">No answer given</td>
+            </tr>
+      </tbody>
+    </table>
+
+        <h3 class="govuk-heading-m">Additional comments from the claimant</h3>
+        <p class="govuk-body">Completed radiotherapy for 20 days in a row.</p>
+        <br>
+        <br>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Questions about the claimant's account</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Question</th>
+              <th scope="col" class="govuk-table__header">Who to contact</th>
+            </tr>
+          </thead>
+        <!--  <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Pain relief - is the strength (20 or 50) reasonable?</td>
+              <td class="govuk-table__cell">VAL</td>
+            </tr> -->
+          <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Prostate cancer - are they going through treatment, and is this an STRI case?</td>
+                <td class="govuk-table__cell">The claimant's doctor</td>
+              </tr>
+        <!--  <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Is the pain relief is commensurate with how far he can walk?</td>
+                  <td class="govuk-table__cell">VAL</td>
+                </tr>-->
+          <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">There is no mental health meds, nothing for anxiety or panic attacks</td>
+                    <td class="govuk-table__cell">The claimant</td>
+                  </tr>
+        <!--  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Ask about how all the claimant's medication interact with each other</td>
+                      <td class="govuk-table__cell">VAL</td>
+                    </tr> -->
+
+          </tbody>
+        </table>
+        </main>
+      </div>
+
+{% endblock %}
