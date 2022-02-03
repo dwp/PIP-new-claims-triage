@@ -58,75 +58,14 @@
         Activities
       </h1>
 
-
-        <!--  <ul class="app-task-list__items govuk-!-padding-left-0">
-            <li class="app-task-list__item">
-              <a href="activities/preparing-food.html?source=Preparing food" aria-describedby="company-information-status">
-                Preparing food
-                </a>
-
-            </li>
-            <li class="app-task-list__item">
-              <a href="activities/taking-nutrition?source=Taking nutrition" aria-describedby="company-information-status">
-                Eating and drinking
-                </a>
-               </li>
-            <li class="app-task-list__item">
-              <a href="activities/managing-therapy?source=Managing therapy" aria-describedby="company-information-status">
-                Managing treatments
-                </a>
-                <!--<strong class="govuk-tag app-task-list__tag" id="list-convictions-status">All questions answered</strong>-->
-            <!--   </li>
-            <li class="app-task-list__item">
-              <a href="activities/washing-and-bathing?source=Washing and bathing" aria-describedby="company-information-status">
-                Washing and bathing
-                </a>
-                <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">3 unanswered questions</strong>-->
-            <!--  </li>
-            <li class="app-task-list__item">
-              <a href="activities/managing-toilet-needs?source=Managing toilet needs or incontinence" aria-describedby="company-information-status">
-                Using the toilet and managing incontinence
-                </a>
-                <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">3 unanswered questions</strong>-->
-            <!--  </li>
-            <li class="app-task-list__item">
-              <a href="activities/dressing-and-undressing?source=Dressing and undressing" aria-describedby="company-information-status">
-                Dressing and undressing
-                </a>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">2 unanswered questions</strong>
-              </li>
-            <li class="app-task-list__item">
-              <a href="activities/communicating-verbally?source=communicating-verbally" aria-describedby="company-information-status">
-                Talking, listening and understanding
-                </a>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">3 UNANSWERED QUESTION</strong>
-               </li>
-            <li class="app-task-list__item">
-              <a href="activities/reading-and-understanding?source=reading-and-understanding" aria-describedby="company-information-status">
-                Reading
-                </a>
-                <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">ALL QUESTIONS ANSWERED</strong>
-                 </li>
-            <li class="app-task-list__item">
-              <a href="activities/engaging-face-to-face?source=face-to-face" aria-describedby="company-information-status">
-                Mixing with other people
-                </a>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">1 UNANSWERED QUESTION</strong>
-               </li>
-            <li class="app-task-list__item">
-              <a href="activities/budgeting?source=budgeting" aria-describedby="company-information-status">
-                Managing money
-                </a>
-                <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">ALL QUESTIONS ANSWERED</strong>
-           </li>
-          </ul>-->
+      <h2 class="govuk-heading-m">Daily living</h2>
 
           {% from "govuk/components/table/macro.njk" import govukTable %}
 
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Daily living</th>
+                <th scope="col" class="govuk-table__header">Activity</th>
                 <th scope="col" class="govuk-table__header">Claimed for</th>
                 <th scope="col" class="govuk-table__header">Status</th>
               </tr>
@@ -185,10 +124,13 @@
             </tbody>
           </table>
 
+
+          <h2 class="govuk-heading-m">Mobility</h2>
+
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Mobility</th>
+                <th scope="col" class="govuk-table__header">Activity</th>
                 <th scope="col" class="govuk-table__header">Claimed for</th>
                 <th scope="col" class="govuk-table__header">Status</th>
               </tr>
@@ -207,20 +149,23 @@
             </tbody>
           </table>
 
-          <h2 class="app-task-list__section">
-            Additional information
-          </h2>
 
-            <ul class="app-task-list__items govuk-!-padding-left-0">
-              <li class="app-task-list__item">
-                <a id="mobility-activity" href="additional-information?source=additional-info" aria-describedby="company-information-status">
-                  Additional information
-                  </a>
-                 <!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">1 UNANSWERED QUESTION</strong>-->
-              </li>
+          <h2 class="govuk-heading-m">Additional information</h2>
 
-            </ul>
-
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Additional information</th>
+                <th scope="col" class="govuk-table__header">Status</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/planning-and-following-journeys?source=plan-follow-journeys">Additonal information</a></td>
+                <td class="govuk-table__cell"><strong class="govuk-tag">ALL QUESTIONS ANSWERED</strong></td>
+              </tr>
+            </tbody>
+          </table>
 
       </div>
   </div>
