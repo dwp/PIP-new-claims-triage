@@ -203,17 +203,26 @@
           }
         },
         items: [
-          {
-            value: "Claimant",
-            text: "Claimant"
-          },
-          {
-            value: "Health Professional",
-            text: "Health professional"
-          },
-          {
-            value: "Unassigned",
-            text: "Unassigned"
+        {
+          value: "Unassigned",
+          text: "Unassigned",
+          checked: "true"
+        },
+        {
+          value: "Claimant",
+          text: "Claimant"
+        },
+        {
+          value: "Internal medical support",
+          text: "Internal medical support"
+        },
+        {
+          value: "Internal non medical support",
+          text: "Internal non medical support"
+        },
+        {
+          value: "External healthcare professional",
+          text: "External healthcare professional"
           }
         ]
       }) }}
@@ -252,7 +261,7 @@
  <tr class="govuk-table__row">
     <td class="govuk-table__cell">{{ query.textBox }}</td>
     <td class="govuk-table__cell"><a href="{{ query.href }}">{{ query.action }}</a></td>
-    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong></td>
+    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
 </tr>
 
 {% endif %}
