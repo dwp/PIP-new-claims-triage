@@ -219,7 +219,7 @@
 
                 {{ govukRadios({
                   idPrefix: "who-is-question-for",
-                  name: "who-is-question-for",
+                  name: "who-is-question-for-eating",
                   fieldset: {
                     legend: {
                       text: "Who is this question for?",
@@ -337,7 +337,7 @@
 
 <script defer type="text/javascript">
 
-  var noQuery = "{{ data['who-is-question-for'] }}";
+  var noQuery = "{{ data['who-is-question-for-eating'] }}";
 
   if (noQuery) {
 
