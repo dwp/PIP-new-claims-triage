@@ -63,7 +63,7 @@
             <a href="../contact-details">Personal details</a>
           </li>
           <li>
-            <a href="../conditions" >Conditions</a>
+            <a href="../conditions">Conditions</a>
           </li>
           <li>
             <a href="../activities" class="active" aria-current="section">Activities</a>
@@ -181,7 +181,7 @@
 
                 {{ govukRadios({
                   idPrefix: "who-is-question-for",
-                  name: "who-is-question-for",
+                  name: "who-is-question-for-prepfood",
                   fieldset: {
                     legend: {
                       text: "Who is this question for?",
@@ -192,8 +192,7 @@
                   items: [
                   {
                     value: "Unassigned",
-                    text: "Unassigned",
-                    checked: "true"
+                    text: "Unassigned"
                   },
                   {
                     value: "Claimant",
@@ -272,7 +271,6 @@
           <tbody class="govuk-table__body">
           {% for query in data['queriesPrepFood'] %}
           {% if query.section == 'Preparing food' %}
-
           <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 {{ query.textBox }}
@@ -287,11 +285,11 @@
           {% endif %}
           {% endfor %}
 
-         <tr class="govuk-table__row">
+      <!--   <tr class="govuk-table__row">
               <td class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
               <td class="govuk-table__cell"><a href="/sprint-40/minimum-viable-product/questions-claimant">Claimant</a></td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
-          </tr>
+          </tr>-->
 
         </tbody>
 </table>
@@ -299,7 +297,7 @@
 
 <script defer type="text/javascript">
 
-  var noQuery = "{{ data['who-is-question-for'] }}";
+  var noQuery = "{{ data['who-is-question-for-prepfood'] }}";
 
   if (noQuery) {
 

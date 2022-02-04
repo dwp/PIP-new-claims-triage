@@ -215,7 +215,7 @@
 
                 {{ govukRadios({
                   idPrefix: "who-is-question-for",
-                  name: "who-is-question-for",
+                  name: "who-is-question-for-dressing",
                   fieldset: {
                     legend: {
                       text: "Who is this question for?",
@@ -322,49 +322,26 @@
           {% endif %}
           {% endfor %}
 
-         <tr class="govuk-table__row">
-              <td class="govuk-table__cell">No questions have been added yet</td>
-              <td class="govuk-table__cell"><!--<a href="/sprint-40/minimum-viable-product/questions-claimant">Claimant</a>--></td>
-              <td class="govuk-table__cell"><!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong>--></td>
-          </tr>
-
         </tbody>
 </table>
 </div>
 
+<script defer type="text/javascript">
 
+  var noQuery = "{{ data['who-is-question-for-dressing'] }}";
 
-<!--<table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header"></th>
-      <th scope="col" class="govuk-table__header"></th>
-    </tr>
-  </thead>
-  {% for noScopePrepFood in data['outScopePrepFood'] %}
-  {% if noScopePrepFood.section == 'Preparing food' %}
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        {{ noScopePrepFood.scopeNote }}
-      </td>
-      <td class="govuk-table__cell">
-        <!--{{ noScopePrepFood.action }}-->
-      <!--</td>
-    </tr>
-    {% endif %}
-    {% endfor %}
+  if (noQuery) {
 
- <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Issue with bending to reach oven</td>
-      <td class="govuk-table__cell">
-        <!-- {{ noScopePrepFood.action }}-->
-    <!--  </td>
-    </tr>
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">No questions have been added yet.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
 
-  </tbody>
-</table>-->
+  </script>
 
   </div>
 

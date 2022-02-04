@@ -167,7 +167,7 @@
 
                               {{ govukRadios({
                                 idPrefix: "who-is-question-for",
-                                name: "who-is-question-for",
+                                name: "who-is-question-for-add-info",
                                 fieldset: {
                                   legend: {
                                     text: "Who is this question for?",
@@ -237,19 +237,34 @@
                                   {% endif %}
                                   {% endfor %}
 
-                                 <tr class="govuk-table__row">
+                                <!-- <tr class="govuk-table__row">
                                       <td class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
                                       <td class="govuk-table__cell"><a href="/sprint-40/minimum-viable-product/questions-claimant">Claimant</a></td>
                                       <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong></td>
-                                  </tr>
+                                  </tr>-->
 
                                 </tbody>
                         </table>
                         </div>
 
+                        <script defer type="text/javascript">
+
+                          var noQuery = "{{ data['who-is-question-for-add-info'] }}";
+
+                          if (noQuery) {
+
+                              document.write('');
+                              }
+                            else {
+                              document.write('<p class="govuk-body">No questions have been added yet.</p>');
+                              window.onload = function(){
+                              document.getElementById('queryTable').style.display = 'none';
+                            }
+                          }
+
+                          </script>
+
 </div>
-
-
 </div>
 
 

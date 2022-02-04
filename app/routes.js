@@ -193,7 +193,7 @@ const router = express.Router()
 
 //Start routes for preparing food: questions
 router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req, res, next) => {
-    if (req.session.data['who-is-question-for']) {
+    if (req.session.data['who-is-question-for-prepfood']) {
       console.log('is-this-calling', req.session.data)
       const textBox = req.session.data['query-content']
       const section = req.session.data.source
@@ -226,17 +226,16 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
       }
 
     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-      req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].action = req.session.data['who-is-question-for-prepfood']
       req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].href = href;
       res.redirect('/sprint-41/minimum-viable-product/activities/preparing-food')
-
       }
     })
 
 
   //Start routes for eating and drinking: questions
     router.post('/sprint-41/minimum-viable-product/activities/taking-nutrition', (req, res, next) => {
-        if (req.session.data['who-is-question-for']) {
+        if (req.session.data['who-is-question-for-eating']) {
           console.log('is-this-calling', req.session.data)
           const textBox = req.session.data['query-content']
           const section = req.session.data.source
@@ -269,7 +268,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
           }
 
         //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-          req.session.data.queriesEatDrink[req.session.data.queriesEatDrink.length - 1].action = req.session.data['who-is-question-for']
+          req.session.data.queriesEatDrink[req.session.data.queriesEatDrink.length - 1].action = req.session.data['who-is-question-for-eating']
           req.session.data.queriesEatDrink[req.session.data.queriesEatDrink.length - 1].href = href;
           res.redirect('/sprint-41/minimum-viable-product/activities/taking-nutrition')
 
@@ -278,7 +277,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
 
         //Start routes for managing therapy: questions
           router.post('/sprint-41/minimum-viable-product/activities/managing-therapy', (req, res, next) => {
-              if (req.session.data['who-is-question-for']) {
+              if (req.session.data['who-is-question-for-treatments']) {
                 console.log('is-this-calling', req.session.data)
                 const textBox = req.session.data['query-content']
                 const section = req.session.data.source
@@ -311,7 +310,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
                 }
 
               //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                req.session.data.queriesTherapy[req.session.data.queriesTherapy.length - 1].action = req.session.data['who-is-question-for']
+                req.session.data.queriesTherapy[req.session.data.queriesTherapy.length - 1].action = req.session.data['who-is-question-for-treatments']
                 req.session.data.queriesTherapy[req.session.data.queriesTherapy.length - 1].href = href;
                 res.redirect('/sprint-41/minimum-viable-product/activities/managing-therapy')
 
@@ -321,7 +320,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
 
 //Start routes for washing and bathing: questions
 router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', (req, res, next) => {
-    if (req.session.data['who-is-question-for']) {
+    if (req.session.data['who-is-question-for-washing']) {
       console.log('is-this-calling', req.session.data)
       const textBox = req.session.data['query-content']
       const section = req.session.data.source
@@ -354,7 +353,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
       }
 
     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-      req.session.data.queriesWashing[req.session.data.queriesWashing.length - 1].action = req.session.data['who-is-question-for']
+      req.session.data.queriesWashing[req.session.data.queriesWashing.length - 1].action = req.session.data['who-is-question-for-washing']
       req.session.data.queriesWashing[req.session.data.queriesWashing.length - 1].href = href;
       res.redirect('/sprint-41/minimum-viable-product/activities/washing-and-bathing')
 
@@ -364,7 +363,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
 //Start routes for managing toilet needs: questions
   router.post('/sprint-41/minimum-viable-product/activities/managing-toilet-needs', (req, res, next) => {
-      if (req.session.data['who-is-question-for']) {
+      if (req.session.data['who-is-question-for-toilet']) {
         console.log('is-this-calling', req.session.data)
         const textBox = req.session.data['query-content']
         const section = req.session.data.source
@@ -397,7 +396,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
         }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-            req.session.data.queriesToilet[req.session.data.queriesToilet.length - 1].action = req.session.data['who-is-question-for']
+            req.session.data.queriesToilet[req.session.data.queriesToilet.length - 1].action = req.session.data['who-is-question-for-toilet']
             req.session.data.queriesToilet[req.session.data.queriesToilet.length - 1].href = href;
             res.redirect('/sprint-41/minimum-viable-product/activities/managing-toilet-needs')
 
@@ -406,7 +405,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
     //Start routes for dressing and undressing: questions
       router.post('/sprint-41/minimum-viable-product/activities/dressing-and-undressing', (req, res, next) => {
-          if (req.session.data['who-is-question-for']) {
+          if (req.session.data['who-is-question-for-dressing']) {
             console.log('is-this-calling', req.session.data)
             const textBox = req.session.data['query-content']
             const section = req.session.data.source
@@ -439,7 +438,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
             }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                  req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].action = req.session.data['who-is-question-for']
+                  req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].action = req.session.data['who-is-question-for-dressing']
                   req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].href = href;
                   res.redirect('/sprint-41/minimum-viable-product/activities/dressing-and-undressing')
 
@@ -448,7 +447,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
           //Start routes for talking and understanding: questions
             router.post('/sprint-41/minimum-viable-product/activities/communicating-verbally', (req, res, next) => {
-                if (req.session.data['who-is-question-for']) {
+                if (req.session.data['who-is-question-for-talking']) {
                   console.log('is-this-calling', req.session.data)
                   const textBox = req.session.data['query-content']
                   const section = req.session.data.source
@@ -481,7 +480,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                  req.session.data.queriesTalking[req.session.data.queriesTalking.length - 1].action = req.session.data['who-is-question-for']
+                  req.session.data.queriesTalking[req.session.data.queriesTalking.length - 1].action = req.session.data['who-is-question-for-talking']
                   req.session.data.queriesTalking[req.session.data.queriesTalking.length - 1].href = href;
                   res.redirect('/sprint-41/minimum-viable-product/activities/communicating-verbally')
 
@@ -490,7 +489,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
           //Start routes for Reading and understanding: questions
             router.post('/sprint-41/minimum-viable-product/activities/reading-and-understanding', (req, res, next) => {
-                if (req.session.data['who-is-question-for']) {
+                if (req.session.data['who-is-question-for-reading']) {
                   console.log('is-this-calling', req.session.data)
                   const textBox = req.session.data['query-content']
                   const section = req.session.data.source
@@ -523,7 +522,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                  req.session.data.queriesReading[req.session.data.queriesReading.length - 1].action = req.session.data['who-is-question-for']
+                  req.session.data.queriesReading[req.session.data.queriesReading.length - 1].action = req.session.data['who-is-question-for-reading']
                   req.session.data.queriesReading[req.session.data.queriesReading.length - 1].href = href;
                   res.redirect('/sprint-41/minimum-viable-product/activities/reading-and-understanding')
 
@@ -532,7 +531,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
           //Start routes for Mixing with others: questions
             router.post('/sprint-41/minimum-viable-product/activities/engaging-face-to-face', (req, res, next) => {
-                if (req.session.data['who-is-question-for']) {
+                if (req.session.data['who-is-question-for-mixing-people']) {
                   console.log('is-this-calling', req.session.data)
                   const textBox = req.session.data['query-content']
                   const section = req.session.data.source
@@ -565,7 +564,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                  req.session.data.queriesMixing[req.session.data.queriesMixing.length - 1].action = req.session.data['who-is-question-for']
+                  req.session.data.queriesMixing[req.session.data.queriesMixing.length - 1].action = req.session.data['who-is-question-for-mixing-people']
                   req.session.data.queriesMixing[req.session.data.queriesMixing.length - 1].href = href;
                   res.redirect('/sprint-41/minimum-viable-product/activities/engaging-face-to-face')
 
@@ -574,7 +573,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
       //Start routes for managing money: questions
         router.post('/sprint-41/minimum-viable-product/activities/budgeting', (req, res, next) => {
-            if (req.session.data['who-is-question-for']) {
+            if (req.session.data['who-is-question-for-money']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
               const section = req.session.data.source
@@ -607,7 +606,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-              req.session.data.queriesMoney[req.session.data.queriesMoney.length - 1].action = req.session.data['who-is-question-for']
+              req.session.data.queriesMoney[req.session.data.queriesMoney.length - 1].action = req.session.data['who-is-question-for-money']
               req.session.data.queriesMoney[req.session.data.queriesMoney.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/activities/budgeting')
 
@@ -615,7 +614,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
             })
     //Start routes for planning, following journeys: questions
       router.post('/sprint-41/minimum-viable-product/activities/planning-and-following-journeys', (req, res, next) => {
-          if (req.session.data['who-is-question-for']) {
+          if (req.session.data['who-is-question-for-planning']) {
             console.log('is-this-calling', req.session.data)
             const textBox = req.session.data['query-content']
             const section = req.session.data.source
@@ -648,7 +647,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
             }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-            req.session.data.queriesPlanning[req.session.data.queriesPlanning.length - 1].action = req.session.data['who-is-question-for']
+            req.session.data.queriesPlanning[req.session.data.queriesPlanning.length - 1].action = req.session.data['who-is-question-for-planning']
             req.session.data.queriesPlanning[req.session.data.queriesPlanning.length - 1].href = href;
             res.redirect('/sprint-41/minimum-viable-product/activities/planning-and-following-journeys')
 
@@ -658,7 +657,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
           //Start routes for moving around: questions
             router.post('/sprint-41/minimum-viable-product/activities/moving-around', (req, res, next) => {
-                if (req.session.data['who-is-question-for']) {
+                if (req.session.data['who-is-question-for-moving']) {
                   console.log('is-this-calling', req.session.data)
                   const textBox = req.session.data['query-content']
                   const section = req.session.data.source
@@ -691,7 +690,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                  req.session.data.queriesMoving[req.session.data.queriesMoving.length - 1].action = req.session.data['who-is-question-for']
+                  req.session.data.queriesMoving[req.session.data.queriesMoving.length - 1].action = req.session.data['who-is-question-for-moving']
                   req.session.data.queriesMoving[req.session.data.queriesMoving.length - 1].href = href;
                   res.redirect('/sprint-41/minimum-viable-product/activities/moving-around')
 
@@ -701,7 +700,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
                 //Start routes for additional information: questions
                   router.post('/sprint-41/minimum-viable-product/additional-information', (req, res, next) => {
-                      if (req.session.data['who-is-question-for']) {
+                      if (req.session.data['who-is-question-for-add-info']) {
                         console.log('is-this-calling', req.session.data)
                         const textBox = req.session.data['query-content']
                         const section = req.session.data.source
@@ -734,7 +733,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                         }
 
                       //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                        req.session.data.queriesAdditional[req.session.data.queriesAdditional.length - 1].action = req.session.data['who-is-question-for']
+                        req.session.data.queriesAdditional[req.session.data.queriesAdditional.length - 1].action = req.session.data['who-is-question-for-add-info']
                         req.session.data.queriesAdditional[req.session.data.queriesAdditional.length - 1].href = href;
                         res.redirect('/sprint-41/minimum-viable-product/additional-information')
 
