@@ -194,7 +194,7 @@
 
       {{ govukRadios({
         idPrefix: "who-is-question-for",
-        name: "who-is-question-for",
+        name: "who-is-question-for-cond-four",
         fieldset: {
           legend: {
             text: "Who is this question for?",
@@ -270,6 +270,23 @@
 </tbody>
 </table>
 </div>
+
+<script defer type="text/javascript">
+
+  var noQuery = "{{ data['who-is-question-for-cond-four'] }}";
+
+  if (noQuery) {
+
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">No questions have been added yet.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
+
+  </script>
 
     </div>
   </div>

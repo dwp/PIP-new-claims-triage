@@ -204,7 +204,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
 
       let href;
 
-      switch (req.session.data['who-is-question-for']) {
+      switch (req.session.data['who-is-question-for-prepfood']) {
         case("Unassigned"):
         href = '/sprint-41/minimum-viable-product/unassigned-questions';
         break;
@@ -218,7 +218,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
         href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
         break;
         case("External healthcare professional"):
-        href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+        href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
         break;
         //this is the hardcoded bit if one of the links fails
         default:
@@ -246,7 +246,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
 
           let href;
 
-          switch (req.session.data['who-is-question-for']) {
+          switch (req.session.data['who-is-question-for-eating']) {
             case("Unassigned"):
             href = '/sprint-41/minimum-viable-product/unassigned-questions';
             break;
@@ -260,7 +260,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
             href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
             break;
             case("External healthcare professional"):
-            href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+            href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
             break;
             //this is the hardcoded bit if one of the links fails
             default:
@@ -288,7 +288,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
 
                 let href;
 
-                switch (req.session.data['who-is-question-for']) {
+                switch (req.session.data['who-is-question-for-treatments']) {
                   case("Unassigned"):
                   href = '/sprint-41/minimum-viable-product/unassigned-questions';
                   break;
@@ -302,7 +302,7 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
                   href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                   break;
                   case("External healthcare professional"):
-                  href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                  href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                   break;
                   //this is the hardcoded bit if one of the links fails
                   default:
@@ -331,7 +331,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
       let href;
 
-      switch (req.session.data['who-is-question-for']) {
+      switch (req.session.data['who-is-question-for-washing']) {
         case("Unassigned"):
         href = '/sprint-41/minimum-viable-product/unassigned-questions';
         break;
@@ -345,7 +345,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
         href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
         break;
         case("External healthcare professional"):
-        href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+        href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
         break;
         //this is the hardcoded bit if one of the links fails
         default:
@@ -374,7 +374,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
         let href;
 
-        switch (req.session.data['who-is-question-for']) {
+        switch (req.session.data['who-is-question-for-toilet']) {
           case("Unassigned"):
           href = '/sprint-41/minimum-viable-product/unassigned-questions';
           break;
@@ -388,7 +388,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
           href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
           break;
           case("External healthcare professional"):
-          href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+          href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
           break;
           //this is the hardcoded bit if one of the links fails
           default:
@@ -416,7 +416,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
             let href;
 
-            switch (req.session.data['who-is-question-for']) {
+            switch (req.session.data['who-is-question-for-dressing']) {
               case("Unassigned"):
               href = '/sprint-41/minimum-viable-product/unassigned-questions';
               break;
@@ -430,7 +430,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
               break;
               case("External healthcare professional"):
-              href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+              href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
               break;
               //this is the hardcoded bit if one of the links fails
               default:
@@ -458,7 +458,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
                   let href;
 
-                  switch (req.session.data['who-is-question-for']) {
+                  switch (req.session.data['who-is-question-for-talking']) {
                     case("Unassigned"):
                     href = '/sprint-41/minimum-viable-product/unassigned-questions';
                     break;
@@ -472,7 +472,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                     href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                     break;
                     case("External healthcare professional"):
-                    href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                    href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                     break;
                     //this is the hardcoded bit if one of the links fails
                     default:
@@ -500,7 +500,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
                   let href;
 
-                  switch (req.session.data['who-is-question-for']) {
+                  switch (req.session.data['who-is-question-for-reading']) {
                     case("Unassigned"):
                     href = '/sprint-41/minimum-viable-product/unassigned-questions';
                     break;
@@ -514,7 +514,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                     href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                     break;
                     case("External healthcare professional"):
-                    href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                    href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                     break;
                     //this is the hardcoded bit if one of the links fails
                     default:
@@ -542,7 +542,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
                   let href;
 
-                  switch (req.session.data['who-is-question-for']) {
+                  switch (req.session.data['who-is-question-for-mixing-people']) {
                     case("Unassigned"):
                     href = '/sprint-41/minimum-viable-product/unassigned-questions';
                     break;
@@ -556,7 +556,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                     href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                     break;
                     case("External healthcare professional"):
-                    href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                    href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                     break;
                     //this is the hardcoded bit if one of the links fails
                     default:
@@ -584,7 +584,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
               let href;
 
-              switch (req.session.data['who-is-question-for']) {
+              switch (req.session.data['who-is-question-for-money']) {
                 case("Unassigned"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
@@ -598,7 +598,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                 break;
                 case("External healthcare professional"):
-                href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
                 //this is the hardcoded bit if one of the links fails
                 default:
@@ -625,7 +625,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
             let href;
 
-            switch (req.session.data['who-is-question-for']) {
+            switch (req.session.data['who-is-question-for-planning']) {
               case("Unassigned"):
               href = '/sprint-41/minimum-viable-product/unassigned-questions';
               break;
@@ -639,7 +639,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
               break;
               case("External healthcare professional"):
-              href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+              href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
               break;
               //this is the hardcoded bit if one of the links fails
               default:
@@ -668,7 +668,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
                   let href;
 
-                  switch (req.session.data['who-is-question-for']) {
+                  switch (req.session.data['who-is-question-for-moving']) {
                     case("Unassigned"):
                     href = '/sprint-41/minimum-viable-product/unassigned-questions';
                     break;
@@ -682,7 +682,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                     href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                     break;
                     case("External healthcare professional"):
-                    href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                    href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                     break;
                     //this is the hardcoded bit if one of the links fails
                     default:
@@ -711,7 +711,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
                         let href;
 
-                        switch (req.session.data['who-is-question-for']) {
+                        switch (req.session.data['who-is-question-for-add-info']) {
                           case("Unassigned"):
                           href = '/sprint-41/minimum-viable-product/unassigned-questions';
                           break;
@@ -725,7 +725,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                           href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                           break;
                           case("External healthcare professional"):
-                          href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                          href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                           break;
                           //this is the hardcoded bit if one of the links fails
                           default:
@@ -743,7 +743,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
       //Routes for query condtion1
       router.post('/sprint-41/minimum-viable-product/condition-one', (req, res, next) => {
-          if (req.session.data['who-is-question-for']) {
+          if (req.session.data['who-is-question-for-cond-one']) {
             console.log('is-this-calling', req.session.data)
             const textBox = req.session.data['query-content']
             const section = req.session.data.source
@@ -754,7 +754,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
             let href;
 
-            switch (req.session.data['who-is-question-for']) {
+            switch (req.session.data['who-is-question-for-cond-one']) {
               case("Unassigned"):
               href = '/sprint-41/minimum-viable-product/unassigned-questions';
               break;
@@ -768,7 +768,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
               break;
               case("External healthcare professional"):
-              href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+              href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
               break;
               //this is the hardcoded bit if one of the links fails
               default:
@@ -776,7 +776,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
             }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-            req.session.data.queriesConditionOne[req.session.data.queriesConditionOne.length - 1].action = req.session.data['who-is-question-for']
+            req.session.data.queriesConditionOne[req.session.data.queriesConditionOne.length - 1].action = req.session.data['who-is-question-for-cond-one']
             req.session.data.queriesConditionOne[req.session.data.queriesConditionOne.length - 1].href = href;
             res.redirect('/sprint-41/minimum-viable-product/condition-one')
 
@@ -785,7 +785,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
         //Routes for query condtion2
         router.post('/sprint-41/minimum-viable-product/condition-two', (req, res, next) => {
-            if (req.session.data['who-is-question-for']) {
+            if (req.session.data['who-is-question-for-cond-two']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
               const section = req.session.data.source
@@ -796,7 +796,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
               let href;
 
-              switch (req.session.data['who-is-question-for']) {
+              switch (req.session.data['who-is-question-for-cond-two']) {
                 case("Unassigned"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
@@ -810,7 +810,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                 break;
                 case("External healthcare professional"):
-                href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
                 //this is the hardcoded bit if one of the links fails
                 default:
@@ -818,7 +818,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-              req.session.data.queriesConditionTwo[req.session.data.queriesConditionTwo.length - 1].action = req.session.data['who-is-question-for']
+              req.session.data.queriesConditionTwo[req.session.data.queriesConditionTwo.length - 1].action = req.session.data['who-is-question-for-cond-two']
               req.session.data.queriesConditionTwo[req.session.data.queriesConditionTwo.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/condition-two')
 
@@ -827,7 +827,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
         //Routes for query condtion3
         router.post('/sprint-41/minimum-viable-product/condition-three', (req, res, next) => {
-            if (req.session.data['who-is-question-for']) {
+            if (req.session.data['who-is-question-for-cond-three']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
               const section = req.session.data.source
@@ -838,7 +838,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
               let href;
 
-              switch (req.session.data['who-is-question-for']) {
+              switch (req.session.data['who-is-question-for-cond-three']) {
                 case("Unassigned"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
@@ -852,7 +852,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                 break;
                 case("External healthcare professional"):
-                href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
                 //this is the hardcoded bit if one of the links fails
                 default:
@@ -860,7 +860,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-              req.session.data.queriesConditionThree[req.session.data.queriesConditionThree.length - 1].action = req.session.data['who-is-question-for']
+              req.session.data.queriesConditionThree[req.session.data.queriesConditionThree.length - 1].action = req.session.data['who-is-question-for-cond-three']
               req.session.data.queriesConditionThree[req.session.data.queriesConditionThree.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/condition-three')
 
@@ -869,7 +869,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
         //Routes for query condtion4
         router.post('/sprint-41/minimum-viable-product/condition-four', (req, res, next) => {
-            if (req.session.data['who-is-question-for']) {
+            if (req.session.data['who-is-question-for-cond-four']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
               const section = req.session.data.source
@@ -880,7 +880,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
               let href;
 
-              switch (req.session.data['who-is-question-for']) {
+              switch (req.session.data['who-is-question-for-cond-four']) {
                 case("Unassigned"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
@@ -894,7 +894,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                 break;
                 case("External healthcare professional"):
-                href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
                 //this is the hardcoded bit if one of the links fails
                 default:
@@ -902,7 +902,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-              req.session.data.queriesConditionFour[req.session.data.queriesConditionFour.length - 1].action = req.session.data['who-is-question-for']
+              req.session.data.queriesConditionFour[req.session.data.queriesConditionFour.length - 1].action = req.session.data['who-is-question-for-cond-four']
               req.session.data.queriesConditionFour[req.session.data.queriesConditionFour.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/condition-four')
 
@@ -911,7 +911,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
         //Routes for query condtion5
         router.post('/sprint-41/minimum-viable-product/condition-five', (req, res, next) => {
-            if (req.session.data['who-is-question-for']) {
+            if (req.session.data['who-is-question-for-cond-five']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
               const section = req.session.data.source
@@ -922,7 +922,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
               let href;
 
-              switch (req.session.data['who-is-question-for']) {
+              switch (req.session.data['who-is-question-for-cond-five']) {
                 case("Unassigned"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
@@ -936,7 +936,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                 break;
                 case("External healthcare professional"):
-                href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
                 //this is the hardcoded bit if one of the links fails
                 default:
@@ -944,7 +944,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-              req.session.data.queriesConditionFive[req.session.data.queriesConditionFive.length - 1].action = req.session.data['who-is-question-for']
+              req.session.data.queriesConditionFive[req.session.data.queriesConditionFive.length - 1].action = req.session.data['who-is-question-for-cond-five']
               req.session.data.queriesConditionFive[req.session.data.queriesConditionFive.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/condition-five')
 
@@ -953,7 +953,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
         //Routes for query condtion6
         router.post('/sprint-41/minimum-viable-product/condition-six', (req, res, next) => {
-            if (req.session.data['who-is-question-for']) {
+            if (req.session.data['who-is-question-for-cond-six']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
               const section = req.session.data.source
@@ -964,7 +964,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
               let href;
 
-              switch (req.session.data['who-is-question-for']) {
+              switch (req.session.data['who-is-question-for-cond-six']) {
                 case("Unassigned"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
@@ -978,7 +978,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                 break;
                 case("External healthcare professional"):
-                href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
                 //this is the hardcoded bit if one of the links fails
                 default:
@@ -986,7 +986,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-              req.session.data.queriesConditionSix[req.session.data.queriesConditionSix.length - 1].action = req.session.data['who-is-question-for']
+              req.session.data.queriesConditionSix[req.session.data.queriesConditionSix.length - 1].action = req.session.data['who-is-question-for-cond-six']
               req.session.data.queriesConditionSix[req.session.data.queriesConditionSix.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/condition-six')
 
@@ -996,7 +996,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
         //Routes for query condtion7
         router.post('/sprint-41/minimum-viable-product/condition-seven', (req, res, next) => {
-            if (req.session.data['who-is-question-for']) {
+            if (req.session.data['who-is-question-for-cond-seven']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
               const section = req.session.data.source
@@ -1007,7 +1007,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
               let href;
 
-              switch (req.session.data['who-is-question-for']) {
+              switch (req.session.data['who-is-question-for-cond-seven']) {
                 case("Unassigned"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
@@ -1021,7 +1021,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                 break;
                 case("External healthcare professional"):
-                href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
                 //this is the hardcoded bit if one of the links fails
                 default:
@@ -1029,7 +1029,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-              req.session.data.queriesConditionSeven[req.session.data.queriesConditionSeven.length - 1].action = req.session.data['who-is-question-for']
+              req.session.data.queriesConditionSeven[req.session.data.queriesConditionSeven.length - 1].action = req.session.data['who-is-question-for-cond-seven']
               req.session.data.queriesConditionSeven[req.session.data.queriesConditionSeven.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/condition-seven')
 
@@ -1039,7 +1039,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
         //Routes for query condtion8
         router.post('/sprint-41/minimum-viable-product/condition-eight', (req, res, next) => {
-            if (req.session.data['who-is-question-for']) {
+            if (req.session.data['who-is-question-for-cond-eight']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
               const section = req.session.data.source
@@ -1050,7 +1050,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
 
               let href;
 
-              switch (req.session.data['who-is-question-for']) {
+              switch (req.session.data['who-is-question-for-cond-eight']) {
                 case("Unassigned"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
@@ -1064,7 +1064,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 href = '/sprint-41/minimum-viable-product/questions-internal-non-medical-support';
                 break;
                 case("External healthcare professional"):
-                href = '/sprint-41/minimum-viable-product/questions-external-non-medical-healthcare-professional';
+                href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
                 //this is the hardcoded bit if one of the links fails
                 default:
@@ -1072,7 +1072,7 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-              req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].action = req.session.data['who-is-question-for']
+              req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].action = req.session.data['who-is-question-for-cond-eight']
               req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/condition-eight')
 
