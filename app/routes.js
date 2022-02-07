@@ -65,22 +65,22 @@ const router = express.Router()
               }
             })
 
-
-            router.post('/sprint-41/minimum-viable-product/question-health-add', (req, res, next) => {
-                if (req.session.data['question-for']) {
+          // Add a question for internal medical support
+            router.post('/sprint-41/minimum-viable-product/question-internal-medical-support-add', (req, res, next) => {
+                if (req.session.data['question-for-internal-medical-support']) {
                   console.log('is-this-calling-questions', req.session.data)
                   const questionBox = req.session.data['question']
                   const answerBox = req.session.data['answer']
                   const answeredQuestion = req.session.data['answered-question']
                   const section = req.session.data.source
 
-                  const queriesQuestions = req.session.data.queriesQuestions || []
-                  queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
-                  req.session.data.queriesQuestions = queriesQuestions
+                  const queriesQuestionsMedSupport = req.session.data.queriesQuestionsMedSupport || []
+                  queriesQuestionsMedSupport.push({ answerBox, questionBox, answeredQuestion, section })
+                  req.session.data.queriesQuestionsMedSupport = queriesQuestionsMedSupport
 
                   let href;
 
-                  switch (req.session.data['question-for']) {
+                  switch (req.session.data['question-for-internal-medical-support']) {
                     case("Unassigned"):
                     href = '/sprint-41/minimum-viable-product/questions-claimant';
                     break;
@@ -102,9 +102,9 @@ const router = express.Router()
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                  req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
-                  req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].href = href;
-                  res.redirect('/sprint-41/minimum-viable-product/questions-health-professional')
+                  req.session.data.queriesQuestionsMedSupport[req.session.data.queriesQuestionsMedSupport.length - 1].action = req.session.data['question-for-internal-medical-support']
+                  req.session.data.queriesQuestionsMedSupport[req.session.data.queriesQuestionsMedSupport.length - 1].href = href;
+                  res.redirect('/sprint-41/minimum-viable-product/questions-internal-medical-support')
 
                   }
                 })
