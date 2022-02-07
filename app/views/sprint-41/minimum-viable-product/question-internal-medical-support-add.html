@@ -57,7 +57,7 @@
 
             {{ govukRadios({
               idPrefix: "who-is-question-for",
-              name: "question-for",
+              name: "question-for-internal-medical-support",
               fieldset: {
                 legend: {
                   text: "Who is this question for?",
@@ -66,18 +66,27 @@
                 }
               },
               items: [
-                {
-                  value: "Claimant",
-                  text: "Claimant"
-                },
-                {
-                  value: "Health Professional",
-                  text: "Health professional"
-                },
-                {
-                  value: "Unassigned",
-                  text: "Unassigned"
-                }
+              {
+                value: "Unassigned",
+                text: "Unassigned",
+                checked: "true"
+              },
+              {
+                value: "Claimant",
+                text: "Claimant"
+              },
+              {
+                value: "Internal medical support",
+                text: "Internal medical support"
+              },
+              {
+                value: "Internal non medical support",
+                text: "Internal non medical support"
+              },
+              {
+                value: "External healthcare professional",
+                text: "External healthcare professional"
+              }
               ]
             }) }}
 
@@ -115,7 +124,8 @@
                                     },
                                     {
                                       value: "no",
-                                      text: "No"
+                                      text: "No",
+                                      checked: "true"
                                     }
                                   ]
                             }) }}

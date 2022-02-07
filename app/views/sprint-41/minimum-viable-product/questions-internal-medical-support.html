@@ -65,17 +65,26 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% for query in data['queriesQuestions'] %}
-        {% if query.section == 'health-professional' %}
+        {% for query in data['queriesQuestionsMedSupport'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
           <td class="govuk-table__cell">{{ query.answerBox }}</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">Unanswered</strong></td>
-          <td class="govuk-table__cell"><a href="question-health-link">Edit</a></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
         </tr>
         {% endif %}
+        {% endif %}
         {% endfor %}
-        <tr class="govuk-table__row">
+      <!--  <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
           <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
             <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
@@ -207,13 +216,13 @@
           <td class="govuk-table__cell">2010 when I had a clot removed from my neck. Thankfully that sorted it and I havent had any repeat TIA's.</td>
           <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
           <td class="govuk-table__cell"><a href="#">Edit</a></td>
-        </tr>
+        </tr>-->
       </tbody>
     </table>
 
     {{ govukButton({
       text: "Add a question",
-      href: "question-health-add"
+      href: "question-internal-medical-support-add"
     }) }}
 
     </div>
