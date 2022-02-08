@@ -84,6 +84,266 @@
         {% endif %}
         {% endif %}
         {% endfor %}
+
+        {% for query in data['queriesPrepFood'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesEatDrink'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesTherapy'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesWashing'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesToilet'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesDressing'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesTalking'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesReading'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesMixing'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesMoney'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesPlanning'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesMoving'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesAdditional'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
       <!--  <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
           <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
