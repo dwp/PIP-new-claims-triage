@@ -109,6 +109,94 @@ const router = express.Router()
                   }
                 })
 
+                // Add a question for external healthcare professional
+                  router.post('/sprint-41/minimum-viable-product/question-external-medical-add', (req, res, next) => {
+                      if (req.session.data['question-for-external-healthcare-professional']) {
+                        console.log('is-this-calling-questions', req.session.data)
+                        const questionBox = req.session.data['question']
+                        const answerBox = req.session.data['answer']
+                        const answeredQuestion = req.session.data['answered-question']
+                        const section = req.session.data.source
+
+                        const queriesQuestionsExternalMedical = req.session.data.queriesQuestionsExternalMedical || []
+                        queriesQuestionsExternalMedical.push({ answerBox, questionBox, answeredQuestion, section })
+                        req.session.data.queriesQuestionsExternalMedical = queriesQuestionsExternalMedical
+
+                        let href;
+
+                        switch (req.session.data['question-for-internal-medical-support']) {
+                          case("Unassigned"):
+                          href = '/sprint-41/minimum-viable-product/questions-claimant';
+                          break;
+                          case("Claimant"):
+                          href = '/sprint-41/minimum-viable-product/questions-health-professional';
+                          break;
+                          case("Internal medical support"):
+                          href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                          break;
+                          case("Internal non medical support"):
+                          href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                          break;
+                          case("External healthcare professional"):
+                          href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                          break;
+                          //this is the hardcoded bit if one of the links fails
+                          default:
+                          href = '/sprint-41/minimum-viable-product/tasklist';
+                        }
+
+                      //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+                        req.session.data.queriesQuestionsExternalMedical[req.session.data.queriesQuestionsExternalMedical.length - 1].action = req.session.data['question-for-external-healthcare-professional']
+                        req.session.data.queriesQuestionsExternalMedical[req.session.data.queriesQuestionsExternalMedical.length - 1].href = href;
+                        res.redirect('/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional')
+
+                        }
+                      })
+
+                      // Add a question for internal non medical support
+                        router.post('/sprint-41/minimum-viable-product/question-internal-non-medical-add', (req, res, next) => {
+                            if (req.session.data['question-for-non-medical-support']) {
+                              console.log('is-this-calling-questions', req.session.data)
+                              const questionBox = req.session.data['question']
+                              const answerBox = req.session.data['answer']
+                              const answeredQuestion = req.session.data['answered-question']
+                              const section = req.session.data.source
+
+                              const queriesQuestionsNonMedical = req.session.data.queriesQuestionsNonMedical || []
+                              queriesQuestionsNonMedical.push({ answerBox, questionBox, answeredQuestion, section })
+                              req.session.data.queriesQuestionsNonMedical = queriesQuestionsNonMedical
+
+                              let href;
+
+                              switch (req.session.data['question-for-internal-medical-support']) {
+                                case("Unassigned"):
+                                href = '/sprint-41/minimum-viable-product/questions-claimant';
+                                break;
+                                case("Claimant"):
+                                href = '/sprint-41/minimum-viable-product/questions-health-professional';
+                                break;
+                                case("Internal medical support"):
+                                href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                                break;
+                                case("Internal non medical support"):
+                                href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                                break;
+                                case("External healthcare professional"):
+                                href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                                break;
+                                //this is the hardcoded bit if one of the links fails
+                                default:
+                                href = '/sprint-41/minimum-viable-product/tasklist';
+                              }
+
+                            //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+                              req.session.data.queriesQuestionsNonMedical[req.session.data.queriesQuestionsNonMedical.length - 1].action = req.session.data['question-for-non-medical-support']
+                              req.session.data.queriesQuestionsNonMedical[req.session.data.queriesQuestionsNonMedical.length - 1].href = href;
+                              res.redirect('/sprint-41/minimum-viable-product/questions-internal-non-medical-support')
+
+                              }
+                            })
+
             //Start routes for the 'adding a question' journey (collated questions view)
             router.post('/sprint-41/minimum-viable-product/question-link', (req, res, next) => {
                 if (req.session.data['question-for']) {
