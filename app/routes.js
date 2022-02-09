@@ -65,6 +65,51 @@ const router = express.Router()
               }
             })
 
+            //Adding a question to unassigned questions
+            router.post('/sprint-41/minimum-viable-product/question-unassigned-add', (req, res, next) => {
+                if (req.session.data['question-for-unassigned']) {
+                  console.log('is-this-calling-questions', req.session.data)
+                  const questionBox = req.session.data['question']
+                  const answerBox = req.session.data['answer']
+                  const answeredQuestion = req.session.data['answered-question']
+                //  let answered = '<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>'
+                  const section = req.session.data.source
+
+                  const queriesQuestionsUnassigned = req.session.data.queriesQuestionsUnassigned || []
+                  queriesQuestionsUnassigned.push({ answerBox, questionBox, answeredQuestion, section })
+                  req.session.data.queriesQuestionsUnassigned = queriesQuestionsUnassigned
+
+                  let href;
+
+                  switch (req.session.data['question-for-unassigned']) {
+                    case("Unassigned"):
+                    href = '/sprint-41/minimum-viable-product/questions-claimant';
+                    break;
+                    case("Claimant"):
+                    href = '/sprint-41/minimum-viable-product/questions-health-professional';
+                    break;
+                    case("Internal medical support"):
+                    href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                    break;
+                    case("Internal non medical support"):
+                    href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                    break;
+                    case("External healthcare professional"):
+                    href = '/sprint-41/minimum-viable-product/unassigned-questions';
+                    break;
+                    //this is the hardcoded bit if one of the links fails
+                    default:
+                    href = '/sprint-41/minimum-viable-product/tasklist';
+                  }
+
+                //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+                  req.session.data.queriesQuestionsUnassigned[req.session.data.queriesQuestionsUnassigned.length - 1].action = req.session.data['question-for-unassigned']
+                  //req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].answered = answered;
+                  req.session.data.queriesQuestionsUnassigned[req.session.data.queriesQuestionsUnassigned.length - 1].href = href;
+                  res.redirect('/sprint-41/minimum-viable-product/unassigned-questions')
+                  }
+                })
+
           // Add a question for internal medical support
             router.post('/sprint-41/minimum-viable-product/question-internal-medical-support-add', (req, res, next) => {
                 if (req.session.data['question-for-internal-medical-support']) {
