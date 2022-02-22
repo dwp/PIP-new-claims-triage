@@ -66,19 +66,23 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+        {% for query in data['queriesQuestions'] %}
+        {% if query.section == 'health-professional' %}
         <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">How often are your Angina attacks?</td>
+          <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
           <td class="govuk-table__cell">Angina</td>
-          <td class="govuk-table__cell">{{ data['answer'] }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">Unanswered</strong></td>
-          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+          <td class="govuk-table__cell"><a href="question-health-link">Edit</a></td>
         </tr>
+        {% endif %}
+        {% endfor %}
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
           <td class="govuk-table__cell">Preparing food</td>
           <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
             <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
-          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+          <td class="govuk-table__cell"><a href="question-health-link">Edit</a></td>
 
         </tr>
 
@@ -87,7 +91,7 @@
           <td class="govuk-table__cell">Preparing food</td>
           <td class="govuk-table__cell">He can peel and chop vegetables if he was sat down.</td>
           <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
-          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+          <td class="govuk-table__cell"><a href="question-health-link">Edit</a></td>
 
         </tr>
 
@@ -231,7 +235,7 @@
 
     {{ govukButton({
       text: "Add a question",
-      href: "question-link"
+      href: "question-health-add"
     }) }}
 
     </div>

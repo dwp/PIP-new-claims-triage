@@ -229,15 +229,15 @@
                   },
                   items: [
                     {
-                      value: "claimant",
+                      value: "Claimant",
                       text: "Claimant"
                     },
                     {
-                      value: "health-professional",
+                      value: "Health Professional",
                       text: "Health professional"
                     },
                     {
-                      value: "unassigned",
+                      value: "Unassigned",
                       text: "Unassigned"
                     }
                   ]
@@ -299,30 +299,49 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
-          {% for query in data['queriesPrepFood'] %}
-          {% if query.section == 'Preparing food' %}
+          {% for query in data['queriesEatDrink'] %}
+          {% if query.section == 'Taking nutrition' %}
 
           <tr class="govuk-table__row">
               <td class="govuk-table__cell">
-                {{ query.content }}
-
+                {{ query.textBox }}
               </td>
               <td class="govuk-table__cell">
                 <a href="{{ query.href }}">{{ query.action }}</a>
+              </td>
+              <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong>
               </td>
           </tr>
           {% endif %}
           {% endfor %}
 
-         <tr class="govuk-table__row">
+        <!-- <tr class="govuk-table__row">
               <td class="govuk-table__cell">No questions have been added yet</td>
-              <td class="govuk-table__cell"><!--<a href="/sprint-40/minimum-viable-product/questions-claimant">Claimant</a>--></td>
-              <td class="govuk-table__cell"><!--<strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong>--></td>
-          </tr>
+              <td class="govuk-table__cell"><a href="/sprint-40/minimum-viable-product/questions-claimant">Claimant</a></td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong></td>
+          </tr>-->
 
         </tbody>
 </table>
 </div>
+
+<script defer type="text/javascript">
+
+  var noQuery = "{{ data['who-is-question-for'] }}";
+
+  if (noQuery) {
+
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">No questions have been added yet.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
+
+  </script>
 
 
 
