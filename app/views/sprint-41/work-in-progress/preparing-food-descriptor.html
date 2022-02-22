@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Preparing food
+      </h1>
+       <p class="govuk-body">This includes food preparation such as peeling, chopping or opening packaging and
+                            safely cooking or heating food on a cooker hob or in a microwave oven.</p>
+
+        <h2 id="disp" class="govuk-heading-m">
+
+            Descriptor:
+        </h2>
+
+      <div class="govuk-inset-text">
+        {{ data['set-descriptor'] }}
+      </div>
+
+      <a href="descriptor-justification" aria-describedby="company-information-status">
+        View your justification for this descriptor
+        </a>
+
+          <br>
+          <br>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Change the descriptor",
+            href: "/current/set-descriptor"
+          }) }}
+
+
+
+        <h2 class="govuk-heading-m">Claimants account</h2>
+        <p class="govuk-body">I find it increasingly difficult to cook a hotmeal due to pans being to heavy and opening cans.
+          Standing for long peroids of time hurt my legs. I prepare veg sitting down. I rely heavily on my husband to do the cooking.</p>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-half">Question in PIP2</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Answer</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Do you need to use an aid or appliance to prepare or cook a simple meal?</th>
+                <td class="govuk-table__cell">No</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Do you need help from another person to prepare or cook a simple meal?</th>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+            </tbody>
+            </table>
+
+
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+          idPrefix: "conditon-one-note",
+          name: "conditon-one-note",
+          fieldset: {
+          legend: {
+          text: "Add a note about this condition",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+          }
+          },
+          items: [
+          {
+          value: "important-to-this-case",
+          text: "Important to this case"
+          },
+          {
+          value: "qestion-about-this-condition",
+          text: "Question about this condition"
+          },
+          {
+          value: "out-of-scope",
+          text: "Out of scope"
+          }
+
+          ]
+          }) }}
+
+
+
+          <!--{{ data | dump }}-->
+
+          <form action="#" method="post">
+          <input type="hidden" value="{{ data.source }}"/>
+
+              <div class="govuk-form-group">
+                    <textarea class="govuk-textarea" id="condition-query-box" name="condition-query" value="{{ data['condition-query'] }}" rows="5" aria-describedby="more-detail-hint"></textarea>
+            </div>
+
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Add this note"
+          }) }}
+          </form>
+
+
+          <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Questions about this condition</caption>
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Question</th>
+          <th scope="col" class="govuk-table__header">Who to contact</th>
+          <!--<th scope="col" class="govuk-table__header">Status</th>-->
+          </tr>
+          </thead>
+          {% for query in data['queriesCondition'] %}
+          {% if query.section == 'diabetes' %}
+          <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            {{ query.content }}
+          </td>
+          <td class="govuk-table__cell">{{ query.action }}</td>
+          <!--<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Not started</strong></td>-->
+          </tr>
+          {% endif %}
+          {% endfor %}
+          </tbody>
+          </table>
+
+    </div>
+
+              <!--<div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                    </aside>
+                  </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Tasklist
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="contact-details">Personal details</a>
+        </li>
+        <li>
+          <a href="conditions" class="active" aria-current="section">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <li>
+          <a href="questions">Questions</a>
+        </li>
+        <li>
+          <a href="summary" >Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">
+          Conditions
+        </h1>
+
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Condition</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter"></th>
+            <!-- <th scope="col" class="govuk-table__header govuk-!-width-one-quarter"> </th>-->
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-one?source=diabetes" aria-describedby="company-information-status">Diabetes</a></td>
+              <td scope="row" class="govuk-table__cell"></td>
+            <!--  <td class="govuk-table__cell">   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">1 Open Question</strong> </td> -->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-two?source=prostate-cancer" aria-describedby="list-convictions-status">
+              Prostate cancer
+            </a></td>
+              <td scope="row" class="govuk-table__cell"></td>
+            <!--  <td class="govuk-table__cell">   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions -status">2 Open Questions</strong> </td>-->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-three?source=angina" aria-describedby="company-information-status">
+              Angina
+              </a></td>
+                <td scope="row" class="govuk-table__cell"></td>
+            <!-- <td class="govuk-table__cell">    <strong class="govuk-tag app-task-list__tag" id="consultant">All questions resolved</strong> </td>-->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-four?source=copd" aria-describedby="company-information-status">
+              COPD
+              </a></td>
+            <td class="govuk-table__cell">   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">2 UNANSWERED QUESTIONS</strong> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-five?source=blood-pressure" aria-describedby="company-information-status">
+              Blood pressure
+              </a></td>
+            <td class="govuk-table__cell">   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">3 UNANSWERED QUESTIONS</strong> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-six?source=incontinence" aria-describedby="company-information-status">
+              Incontinence
+              </a></td>
+            <td class="govuk-table__cell">    <strong class="govuk-tag app-task-list__tag" id="consultant">ALL QUESTIONS ANSWERED</strong> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-seven?source=irregular-heartbeat" aria-describedby="company-information-status">
+              Irregular heartbeat
+              </a></td>
+             <td class="govuk-table__cell">   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">1 UNANSWERED QUESTION</strong> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a id="activities" href="condition-eight?source=hot-flushes" aria-describedby="company-information-status">
+              Hot flushes
+              </a></td>
+                <td class="govuk-table__cell">    <strong class="govuk-tag app-task-list__tag" id="consultant">ALL QUESTIONS ANSWERED</strong> </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

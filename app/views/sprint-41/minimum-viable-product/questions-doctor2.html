@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+        <a href="task-list#questions" class="govuk-back-link">Back to case details </a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+
+          <h1 class="govuk-heading-l">Questions for the claimant's doctor</h1>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                View contact details
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <b>Name</b><br>
+              Dr Camilla Stasiak<br><br>
+              <b>Phone number</b><br>
+              020 8291 7007<br><br>
+              <b>Address</b><br>
+              The Vale Medical Centre<br>
+              195-197 Perry Vale<br>
+              Forest Hill<br>
+              London<br>
+              SE23 2JF<br>
+              </div>
+          </details>
+          <br>
+        </div>
+
+        <div class="govuk-grid-column-full">
+
+        {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    <table class="govuk-table">
+      <!--<caption class="govuk-table__caption govuk-table__caption--m">Unresolved questions</caption>-->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Open questions</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Answer</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+          <td colspan="5"><br> </td>
+        </tr>
+      </tbody>
+
+
+
+
+
+      <!--<caption class="govuk-table__caption govuk-table__caption--m">Resolved questions</caption>-->
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Resolved questions</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Answer</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for questions in data['queriesPrepFood'] %}
+        {% if questions.action == "The claimant's doctor" %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell">{{ data['answerDoctor'] }}</td>
+          <td class="govuk-table__cell"><a href="question-tabbed-doctor">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for questions in data['queriesTakeNutrition'] %}
+        {% if questions.action == "The claimant's doctor" %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell">{{ data['answerDoctor'] }}</td>
+          <td class="govuk-table__cell"><a href="question-tabbed-doctor">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for questions in data['queriesManageTherapy'] %}
+        {% if questions.action == "The claimant's doctor" %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell">{{ data['answered'] }}</td>
+          <td class="govuk-table__cell"><a href="question-tabbed-doctor">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for questions in data['queriesWashingBathing'] %}
+        {% if questions.action == "The claimant's doctor" %}
+        <tr class="govuk-table__row">
+        <!--  <td scope="row" class="govuk-table__cell"><a href="action-query-view">Contact the  claimant</a></td>-->
+          <td scope="row" class="govuk-table__cell">
+                {{ questions.content }}
+          </td>
+          <td class="govuk-table__cell"> {{ questions.section }} </td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!--  <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often are your Angina attacks?</td>
+          <td class="govuk-table__cell">Prostate cancer</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><a href="#">Edit</a></td>
+        </tr>-->
+      </tbody>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">Dates of treatment?</td>
+        <td class="govuk-table__cell">Evidence</td>
+        <td class="govuk-table__cell">Completed 20 days of radiotherapy in Feb to March 2020</td>
+        <td class="govuk-table__cell"><a href="#">Edit</a></td>
+      </tr>
+          <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Prostate cancer - are they going through treatment, and is this an STRI case?</td>
+          <td class="govuk-table__cell">Medication</td>
+          <td class="govuk-table__cell">Prostate cancer diagnosed 2019 by specialist, currently managed by specialist. Has had radiotherapy in February 2020. Currently monitoring blood tests and condition, no current plan of further treatment.</td>
+          <td class="govuk-table__cell"><a href="#">Edit</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell">Investigate further - no anxiety noted on conditions. Are you currently under mental health services or your GP?</td>
+        <td class="govuk-table__cell">Engaging with other people face to face</td>
+        <td class="govuk-table__cell">Anxiety diagnosed 10 years ago by GP, currently managed by GP, no mental health input. Never had suicidal thoughts, never self-harmed. This has got worse in the last 12 months. No hospital admissions.</td>
+        <td class="govuk-table__cell"><a href="#">Edit</a></td>
+      </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+  </div>
+
+        </main>
+      </div>
+
+{% endblock %}
