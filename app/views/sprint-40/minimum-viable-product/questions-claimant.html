@@ -47,7 +47,7 @@
           SE23 6FH<br>
           </div>
       </details>-->
-      
+
     </div>
 
     <div class="govuk-grid-column-full">
@@ -55,7 +55,6 @@
     {% from "govuk/components/table/macro.njk" import govukTable %}
 
     <table class="govuk-table">
-
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Question</th>
@@ -66,13 +65,17 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+        {% for query in data['queriesQuestions'] %}
+        {% if query.section == 'claimant' %}
         <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">How often are your Angina attacks?</td>
+          <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
           <td class="govuk-table__cell">Angina</td>
-          <td class="govuk-table__cell">{{ data['answer'] }}</td>
-          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">Unanswered</strong></td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell">{{ query.answered }}</td>
           <td class="govuk-table__cell"><a href="question-link">Edit</a></td>
         </tr>
+        {% endif %}
+        {% endfor %}
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
           <td class="govuk-table__cell">Preparing food</td>
@@ -231,7 +234,7 @@
 
     {{ govukButton({
       text: "Add a question",
-      href: "question-link"
+      href: "question-add"
     }) }}
 
     </div>
