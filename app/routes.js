@@ -19,6 +19,27 @@ const router = express.Router()
 //
 
 //Sprint 41//*************************************************************************************************************
+// Referral assessment route //
+
+router.post('/sprint-41/minimum-viable-product/ready-to-make-next-step', function (req, res) {
+
+  // Make a variable and give it the value from 'how-many-balls'
+  var makearecommendation = req.session.data['next-step']
+
+  // Check whether the variable matches a condition
+  if (makearecommendation == "Send case for a decision"){
+    // Send user to decision page
+    res.redirect('decision')
+  } else {
+    // Send user to referral page
+    res.redirect('refer')
+  }
+
+})
+
+
+
+
 
         //Start routes for the 'adding a question' journey (collated questions view)
         router.post('/sprint-41/minimum-viable-product/question-add', (req, res, next) => {

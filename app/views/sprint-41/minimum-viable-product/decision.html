@@ -25,39 +25,21 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+  <h1 class="govuk-heading-l">You are about to send this case for a decision</h1>
+  <p>Once you make this recommendation you cannot go back and change it.</p>
+    <p><strong>Time of recommendation: </strong>12:05pm<br>
+     <strong>Date of recommendation: </strong>Thursday 2nd June 2022</p>
 
       <form method="post" action="#" onclick=" checkButton()" class="score">
 
 
 
-          {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-    {{ govukRadios({
-      idPrefix: "decision-point-descriptor-assessment",
-      name: "next-step",
-      fieldset: {
-        legend: {
-          text: "What recommendation are you making for this case?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      items: [
-        {
-          value: "Send case for a decision",
-          text: "Send case for a decision"
-        },
-        {
-          value: "Refer case for an assessment",
-          text: "Refer case for an assessment"
-        }
-      ]
-    }) }}
 
 
     {{ govukButton({
-      text: "Continue",
-      href: ""
+      text: "Send case for a decision",
+      href: "decision-confirm"
     }) }}
 
     </form>
@@ -66,7 +48,10 @@
 
     </div>
 
-
+              <!--<div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                    </aside>
+                  </div>-->
 
   </div>
 
