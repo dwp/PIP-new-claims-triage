@@ -19,9 +19,44 @@
         Prototype and design idea's for PIP Case Review
       </p>
 
+      {{ govukTable({
+        caption: "Current Versions",
+        captionClasses: "govuk-heading-m",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Version"
+          },
+          {
+            text: "Date added"
+          },
+          {
+            text: "Description"
+          },
+          {
+            text: "Link"
+          }
+        ],
+        rows: [
+        [
+        {
+          text: "To be added"
+        },
+        {
+          text: "To be added"
+        },
+        {
+          text: "To be added"
+        },
+        {
+          html: '<a href="#">To be added</a>'
+        }
+          ]
+        ]
+      }) }}
 
       {{ govukTable({
-        caption: "Version history for current team",
+        caption: "Previous versions (when versioned by sprints)",
         captionClasses: "govuk-heading-m",
         firstCellIsHeader: true,
         head: [
@@ -183,7 +218,7 @@
                 ],
                 [
                 {
-                  text: "Sprint 41 (current)"
+                  text: "Sprint 41"
                 },
                 {
                   text: "02 Febuary 2022"
