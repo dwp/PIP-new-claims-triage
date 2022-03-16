@@ -15,26 +15,20 @@
         <span class="govuk-caption-xl">Running on {{releaseVersion}} of the GOV.UK prototype kit</span>
       </h1>
 
-      <p>
-        Prototype and design idea's for PIP Case Review
-      </p>
-
+      <h1 class="govuk-heading-l">Latest version</h1>
       {{ govukTable({
-        caption: "Current Versions",
+        caption: "",
         captionClasses: "govuk-heading-m",
         firstCellIsHeader: true,
         head: [
           {
-            text: "Version"
+            text: "Version name"
           },
           {
             text: "Date added"
           },
           {
             text: "Description"
-          },
-          {
-            text: "Link"
           }
         ],
         rows: [
@@ -47,192 +41,42 @@
         },
         {
           text: "To be added"
-        },
-        {
-          html: '<a href="#">To be added</a>'
         }
           ]
         ]
       }) }}
 
-      {{ govukTable({
-        caption: "Previous versions (when versioned by sprints)",
-        captionClasses: "govuk-heading-m",
-        firstCellIsHeader: true,
-        head: [
-          {
-            text: "Version"
-          },
-          {
-            text: "Date added"
-          },
-          {
-            text: "Description"
-          },
-          {
-            text: "Link"
-          }
-        ],
-        rows: [
-        [
-        {
-          text: "Sprint 24/25"
-        },
-        {
-          text: "26 May 2021"
-        },
-        {
-          text: "Created a new prototype to house journeys related to PIP case review.
-                  These journeys include creating queries, setting an action, viewing evidence, dealing with queries
-                  and setting a descriptor.
-                  These concepts will be used for user testing in Sprint 26 and iterated upon."
-        },
-        {
-          html: '<a href="/sprint-24-25/index">Go to sprint 24/25</a>'
-        }
-          ],
-          [
-          {
-            text: "Sprint 26"
-          },
-          {
-            text: "24 June 2021"
-          },
-          {
-            text: "Carried out 'Round 2' user testing of the new concepts within the prototype, mainly being
-                  creating queries for evidence, conditons and  activities. Tagging of evidence. Scoring and deciding the
-                  'next step'. Insights for these sessions are pending."
-          },
-          {
-            html: '<a href="/sprint-26/index">Go to sprint 26</a>'
-          }
-            ],
-            [
-            {
-              text: "Sprint 27"
-            },
-            {
-              text: "07 July 2021"
-            },
-            {
-              text: "Added the vulnerability marker as an experimental additon but was not tested. This sprint saw minimal
-                      updates to the prototype becasue we went through a reflection sprint to go over the aftermath of our
-                        'Round 2' experiments. The vulnerbility markers were the only updates made this sprint."
-            },
-            {
-              html: '<a href="/sprint-27/index">Go to sprint 27</a>'
-            }
-              ],
-              [
-              {
-                text: "Sprint 28"
-              },
-              {
-                text: "21 July 2021"
-              },
-              {
-                text: "Added the 'summary' page along with scoring pages. The intention is make these dynamic so that
-                        these concepts can be tested as part of 'Round 3' of user testing with case managers.
-                        The work continues into Sprint 29."
-              },
-              {
-                html: '<a href="/sprint-28/index">Go to sprint 28</a>'
-              }
-                ],
-                [
-                {
-                  text: "Sprint 29"
-                },
-                {
-                  text: "04 August 2021"
-                },
-                {
-                  text: "'Round 3' was conducted during this sprint. This took place with  case managers from tresco
-                          house and SAM users. The main focus was to test the 'summary' along with scoring functionalites to
-                          again test concepts. This work will be iterated upon during sprint 30."
-                },
-                {
-                  html: '<a href="/sprint-29/index">Go to sprint 29</a>'
-                }
-                ],
-                [
-                {
-                  text: "Sprints 30-35 "
-                },
-                {
-                  text: "18 August 2021"
-                },
-                {
-                  text: "'Round 4-6' Adding Open Questions and all questions resolved tags to task list page. Worked on Questions and UX offline in Miro Board"
-                },
-                {
-                  html: '<a href="/sprint-30-35/index">Sprint 30-35 </a> <br><a href="https://miro.com/app/board/o9J_lF4VW80=/" target="_blank">View Miro </a> '
-                }
-                ]
-                ,
-                [
-                {
-                  text: "Sprint 36/38"
-                },
-                {
-                  text: "22 November 2021"
-                },
-                {
-                  text: "Adding a navigation bar and splitting the task list into separate sections to speed up the way a claims manager can navigate the case"
-                },
-                {
-                  html: '<a href="/newnav/contact-details">View navigation</a>'
-                }
-                ],
-                [
-                {
-                  text: "Sprint 39"
-                },
-                {
-                  text: "05 January 2022"
-                },
-                {
-                  text: "This sprint the main change was introducing a tabbed layout for the claimants details.
-                          The design was intended to be for a 'future' iteration and not for MVP."
-                },
-                {
-                  html: '<a href="/sprint-39/contact-details">Go to sprint 39</a>'
-                }
-                ],
-                [
-                {
-                  text: "Sprint 40"
-                },
-                {
-                  text: "19 January 2022"
-                },
-                {
-                  text: "This sprint the prototype was spilt into 'two versions' called 'MVP' and 'Work in progress'.
-                          This was done to help seperate out the streams of work so it could be clearly defined between the
-                          two sets of designs. The MVP changed alot during this sprint and the iteration will be captured within
-                          Sprint 41."
-                },
-                {
-                  html: '<a href="/sprint-40/index">Go to sprint 40</a>'
-                }
-                ],
-                [
-                {
-                  text: "Sprint 41"
-                },
-                {
-                  text: "02 Febuary 2022"
-                },
-                {
-                  text: "This sprint the MVP designs will be updated with the required changes that have been agreed and in
-                          preperation for more user testing."
-                },
-                {
-                  html: '<a href="/sprint-41/index">Go to sprint 41</a>'
-                }
-                ]
-        ]
+<h2 class="govuk-heading-m">Links to prototype</h2>
+      {{ govukButton({
+          text: "MVP prototype",
+          href: "#"
       }) }}
+      {{ govukButton({
+          text: "Work in progress prototype",
+          href: "#"
+      }) }}
+<hr>
+      <h2 class="govuk-heading-m">Link to sprint 41 work</h2>
+      <p>Quick link for latest design before new versioning begins</p>
+
+      {{ govukButton({
+        text: "Sprint 41 MVP Design",
+        classes: "govuk-button--secondary",
+        href: "/sprint-41/index"
+      }) }}
+<hr>
+      <h2 class="govuk-heading-m">Archived designs</h2>
+      <p>The archived designs showcase a previous way of versioning
+          along with the work that was undertaken from 26th May 2021 until
+          02nd February 2022.</p>
+
+      {{ govukButton({
+        text: "Old sprint designs",
+        classes: "govuk-button--secondary",
+        href: "/old-sprints"
+      }) }}
+
+
 
     </div>
 </div>
