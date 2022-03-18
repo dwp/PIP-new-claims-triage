@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+    {% set mainClasses = "govuk-main-wrapper--l" %}
+
+    {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+    {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+          {{ govukPanel({
+            titleText: "You have sent this case for a decision",
+            html: ""
+          }) }}
+
+          <p class="govuk-body">This case has now moved out of your case queue. You will still need to make this recommendation manually on PIPCS. </p>
+
+          <h2 class="govuk-heading-m">Next steps</h2>
+
+          <p class="govuk-body">
+            <a href="#" class="govuk-link">View my case queue</a>
+          </p>
+        </div>
+      </div>
+    {% endblock %}
+
+        </main>
+      </div>
+
+{% endblock %}

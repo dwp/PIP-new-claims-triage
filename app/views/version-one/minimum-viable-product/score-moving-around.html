@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+{% include "./preparing-food-descriptor.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post" action="review-activity-descriptors2">
+          <input type="hidden" value=""/>
+
+        <!--  <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Where do you live?
+                </h1>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                    England
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                    Scotland
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+                    Wales
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+                    Northern Ireland
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-6" name="where-do-you-live" type="radio" value="abroad">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-6">
+                    I am a British citizen living abroad
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div> -->
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      idPrefix: "",
+      name: "moving-around-score",
+      fieldset: {
+        legend: {
+          text: "How well can the claimant move around?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          id: "A",
+          value: "12a. Can stand and then move more than 200 metres, either aided or unaided. | 0",
+          text: "12a. Can stand and then move more than 200 metres, either aided or unaided."
+        },
+        {
+          id: "B",
+          value: "12b. Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided. | 4",
+          text: "12b. Can stand and then move more than 50 metres but no more than 200 metres, either aided or unaided."
+        },
+        {
+          id: "C",
+          value: "12c. Can stand and then move more than 20 metres but no more than 50 metres, either aided or unaided. | 8",
+          text: "12c. Can stand and then move more than 20 metres but no more than 50 metres, either aided or unaided."
+        },
+        {
+          id: "D",
+          value: "12d. Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres. | 10",
+          text: "12d. Can stand and then move using an aid or appliance more than 20 metres but no more than 50 metres."
+        },
+        {
+          id: "E",
+          value: "12e. Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided. | 12",
+          text: "12e. Can stand and then move more than 1 metre but no more than 20 metres, either aided or unaided."
+        },
+        {
+          id: "F",
+          value: "12f. Cannot, either aided or unaided, -
+                    (i) stand; or
+                    (ii) move more than 1 metre | 12",
+          text: "12f. Cannot, either aided or unaided, -
+                    (i) stand; or
+                    (ii) move more than 1 metre"
+        }
+      ]
+    }) }}
+
+
+<div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+        What is the reason for this answer?
+    </label>
+    <textarea class="govuk-textarea" id="justif" name="justification" value="{{ data['justification'] }}" rows="5"></textarea>
+</div>
+
+
+
+<button class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+    </form>
+
+
+
+    </div>
+
+              <!--<div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                    </aside>
+                  </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}
