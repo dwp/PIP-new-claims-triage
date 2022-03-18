@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+{% block main %}
+<style>
+  .navigation-secondary ul:after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+
+ .navigation-secondary {
+   border-bottom: 1px solid #bfc1c3;
+   margin: auto;
+   max-width: 960px;
+ }
+
+ .navigation-secondary ul {
+   margin: 0 auto;
+   max-width: 960px;
+   padding-left: 0;
+ }
+
+ .navigation-secondary li {
+   float: left;
+   list-style-type: none;
+ }
+
+ @media (max-width: 640px) {
+   .navigation-secondary li {
+     border: 0;
+     width: 100%;
+   }
+ }
+
+ .navigation-secondary a {
+   display: block;
+   padding: 15px;
+ }
+
+ .navigation-secondary a:visited {
+   color: #005ea5;
+ }
+
+ .navigation-secondary a:hover {
+   background-color: #f8f8f8;
+ }
+
+ .navigation-secondary .active {
+   box-shadow: inset 0px -5px 0px 0px #005ea5;
+   color: #0b0c0c;
+   text-decoration: none;
+ }
+
+ .navigation-secondary .active:visited {
+   color: #0b0c0c;
+ }
+
+  </style>
+
+<!-- <link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+ --><section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+      <a href="#" class="govuk-back-link">Back</a>
+
+        <h1 class="govuk-heading-l">Search for a case
+          <div id="email-hint" class="govuk-hint">
+            Enter the claimant's National Insurance number.
+          </div>
+      </h1>
+
+      <input class="govuk-input" id="search-name" name="search-name" type="text">
+      <br>
+      <br>
+      
+      <button class="govuk-button" data-module="govuk-button">
+        Search
+      </button>
+
+
+<div class="govuk-grid-column-full-width">
+
+
+</div>
+    </div>
+</div>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+      </dl>
+
+</div>
+    </div>
+  </div>
+{% endblock %}
