@@ -18,6 +18,26 @@ const router = express.Router()
 //
 //
 
+// version one (new version history)
+
+// Referral assessment route //
+
+router.post('/version-one/minimum-viable-product/ready-to-make-next-step', function (req, res) {
+
+  // Make a variable and give it the value from 'how-many-balls'
+  var makearecommendation = req.session.data['next-step']
+
+  // Check whether the variable matches a condition
+  if (makearecommendation == "Send case for a decision"){
+    // Send user to decision page
+    res.redirect('decision')
+  } else {
+    // Send user to referral page
+    res.redirect('refer')
+  }
+
+})
+
 //Sprint 41//*************************************************************************************************************
 // Referral assessment route //
 
