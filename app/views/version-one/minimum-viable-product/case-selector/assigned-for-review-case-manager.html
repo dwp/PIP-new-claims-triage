@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    <div class="column-full">
+      <nav class="navigation-secondary">
+        <ul>
+          <li>
+            <a href="cases-for-triage">Cases for triage</a>
+          </li>
+          <li>
+            <a href="ready-for-review">Ready for review</a>
+          </li>
+          <li>
+            <a href="assigned-for-review" class="active" aria-current="section">Assigned for review</a>
+          </li>
+          <li>
+            <a href="review-completed">Review completed</a>
+          </li>
+        </ul>
+      </nav>
+      <p><br></p>
+    </div>
+
+<div class="govuk-width-container">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Assigned for review (2)</h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Case managers</th>
+                <th scope="col" class="govuk-table__header">Heading?</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Bradley Tate</th>
+                <td class="govuk-table__cell"><a href="#">Assigned for review (3)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Debbie Roberts</th>
+                <td class="govuk-table__cell"><a href="#">Assigned for review (3)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Susuan Smith</th>
+                <td class="govuk-table__cell"><a href="#">Assigned for review (3)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Tom Smith</th>
+                <td class="govuk-table__cell"><a href="#">Assigned for review (3)</a></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+
+
+      <div class="govuk-grid-column-one-third">
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Case managers</th>
+                  <th scope="col" class="govuk-table__header">Heading?</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Bradley Tate</th>
+                  <td class="govuk-table__cell"><a href="#">Assigned for review (3)</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Debbie Roberts</th>
+                  <td class="govuk-table__cell"><a href="#">Assigned for review (3)</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Susuan Smith</th>
+                  <td class="govuk-table__cell"><a href="#">Assigned for review (3)</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Tom Smith</th>
+                  <td class="govuk-table__cell"><a href="#">Assigned for review (3)</a></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+  </div>
+
+
+  </div>
+</div>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      </dl>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+        <a href="javascript:history.go(-1)" class="govuk-back-link">Back to ready for review</a>
+
+
+  <h1 class="govuk-heading-l">Which case manager would you like to assign this case to?</h1>
+
+  {{ govukRadios({
+      classes: "govuk-radios--small",
+      idPrefix: "changed-name",
+      name: "changed-name",
+      fieldset: {
+      legend: {
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+      }
+      },
+      items: [
+      {
+      value: "month",
+      text: "Susan Smith (4)"
+      },
+      {
+      value: "year",
+      text: "Debbie Roberts (4)"
+      },
+      {
+      value: "year",
+      text: "Bradley Tate (3)"
+      },
+      {
+      value: "year",
+      text: "Tom Smith (4)"
+      },
+      {
+      value: "year",
+      text: "Robert Jones (6)"
+      },
+      {
+      value: "year",
+      text: "Emily Macintosh (4)"
+      },
+      {
+      divider: "or"
+    },
+    {
+      value: "abroad",
+      text: "Add a new case manager"
+    }
+      ]
+}) }}
+
+{{ govukButton({
+  text: "Save and continue",
+  href: "create-new-case"
+}) }}
+
+    </div>
+  </div>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      </dl>
+
+{% endblock %}
