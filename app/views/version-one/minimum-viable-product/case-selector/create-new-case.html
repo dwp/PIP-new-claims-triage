@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+        <a href="javascript:history.go(-1)" class="govuk-back-link">Back to ready for review</a>
+
+        {{ govukInput({
+          label: {
+            text: "What do you want to name this case manager?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+        hint: {
+          text: "The new case manager should have a different name to any existing case manager."
+        },
+          id: "event-name",
+          name: "event-name"
+        }) }}
+
+        {{ govukButton({
+          text: "Create caseload",
+          href: "case-manager-added"
+        }) }}
+
+    </div>
+  </div>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      </dl>
+
+{% endblock %}
