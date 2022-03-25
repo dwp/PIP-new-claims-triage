@@ -12,7 +12,7 @@
             <a href="ready-for-review" class="active" aria-current="section">Ready for review</a>
           </li>
           <li>
-            <a href="assigned-for-review">Assigned for review</a>
+            <a href="assigned-for-review-case-manager">In review</a>
           </li>
           <li>
             <a href="review-completed">Review completed</a>
@@ -27,6 +27,9 @@
 
 
   <h1 class="govuk-heading-l">Ready for review (2)</h1>
+  <p class="govuk-body">The following cases can be assigned to a case manager for review.<br>
+                        You can select more than one case to assign.</p>
+
 
   <table class="govuk-table" data-module="moj-sortable-table">
     <thead class="govuk-table__head">
@@ -70,7 +73,7 @@
   </table>
 
   {{ govukButton({
-    text: "Save and continue",
+    text: "Assign to case manager",
     href: "case-manager-assign"
   }) }}
 

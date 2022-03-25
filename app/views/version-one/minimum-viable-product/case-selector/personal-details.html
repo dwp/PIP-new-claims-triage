@@ -1,82 +1,33 @@
 {% extends "layout.html" %}
 {% block main %}
+
 <style>
-  .navigation-secondary ul:after {
-   content: "";
-   display: block;
-   clear: both;
- }
-
- .navigation-secondary {
-   border-bottom: 1px solid #bfc1c3;
-   margin: auto;
-   max-width: 960px;
- }
-
- .navigation-secondary ul {
-   margin: 0 auto;
-   max-width: 960px;
-   padding-left: 0;
- }
-
- .navigation-secondary li {
-   float: left;
-   list-style-type: none;
- }
-
- @media (max-width: 640px) {
-   .navigation-secondary li {
-     border: 0;
-     width: 100%;
-   }
- }
-
- .navigation-secondary a {
-   display: block;
-   padding: 15px;
- }
-
- .navigation-secondary a:visited {
-   color: #005ea5;
- }
-
- .navigation-secondary a:hover {
-   background-color: #f8f8f8;
- }
-
- .navigation-secondary .active {
-   box-shadow: inset 0px -5px 0px 0px #005ea5;
-   color: #0b0c0c;
-   text-decoration: none;
- }
-
- .navigation-secondary .active:visited {
-   color: #0b0c0c;
- }
-#triage-button {
-  margin-top: 2%;
-  margin-bottom: -40%;
+.triage-button {
+  margin-top: 1%;
+  margin-bottom: 0%;
   margin-right: 2%;
   margin-left: 0%;
   float: right;
 }
 .key-details-bar {
-  margin-top: 5%;
+  margin-top: 2%;
 }
 #back-link {
-  margin-top: 2%;
-  margin-bottom: -40%;
+  margin-top: 1%;
+  margin-bottom: 0%;
   margin-right: 0%;
   margin-left: 2%;
 }
-}
   </style>
 
-  <a href="#" class="govuk-back-link" id="back-link">Back to new cases</a>
+  <a href="cases-for-triage" class="govuk-back-link" id="back-link">Back to new cases</a>
 
-  <button class="govuk-button" data-module="govuk-button" id="triage-button">
-    Triage this case
-  </button>
+<div class="triage-button">
+    {{ govukButton({
+      text: "Triage this case",
+      href: "ready-to-make-next-step"
+    }) }}
+</div>
 
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">

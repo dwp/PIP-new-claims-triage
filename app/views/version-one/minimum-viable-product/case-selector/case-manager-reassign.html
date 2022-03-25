@@ -6,7 +6,7 @@
         <a href="javascript:history.go(-1)" class="govuk-back-link">Back to ready for review</a>
 
 
-  <h1 class="govuk-heading-l">Which case manager would you like to assign this case to?</h1>
+  <h1 class="govuk-heading-l">Which case manager would you like to reassign this case to?</h1>
 
   {{ govukRadios({
       classes: "govuk-radios--small",
@@ -38,25 +38,18 @@
       },
       {
       value: "year",
-      text: "Thaddeus Boyce (6)"
+      text: "Cory Jones (6)"
       },
       {
       value: "year",
-      text: "Cory Jones (4)"
-      },
-      {
-      divider: "or"
-    },
-    {
-      value: "abroad",
-      text: "Add a new case manager"
-    }
+      text: "Emily Macintosh (4)"
+      }
       ]
 }) }}
 
 {{ govukButton({
   text: "Save and continue",
-  href: "create-new-case"
+  href: "#"
 }) }}
 
     </div>
