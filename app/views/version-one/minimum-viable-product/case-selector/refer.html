@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Triage</span>
+
+      <form action="refer-confirm" method="post">
+        <div class="govuk-form-group">
+          {{ govukRadios({
+              idPrefix: "where-do-you-live",
+              name: "where-do-you-live",
+              fieldset: {
+                legend: {
+                  text: "Why are you referring this case for an assessment?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              items: [
+                {
+                  value: "No medical evidence",
+                  text: "No medical evidence"
+                },
+                {
+                  value: "Insufficient evidence",
+                  text: "Insufficient evidence"
+                },
+                {
+                  value: "Missing information in PIP2",
+                  text: "Missing information in PIP2"
+                },
+                {
+                  value: "Long Covid",
+                  text: "Long Covid"
+                },
+                {
+                  value: "Too complex",
+                  text: "Too complex"
+                },
+                {
+                  value: "Other",
+                  text: "Other"
+                }
+              ]
+            }) }}
+            <div class="govuk-form-group">
+                <label class="govuk-hint" for="why-refer-note">
+                    Tell us the reason you are referring this case for an assessment.
+                </label>
+                <textarea class="govuk-textarea" id="why-refer-note" name="why-refer-note" rows="5"></textarea>
+           </div>
+
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+    </form>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

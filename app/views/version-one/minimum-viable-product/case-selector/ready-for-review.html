@@ -1,60 +1,5 @@
 {% extends "layout.html" %}
 {% block main %}
-<style>
-  .navigation-secondary ul:after {
-   content: "";
-   display: block;
-   clear: both;
- }
-
- .navigation-secondary {
-   border-bottom: 1px solid #bfc1c3;
-   margin: auto;
-   max-width: 960px;
- }
-
- .navigation-secondary ul {
-   margin: 0 auto;
-   max-width: 960px;
-   padding-left: 0;
- }
-
- .navigation-secondary li {
-   float: left;
-   list-style-type: none;
- }
-
- @media (max-width: 640px) {
-   .navigation-secondary li {
-     border: 0;
-     width: 100%;
-   }
- }
-
- .navigation-secondary a {
-   display: block;
-   padding: 15px;
- }
-
- .navigation-secondary a:visited {
-   color: #005ea5;
- }
-
- .navigation-secondary a:hover {
-   background-color: #f8f8f8;
- }
-
- .navigation-secondary .active {
-   box-shadow: inset 0px -5px 0px 0px #005ea5;
-   color: #0b0c0c;
-   text-decoration: none;
- }
-
- .navigation-secondary .active:visited {
-   color: #0b0c0c;
- }
-
-  </style>
 
   <div class="govuk-width-container">
     <div class="column-full">
@@ -67,7 +12,7 @@
             <a href="ready-for-review" class="active" aria-current="section">Ready for review</a>
           </li>
           <li>
-            <a href="assigned-for-review">Assigned for review</a>
+            <a href="assigned-for-review-case-manager">In review</a>
           </li>
           <li>
             <a href="review-completed">Review completed</a>
@@ -78,10 +23,13 @@
     </div>
 
 <div class="govuk-width-container">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
 
   <h1 class="govuk-heading-l">Ready for review (2)</h1>
+  <p class="govuk-body">The following cases can be assigned to a case manager for review.<br>
+                        You can select more than one case to assign.</p>
+
 
   <table class="govuk-table" data-module="moj-sortable-table">
     <thead class="govuk-table__head">
@@ -124,7 +72,10 @@
     </tbody>
   </table>
 
-
+  {{ govukButton({
+    text: "Assign to case manager",
+    href: "case-manager-assign"
+  }) }}
 
     </div>
   </div>

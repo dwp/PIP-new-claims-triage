@@ -1,35 +1,63 @@
 {% extends "layout.html" %}
 {% block main %}
-
 <style>
-.triage-button {
-  margin-top: 1%;
-  margin-bottom: 0%;
-  margin-right: 2%;
-  margin-left: 0%;
-  float: right;
-}
-.key-details-bar {
-  margin-top: 2%;
-}
-#back-link {
-  margin-top: 1%;
-  margin-bottom: 0%;
-  margin-right: 0%;
-  margin-left: 2%;
-}
+  .navigation-secondary ul:after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+
+ .navigation-secondary {
+   border-bottom: 1px solid #bfc1c3;
+   margin: auto;
+   max-width: 960px;
+ }
+
+ .navigation-secondary ul {
+   margin: 0 auto;
+   max-width: 960px;
+   padding-left: 0;
+ }
+
+ .navigation-secondary li {
+   float: left;
+   list-style-type: none;
+ }
+
+ @media (max-width: 640px) {
+   .navigation-secondary li {
+     border: 0;
+     width: 100%;
+   }
+ }
+
+ .navigation-secondary a {
+   display: block;
+   padding: 15px;
+ }
+
+ .navigation-secondary a:visited {
+   color: #005ea5;
+ }
+
+ .navigation-secondary a:hover {
+   background-color: #f8f8f8;
+ }
+
+ .navigation-secondary .active {
+   box-shadow: inset 0px -5px 0px 0px #005ea5;
+   color: #0b0c0c;
+   text-decoration: none;
+ }
+
+ .navigation-secondary .active:visited {
+   color: #0b0c0c;
+ }
+
   </style>
 
-  <a href="cases-for-triage" class="govuk-back-link" id="back-link">Back to new cases</a>
-
-<div class="triage-button">
-    {{ govukButton({
-      text: "Triage this case",
-      href: "ready-to-make-next-step"
-    }) }}
-</div>
-
-<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+<!-- <link href="stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+ --><section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
@@ -51,19 +79,19 @@
     <nav class="navigation-secondary">
       <ul>
         <li>
-          <a href="../case-selector/review/personal-details" class="active" aria-current="section">Personal details</a>
+          <a href="contact-details" class="active" aria-current="section">Personal details</a>
         </li>
         <li>
-          <a href="../case-selector/review/condition/conditions">Conditions</a>
+          <a href="conditions">Conditions</a>
         </li>
         <li>
-          <a href="../case-selector/review/activities/activity">Activities</a>
+          <a href="activities">Activities</a>
         </li>
         <li>
-          <a href="../case-selector/review/questions">Questions</a>
+          <a href="questions">Questions</a>
         </li>
         <li>
-          <a href="../case-selector/review/summary">Summary</a>
+          <a href="summary">Summary</a>
         </li>
       </ul>
     </nav>
@@ -92,7 +120,7 @@ Personal details
 </li>
 <li class="govuk-tabs__list-item">
 <a class="govuk-tabs__tab" href="#additional-support">
-  Additional support
+Support and communication
 </a>
 </li>
 </ul>
@@ -268,7 +296,7 @@ Personal details
 
 </div>
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="additional-support">
-<h2 class="govuk-heading-m">Additional support</h2>
+<h2 class="govuk-heading-m">Help and support</h2>
 <table class="govuk-table">
 <thead class="govuk-table__head"></thead>
 <tbody class="govuk-table__body">
@@ -292,21 +320,13 @@ Personal details
 </tbody>
 </table>
 <br>
-<h2 class="govuk-heading-m">Additional support formats</h2>
+<h2 class="govuk-heading-m">Alternative communication format</h2>
     <table class="govuk-table">
     <thead class="govuk-table__head"></thead>
     <tbody class="govuk-table__body">
        <tr class="govuk-table__row">
         <td class="govuk-table__header" width="42%">Do you need communications in another format?</td>
         <td class="govuk-table__cell">No</td>
-      </tr>
-      <tr class="govuk-table__row">
-        <td class="govuk-table__header">Which other format do you need?</td>
-        <td class="govuk-table__cell">Not applicable</td>
-      </tr>
-      <tr class="govuk-table__row">
-        <td class="govuk-table__header">Format type</td>
-        <td class="govuk-table__cell">Not applicable</td>
       </tr>
     </tbody>
     </table>

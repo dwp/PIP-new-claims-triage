@@ -1,0 +1,2308 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<style>
+#back-link {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-right: 0%;
+  margin-left: 2%;
+}
+  </style>
+
+  <a href="../cases-for-triage" class="govuk-back-link" id="back-link">Back to new cases</a>
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+
+        <dt class="govuk-visually-hidden">Claim status:</dt>
+      <!-- <dd class="key-details-bar__status">Additional support</dd> -->
+
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="../personal-details">Personal details</a>
+        </li>
+        <li>
+          <a href="../review/condition/conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="../review/activities/activity">Activities</a>
+        </li>
+        <li>
+          <a href="questions">Questions</a>
+        </li>
+        <li>
+          <a href="summary" class="active" aria-current="section">Summary</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+        <h1 class="govuk-heading-l">Summary</h1>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+
+
+
+     <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}" >
+        <span class="govuk-heading-s">Unanswered <br>questions</span>
+      <span class="govuk-heading-m" style="font-size:85px"><font color="#000000">2</font><p><a href="#unanswered">View</a></p></span>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s">Answered <br>questions</span>
+     <span class="govuk-heading-m" style="font-size:85px" ><font color="#005ea5">7</font><p><a href="#answered">View</a></p></span>
+
+
+
+    </div>
+
+    <!--<div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s">Important <br>notes</span>
+    <span class="govuk-heading-m" style="font-size:85px" ><font color="#912b88">5</font><p><a href="#important">View</a></p></span>
+    </div>-->
+
+    <!--<div class="govuk-grid-column-one-quarter"   style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+        <span class="govuk-heading-s">Out of <br>scope</span>
+     <span class="govuk-heading-m" style="font-size:85px" ><font color="#5694ca">2</font><p><a href="#outofscope">View</a></p></span>
+   </div>-->
+
+    <table class="govuk-table" id="unanswered">
+      <caption class="govuk-table__caption govuk-table__caption--m"><br><br>Unanswered questions about this case (<font color="000000">1 question</font>)</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Contact</th>
+        </tr>
+      </thead>
+     <tbody class="govuk-table__body">
+       <!-- internal medical support option from internal medical support page-->
+        {% for query in data['queriesQuestionsMedSupport'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from preparing food page-->
+        {% for query in data['queriesPrepFood'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from eating and drinking page-->
+        {% for query in data['queriesEatDrink'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from managing treatments page-->
+        {% for query in data['queriesTherapy'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from washing and bathing page-->
+        {% for query in data['queriesWashing'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from incontinance page-->
+        {% for query in data['queriesToilet'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from dressing and undressing page-->
+        {% for query in data['queriesDressing'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from talking page-->
+        {% for query in data['queriesTalking'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from reading page-->
+        {% for query in data['queriesReading'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from mixing with others page-->
+        {% for query in data['queriesMixing'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from managing money page-->
+        {% for query in data['queriesMoney'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from planning journeys page-->
+        {% for query in data['queriesPlanning'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from moving around page-->
+        {% for query in data['queriesMoving'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from moving around page-->
+        {% for query in data['queriesAdditional'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+
+
+        <!-- non-medical support option from non-medical support page-->
+         {% for query in data['queriesQuestionsNonMedical'] %}
+         {% if query.action == 'Internal non medical support' %}
+         {% if query.answeredQuestion == 'no' %}
+         <tr class="govuk-table__row">
+           <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+           <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+           <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+         </tr>
+         {% endif %}
+         {% endif %}
+         {% endfor %}
+
+         <!-- internal medical support option from internal medical support page-->
+          {% for query in data['queriesQuestionsMedSupport'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from preparing food page-->
+          {% for query in data['queriesPrepFood'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from eating and drinking page-->
+          {% for query in data['queriesEatDrink'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from managing treatments page-->
+          {% for query in data['queriesTherapy'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from washing and bathing page-->
+          {% for query in data['queriesWashing'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from incontinance page-->
+          {% for query in data['queriesToilet'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from dressing and undressing page-->
+          {% for query in data['queriesDressing'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from talking page-->
+          {% for query in data['queriesTalking'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from reading page-->
+          {% for query in data['queriesReading'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from mixing with others page-->
+          {% for query in data['queriesMixing'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from managing money page-->
+          {% for query in data['queriesMoney'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from planning journeys page-->
+          {% for query in data['queriesPlanning'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from moving around page-->
+          {% for query in data['queriesMoving'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- internal medical support from moving around page-->
+          {% for query in data['queriesAdditional'] %}
+          {% if query.action == 'Internal non medical support' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+
+         <!-- external medical support option -->
+          {% for query in data['queriesQuestionsExternalMedical'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from preparing food page-->
+          {% for query in data['queriesPrepFood'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from eating and drinking page-->
+          {% for query in data['queriesEatDrink'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from managing treatments page-->
+          {% for query in data['queriesTherapy'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from washing and bathing page-->
+          {% for query in data['queriesWashing'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from incontinance page-->
+          {% for query in data['queriesToilet'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from dressing and undressing page-->
+          {% for query in data['queriesDressing'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from talking page-->
+          {% for query in data['queriesTalking'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from reading page-->
+          {% for query in data['queriesReading'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!--external medical support from mixing with others page-->
+          {% for query in data['queriesMixing'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from managing money page-->
+          {% for query in data['queriesMoney'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from planning journeys page-->
+          {% for query in data['queriesPlanning'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from moving around page-->
+          {% for query in data['queriesMoving'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from moving around page-->
+          {% for query in data['queriesAdditional'] %}
+          {% if query.action == 'External healthcare professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% else %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+          </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+        <!--{% for query in data['queriesQuestions'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}-->
+<!--
+        {% for query in data['queriesQuestions'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+      <!-- unassigned from claimant page-->
+       {% for query in data['queriesQuestions'] %}
+       {% if query.action == 'Unassigned' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- claimant from claimant page-->
+       {% for query in data['queriesQuestions'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from preparing food page-->
+       {% for query in data['queriesPrepFood'] %}
+       {% if query.action == 'Unassigned' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- claimant from preparing food page-->
+       {% for query in data['queriesPrepFood'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from eating and drinking page-->
+              {% for query in data['queriesEatDrink'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from eating and drinking page-->
+       {% for query in data['queriesEatDrink'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from managing treatments page-->
+              {% for query in data['queriesTherapy'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+              <!-- unassigned from managing treatments page-->
+                     {% for query in data['queriesTherapy'] %}
+                     {% if query.action == 'Unassigned' %}
+                     {% if query.answeredQuestion == 'no' %}
+                     <tr class="govuk-table__row">
+                       <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                       <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                       <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+                     </tr>
+                     {% else %}
+                     <tr class="govuk-table__row">
+                       <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                       <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                       <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+                     </tr>
+                     {% endif %}
+                     {% endif %}
+                     {% endfor %}
+<!-- claimant from managing treatments page-->
+       {% for query in data['queriesTherapy'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from washing page-->
+              {% for query in data['queriesWashing'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from washing page-->
+       {% for query in data['queriesWashing'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from incontinance page-->
+              {% for query in data['queriesToilet'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from incontinance page-->
+       {% for query in data['queriesToilet'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from dressing page-->
+              {% for query in data['queriesDressing'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from dressing page-->
+       {% for query in data['queriesDressing'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from talking page-->
+              {% for query in data['queriesTalking'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from talking page-->
+       {% for query in data['queriesTalking'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from reading page-->
+              {% for query in data['queriesReading'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from reading page-->
+       {% for query in data['queriesReading'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from mixing with people page-->
+              {% for query in data['queriesMixing'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from mixing with people page-->
+       {% for query in data['queriesMixing'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from managing money page-->
+              {% for query in data['queriesMoney'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from managing money page-->
+       {% for query in data['queriesMoney'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from planning journeys page-->
+              {% for query in data['queriesPlanning'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from planning journeys page-->
+       {% for query in data['queriesPlanning'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from moving around page-->
+              {% for query in data['queriesMoving'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from moving around page-->
+       {% for query in data['queriesMoving'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+       <!-- unassigned from additional information page-->
+              {% for query in data['queriesAdditional'] %}
+              {% if query.action == 'Unassigned' %}
+              {% if query.answeredQuestion == 'no' %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% else %}
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+              </tr>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+<!-- claimant from additional information page-->
+       {% for query in data['queriesAdditional'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+        <!-- Conditions - unassigned option -->
+
+        {% for query in data['queriesConditionOne'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionTwo'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionThree'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionFour'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionFive'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionSix'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionSeven'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionEight'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'no' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+       <!-- Conditions -claimant option -->
+       {% for query in data['queriesConditionOne'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionTwo'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionThree'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFour'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFive'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSix'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSeven'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionEight'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       <!-- Conditions -claimant option -->
+       {% for query in data['queriesConditionOne'] %}
+       {% if query.action == 'Internal medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionTwo'] %}
+       {% if query.action == 'Internal medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionThree'] %}
+       {% if query.action == 'Internal medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFour'] %}
+       {% if query.action == 'Internal medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFive'] %}
+       {% if query.action == 'Internal medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSix'] %}
+       {% if query.action == 'Internal medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSeven'] %}
+       {% if query.action == 'Internal medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionEight'] %}
+       {% if query.action == 'Internal medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       <!-- internal non medicaql support -->
+       {% for query in data['queriesConditionOne'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionTwo'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionThree'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFour'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFive'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSix'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSeven'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionEight'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       <!-- external medicaql support -->
+       {% for query in data['queriesConditionOne'] %}
+       {% if query.action == 'External healthcare professional' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionTwo'] %}
+       {% if query.action == 'External healthcare professional' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionThree'] %}
+       {% if query.action == 'External healthcare professional' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFour'] %}
+       {% if query.action == 'External healthcare professional' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFive'] %}
+       {% if query.action == 'External healthcare professional' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSix'] %}
+       {% if query.action == 'External healthcare professional' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSeven'] %}
+       {% if query.action == 'External healthcare professional' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionEight'] %}
+       {% if query.action == 'External healthcare professional' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% else %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+
+
+        <!--<tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">Need to clarify some evidence about preparing food?</td>
+          <td class="govuk-table__cell" style="width:45%;"></td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">Need to clarify some evidence about eating and drinking?</td>
+          <td class="govuk-table__cell" style="width:45%;"></td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>-->
+
+      </tbody>
+    </table>
+
+      <br>
+      <br>
+    <table class="govuk-table" id="answered">
+      <caption class="govuk-table__caption govuk-table__caption--m">Answered questions about this case (<font color="005ea5">7 questions</font>) </caption>
+
+
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Contact</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        {% for query in data['queriesQuestionsUnassigned'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesQuestions'] %}
+        {% if query.action == 'Claimant' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesQuestionsMedSupport'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesQuestionsNonMedical'] %}
+        {% if query.action == 'Internal non medical support' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesQuestionsExternalMedical'] %}
+        {% if query.action == 'External healthcare professional' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:5%;"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!--<tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
+          <td class="govuk-table__cell">He can peel and chop vegetables if he was sat down.</td>
+          <td class="govuk-table__cell"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Were you prescribed the long handled sponge?</td>
+          <td class="govuk-table__cell">Bought himself.</td>
+          <td class="govuk-table__cell"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
+          <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
+          <td class="govuk-table__cell"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have any aids, raised toilet seat, rails fitted?</td>
+          <td class="govuk-table__cell">He has a raised toilet. He holds onto the sink to sit and stand from the toilet.</td>
+          <td class="govuk-table__cell"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How often do you have urinary incontinence?</td>
+          <td class="govuk-table__cell">This does not fluctuate, every day is a bad day. This has got worse in the last 12 months. He has had no hospital admissions.</td>
+          <td class="govuk-table__cell"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">How long ago were the mini strokes?</td>
+          <td class="govuk-table__cell">Need to clarify some evidence about preparing food</td>
+          <td class="govuk-table__cell"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Do you have aids from the GP or that you've bought yourself?</td>
+          <td class="govuk-table__cell">I didn't know you could get things like handrails from your GP. No, I bought them myself.
+                                          I use the handrail to help me get upstairs. I have fallen twice in the last year,
+                                          thankfully I didn’t end up in hospital though.</td>
+          <td class="govuk-table__cell"><a href="/sprint-41/minimum-viable-product/questions-claimant">Claimant</a></td>
+        </tr>-->
+
+      </tbody>
+    </table>
+
+
+
+    {{ govukButton({
+      text: "Make a recommendation",
+      href: "ready-to-make-next-step"
+    }) }}
+
+
+</div>
+
+
+
+{% endblock %}
