@@ -34,8 +34,6 @@
             html: ""
           }) }}
 
-          <p class="govuk-body"> This case has now moved out of your case queue. You will still need to make this referral manually on PIPCS.</p>
-
           <dl class="govuk-summary-list govuk-summary-list--no-border">
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
@@ -63,12 +61,19 @@
   </div>
 </dl>
 
-          <h2 class="govuk-heading-m">Next steps</h2>
+<p class="govuk-body"> This case has now moved out of your case queue. You will still need to make this referral manually on PIPCS.</p>
 
-          <p class="govuk-body">
-            <a href="#" class="govuk-link">View my case queue</a>.<br>
-              <a href="#" class="govuk-link">View cases ready for assessment</a>.
-          </p>
+    {{ govukWarningText({
+      text: "Confirm that you have made this recommendation manually in PIPCS",
+      iconFallbackText: "Warning"
+    }) }}
+
+          {{ govukButton({
+          text: "Confirm and go to assigned cases",
+          href: "../assigned-for-review-case-manager"
+          }) }}
+
+
         </div>
       </div>
     {% endblock %}
