@@ -1,7 +1,75 @@
 {% extends "layout.html" %}
 {% block main %}
+<style>
+  <!-- pagination style -->
+  .moj-pagination__link:link, .moj-pagination__link:visited {
+     color: #1d70b8;
+  }
+  .moj-pagination__link:link {
+     color: #1d70b8;
+  }
+  .moj-pagination__link {
+     font-family: "GDS Transport",arial,sans-serif;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     display: block;
+     padding: 5px;
+     text-align: center;
+     text-decoration: none;
+     min-width: 25px;
+  }
+  @media (min-width: 40.0625em)
+  .moj-pagination__item {
+     font-size: 19px;
+     font-size: 1.1875rem;
+     line-height: 1.31579;
+  }
+  .moj-pagination__item {
+     font-family: "GDS Transport",arial,sans-serif;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     font-weight: 400;
+     font-size: 16px;
+     font-size: 1rem;
+     line-height: 1.25;
+     display: inline-block;
+  }
+  .moj-pagination__list {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+  }
+  @media (min-width: 48.0625em)
+  .moj-pagination {
+     margin-left: -5px;
+     margin-right: -5px;
+     font-size: 0;
+     text-align: justify;
+  }
+  .moj-pagination__item--prev .moj-pagination__link:before {
+     border-width: 3px 0 0 3px;
+     margin-right: 5px;
+  }
+  .moj-pagination__item--next .moj-pagination__link:after {
+      border-width: 0 3px 3px 0;
+      margin-left: 5px;
+  }
+  .moj-pagination__item--prev .moj-pagination__link:before, .moj-pagination__item--next .moj-pagination__link:after {
+     display: inline-block;
+     height: 10px;
+     width: 10px;
+     border-style: solid;
+     color: #0b0c0c;
+     background: transparent;
+     -webkit-transform: rotate(-45deg);
+     -ms-transform: rotate(-45deg);
+     transform: rotate(-45deg);
+     content: "";
+  }
+  <!-- pagination style end -->
+</style>
 
-  <div class="govuk-width-container">
+
     <div class="column-full">
       <nav class="navigation-secondary">
         <ul>
@@ -22,8 +90,8 @@
       <p><br></p>
     </div>
 
-<div class="govuk-width-container">
-  <div class="govuk-grid-column-full">
+
+    <div class="govuk-width-container">
 
 
   <h1 class="govuk-heading-l">Cases for triage (2)</h1>
@@ -55,7 +123,7 @@
           </tbody>
         </table>
 
-        <!-- <nav class="moj-pagination" id="pagination-label">
+       <nav class="moj-pagination" id="pagination-label">
 
       <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
 
@@ -79,40 +147,9 @@
         </li>
       </ul>
       <p class="moj-pagination__results">Showing <b>10</b> to <b>20</b> of <b>30</b> pages</p>
-    </nav> -->
+    </nav>
 
-    <!-- PAGINATION -->
-
-           <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
-
-           <nav class="moj-pagination" id="pagination-label">
-
-           <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
-
-           <ul class="moj-pagination__list">
-           <li class="moj-pagination__item  moj-pagination__item--prev">
-             <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> set of pages</span></a>
-           </li>
-
-           <li class="moj-pagination__item moj-pagination__item--active">1</li>
-
-           <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
-
-           <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
-
-           <li class="moj-pagination__item  moj-pagination__item--next">
-             <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> set of pages</span></a>
-           </li>
-           </ul>
-           <p class="moj-pagination__results">Showing <b>1</b> to <b>3</b> of <b>3</b> results</p>
-           </nav>
-
-
-
-    </div>
   </div>
-</div>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       </dl>
-
 {% endblock %}
