@@ -30,21 +30,50 @@
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-three-quarters">
           {{ govukPanel({
-            titleText: "You have sent this case for a decision",
+            titleText: "You have referred this case for an assessment",
             html: ""
           }) }}
 
-          <p class="govuk-body">This case has now moved out of your case queue. You will still need to make this recommendation manually on PIPCS. </p>
+          <dl class="govuk-summary-list govuk-summary-list--no-border">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Reason for assessment
+    </dt>
+    <dd class="govuk-summary-list__value">
 
-          {{ govukWarningText({
-              text: "Confirm that you have made this recommendation manually in PIPCS",
-              iconFallbackText: "Warning"
-          }) }}
+ {{ data[ 'why-refer'] }}
+
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Notes
+    </dt>
+    <dd class="govuk-summary-list__value">
+      <p class="govuk-body">
+
+          {{ data[ 'why-refer-note'] }}
+
+        <!-- Um, he's sick. My best friend's sister's boyfriend's brother's girlfriend heard from this guy who knows this kid who's going with the girl who saw Ferris pass out at 31 Flavors last night. I guess it's pretty serious.--></p>
+
+    </dd>
+  </div>
+</dl>
+
+<p class="govuk-body"> This case has now moved out of your case queue. You will still need to make this referral manually on PIPCS.</p>
+
+    {{ govukWarningText({
+      text: "Confirm that you have made this recommendation manually in PIPCS",
+      iconFallbackText: "Warning"
+    }) }}
 
           {{ govukButton({
           text: "Confirm and go to assigned cases",
-          href: "../assigned-for-review-case-manager"
+          href: "assigned-for-review-case-manager"
           }) }}
+
+
         </div>
       </div>
     {% endblock %}
