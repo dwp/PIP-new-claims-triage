@@ -31,6 +31,7 @@
 {% from "govuk/components/textarea/macro.njk"            import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"        import govukWarningText %}
 
+
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
@@ -49,6 +50,8 @@
   }) }}
 {% endblock %}
 
+
+
  {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
 {% if useAutoStoreData %}
@@ -63,12 +66,13 @@
           {
             href: "/prototype-admin/clear-data",
             text: "Clear data"
-          } 
+          }
         ]
       }
     }) }}
   {% endblock %}
 {% endif %}
+
 
 {% block bodyEnd %}
   {% block scripts %}

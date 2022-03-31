@@ -15,8 +15,8 @@
         <span class="govuk-caption-xl">Running on {{releaseVersion}} of the GOV.UK prototype kit</span>
       </h1>
 
-      <h1 class="govuk-heading-l">Latest version</h1>
-      {{ govukTable({
+      <h1 class="govuk-heading-l">Latest version of Prototype</h1>
+    <!--   {{ govukTable({
         caption: "",
         captionClasses: "govuk-heading-m",
         firstCellIsHeader: true,
@@ -44,31 +44,27 @@
         }
           ]
         ]
-      }) }}
+      }) }} -->
 
-<h2 class="govuk-heading-m">Links to prototype</h2>
+<h2 class="govuk-heading-m">Case Selector</h2>
       {{ govukButton({
-          text: "MVP prototype",
+          text: "Case Selector prototype",
           href: "/version-one/minimum-viable-product/case-selector/cases-for-triage"
       }) }}
-      {{ govukButton({
-          text: "Work in progress prototype",
-          href: "#"
-      }) }}
+
 <hr>
-      <h2 class="govuk-heading-m">Link to sprint 41 work</h2>
-      <p>Quick link for latest design before new versioning begins</p>
+      <h2 class="govuk-heading-m"> MVP Case Review Prototype</h2>
+      <p>March 2022 - Case review</p>
 
       {{ govukButton({
-        text: "Sprint 41 MVP Design",
-        classes: "govuk-button--secondary",
+        text: " MVP Case Review",
+        classes: "govuk-button--primary",
         href: "/sprint-41/minimum-viable-product/contact-details"
       }) }}
 <hr>
       <h2 class="govuk-heading-m">Archived designs</h2>
-      <p>The archived designs showcase a previous way of versioning
-          along with the work that was undertaken from 26th May 2021 until
-          02nd February 2022.</p>
+      <p>The archived prototypes from 26th May 2021 until
+          2nd February 2022.</p>
 
       {{ govukButton({
         text: "Old sprint designs",
