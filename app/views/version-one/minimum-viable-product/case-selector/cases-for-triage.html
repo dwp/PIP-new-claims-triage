@@ -58,19 +58,14 @@
 
 <!-- pagination style -->
 
-
-
 .moj-pagination__link:link, .moj-pagination__link:visited {
    color: #1d70b8;
 }
-
 .moj-pagination__link:link {
    color: #1d70b8;
 }
 .moj-pagination__link {
    font-family: "GDS Transport",arial,sans-serif;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
    display: block;
    padding: 5px;
    text-align: center;
@@ -86,8 +81,6 @@
 }
 .moj-pagination__item {
    font-family: "GDS Transport",arial,sans-serif;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
    font-weight: 400;
    font-size: 16px;
    font-size: 1rem;
@@ -96,6 +89,7 @@
 }
 
 .moj-pagination__list {
+  display: inline-block;
    list-style: none;
    margin: 0;
    padding: 0;
@@ -118,17 +112,9 @@
     margin-left: 5px;
 }
 
-.moj-pagination__item--prev .moj-pagination__link:before, .moj-pagination__item--next .moj-pagination__link:after {
-   display: inline-block;
-   height: 10px;
-   width: 10px;
-   border-style: solid;
-   color: #0b0c0c;
-   background: transparent;
-   -webkit-transform: rotate(-45deg);
-   -ms-transform: rotate(-45deg);
-   transform: rotate(-45deg);
-   content: "";
+.moj-pagination__results {
+  display: inline-block;
+  margin-bottom: 0;
 }
 
 <!-- pagination style end -->
@@ -138,7 +124,7 @@
 
     <div class="column-full">
 
-      <nav class="navigation-secondary">
+     <nav class="navigation-secondary">
         <ul>
           <li>
             <a href="cases-for-triage" class="active" aria-current="section">Cases for triage</a>
@@ -155,13 +141,15 @@
         </ul>
       </nav>
       <p><br></p>
+
     </div>
 
 
     <div class="govuk-width-container">
 
 
-  <h1 class="govuk-heading-l">New Cases (2)</h1>
+  <h1 class="govuk-heading-l">New Cases (10)</h1>
+      <p class="govuk-body">The following new cases are ready for triage.</p>
 
         <table class="govuk-table" data-module="moj-sortable-table">
           <thead class="govuk-table__head">
@@ -184,7 +172,55 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell"><a href="#">John Smith</a></td>
               <td class="govuk-table__cell">QQ 12 34 56 C</td>
-              <td class="govuk-table__cell">2 December 2021</td>
+              <td class="govuk-table__cell">5 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Susan Morris</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">10 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Patrick Mills</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">11 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Kelly Williams</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">11 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Sophie Edwards</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">12 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Kieran McDonald</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">13 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Tamsin Scott</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">14 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Bob Smith</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">14 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Simon Morris</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">15 December 2021</td>
             </tr>
 
           </tbody>
