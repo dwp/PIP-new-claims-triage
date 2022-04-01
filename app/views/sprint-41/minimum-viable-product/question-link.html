@@ -21,7 +21,8 @@
 <div class="govuk-width-container">
   <a href="questions-claimant" class="govuk-back-link">Back</a>
 
-  <main class="govuk-main-wrapper">
+  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
 
 
 
@@ -51,7 +52,7 @@
 
             <input type="hidden" value="{{ data.source }}"/>
                   <textarea class="govuk-textarea" id="more-detail" name="question" rows="5">{{ data['question'] }}</textarea>
-            </div>
+
 
             {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -136,10 +137,10 @@
 
                             }) }}
 
-                  </form>
+
             </div>
 
-
+  </form>
             </div>
 
   </div>
