@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<style>
+#search-btn {
+    margin-top: -7.2%;
+    margin-left: 77%;
+</style>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="../personal-details">Dashboard</a>
+        </li>
+        <li>
+          <a href="../review/condition/conditions">New cases</a>
+        </li>
+        <li>
+          <a href="../review/activities/activity">Ready for review</a>
+        </li>
+        <li>
+          <a href="questions">In review</a>
+        </li>
+        <li>
+          <a href="summary" class="active" aria-current="section">Review completed</a>
+        </li>
+      </ul>
+    </nav>
+    <p><br></p>
+  </div>
+
+<div class="column-full">
+    <h1 class="govuk-heading-l">PIP case review dashboard</h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">Enter the claimant's National Insurance number (NINo)</h2>
+    {{ govukInput({
+      classes: "govuk-!-width-three-quarters",
+      id: "two-thirds",
+      name: "two-thirds"
+    }) }}
+
+  <button class="govuk-button" data-module="govuk-button" id="search-btn">
+    Search
+  </button>
+    </div>
+    </div>
+
+    <h2 class="govuk-heading-m">All cases</h2>
+     <div class="govuk-grid-column-one-quarter" style="border: 2px solid black; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}" >
+        <span class="govuk-heading-s">New cases</span>
+      <span class="govuk-heading-m" style="font-size:85px"><font color="#000000">2</font><p><a href="#unanswered">View</a></p></span>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter" style="border: 2px solid #005ea5; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s">Ready for review</span>
+     <span class="govuk-heading-m" style="font-size:85px" ><font color="#005ea5">7</font><p><a href="#answered">View</a></p></span>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter" style="border: 2px solid lightgrey; background:lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s">In review</span>
+    <span class="govuk-heading-m" style="font-size:85px"><font color="#000000">5</font><p><a href="#important">View</a></p></span>
+    </div>
+
+    <div class="govuk-grid-column-one-quarter" style="border: 2px solid #005ea5; background:#005ea5; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
+      <span class="govuk-heading-s" style="color:#FFFFFF;">Review complete</span>
+    <span class="govuk-heading-m" style="font-size:85px; background:#005ea5;"><font color="#ffffff">5</font><p><a href="#important" style="color:#FFFFFF;">View</a></p></span>
+    </div>
+
+    <table class="govuk-table" id="unanswered">
+      <caption class="govuk-table__caption govuk-table__caption--m"><br><br>All caseloads</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Case managers</th>
+          <th scope="col" class="govuk-table__header">Cases</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Rosa Tate</th>
+          <td class="govuk-table__cell"><a href="#">In review (3)</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Louis Singh</th>
+          <td class="govuk-table__cell"><a href="#">In review (4)</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Susuan Smith</th>
+          <td class="govuk-table__cell"><a href="assigned-for-review">In review (2)</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Aisha Buckle</th>
+          <td class="govuk-table__cell"><a href="#">In review (5)</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Thaddeus Boyce</th>
+          <td class="govuk-table__cell"><a href="#">In review (2)</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Cory Jones</th>
+          <td class="govuk-table__cell"><a href="#">In review (3)</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Tobias Parke</th>
+          <td class="govuk-table__cell"><a href="#">In review (4)</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Imogen Willis</th>
+          <td class="govuk-table__cell"><a href="#">In review (6)</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+{% endblock %}
