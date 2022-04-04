@@ -5,15 +5,15 @@
     <dl class="key-details-bar__key-details">
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
-        <dt class="key-details-bar__name">Jim Smith</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
 
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
-        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
       </div>
 
       <div class="key-details-bar__bottom-block">
         <dt>Date of birth:</dt>
-        <dd>5 January 1978</dd>
+        <dd>4 June 1972</dd>
       </div>
     </dl>
 </section>
@@ -21,7 +21,8 @@
 <div class="govuk-width-container">
   <a href="questions-claimant" class="govuk-back-link">Back</a>
 
-  <main class="govuk-main-wrapper">
+  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
 
 
 
@@ -51,7 +52,7 @@
 
             <input type="hidden" value="{{ data.source }}"/>
                   <textarea class="govuk-textarea" id="more-detail" name="question" rows="5"></textarea>
-            </div>
+
 
             {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -84,8 +85,8 @@
                 text: "Internal non medical support"
               },
               {
-                value: "External healthcare professional",
-                text: "External healthcare professional"
+                value: "External health professional",
+                text: "External health professional"
               }
               ]
             }) }}
@@ -98,13 +99,8 @@
                       Add an answer
                     </h3>
 
-
-
-
-                            <div class="govuk-form-group">
-
                                   <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
-                            </div>
+
 
                             {{ govukRadios({
                                   classes: "govuk-radios--inline",
@@ -136,9 +132,9 @@
 
                             }) }}
 
-                  </form>
-            </div>
 
+            </div>
+</form>
 
             </div>
 
