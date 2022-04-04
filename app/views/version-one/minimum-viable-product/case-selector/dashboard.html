@@ -3,34 +3,81 @@
 
 <style>
 #search-btn {
-    margin-top: -7.2%;
-    margin-left: 77%;
+  margin-top: -7.2%;
+  margin-left: 77%;
+}
+.moj-primary-navigation {
+  background-color: #f3f2f1;
+}
+.moj-primary-navigation__container {
+  max-width: 100%;
+  margin: 0 21.5%;
+  font-size: 0;
+  text-align: justify;
+}
+.moj-primary-navigation__nav {
+  display: inline-block;
+  vertical-align: middle;
+}
+.moj-primary-navigation__list {
+  font-size: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.moj-primary-navigation__item {
+  font-size: 1.4rem;
+  line-height: 1.3157894737;
+  font-family: "GDS Transport",arial,sans-serif;
+  font-weight: 400;
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 0;
+}
+.moj-primary-navigation__link:visited {
+  color: #1d70b8;
+}
+.moj-primary-navigation__link[aria-current] {
+  color: #1d70b8;
+  box-shadow: inset 0px -5px 0px 0px #1d70b8;
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+}
 </style>
 
-<div class="govuk-width-container">
   <div class="column-full">
-    <nav class="navigation-secondary">
-      <ul>
-        <li>
-          <a href="../personal-details">Dashboard</a>
-        </li>
-        <li>
-          <a href="../review/condition/conditions">New cases</a>
-        </li>
-        <li>
-          <a href="../review/activities/activity">Ready for review</a>
-        </li>
-        <li>
-          <a href="questions">In review</a>
-        </li>
-        <li>
-          <a href="summary" class="active" aria-current="section">Review completed</a>
-        </li>
-      </ul>
-    </nav>
-    <p><br></p>
-  </div>
 
+  <div class="moj-primary-navigation">
+    <div class="moj-primary-navigation__container">
+      <div class="moj-primary-navigation__nav">
+          <nav class="moj-primary-navigation" aria-label="Primary navigation">
+              <ul class="moj-primary-navigation__list">
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" aria-current="page" href="#1">Dashboard</a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                    <a class="moj-primary-navigation__link" href="cases-for-triage">New cases</a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                      <a class="moj-primary-navigation__link" href="#3">Ready for review</a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                      <a class="moj-primary-navigation__link" href="#3">In review</a>
+                  </li>
+                  <li class="moj-primary-navigation__item">
+                      <a class="moj-primary-navigation__link" href="#3">Review completed</a>
+                  </li>
+               </ul>
+          </nav>
+      </div>
+  </div>
+</div>
+<p><br></p>
+</div>
+
+<div class="govuk-width-container">
 <div class="column-full">
     <h1 class="govuk-heading-l">PIP case review dashboard</h1>
 
@@ -43,10 +90,12 @@
       name: "two-thirds"
     }) }}
 
-  <button class="govuk-button" data-module="govuk-button" id="search-btn">
-    Search
-  </button>
-    </div>
+    <form action="search-result" method="post">
+          <button class="govuk-button" data-module="govuk-button" id="search-btn">
+            Search
+          </button>
+    </form>
+      </div>
     </div>
 
     <h2 class="govuk-heading-m">All cases</h2>
@@ -80,16 +129,16 @@
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Susan Smith</th>
+          <td class="govuk-table__cell"><a href="assigned-for-review">In review (2)</a></td>
+        </tr>
+        <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Rosa Tate</th>
           <td class="govuk-table__cell"><a href="#">In review (3)</a></td>
         </tr>
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Louis Singh</th>
           <td class="govuk-table__cell"><a href="#">In review (4)</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Susuan Smith</th>
-          <td class="govuk-table__cell"><a href="assigned-for-review">In review (2)</a></td>
         </tr>
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">Aisha Buckle</th>
