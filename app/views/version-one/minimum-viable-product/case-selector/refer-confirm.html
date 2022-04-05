@@ -19,7 +19,6 @@
 </section>
 
     <div class="govuk-width-container">
-      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
     <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
     {% set mainClasses = "govuk-main-wrapper--l" %}
@@ -41,21 +40,7 @@
     </dt>
     <dd class="govuk-summary-list__value">
 
- {{ data[ 'why-refer'] }}
-
-    </dd>
-  </div>
-
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Notes
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p class="govuk-body">
-
-          {{ data[ 'why-refer-note'] }}
-
-        <!-- Um, he's sick. My best friend's sister's boyfriend's brother's girlfriend heard from this guy who knows this kid who's going with the girl who saw Ferris pass out at 31 Flavors last night. I guess it's pretty serious.--></p>
+        <p>Out of scope</p>
 
     </dd>
   </div>
@@ -64,13 +49,13 @@
 <p class="govuk-body"> This case has now moved out of your case queue. You will still need to make this referral manually on PIPCS.</p>
 
     {{ govukWarningText({
-      text: "Confirm that you have made this recommendation manually in PIPCS",
+      text: "Confirm that you have made this referral manually in PIPCS",
       iconFallbackText: "Warning"
     }) }}
 
           {{ govukButton({
-          text: "Confirm and go to assigned cases",
-          href: "assigned-for-review-case-manager"
+          text: "Confirm and go to new cases",
+          href: "cases-for-triage"
           }) }}
 
 

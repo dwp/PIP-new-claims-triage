@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    <div class="column-full">
+      <nav class="navigation-secondary">
+        <ul>
+          <li>
+            <a href="cases-for-triage">Cases for triage</a>
+          </li>
+          <li>
+            <a href="ready-for-review">Ready for review</a>
+          </li>
+          <li>
+            <a href="assigned-for-review-case-manager" class="active" aria-current="section">In review</a>
+          </li>
+          <li>
+            <a href="review-completed">Review completed</a>
+          </li>
+        </ul>
+      </nav>
+      <p><br></p>
+    </div>
+
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+           The case [claimant name] has been reassigned to caseload [caseload name]
+        </h3>
+      </div>
+    </div>
+
+  <!--<a href="assigned-for-review-case-manager" class="govuk-back-link" id="back-link">Back to all cases</a>-->
+
+  <div class="govuk-grid-column-full">
+  <span class="govuk-caption-l">In review</span>
+<h1 class="govuk-heading-l">Susan Smith's cases (4)</h1>
+
+  <p class="govuk-body">Select a case to work on or reassign a case to someone else.</p>
+
+<table class="govuk-table" data-module="moj-sortable-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Claimant name</th>
+      <th scope="col" class="govuk-table__header">NINo</th>
+      <th scope="col" class="govuk-table__header" aria-sort="ascending">Claim date</th>
+      <th scope="col" class="govuk-table__header">Reassign case</th>
+    </tr>
+  </thead>
+
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="personal-details">Jane Doe</a></td>
+      <td class="govuk-table__cell">QQ 12 34 56 C</td>
+      <td class="govuk-table__cell">20 November 2021</td>
+      <td class="govuk-table__cell"><a href="case-manager-reassign">Reassign</a></td>
+    </tr>
+
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="#">John Smith</a></td>
+      <td class="govuk-table__cell">QQ 12 34 56 C</td>
+      <td class="govuk-table__cell">2 December 2021</td>
+      <td class="govuk-table__cell"><a href="#">Reassign</a></td>
+    </tr>
+
+  </tbody>
+</table>
+
+    </div>
+  </div>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      </dl>
+
+{% endblock %}
