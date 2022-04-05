@@ -3,61 +3,66 @@
 
 <div class="govuk-width-container">
   <div class="govuk-grid-column-two-thirds">
-        <a href="javascript:history.go(-1)" class="govuk-back-link">Back to ready for review</a>
+        <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
 
-
-  <h1 class="govuk-heading-l">Which case manager would you like to assign this case to?</h1>
-
-  {{ govukRadios({
-      classes: "govuk-radios--small",
-      idPrefix: "changed-name",
-      name: "changed-name",
-      fieldset: {
-      legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
+      <span class="govuk-caption-l">Ready for review</span>
+    {{ govukRadios({
+        idPrefix: "caseloads",
+        name: "assign-caseload",
+        fieldset: {
+          legend: {
+            text: "Which caseload would you like to assign this case to?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "Rosa Tate (4)",
+          text: "Rosa Tate (4)"
+        },
+        {
+          value: "Louis Singh (4)",
+          text: "Louis Singh (4)"
+        },
+        {
+          value: "Aisha Buckle (3)",
+          text: "Aisha Buckle (3)"
+        },
+        {
+          value: "Susan Smith (4)",
+          text: "Susan Smith (4)"
+        },
+        {
+          value: "Thaddeus Boyce (6)",
+          text: "Thaddeus Boyce (6)"
+        },
+        {
+          value: "Susan Smith (4)",
+          text: "Susan Smith (4)"
+        },
+        {
+          value: "Cory Jones (4)",
+          text: "Cory Jones (4)"
+        },
+        {
+          value: "Tobias Parke (4)",
+          text: "Tobias Parke (4)"
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "new-caseload",
+          text: "Add a new caseload"
       }
-      },
-      items: [
-      {
-      value: "month",
-      text: "Rosa Tate (4)"
-      },
-      {
-      value: "year",
-      text: "Louis Singh (4)"
-      },
-      {
-      value: "year",
-      text: "Aisha Buckle (3)"
-      },
-      {
-      value: "year",
-      text: "Susan Smith (4)"
-      },
-      {
-      value: "year",
-      text: "Thaddeus Boyce (6)"
-      },
-      {
-      value: "year",
-      text: "Cory Jones (4)"
-      },
-      {
-      divider: "or"
-    },
-    {
-      value: "abroad",
-      text: "Add a new case manager"
-    }
-      ]
-}) }}
+        ]
+      }) }}
 
-{{ govukButton({
-  text: "Save and continue",
-  href: "create-new-case"
-}) }}
+    {{ govukButton({
+      text: "Save and continue",
+      href: "create-new-case-ready-review"
+    }) }}
 
     </div>
   </div>
