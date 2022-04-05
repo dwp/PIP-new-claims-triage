@@ -26,12 +26,12 @@ router.post('/version-one/minimum-viable-product/case-selector/ready-to-make-nex
   var makearecommendation = req.session.data['next-step']
 
   // Check whether the variable matches a condition
-  if (makearecommendation == "Move case to ready for review"){
+  if (makearecommendation == "Yes, move case to ready for review"){
     // Send user to decision page
     res.redirect('ready-for-review')
   } else {
     // Send user to referral page
-    res.redirect('refer')
+    res.redirect('refer-confirm')
   }
 
 })

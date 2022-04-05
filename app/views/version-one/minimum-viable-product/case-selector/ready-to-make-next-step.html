@@ -11,7 +11,7 @@
   margin-left: 2%;
 }
   </style>
-  <a href="cases-for-triage" class="govuk-back-link" id="back-link">Back to new cases</a>
+  <a href="cases-for-triage" class="govuk-back-link" id="back-link">Back</a>
 
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">
@@ -37,26 +37,26 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-  <form method="post" action="#" onclick=" checkButton()" class="score">
+  <form method="post" action="#">
     <span class="govuk-caption-l">Triage</span>
     {{ govukRadios({
-      idPrefix: "decision-point-descriptor-assessment",
+      idPrefix: "",
       name: "next-step",
       fieldset: {
         legend: {
-          text: "Why are you referring this case for an assessment?",
+          text: "Is this case ready for review?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
       },
       items: [
         {
-          value: "Move case to ready for review",
-          text: "Move case to ready for review"
+          value: "Yes, move case to ready for review",
+          text: "Yes, move case to ready for review"
         },
         {
-          value: "Refer case for an assessment",
-          text: "Refer case for an assessment"
+          value: "No, refer case for an assessment",
+          text: "No, refer case for an assessment"
         }
       ]
     }) }}
