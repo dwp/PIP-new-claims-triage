@@ -17,8 +17,89 @@ const router = express.Router()
 //
 //
 //
-
 // version one (new version history)
+   // Start routes for assigning a caseload)
+router.post('/version-one/minimum-viable-product/case-selector/ready-for-review', (req, res, next) => {
+  //  var caseOne = req.session.data['case-one']
+
+      res.redirect('/version-one/minimum-viable-product/case-selector/case-manager-assign')
+    })
+
+// route for assigning cases
+router.post('/version-one/minimum-viable-product/case-selector/case-manager-assign', (req, res, next) => {
+
+         if (req.session.data['assign-caseload'] == "new-caseload") {
+           res.redirect('/version-one/minimum-viable-product/case-selector/create-new-case-ready-review')
+         } else {
+           res.redirect('/version-one/minimum-viable-product/case-selector/ready-for-review-success')
+         }
+})
+
+// route for reassigning cases
+router.post('/version-one/minimum-viable-product/case-selector/case-manager-reassign', (req, res, next) => {
+
+         if (req.session.data['reassign-caseload'] == "new-caseload") {
+             res.redirect('/version-one/minimum-viable-product/case-selector/create-new-case-ready-review')
+
+         } else {
+           const reassignedCaseName = req.session.data.source
+           console.log(1, req.session.data)
+           res.redirect('/version-one/minimum-viable-product/case-selector/assigned-for-review-success')
+         }
+})
+
+// const textBox = req.session.data['query-content']
+// const section = req.session.data.source
+//
+// const queriesPrepFood = req.session.data.queriesPrepFood || []
+// queriesPrepFood.push({ textBox, section })
+// req.session.data.queriesPrepFood = queriesPrepFood
+
+
+    // router.post('/version-one/minimum-viable-product/case-selector/ready-for-review', (req, res, next) => {
+    //     if (req.session.data['case-one']) {
+    //       console.log('is-this-calling', req.session.data)
+    //       const questionBox = req.session.data['question']
+    //       const answerBox = req.session.data['answer']
+    //       const answeredQuestion = req.session.data['answered-question']
+    //     //  let answered = '<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>'
+    //       const section = req.session.data.source
+    //
+    //       const queriesQuestions = req.session.data.queriesQuestions || []
+    //       queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
+    //       req.session.data.queriesQuestions = queriesQuestions
+    //
+    //       let href;
+    //
+    //       switch (req.session.data['question-for']) {
+    //         case("Unassigned"):
+    //         href = '/sprint-41/minimum-viable-product/questions-claimant';
+    //         break;
+    //         case("Claimant"):
+    //         href = '/sprint-41/minimum-viable-product/questions-health-professional';
+    //         break;
+    //         case("Internal medical support"):
+    //         href = '/sprint-41/minimum-viable-product/unassigned-questions';
+    //         break;
+    //         case("Internal non medical support"):
+    //         href = '/sprint-41/minimum-viable-product/unassigned-questions';
+    //         break;
+    //         case("External healthcare professional"):
+    //         href = '/sprint-41/minimum-viable-product/unassigned-questions';
+    //         break;
+    //         //this is the hardcoded bit if one of the links fails
+    //         default:
+    //         href = '/sprint-41/minimum-viable-product/tasklist';
+    //       }
+    //
+    //     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+    //       req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
+    //       //req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].answered = answered;
+    //       req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].href = href;
+    //       res.redirect('/sprint-41/minimum-viable-product/questions-claimant')
+    //       }
+    //     })
+
 // Triage route //
 router.post('/version-one/minimum-viable-product/case-selector/ready-to-make-next-step', function (req, res) {
 
