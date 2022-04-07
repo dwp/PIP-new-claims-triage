@@ -6,6 +6,7 @@
         <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
 
       <span class="govuk-caption-l">Ready for review</span>
+        <form action="#" method="post">
     {{ govukRadios({
         idPrefix: "caseloads",
         name: "assign-caseload",
@@ -60,10 +61,9 @@
       }) }}
 
     {{ govukButton({
-      text: "Save and continue",
-      href: "create-new-case-ready-review"
+      text: "Save and continue"
     }) }}
-
+</form>
     </div>
   </div>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
