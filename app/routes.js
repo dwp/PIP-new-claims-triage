@@ -17,36 +17,54 @@ const router = express.Router()
 //
 //
 //
-// version one (new version history)
+//////////// version one (new version history) /////////
    // Start routes for assigning a caseload)
 router.post('/version-one/minimum-viable-product/case-selector/ready-for-review', (req, res, next) => {
-  //  var caseOne = req.session.data['case-one']
-
+        // redirect to "case-manager-assign" page.
       res.redirect('/version-one/minimum-viable-product/case-selector/case-manager-assign')
     })
 
 // route for assigning cases
 router.post('/version-one/minimum-viable-product/case-selector/case-manager-assign', (req, res, next) => {
-
+          // Checks radio options, if "Add a new caseload" is selected, route to "create-new-case-ready-review" page.
          if (req.session.data['assign-caseload'] == "new-caseload") {
+           // redirect to "create-new-case-ready-review" page.
            res.redirect('/version-one/minimum-viable-product/case-selector/create-new-case-ready-review')
          } else {
+           // redirect to "ready-for-review-success" page.
            res.redirect('/version-one/minimum-viable-product/case-selector/ready-for-review-success')
          }
 })
 
 // route for reassigning cases
 router.post('/version-one/minimum-viable-product/case-selector/case-manager-reassign', (req, res, next) => {
-
+          // Checks radio options, if "Add a new caseload" is selected, route to "create-new-case-ready-review" page.
          if (req.session.data['reassign-caseload'] == "new-caseload") {
-             res.redirect('/version-one/minimum-viable-product/case-selector/create-new-case-ready-review')
+            // redirect to "create-new-case-ready-review" page.
+             res.redirect('/version-one/minimum-viable-product/case-selector/create-new-case-in-review')
 
          } else {
+           // stores data value from URL so the prototype knows which case has been selected.
+           // Case name stored as variable which displays dynamically on success page.
            const reassignedCaseName = req.session.data.source
+           // Reads out data into command line. (good for debugging)
            console.log(1, req.session.data)
            res.redirect('/version-one/minimum-viable-product/case-selector/assigned-for-review-success')
          }
 })
+// route for creating caseload - ready for review
+router.post('/version-one/minimum-viable-product/case-selector/create-new-case-ready-review', (req, res, next) => {
+            // redirect to "create-caseload-success" page.
+           res.redirect('/version-one/minimum-viable-product/case-selector/create-caseload-ready-review-success')
+         }
+)
+// route for creating caseload - in review
+router.post('/version-one/minimum-viable-product/case-selector/create-new-case-in-review', (req, res, next) => {
+            // redirect to "create-caseload-success" page.
+           res.redirect('/version-one/minimum-viable-product/case-selector/create-caseload-in-review-success')
+         }
+)
+
 
 // const textBox = req.session.data['query-content']
 // const section = req.session.data.source
