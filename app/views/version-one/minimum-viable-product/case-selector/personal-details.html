@@ -56,7 +56,7 @@
 }
   </style>
 
-  <a href="cases-for-triage" class="govuk-back-link" id="back-link">Back to new cases</a>
+  <a href="cases-for-triage" class="govuk-back-link" id="back-link">Back</a>
 
 <div class="triage-button">
     {{ govukButton({
@@ -133,7 +133,7 @@ Personal details
 </li>
 </ul>
 <div class="govuk-tabs__panel" id="claimant">
-<h2 class="govuk-heading-m">Claimant</h2>
+<h2 class="govuk-heading-m">Contact details</h2>
 <table class="govuk-table">
 <thead class="govuk-table__head">
   <tr class="govuk-table__row">
@@ -180,7 +180,7 @@ Personal details
     <td class="govuk-table__cell">07777 7777777</td>
   </tr>
   <tr class="govuk-table__row">
-    <td class="govuk-table__header">Do you want to receive text messages about your claim?</td>
+    <td class="govuk-table__header">Do you want to receive text message updates about your claim?</td>
     <td class="govuk-table__cell">No</td>
   </tr>
   <tr class="govuk-table__row">
@@ -207,12 +207,19 @@ Personal details
     <td class="govuk-table__header">Health or care accommodation address</td>
     <td class="govuk-table__cell">Not applicable</td>
   </tr>
+</tbody>
+</table>
+
+  <h2 class="govuk-heading-m">Nationality</h2>
+  <table class="govuk-table">
+
+  <tbody class="govuk-table__body">
   <tr class="govuk-table__row">
     <td class="govuk-table__header">Nationality</td>
     <td class="govuk-table__cell">Swiss</td>
   </tr>
   <tr class="govuk-table__row">
-    <td class="govuk-table__header">Did you start living in the UK before 1 January 2021?</td>
+    <td class="govuk-table__header" width="42%">Did you start living in the UK before 1 January 2021?</td>
     <td class="govuk-table__cell">Yes</td>
   </tr>
   <tr class="govuk-table__row">
@@ -227,19 +234,26 @@ Personal details
     <td class="govuk-table__header">Are you or a family member working, paying, or have paid insurance to another European Economic Area (EEA) state or Switzerland?</td>
     <td class="govuk-table__cell">No</td>
   </tr>
-  <tr class="govuk-table__row">
-    <td class="govuk-table__header">Can the Department for Work and Pensions contact your health and care professionals for information about you?</td>
-    <td class="govuk-table__cell">Yes</td>
-  </tr>
-  <tr class="govuk-table__row">
-    <td class="govuk-table__header">Do you agree that your health and care professionals can share relevant information about your health conditions to support your claim?</td>
-    <td class="govuk-table__cell">Yes</td>
-  </tr>
 </tbody>
 </table>
-
 </div>
+
 <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="healthcare-professionals">
+  <h2 class="govuk-heading-m">Consent</h2>
+  <table class="govuk-table">
+
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__header" width="42%">Can DWP contact your health and care professionals for information about you?</td>
+      <td class="govuk-table__cell">Yes</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__header">Can your health and care professionals share information to support your claim?</td>
+      <td class="govuk-table__cell">Yes</td>
+    </tr>
+  </tbody>
+  </table>
+
 <h2 class="govuk-heading-m">Health professional 1</h2>
 <table class="govuk-table">
 
