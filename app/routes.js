@@ -137,7 +137,7 @@ router.post('/version-one/minimum-viable-product/case-selector/ready-to-make-nex
 
 // Referral assessment route //
 
-router.post('/version-one/minimum-viable-product/case-selector/review/ready-to-make-next-step', function (req, res) {
+router.post('/version-one/minimum-viable-product/review/ready-to-make-next-step', function (req, res) {
 
   // Make a variable and give it the value from 'how-many-balls'
   var makearecommendation = req.session.data['next-step']
