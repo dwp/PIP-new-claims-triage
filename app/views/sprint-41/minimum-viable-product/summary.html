@@ -1,6 +1,73 @@
+
+
 {% extends "layout.html" %}
 {% block main %}
 
+<style>
+
+  @media (max-width: 48.0525em)
+  .nhsuk-card-group__item {
+      flex: 0 0 100%;
+  }
+
+  .nhsuk-card--clickable {
+      border-bottom-width: 4px;
+  }
+
+  .nhsuk-card {
+      margin-bottom: 40px;
+      background: #fff;
+      border: 1px solid #d8dde0;
+      position: relative;
+      width: 100%;
+      margin-bottom: 48px;
+  }
+
+  .nhsuk-card__content {
+      padding: 20px;
+      position: relative;
+  }
+
+  .nhsuk-card-group__item {
+      display: flex;
+      list-style-type: none;
+      margin-bottom: 0;
+  }
+
+  .nhsuk-list--bullet, ul {
+      list-style-type: disc;
+      padding-left: 20px;
+  }
+
+
+  .nhsuk-list, ul, ol {
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      list-style-type: none;
+      margin-top: 0;
+      padding-left: 0;
+  }
+  .nhsuk-u-font-weight-normal {
+      font-weight: 400 !important;
+  }
+
+
+  .nhsuk-u-font-size-19 {
+      font-size: 19px !important;
+      font-size: 1.1875rem !important;
+      line-height: 1.47368 !important;
+  }
+
+
+
+  </style>
+
+  <form action="/form-handler" method="post" novalidate>
+
+
+  </form>
 
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">
@@ -55,8 +122,8 @@
 
     <main class="govuk-main-wrapper " id="main-content" role="main">
 
-
-     <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}" >
+<!--
+  <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}" >
         <span class="govuk-heading-s">Unanswered <br>questions</span>
       <span class="govuk-heading-m" style="font-size:85px"><font color="#000000">2</font><p><a href="#unanswered">View</a></p></span>
     </div>
@@ -64,10 +131,7 @@
     <div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
       <span class="govuk-heading-s">Answered <br>questions</span>
      <span class="govuk-heading-m" style="font-size:85px" ><font color="#005ea5">7</font><p><a href="#answered">View</a></p></span>
-
-
-
-    </div>
+    </div> -->
 
     <!--<div class="govuk-grid-column-one-quarter" style="border: 1px solid lightgrey; width:22%; margin-right: 16px; padding: 10px 10px 0px 15px;}">
       <span class="govuk-heading-s">Important <br>notes</span>
@@ -79,6 +143,49 @@
      <span class="govuk-heading-m" style="font-size:85px" ><font color="#5694ca">2</font><p><a href="#outofscope">View</a></p></span>
    </div>-->
 
+
+
+
+
+   <div>
+   <ul class="govuk-grid-row nhsuk-card-group">
+     <li class="govuk-grid-column-one-quarter nhsuk-card-group__item">
+       <div class="nhsuk-card nhsuk-card--clickable">
+         <div class="nhsuk-card__content">
+           <p class="govuk-heading-m" style="font-size:65px">2 <span class="govuk-visually-hidden">Unanswered questions</span></p><a href="#" class="nhsuk-card__link    nhsuk-u-font-size-19  govuk-link--no-visited-state">Unanswered <br>questions</a>
+        </div>
+       </div>
+
+     </li>
+     <li class="govuk-grid-column-one-quarter nhsuk-card-group__item">
+
+       <div class="nhsuk-card nhsuk-card--clickable">
+         <div class="nhsuk-card__content">
+           <p class="govuk-heading-m" style="font-size:65px; color:#005ea5;">7 <span class="govuk-visually-hidden">Answered questions</span></p><a href="#" class="nhsuk-card__link    nhsuk-u-font-size-19 govuk-link--no-visited-state">Answered <br>questions</a>
+         </div>
+       </div>
+
+     </li>
+     <li class="govuk-grid-column-one-quarter nhsuk-card-group__item">
+
+       <div class="nhsuk-card nhsuk-card--clickable">
+         <div class="nhsuk-card__content">
+           <p class="govuk-heading-m" style="font-size:65px">0 <span class="govuk-visually-hidden">Important notes</span></p><a href="#" class="nhsuk-card__link     nhsuk-u-font-size-19 govuk-link--no-visited-state">Important <br>notes</a>
+         </div>
+       </div>
+
+     </li>
+     <li class="govuk-grid-column-one-quarter nhsuk-card-group__item">
+
+       <div class="nhsuk-card nhsuk-card--clickable">
+         <div class="nhsuk-card__content">
+           <p class="govuk-heading-m" style="font-size:65px">0 <span class="govuk-visually-hidden">Out of scope</span></p><a href="#" class="nhsuk-card__link   nhsuk-u-font-size-19 govuk-link--no-visited-state">Out of<br>scope</a>
+         </div>
+       </div>
+
+     </li>
+   </ul>
+   </div>
     <table class="govuk-table" id="unanswered">
       <caption class="govuk-table__caption govuk-table__caption--m"><br><br>Unanswered questions about this case (<font color="000000">1 question</font>)</caption>
       <thead class="govuk-table__head">
