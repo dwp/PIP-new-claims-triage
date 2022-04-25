@@ -66,58 +66,6 @@ router.post('/version-one/minimum-viable-product/case-selector/create-new-case-i
 )
 
 
-// const textBox = req.session.data['query-content']
-// const section = req.session.data.source
-//
-// const queriesPrepFood = req.session.data.queriesPrepFood || []
-// queriesPrepFood.push({ textBox, section })
-// req.session.data.queriesPrepFood = queriesPrepFood
-
-
-    // router.post('/version-one/minimum-viable-product/case-selector/ready-for-review', (req, res, next) => {
-    //     if (req.session.data['case-one']) {
-    //       console.log('is-this-calling', req.session.data)
-    //       const questionBox = req.session.data['question']
-    //       const answerBox = req.session.data['answer']
-    //       const answeredQuestion = req.session.data['answered-question']
-    //     //  let answered = '<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>'
-    //       const section = req.session.data.source
-    //
-    //       const queriesQuestions = req.session.data.queriesQuestions || []
-    //       queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
-    //       req.session.data.queriesQuestions = queriesQuestions
-    //
-    //       let href;
-    //
-    //       switch (req.session.data['question-for']) {
-    //         case("Unassigned"):
-    //         href = '/sprint-41/minimum-viable-product/questions-claimant';
-    //         break;
-    //         case("Claimant"):
-    //         href = '/sprint-41/minimum-viable-product/questions-health-professional';
-    //         break;
-    //         case("Internal medical support"):
-    //         href = '/sprint-41/minimum-viable-product/unassigned-questions';
-    //         break;
-    //         case("Internal non medical support"):
-    //         href = '/sprint-41/minimum-viable-product/unassigned-questions';
-    //         break;
-    //         case("External healthcare professional"):
-    //         href = '/sprint-41/minimum-viable-product/unassigned-questions';
-    //         break;
-    //         //this is the hardcoded bit if one of the links fails
-    //         default:
-    //         href = '/sprint-41/minimum-viable-product/tasklist';
-    //       }
-    //
-    //     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-    //       req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
-    //       //req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].answered = answered;
-    //       req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].href = href;
-    //       res.redirect('/sprint-41/minimum-viable-product/questions-claimant')
-    //       }
-    //     })
-
 // Triage route //
 router.post('/version-one/minimum-viable-product/case-selector/ready-to-make-next-step', function (req, res) {
 
@@ -152,6 +100,560 @@ router.post('/version-one/minimum-viable-product/review/ready-to-make-next-step'
   }
 
 })
+
+// Activities routes //
+
+router.post('/version-one/minimum-viable-product/review/activities/preparing-food', (req, res, next) => {
+    if (req.session.data['who-is-question-for-prepfood']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesPrepFood = req.session.data.queriesPrepFood || []
+      queriesPrepFood.push({ textBox, section })
+      req.session.data.queriesPrepFood = queriesPrepFood
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-prepfood']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].action = req.session.data['who-is-question-for-prepfood']
+      req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/activities/preparing-food')
+      }
+    })
+
+
+//Start routes for eating and drinking: questions
+router.post('/version-one/minimum-viable-product/review/activities/taking-nutrition', (req, res, next) => {
+        if (req.session.data['who-is-question-for-eating']) {
+          console.log('is-this-calling', req.session.data)
+          const textBox = req.session.data['query-content']
+          const section = req.session.data.source
+
+          const queriesEatDrink = req.session.data.queriesEatDrink || []
+          queriesEatDrink.push({ textBox, section })
+          req.session.data.queriesEatDrink = queriesEatDrink
+
+          let href;
+
+          switch (req.session.data['who-is-question-for-eating']) {
+            case("Unassigned"):
+            href = '/version-one/minimum-viable-product/review/unassigned-questions';
+            break;
+            case("Claimant"):
+            href = '/version-one/minimum-viable-product/review/questions-claimant';
+            break;
+            case("Internal medical support"):
+            href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+            break;
+            case("Internal non medical support"):
+            href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+            break;
+            case("External healthcare professional"):
+            href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+            break;
+            //this is the hardcoded bit if one of the links fails
+            default:
+            href = '/version-one/minimum-viable-product/review/tasklist';
+          }
+
+        //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+          req.session.data.queriesEatDrink[req.session.data.queriesEatDrink.length - 1].action = req.session.data['who-is-question-for-eating']
+          req.session.data.queriesEatDrink[req.session.data.queriesEatDrink.length - 1].href = href;
+          res.redirect('/version-one/minimum-viable-product/review/activities/taking-nutrition')
+
+          }
+        })
+
+//Start routes for managing therapy: questions
+router.post('/version-one/minimum-viable-product/review/activities/managing-therapy', (req, res, next) => {
+      if (req.session.data['who-is-question-for-treatments']) {
+        console.log('is-this-calling', req.session.data)
+        const textBox = req.session.data['query-content']
+        const section = req.session.data.source
+
+        const queriesTherapy = req.session.data.queriesTherapy || []
+        queriesTherapy.push({ textBox, section })
+        req.session.data.queriesTherapy = queriesTherapy
+
+        let href;
+
+        switch (req.session.data['who-is-question-for-treatments']) {
+          case("Unassigned"):
+          href = '/version-one/minimum-viable-product/review/unassigned-questions';
+          break;
+          case("Claimant"):
+          href = '/version-one/minimum-viable-product/review/questions-claimant';
+          break;
+          case("Internal medical support"):
+          href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+          break;
+          case("Internal non medical support"):
+          href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+          break;
+          case("External healthcare professional"):
+          href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+          break;
+          //this is the hardcoded bit if one of the links fails
+          default:
+          href = '/version-one/minimum-viable-product/review/tasklist';
+        }
+
+      //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+        req.session.data.queriesTherapy[req.session.data.queriesTherapy.length - 1].action = req.session.data['who-is-question-for-treatments']
+        req.session.data.queriesTherapy[req.session.data.queriesTherapy.length - 1].href = href;
+        res.redirect('/version-one/minimum-viable-product/review/activities/managing-therapy')
+
+        }
+      })
+
+
+//Start routes for washing and bathing: questions
+router.post('/version-one/minimum-viable-product/review/activities/washing-and-bathing', (req, res, next) => {
+    if (req.session.data['who-is-question-for-washing']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesWashing = req.session.data.queriesWashing || []
+      queriesWashing.push({ textBox, section })
+      req.session.data.queriesWashing = queriesWashing
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-washing']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesWashing[req.session.data.queriesWashing.length - 1].action = req.session.data['who-is-question-for-washing']
+      req.session.data.queriesWashing[req.session.data.queriesWashing.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/activities/washing-and-bathing')
+
+      }
+    })
+
+
+//Start routes for managing toilet needs: questions
+  router.post('/version-one/minimum-viable-product/review/activities/managing-toilet-needs', (req, res, next) => {
+      if (req.session.data['who-is-question-for-toilet']) {
+        console.log('is-this-calling', req.session.data)
+        const textBox = req.session.data['query-content']
+        const section = req.session.data.source
+
+        const queriesToilet = req.session.data.queriesToilet || []
+        queriesToilet.push({ textBox, section })
+        req.session.data.queriesToilet = queriesToilet
+
+        let href;
+
+        switch (req.session.data['who-is-question-for-toilet']) {
+          case("Unassigned"):
+          href = '/version-one/minimum-viable-product/review/unassigned-questions';
+          break;
+          case("Claimant"):
+          href = '/version-one/minimum-viable-product/review/questions-claimant';
+          break;
+          case("Internal medical support"):
+          href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+          break;
+          case("Internal non medical support"):
+          href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+          break;
+          case("External healthcare professional"):
+          href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+          break;
+          //this is the hardcoded bit if one of the links fails
+          default:
+          href = '/version-one/minimum-viable-product/review/tasklist';
+        }
+
+          //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+            req.session.data.queriesToilet[req.session.data.queriesToilet.length - 1].action = req.session.data['who-is-question-for-toilet']
+            req.session.data.queriesToilet[req.session.data.queriesToilet.length - 1].href = href;
+            res.redirect('/version-one/minimum-viable-product/review/activities/managing-toilet-needs')
+
+            }
+          })
+
+//Start routes for dressing and undressing: questions
+router.post('/version-one/minimum-viable-product/review/activities/dressing-and-undressing', (req, res, next) => {
+    if (req.session.data['who-is-question-for-dressing']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesDressing = req.session.data.queriesDressing || []
+      queriesDressing.push({ textBox, section })
+      req.session.data.queriesDressing = queriesDressing
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-dressing']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+      //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+        req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].action = req.session.data['who-is-question-for-dressing']
+        req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].href = href;
+        res.redirect('/version-one/minimum-viable-product/review/activities/dressing-and-undressing')
+
+        }
+      })
+
+//Start routes for talking and understanding: questions
+  router.post('/version-one/minimum-viable-product/review/activities/communicating-verbally', (req, res, next) => {
+      if (req.session.data['who-is-question-for-talking']) {
+        console.log('is-this-calling', req.session.data)
+        const textBox = req.session.data['query-content']
+        const section = req.session.data.source
+
+        const queriesTalking = req.session.data.queriesTalking || []
+        queriesTalking.push({ textBox, section })
+        req.session.data.queriesTalking = queriesTalking
+
+        let href;
+
+        switch (req.session.data['who-is-question-for-talking']) {
+          case("Unassigned"):
+          href = '/version-one/minimum-viable-product/review/unassigned-questions';
+          break;
+          case("Claimant"):
+          href = '/version-one/minimum-viable-product/review/questions-claimant';
+          break;
+          case("Internal medical support"):
+          href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+          break;
+          case("Internal non medical support"):
+          href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+          break;
+          case("External healthcare professional"):
+          href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+          break;
+          //this is the hardcoded bit if one of the links fails
+          default:
+          href = '/version-one/minimum-viable-product/review/tasklist';
+        }
+
+      //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+        req.session.data.queriesTalking[req.session.data.queriesTalking.length - 1].action = req.session.data['who-is-question-for-talking']
+        req.session.data.queriesTalking[req.session.data.queriesTalking.length - 1].href = href;
+        res.redirect('/version-one/minimum-viable-product/review/activities/communicating-verbally')
+
+        }
+      })
+
+//Start routes for Reading and understanding: questions
+router.post('/version-one/minimum-viable-product/review/activities/reading-and-understanding', (req, res, next) => {
+    if (req.session.data['who-is-question-for-reading']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesReading = req.session.data.queriesReading || []
+      queriesReading.push({ textBox, section })
+      req.session.data.queriesReading = queriesReading
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-reading']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesReading[req.session.data.queriesReading.length - 1].action = req.session.data['who-is-question-for-reading']
+      req.session.data.queriesReading[req.session.data.queriesReading.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/activities/reading-and-understanding')
+
+      }
+    })
+
+//Start routes for Mixing with others: questions
+router.post('/version-one/minimum-viable-product/review/activities/engaging-face-to-face', (req, res, next) => {
+    if (req.session.data['who-is-question-for-mixing-people']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesMixing = req.session.data.queriesMixing || []
+      queriesMixing.push({ textBox, section })
+      req.session.data.queriesMixing = queriesMixing
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-mixing-people']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesMixing[req.session.data.queriesMixing.length - 1].action = req.session.data['who-is-question-for-mixing-people']
+      req.session.data.queriesMixing[req.session.data.queriesMixing.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/activities/engaging-face-to-face')
+
+      }
+    })
+
+//Start routes for managing money: questions
+router.post('/version-one/minimum-viable-product/review/activities/budgeting', (req, res, next) => {
+    if (req.session.data['who-is-question-for-money']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesMoney = req.session.data.queriesMoney || []
+      queriesMoney.push({ textBox, section })
+      req.session.data.queriesMoney = queriesMoney
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-money']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesMoney[req.session.data.queriesMoney.length - 1].action = req.session.data['who-is-question-for-money']
+      req.session.data.queriesMoney[req.session.data.queriesMoney.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/activities/budgeting')
+
+      }
+    })
+
+//Start routes for planning, following journeys: questions
+router.post('/version-one/minimum-viable-product/review/activities/planning-and-following-journeys', (req, res, next) => {
+    if (req.session.data['who-is-question-for-planning']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesPlanning = req.session.data.queriesPlanning || []
+      queriesPlanning.push({ textBox, section })
+      req.session.data.queriesPlanning = queriesPlanning
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-planning']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesPlanning[req.session.data.queriesPlanning.length - 1].action = req.session.data['who-is-question-for-planning']
+      req.session.data.queriesPlanning[req.session.data.queriesPlanning.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/activities/planning-and-following-journeys')
+
+      }
+    })
+
+
+//Start routes for moving around: questions
+router.post('/version-one/minimum-viable-product/review/activities/moving-around', (req, res, next) => {
+    if (req.session.data['who-is-question-for-moving']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesMoving = req.session.data.queriesMoving || []
+      queriesMoving.push({ textBox, section })
+      req.session.data.queriesMoving = queriesMoving
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-moving']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesMoving[req.session.data.queriesMoving.length - 1].action = req.session.data['who-is-question-for-moving']
+      req.session.data.queriesMoving[req.session.data.queriesMoving.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/activities/moving-around')
+
+      }
+    })
+
+
+//Start routes for additional information: questions
+router.post('/version-one/minimum-viable-product/review/additional-information', (req, res, next) => {
+    if (req.session.data['who-is-question-for-add-info']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesAdditional = req.session.data.queriesAdditional || []
+      queriesAdditional.push({ textBox, section })
+      req.session.data.queriesAdditional = queriesAdditional
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-add-info']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/version-one/minimum-viable-product/review/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesAdditional[req.session.data.queriesAdditional.length - 1].action = req.session.data['who-is-question-for-add-info']
+      req.session.data.queriesAdditional[req.session.data.queriesAdditional.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/additional-information')
+
+      }
+    })
+
+  // End of activities routes //
+
 
 //Sprint 41//*************************************************************************************************************
 // Referral assessment route //
