@@ -654,6 +654,348 @@ router.post('/version-one/minimum-viable-product/review/additional-information',
 
   // End of activities routes //
 
+  // Conditions routes //
+
+//Routes for query condtion1
+router.post('/version-one/minimum-viable-product/review/condition/condition-one', (req, res, next) => {
+    if (req.session.data['who-is-question-for-cond-one']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionOne = req.session.data.queriesConditionOne || []
+      queriesConditionOne.push({ textBox, section })
+      req.session.data.queriesConditionOne = queriesConditionOne
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-cond-one']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-41/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionOne[req.session.data.queriesConditionOne.length - 1].action = req.session.data['who-is-question-for-cond-one']
+      req.session.data.queriesConditionOne[req.session.data.queriesConditionOne.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/condition/condition-one')
+
+      }
+    })
+
+//Routes for query condtion2
+router.post('/version-one/minimum-viable-product/review/condition/condition-two', (req, res, next) => {
+    if (req.session.data['who-is-question-for-cond-two']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionTwo = req.session.data.queriesConditionTwo || []
+      queriesConditionTwo.push({ textBox, section })
+      req.session.data.queriesConditionTwo = queriesConditionTwo
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-cond-two']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-41/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionTwo[req.session.data.queriesConditionTwo.length - 1].action = req.session.data['who-is-question-for-cond-two']
+      req.session.data.queriesConditionTwo[req.session.data.queriesConditionTwo.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/condition/condition-two')
+
+      }
+})
+
+//Routes for query condtion3
+router.post('/version-one/minimum-viable-product/review/condition/condition-three', (req, res, next) => {
+    if (req.session.data['who-is-question-for-cond-three']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionThree = req.session.data.queriesConditionThree || []
+      queriesConditionThree.push({ textBox, section })
+      req.session.data.queriesConditionThree = queriesConditionThree
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-cond-three']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-41/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionThree[req.session.data.queriesConditionThree.length - 1].action = req.session.data['who-is-question-for-cond-three']
+      req.session.data.queriesConditionThree[req.session.data.queriesConditionThree.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/condition/condition-three')
+
+      }
+})
+
+//Routes for query condtion4
+router.post('/version-one/minimum-viable-product/review/condition/condition-four', (req, res, next) => {
+    if (req.session.data['who-is-question-for-cond-four']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionFour = req.session.data.queriesConditionFour || []
+      queriesConditionFour.push({ textBox, section })
+      req.session.data.queriesConditionFour = queriesConditionFour
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-cond-four']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-41/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionFour[req.session.data.queriesConditionFour.length - 1].action = req.session.data['who-is-question-for-cond-four']
+      req.session.data.queriesConditionFour[req.session.data.queriesConditionFour.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/condition/condition-four')
+
+      }
+})
+
+//Routes for query condtion5
+router.post('/version-one/minimum-viable-product/review/condition/condition-five', (req, res, next) => {
+    if (req.session.data['who-is-question-for-cond-five']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionFive = req.session.data.queriesConditionFive || []
+      queriesConditionFive.push({ textBox, section })
+      req.session.data.queriesConditionFive = queriesConditionFive
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-cond-five']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-41/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionFive[req.session.data.queriesConditionFive.length - 1].action = req.session.data['who-is-question-for-cond-five']
+      req.session.data.queriesConditionFive[req.session.data.queriesConditionFive.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/condition/condition-five')
+
+      }
+})
+
+//Routes for query condtion6
+router.post('/version-one/minimum-viable-product/review/condition/condition-six', (req, res, next) => {
+    if (req.session.data['who-is-question-for-cond-six']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionSix = req.session.data.queriesConditionSix || []
+      queriesConditionSix.push({ textBox, section })
+      req.session.data.queriesConditionSix = queriesConditionSix
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-cond-six']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-41/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionSix[req.session.data.queriesConditionSix.length - 1].action = req.session.data['who-is-question-for-cond-six']
+      req.session.data.queriesConditionSix[req.session.data.queriesConditionSix.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/condition/condition-six')
+
+      }
+})
+
+
+//Routes for query condtion7
+router.post('/version-one/minimum-viable-product/review/condition/condition-seven', (req, res, next) => {
+    if (req.session.data['who-is-question-for-cond-seven']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionSeven = req.session.data.queriesConditionSeven || []
+      queriesConditionSeven.push({ textBox, section })
+      req.session.data.queriesConditionSeven = queriesConditionSeven
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-cond-seven']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-41/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionSeven[req.session.data.queriesConditionSeven.length - 1].action = req.session.data['who-is-question-for-cond-seven']
+      req.session.data.queriesConditionSeven[req.session.data.queriesConditionSeven.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/condition/condition-seven')
+
+      }
+})
+
+
+//Routes for query condtion8
+router.post('/version-one/minimum-viable-product/review/condition/condition-eight', (req, res, next) => {
+    if (req.session.data['who-is-question-for-cond-eight']) {
+      console.log('is-this-calling', req.session.data)
+      const textBox = req.session.data['query-content']
+      const section = req.session.data.source
+
+      const queriesConditionEight = req.session.data.queriesConditionEight || []
+      queriesConditionEight.push({ textBox, section })
+      req.session.data.queriesConditionEight = queriesConditionEight
+
+      let href;
+
+      switch (req.session.data['who-is-question-for-cond-eight']) {
+        case("Unassigned"):
+        href = '/version-one/minimum-viable-product/review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/version-one/minimum-viable-product/review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/version-one/minimum-viable-product/review/questions-internal-non-medical-support';
+        break;
+        case("External healthcare professional"):
+        href = '/version-one/minimum-viable-product/review/questions-external-medical-healthcare-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/sprint-41/minimum-viable-product/tasklist';
+      }
+
+    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
+      req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].action = req.session.data['who-is-question-for-cond-eight']
+      req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].href = href;
+      res.redirect('/version-one/minimum-viable-product/review/condition/condition-eight')
+
+      }
+})
+
+    // End of conditions routes //
+
 
 //Sprint 41//*************************************************************************************************************
 // Referral assessment route //
