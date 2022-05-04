@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Review completed
+{% endblock %}
+
+{% block main %}
+
+<header class="govuk-header " role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__content">
+    <nav aria-label="Menu" class="govuk-header__navigation">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+      <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="cases-for-triage">
+                Cases for triage
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="ready-for-review">
+                Ready for review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="assigned-for-review-case-manager">
+                In review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item govuk-header__navigation-item--active">
+                <a class="govuk-header__link" href="review-completed">
+                Review completed
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="search">
+                Search
+                </a>
+            </li>
+      </ul>
+    </nav>
+    </div>
+  </div>
+</header>
+ 
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+    <h1 class="govuk-heading-l">Review completed (2)</h1>
+
+    <table class="govuk-table" data-module="moj-sortable-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Claimant name</th>
+          <th scope="col" class="govuk-table__header">NINo</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">Decision date</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">Caseload</th>
+          <th scope="col" class="govuk-table__header" aria-sort="ascending">Outcome</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">Jane Doe</a></td>
+          <td class="govuk-table__cell">QQ 12 34 56 C</td>
+          <td class="govuk-table__cell">20 November 2021</td>
+          <td class="govuk-table__cell">Susan Smith</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">SENT FOR DECISION</strong></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="#">John Smith</a></td>
+          <td class="govuk-table__cell">QQ 12 34 56 C</td>
+          <td class="govuk-table__cell">2 December 2021</td>
+          <td class="govuk-table__cell">Susan Smith</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">REFERRED FOR ASSESSMENT</strong></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+</main>
+    </div>
+
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      </dl>
+
+{% endblock %}

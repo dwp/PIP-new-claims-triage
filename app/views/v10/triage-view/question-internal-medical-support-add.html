@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+                <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <a href="questions-claimant" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper">
+
+
+
+  <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+
+
+              <h1 class="govuk-heading-l">
+                Add or edit a question and answer
+              </h1>
+
+              <div class="govuk-form-group">
+                    <h3 class="govuk-heading-m">
+                    Question
+                    </h3>
+
+
+            <input type="hidden" value="{{ data.source }}"/>
+                  <textarea class="govuk-textarea" id="more-detail" name="question" rows="5"></textarea>
+            </div>
+            <form action="#" method="post">
+
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+            {{ govukRadios({
+              idPrefix: "who-is-question-for",
+              name: "question-for-internal-medical-support",
+              fieldset: {
+                legend: {
+                  text: "Who is this question for?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+              {
+                value: "Unassigned",
+                text: "Unassigned",
+                checked: "true"
+              },
+              {
+                value: "Claimant",
+                text: "Claimant"
+              },
+              {
+                value: "Internal medical support",
+                text: "Internal medical support",
+                checked: "true"
+              },
+              {
+                value: "Internal non medical support",
+                text: "Internal non medical support"
+              },
+              {
+                value: "External healthcare professional",
+                text: "External healthcare professional"
+              }
+              ]
+            }) }}
+
+
+
+
+              <div class="govuk-form-group">
+                    <h3 class="govuk-heading-m">
+                      Add an answer
+                    </h3>
+
+
+
+
+                            <div class="govuk-form-group">
+
+                                  <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
+                            </div>
+
+                            {{ govukRadios({
+                                  classes: "govuk-radios--inline",
+                                  idPrefix: "answeredquestion",
+                                  name: "answered-question",
+                                  fieldset: {
+                                    legend: {
+                                      text: "Has this answered your question?",
+                                      isPageHeading: true,
+                                      classes: "govuk-fieldset__legend--m"
+                                    }
+                                  },
+                                  items: [
+                                    {
+                                      value: "yes",
+                                      text: "Yes"
+                                    },
+                                    {
+                                      value: "no",
+                                      text: "No",
+                                      checked: "true"
+                                    }
+                                  ]
+                            }) }}
+
+<p><br> </p>
+                            {{ govukButton({
+                                text: "Save and continue"
+
+                            }) }}
+
+                  </form>
+            </div>
+
+
+            </div>
+
+
+</main>
+</div>
+
+{% endblock %}

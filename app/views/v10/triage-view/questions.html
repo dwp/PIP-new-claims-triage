@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Questions
+{% endblock %}
+
+{% block main %}
+<!-- triage bar -->
+<div class="govuk-width-container" >
+  <div class="column-full" style="height:55px; margin-top: 5px;">
+<a href="../case-selector/cases-for-triage" class="govuk-back-link" id="back-link">Back</a>
+<div class="triage-button" style="float:right; margin-bottom:0px; margin-top: 5px;">
+  {{ govukButton({
+    text: "Triage this case",
+    href: "../case-selector/ready-to-make-next-step"
+  }) }}
+</div>
+</div></div>
+<!-- triage bar end -->
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">Case for triage</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+
+           
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="personal-details">Personal details</a>
+        </li>
+        <li>
+          <a href="conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <li>
+          <a href="questions" class="active" aria-current="section">Questions</a>
+        </li>
+        <li>
+          <a href="summary">Summary</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+
+      <h1 class="govuk-heading-l">
+        Questions
+      </h1>
+
+
+      <table class="govuk-table">
+    <!--
+        <thead class="govuk-table__head">
+       <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Condition</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter"></th>
+          </tr>
+        </thead>-->
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="unassigned-questions" >
+            Unassigned
+            </a></td>
+              <td scope="row" class="govuk-table__cell"> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="questions-claimant?source=claimant">
+            Claimant
+            </a></td>
+              <td scope="row" class="govuk-table__cell"> </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="questions-internal-medical-support?source=health-professional">
+            Internal medical support
+            </a></td>
+                <td scope="row" class="govuk-table__cell"><!-- <strong class='govuk-tag app-task-list__tag' id='question-status'>All questions answered</strong>--></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">  <a href="questions-internal-non-medical-support?source=health-professional">
+              Internal non medical support
+              </a></td>
+            <td class="govuk-table__cell">   </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">  <a href="questions-external-medical-health-professional?source=health-professional">
+              External health professional
+              </a></td>
+            <td class="govuk-table__cell"><!--  <strong class='govuk-tag app-task-list__tag' id='question-status'>All questions answered</strong> --></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+</main>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

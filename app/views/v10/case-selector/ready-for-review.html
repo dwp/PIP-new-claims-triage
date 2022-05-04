@@ -1,0 +1,187 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Ready for review
+{% endblock %}
+
+{% block main %}
+
+
+<header class="govuk-header " role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__content">
+    <nav aria-label="Menu" class="govuk-header__navigation">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+      <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="cases-for-triage">
+                Cases for triage
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item govuk-header__navigation-item--active">
+                <a class="govuk-header__link" href="ready-for-review">
+                Ready for review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="assigned-for-review-case-manager">
+                In review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="review-completed">
+                Review completed
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="search">
+                Search
+                </a>
+            </li>
+      </ul>
+    </nav>
+    </div>
+  </div>
+</header>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+  <h1 class="govuk-heading-l">Ready for review (8)</h1>
+
+  <form action="#" method="post">
+  <table class="govuk-table" data-module="moj-sortable-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Select</th>
+        <th scope="col" class="govuk-table__header">Claimant name</th>
+        <th scope="col" class="govuk-table__header">NINo</th>
+        <th scope="col" class="govuk-table__header" aria-sort="ascending">Claim date</th
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                                        <input type="checkbox" class="govuk-checkboxes__input" name="cases" value="Jane Doe" id="row-1">
+                                        <label class="govuk-label govuk-checkboxes__label" for="row-1">
+                                            <span class="govuk-visually-hidden">Select row 1</span>
+                                        </label>
+                                      </div>
+        </td>
+        <td class="govuk-table__cell"><a href="#">Jane Doe</a></td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">20 November 2021</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                                        <input type="checkbox" class="govuk-checkboxes__input" name="cases" value="John Smith" id="row-2">
+                                        <label class="govuk-label govuk-checkboxes__label" for="row-2">
+                                            <span class="govuk-visually-hidden">Select row 2</span>
+                                        </label>
+                                      </div>
+        </td>
+        <td class="govuk-table__cell"><a href="#">John Smith</a></td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">2 December 2021</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                                        <input type="checkbox" class="govuk-checkboxes__input" name="cases" value="Susan Morris" id="row-3">
+                                        <label class="govuk-label govuk-checkboxes__label" for="row-3">
+                                            <span class="govuk-visually-hidden">Select row 3</span>
+                                        </label>
+                                      </div>
+        </td>
+        <td class="govuk-table__cell"><a href="#">Susan Morris</a></td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">3 December 2021</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                                        <input type="checkbox" class="govuk-checkboxes__input" name="cases" value="Patrick Mills" id="row-4">
+                                        <label class="govuk-label govuk-checkboxes__label" for="row-4">
+                                            <span class="govuk-visually-hidden">Select row 4</span>
+                                        </label>
+                                      </div>
+        </td>
+        <td class="govuk-table__cell"><a href="#">Patrick Mills</a></td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">3 December 2021</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                                        <input type="checkbox" class="govuk-checkboxes__input" name="cases" value="Amit James" id="row-5">
+                                        <label class="govuk-label govuk-checkboxes__label" for="row-5">
+                                            <span class="govuk-visually-hidden">Select row 5</span>
+                                        </label>
+                                      </div>
+        </td>
+        <td class="govuk-table__cell"><a href="#">Amit James</a></td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">4 December 2021</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                                        <input type="checkbox" class="govuk-checkboxes__input" name="cases" value="Evan Davis" id="row-6">
+                                        <label class="govuk-label govuk-checkboxes__label" for="row-6">
+                                            <span class="govuk-visually-hidden">Select row 6</span>
+                                        </label>
+                                      </div>
+        </td>
+        <td class="govuk-table__cell"><a href="#">Evan Davis</a></td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">6 December 2021</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                                        <input type="checkbox" class="govuk-checkboxes__input" name="cases" value="Kimberly Morris" id="row-7">
+                                        <label class="govuk-label govuk-checkboxes__label" for="row-7">
+                                            <span class="govuk-visually-hidden">Select row 7</span>
+                                        </label>
+                                      </div>
+        </td>
+        <td class="govuk-table__cell"><a href="#">Kimberley Morris</a></td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">7 December 2021</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                                        <input type="checkbox" class="govuk-checkboxes__input" name="cases" value="Jacob Cutler" id="row-8">
+                                        <label class="govuk-label govuk-checkboxes__label" for="row-8">
+                                            <span class="govuk-visually-hidden">Select row 8</span>
+                                        </label>
+                                      </div>
+        </td>
+        <td class="govuk-table__cell"><a href="#">Jacob Cutler</a></td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">7 December 2021</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  {{ govukButton({
+    text: "Assign to caseload"
+  }) }}
+
+   </form>
+</main>
+    </div>
+
+
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      </dl>
+
+{% endblock %}
