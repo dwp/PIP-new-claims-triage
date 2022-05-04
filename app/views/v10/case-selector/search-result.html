@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Search results
+{% endblock %}
+
+{% block main %}
+
+<header class="govuk-header " role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__content">
+    <nav aria-label="Menu" class="govuk-header__navigation">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+      <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="cases-for-triage">
+                Cases for triage
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="ready-for-review">
+                Ready for review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="assigned-for-review-case-manager">
+                In review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="review-completed">
+                Review completed
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item govuk-header__navigation-item--active">
+                <a class="govuk-header__link" href="search">
+                Search
+                </a>
+            </li>
+      </ul>
+    </nav>
+    </div>
+  </div>
+</header>
+<div class="govuk-grid-column-full">
+
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+
+<h1 class="govuk-heading-l">Search</h1>
+
+
+
+      <form action="search-result" method="post">
+  <h2 class="govuk-heading-m">Enter the claimant's National Insurance number (NINo)</h2>
+{{ govukInput({
+  classes: "govuk-!-width-two-thirds",
+  id: "two-thirds",
+  name: "two-thirds"
+}) }}
+
+      <button class="govuk-button" data-module="govuk-button" id="search-btn">
+        Search
+      </button>
+</form>
+    </main>
+
+
+
+<div class="govuk-grid-column-full-width">
+<h2 class="govuk-heading-m">Results</h2>
+  <table class="govuk-table" data-module="moj-sortable-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Claimant name</th>
+        <th scope="col" class="govuk-table__header">Assigned to</th>
+        <th scope="col" class="govuk-table__header">NINo</th>
+        <th scope="col" class="govuk-table__header" aria-sort="ascending">Claim date</th>
+        <th scope="col" class="govuk-table__header" aria-sort="ascending">Status</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Jane Doe</a></td>
+        <td class="govuk-table__cell">Unassigned</td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">20 November 2021</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">ready for review</strong></td>
+
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#">Jane Doe</a></td>
+        <td class="govuk-table__cell">Susan Smith</td>
+        <td class="govuk-table__cell">QQ 12 34 56 C</td>
+        <td class="govuk-table__cell">20 November 2011</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">in review</strong></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+</div>
+</div>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+      </dl>
+
+
+{% endblock %}

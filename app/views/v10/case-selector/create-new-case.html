@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+        <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+        <span class="govuk-caption-l">In review</span>
+        {{ govukInput({
+          label: {
+            text: "What do you want to name this caseload?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+        hint: {
+          text: "The new caseload should have a different name to any existing caseload."
+        },
+          id: "event-name",
+          name: "event-name"
+        }) }}
+
+        {{ govukButton({
+          text: "Create caseload",
+          href: "case-manager-added"
+        }) }}
+
+    </div>
+  </div>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      </dl>
+
+{% endblock %}

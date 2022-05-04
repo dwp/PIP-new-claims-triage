@@ -1,0 +1,285 @@
+
+{% extends "layout.html" %}
+{% block main %}
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <a href="task-list" class="govuk-back-link">Back</a>
+<main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Select the activity descriptors
+      </h1>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--l">Daily living</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Activity</th>
+            <th scope="col" class="govuk-table__header">Descriptor</th>
+            <th scope="col" class="govuk-table__header">Points</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-preparing-food" class="govuk-link">Preparing food</a></td>
+              <td class="govuk-table__cell">
+
+  1e. Needs supervision or assistance to either prepare or cook a simple meal.﻿
+              </td>
+            <td class="govuk-table__cell">
+
+
+
+              4
+
+            </td>
+
+            <td class="govuk-table__cell">
+
+
+            </td>
+          </tr>
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-taking-nutrition" class="govuk-link">Taking nutrition</a></td>
+              <td class="govuk-table__cell">
+                2a. Can take nutrition unaided.
+              </td>
+            <td class="govuk-table__cell">
+            0
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-managing-therapy" class="govuk-link">Managing therapy or monitoring a health condition</a></td>
+            <td class="govuk-table__cell">
+              3b. Needs any one or more of the following:
+(i) to use an aid or appliance to be able to manage medication;
+(ii) supervision, prompting or assistance to be able to manage medication
+(iii) supervision, prompting or assistance to be able to monitor a health
+            </td>
+            <td class="govuk-table__cell">
+              1
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-washing-and-bathing" class="govuk-link">Washing and bathing</a></td>
+            <td class="govuk-table__cell">
+            4b. Needs to use an aid or appliance to be able to wash or bathe.
+            <td class="govuk-table__cell">
+            2
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-managing-toilet-needs" class="govuk-link">Managing toilet needs or incontinence</a></td>
+            <td class="govuk-table__cell">
+              5b. Needs to use an aid or appliance to be able to manage toilet needs or incontinence.
+            </td>
+            <td class="govuk-table__cell">
+              2
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-dressing-and-undressing" class="govuk-link">Dressing and undressing</a></td>
+            <td class="govuk-table__cell">
+              6b. Needs to use an aid or appliance to be able to dress or undress.
+            </td>
+            <td class="govuk-table__cell">
+            2
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-communicating-verbally" class="govuk-link">Communicating verbally</a></td>
+            <td class="govuk-table__cell">  7a. Can express and understand verbal information unaided.
+              </td>
+            <td class="govuk-table__cell">
+            0
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-reading-understanding" class="govuk-link">Reading and understanding symbols and words</a></td>
+            <td class="govuk-table__cell">
+              8a. Can read and understand basic and complex written information either unaided or using signs, spectacles or contact lenses.
+            </td>
+            <td class="govuk-table__cell">
+              0
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-engaging-face-to-face" class="govuk-link">Engaging with other people face to face</a></td>
+            <td class="govuk-table__cell">
+              9b. Needs prompting to be able to engage with other people.
+            </td>
+            <td class="govuk-table__cell">
+              2
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="score-budgeting" class="govuk-link">Making budgeting decisions</a></td>
+            <td class="govuk-table__cell">
+            10a. Can manage complex budgeting decisions unaided.
+            </td>
+            <td class="govuk-table__cell">
+            0
+            </td>
+
+            <td class="govuk-table__cell">
+
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Daily living total</th>
+            <td class="govuk-table__cell" style='visibility:collapse'>0</td>
+            <td class="govuk-table__cell">
+              <b>13
+              </b>
+            </td>
+            <td class="govuk-table__cell" style='visibility:collapse'>0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- logic for daily living scores -->
+    <div>
+
+                           <h3 class="govuk-heading-s">Indicated daily living award level: <strong class="govuk-tag">Enhanced daily living award</strong></h3>
+          <br>
+    </div>
+
+  <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--l">Mobility</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Activity</th>
+            <th scope="col" class="govuk-table__header">Descriptor</th>
+            <th scope="col" class="govuk-table__header govuk-table__header">Points</th>
+          </tr>
+        </thead>
+
+    <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="score-planning-following-journeys" class="govuk-link">Planning and following journeys</a></td>
+          <td class="govuk-table__cell">
+            11a. Can plan and follow the route of a journey unaided.
+          </td>
+
+          <td class="govuk-table__cell">
+            0
+          </td>
+          <td class="govuk-table__cell govuk-table__cell">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="score-moving-around" class="govuk-link">Moving around</a></td>
+          <td class="govuk-table__cell">
+            12c. Can stand and then move more than 20 metres but no more than 50 metres, either aided or unaided.﻿
+          </td>
+          <td class="govuk-table__cell">
+        8
+          </td>
+
+          <td class="govuk-table__cell govuk-table__cell">
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Mobility total</th>
+              <td class="govuk-table__cell" style='visibility:collapse'>0</td>
+              <td class="govuk-table__cell">
+                <b>8
+              </td>
+              <td class="govuk-table__cell govuk-table__cell" style='visibility:collapse'>0</td>
+        </tr>
+    </tbody>
+</table>
+
+
+        <!-- logic for mobility scores --->
+        <div>
+
+
+
+              <h3 class="govuk-heading-s">Indicated mobility award level: <strong class="govuk-tag">Standard mobility award</strong></h3>
+
+
+              <br>
+      </div>
+
+
+        {{ govukButton({
+            text: "Back to case summary",
+            href: "summary",
+            classes: "govuk-button--secondary"
+        }) }}
+
+          <br>
+
+        {{ govukButton({
+          text: "Make a recommendation or referral",
+          href: "ready-to-make-next-step"
+        }) }}
+
+
+            </div>
+
+          </div>
+
+
+    </main>
+  </div>
+{% endblock %}

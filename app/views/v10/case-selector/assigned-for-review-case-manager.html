@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  In review
+{% endblock %}
+
+{% block main %}
+
+<header class="govuk-header " role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__content">
+    <nav aria-label="Menu" class="govuk-header__navigation">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+      <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="cases-for-triage">
+                Cases for triage
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="ready-for-review">
+                Ready for review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item govuk-header__navigation-item--active">
+                <a class="govuk-header__link" href="assigned-for-review-case-manager">
+                In review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="review-completed">
+                Review completed
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="search">
+                Search
+                </a>
+            </li>
+      </ul>
+    </nav>
+    </div>
+  </div>
+</header>
+
+<div class="govuk-grid-column-full">
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+
+        <h1 class="govuk-heading-l">In review (29)</h1>
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Caseload</th>
+                <th scope="col" class="govuk-table__header">Cases</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Susan Smith</th>
+                <td class="govuk-table__cell"><a href="assigned-for-review">In review (2)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Rosa Tate</th>
+                <td class="govuk-table__cell"><a href="#">In review (3)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Louis Singh</th>
+                <td class="govuk-table__cell"><a href="#">In review (4)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Aisha Buckle</th>
+                <td class="govuk-table__cell"><a href="#">In review (5)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Thaddeus Boyce</th>
+                <td class="govuk-table__cell"><a href="#">In review (2)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Cory Jones</th>
+                <td class="govuk-table__cell"><a href="#">In review (3)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Tobias Parke</th>
+                <td class="govuk-table__cell"><a href="#">In review (4)</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Imogen Willis</th>
+                <td class="govuk-table__cell"><a href="#">In review (6)</a></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+  </div>
+</main>
+
+  </div>
+</div>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      </dl>
+
+{% endblock %}
