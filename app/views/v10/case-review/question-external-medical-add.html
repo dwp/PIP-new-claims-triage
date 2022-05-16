@@ -4,7 +4,6 @@
   Question - external health professional
 {% endblock %}
 
-
 {% block main %}
 <!--<div class="govuk-width-container">-->
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
@@ -12,7 +11,6 @@
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
         <dt class="key-details-bar__name">Jane Doe</dt>
-
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
         <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
         <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
@@ -26,7 +24,7 @@
 </section>
 
 <div class="govuk-width-container">
-  <a href="questions-claimant" class="govuk-back-link">Back</a>
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
 
   <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
@@ -34,7 +32,7 @@
           <div class="govuk-grid-column-two-thirds">
 
               <h1 class="govuk-heading-l">
-                Add or edit a question and answer
+                Add question
               </h1>
 
               <div class="govuk-form-group">
@@ -61,23 +59,7 @@
                 }
               },
               items: [
-              {
-                value: "Unassigned",
-                text: "Unassigned",
-                checked: "true"
-              },
-              {
-                value: "Claimant",
-                text: "Claimant"
-              },
-              {
-                value: "Internal medical support",
-                text: "Internal medical support"
-              },
-              {
-                value: "Internal non medical support",
-                text: "Internal non medical support"
-              },
+          
               {
                 value: "External health professional",
                 text: "External health professional",
@@ -92,7 +74,7 @@
                       Add an answer
                     </h3>
 
-                                  <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
+     <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
 
 
                             {{ govukRadios({

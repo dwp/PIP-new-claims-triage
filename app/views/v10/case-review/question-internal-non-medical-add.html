@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block pageTitle %}
+Qustion for internal non medical support
+{% endblock %}
 {% block main %}
 <!--<div class="govuk-width-container">-->
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
@@ -57,27 +60,11 @@
                 }
               },
               items: [
-              {
-                value: "Unassigned",
-                text: "Unassigned",
-                checked: "true"
-              },
-              {
-                value: "Claimant",
-                text: "Claimant"
-              },
-              {
-                value: "Internal medical support",
-                text: "Internal medical support"
-              },
+
               {
                 value: "Internal non medical support",
                 text: "Internal non medical support",
                 checked: "true"
-              },
-              {
-                value: "External health professional",
-                text: "External health professional"
               }
               ]
             }) }}
