@@ -1,4 +1,10 @@
 {% extends "layout.html" %}
+
+
+{% block pageTitle %}
+Qustion for claimant
+{% endblock %}
+
 {% block main %}
 <!--<div class="govuk-width-container">-->
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
@@ -6,7 +12,6 @@
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
         <dt class="key-details-bar__name">Jane Doe</dt>
-
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
         <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
         <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
@@ -29,14 +34,12 @@
   <div class="govuk-grid-row" >
           <div class="govuk-grid-column-two-thirds" >
 
-              <h1 class="govuk-heading-l">
 
-
+            <h1 class="govuk-heading-l">
+                       <span class="govuk-caption-l">Claimant</span>
+                Add a question
               </h1>
 
-              <h2 class="govuk-heading-l">
-                Add or edit a question and answer
-              </h2>
   <form action="#" method="post">
               <div class="govuk-form-group">
                     <h3 class="govuk-heading-m">
@@ -45,11 +48,10 @@
 
 
 
-            <input type="hidden" value="{{ data.source }}"/>
                   <textarea class="govuk-textarea" id="more-detail" name="question" rows="5"></textarea>
             </div>
 
-            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
 
             {{ govukRadios({
               idPrefix: "who-is-question-for",
@@ -58,32 +60,19 @@
                 legend: {
                   text: "Who is this question for?",
                   isPageHeading: true,
-                  classes: "govuk-fieldset__legend--m"
+                  classes: "govuk-fieldset__legend--m",
+                    value: "Claimant"
                 }
               },
               items: [
-              {
-                value: "Unassigned",
-                text: "Unassigned"
 
-              },
               {
                 value: "Claimant",
                 text: "Claimant",
                 checked: "true"
-              },
-              {
-                value: "Internal medical support",
-                text: "Internal medical support"
-              },
-              {
-                value: "Internal non medical support",
-                text: "Internal non medical support"
-              },
-              {
-                value: "External healthcare professional",
-                text: "External health professional"
+
               }
+
               ]
             }) }}
 
