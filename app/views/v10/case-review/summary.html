@@ -7,6 +7,8 @@
 {% block main %}
 
 
+
+
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">
       <div class="key-details-bar__top-block">
@@ -22,7 +24,7 @@
 
       <div class="key-details-bar__bottom-block">
         <dt>Date of birth:</dt>
-        <dd>4 June 1972</dd>
+        <dd>4 June 1972  </dd>
       </div>
     </dl>
 </section>
@@ -117,7 +119,7 @@
      <li class="govuk-grid-column-one-half nhsuk-card-group__item">
        <div class="nhsuk-card nhsuk-card--clickable">
          <div class="nhsuk-card__content">
-           <p class="govuk-heading-m" style="font-size:65px">2 <span class="govuk-visually-hidden">Unanswered questions</span></p><a href="#answered" class="nhsuk-card__link    nhsuk-u-font-size-19  govuk-link--no-visited-state">Unanswered <br>questions</a>
+           <p class="govuk-heading-m" style="font-size:65px" id="unanswered">0 <span class="govuk-visually-hidden">Unanswered questions</span></p><a href="#answered" class="nhsuk-card__link    nhsuk-u-font-size-19  govuk-link--no-visited-state">Unanswered <br>questions</a>
         </div>
        </div>
 
@@ -125,7 +127,7 @@
      <li class="govuk-grid-column-one-half nhsuk-card-group__item">
        <div class="nhsuk-card nhsuk-card--clickable">
          <div class="nhsuk-card__content">
-           <p class="govuk-heading-m" style="font-size:65px; color:#005ea5;">7 <span class="govuk-visually-hidden">Answered questions</span></p><a href="#unanswered" class="nhsuk-card__link    nhsuk-u-font-size-19 govuk-link--no-visited-state">Answered <br>questions</a>
+           <p class="govuk-heading-m" style="font-size:65px; color:#005ea5;" id="answered">0 <span class="govuk-visually-hidden">Answered questions</span></p><a href="#unanswered" class="nhsuk-card__link    nhsuk-u-font-size-19 govuk-link--no-visited-state">Answered <br>questions</a>
          </div>
        </div>
 
@@ -133,8 +135,9 @@
 
    </ul>
 
-    <table class="govuk-table" id="unanswered">
-      <caption class="govuk-table__caption govuk-table__caption--m">Unanswered questions about this case (<font color="000000">2 questions</font>)</caption>
+
+    <table class="govuk-table" id="unanswered-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Unanswered questions about this case </caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Questions</th>
@@ -148,6 +151,7 @@
        {% for query in data['queriesQuestionsUnassigned'] %}
        {% if query.action == 'Unassigned' %}
        {% if query.answeredQuestion == 'no' %}
+
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
@@ -162,6 +166,8 @@
         {% for query in data['queriesQuestionsMedSupport'] %}
         {% if query.action == 'Internal medical support' %}
         {% if query.answeredQuestion == 'no' %}
+
+
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell" style="width:22%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:45%;">{{ query.answerBox }}</td>
@@ -2198,8 +2204,8 @@
 
       <br>
       <br>
-    <table class="govuk-table" id="answered">
-      <caption class="govuk-table__caption govuk-table__caption--m">Answered questions about this case (<font color="005ea5">7 questions</font>) </caption>
+    <table class="govuk-table" id="answered-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Answered questions about this case  </caption>
 
 
 
@@ -2318,6 +2324,34 @@
 
       </tbody>
     </table>
+
+    <script>
+                var a = document.getElementById("unanswered-table");
+                var rows = a.rows.length -1;
+                       let name = "(+rows)";
+                document.getElementById("unanswered").innerHTML = rows;
+    </script>
+
+
+
+    <script type="text/javascript">
+    {
+            var totalRowCount = -1;
+            var rowCount = 0;
+            var table = document.getElementById("answered-table");
+            var rows = table.getElementsByTagName("tr")
+            for (var i = 0; i < rows.length; i++) {
+                totalRowCount++;
+                if (rows[i].getElementsByTagName("td").length > 0) {
+                    rowCount++;
+                }
+            }
+            document.getElementById("answered").innerHTML = rowCount;
+
+
+        }
+    </script>
+
 
 
 

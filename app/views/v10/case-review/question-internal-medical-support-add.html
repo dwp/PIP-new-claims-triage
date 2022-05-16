@@ -1,4 +1,8 @@
 {% extends "layout.html" %}
+{% block pageTitle %}
+Qustion for Internal medical support
+{% endblock %}
+
 {% block main %}
 <!--<div class="govuk-width-container">-->
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
@@ -14,14 +18,13 @@
 
       <div class="key-details-bar__bottom-block">
         <dt>Date of birth:</dt>
-        <dd>5 January 1972</dd>
+        <dd>4 June 1972</dd>
       </div>
     </dl>
 </section>
 
 <div class="govuk-width-container">
-  <a href="questions-claimant" class="govuk-back-link">Back</a>
-
+    <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
   <main class="govuk-main-wrapper">
 
 
@@ -30,9 +33,9 @@
           <div class="govuk-grid-column-two-thirds">
 
 
-              <h1 class="govuk-heading-l">
-                Add or edit a question and answer
-              </h1>
+            <h1 class="govuk-heading-l">
+          Add question for Internal medical support
+            </h1>
 
               <div class="govuk-form-group">
                     <h3 class="govuk-heading-m">
@@ -58,28 +61,13 @@
                 }
               },
               items: [
-              {
-                value: "Unassigned",
-                text: "Unassigned",
-                checked: "true"
-              },
-              {
-                value: "Claimant",
-                text: "Claimant"
-              },
+
               {
                 value: "Internal medical support",
                 text: "Internal medical support",
                 checked: "true"
-              },
-              {
-                value: "Internal non medical support",
-                text: "Internal non medical support"
-              },
-              {
-                value: "External healthcare professional",
-                text: "External healthcare professional"
               }
+
               ]
             }) }}
 

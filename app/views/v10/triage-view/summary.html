@@ -129,7 +129,7 @@
      <li class="govuk-grid-column-one-half nhsuk-card-group__item">
        <div class="nhsuk-card nhsuk-card--clickable">
          <div class="nhsuk-card__content">
-           <p class="govuk-heading-m" style="font-size:65px">2 <span class="govuk-visually-hidden">Unanswered questions</span></p><a href="#answered" class="nhsuk-card__link    nhsuk-u-font-size-19  govuk-link--no-visited-state">Unanswered <br>questions</a>
+           <p class="govuk-heading-m" style="font-size:65px" id="unanswered">0 <span class="govuk-visually-hidden">Unanswered questions</span></p><a href="#answered" class="nhsuk-card__link    nhsuk-u-font-size-19  govuk-link--no-visited-state">Unanswered <br>questions</a>
         </div>
        </div>
 
@@ -137,7 +137,7 @@
      <li class="govuk-grid-column-one-half nhsuk-card-group__item">
        <div class="nhsuk-card nhsuk-card--clickable">
          <div class="nhsuk-card__content">
-           <p class="govuk-heading-m" style="font-size:65px; color:#005ea5;">7 <span class="govuk-visually-hidden">Answered questions</span></p><a href="#unanswered" class="nhsuk-card__link    nhsuk-u-font-size-19 govuk-link--no-visited-state">Answered <br>questions</a>
+           <p class="govuk-heading-m" style="font-size:65px; color:#005ea5;" id="answered">0 <span class="govuk-visually-hidden">Answered questions</span></p><a href="#unanswered" class="nhsuk-card__link    nhsuk-u-font-size-19 govuk-link--no-visited-state">Answered <br>questions</a>
          </div>
        </div>
 
@@ -145,8 +145,8 @@
 
    </ul>
 
-    <table class="govuk-table" id="unanswered">
-      <caption class="govuk-table__caption govuk-table__caption--m">Unanswered questions about this case (<font color="000000">2 questions</font>)</caption>
+    <table class="govuk-table" id="unanswered-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Unanswered questions about this case  <font color="000000">2 questions</font>)</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header">Questions</th>
@@ -2210,8 +2210,8 @@
 
       <br>
       <br>
-    <table class="govuk-table" id="answered">
-      <caption class="govuk-table__caption govuk-table__caption--m">Answered questions about this case (<font color="005ea5">7 questions</font>) </caption>
+    <table class="govuk-table" id="answered-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Answered questions about this case </caption>
 
 
 
@@ -2284,52 +2284,36 @@
         {% endif %}
         {% endfor %}
 
-        <!--<tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
-          <td class="govuk-table__cell">He can peel and chop vegetables if he was sat down.</td>
-          <td class="govuk-table__cell"><a href="questions-claimant">Claimant</a></td>
-        </tr>
 
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">Were you prescribed the long handled sponge?</td>
-          <td class="govuk-table__cell">Bought himself.</td>
-          <td class="govuk-table__cell"><a href="questions-claimant">Claimant</a></td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
-          <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
-          <td class="govuk-table__cell"><a href="questions-claimant">Claimant</a></td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">Do you have any aids, raised toilet seat, rails fitted?</td>
-          <td class="govuk-table__cell">He has a raised toilet. He holds onto the sink to sit and stand from the toilet.</td>
-          <td class="govuk-table__cell"><a href="questions-claimant">Claimant</a></td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">How often do you have urinary incontinence?</td>
-          <td class="govuk-table__cell">This does not fluctuate, every day is a bad day. This has got worse in the last 12 months. He has had no hospital admissions.</td>
-          <td class="govuk-table__cell"><a href="questions-claimant">Claimant</a></td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">How long ago were the mini strokes?</td>
-          <td class="govuk-table__cell">Need to clarify some evidence about preparing food</td>
-          <td class="govuk-table__cell"><a href="questions-claimant">Claimant</a></td>
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td scope="row" class="govuk-table__cell">Do you have aids from the GP or that you've bought yourself?</td>
-          <td class="govuk-table__cell">I didn't know you could get things like handrails from your GP. No, I bought them myself.
-                                          I use the handrail to help me get upstairs. I have fallen twice in the last year,
-                                          thankfully I didn’t end up in hospital though.</td>
-          <td class="govuk-table__cell"><a href="questions-claimant">Claimant</a></td>
-        </tr>-->
 
       </tbody>
     </table>
+    <script>
+                var a = document.getElementById("unanswered-table");
+                var rows = a.rows.length -1;
+                       let name = "(+rows)";
+                document.getElementById("unanswered").innerHTML = rows;
+    </script>
+
+
+
+    <script type="text/javascript">
+    {
+            var totalRowCount = -1;
+            var rowCount = 0;
+            var table = document.getElementById("answered-table");
+            var rows = table.getElementsByTagName("tr")
+            for (var i = 0; i < rows.length; i++) {
+                totalRowCount++;
+                if (rows[i].getElementsByTagName("td").length > 0) {
+                    rowCount++;
+                }
+            }
+            document.getElementById("answered").innerHTML = rowCount;
+
+
+        }
+    </script>
 
 
 <!--

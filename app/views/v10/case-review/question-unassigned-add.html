@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Add or edit a question and answer
+  Question - unassigned
 {% endblock %}
 
 {% block main %}
@@ -18,25 +18,24 @@ Add or edit a question and answer
 
       <div class="key-details-bar__bottom-block">
         <dt>Date of birth:</dt>
-        <dd>4 January 1972</dd>
+        <dd>4 June 1972</dd>
       </div>
     </dl>
 </section>
 
 <div class="govuk-width-container">
       <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
       <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
   <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
 
               <h1 class="govuk-heading-l">
-
+  Add question for Unassigned
               </h1>
 
-              <h2 class="govuk-heading-l">
-                Add or edit a question and answer
-              </h2>
+
 
                       <form action="#" method="post">
               <div class="govuk-form-group">
@@ -45,11 +44,13 @@ Add or edit a question and answer
                     </h3>
 
 
-            <input type="hidden" value="{{ data.source }}"/>
-                  <textarea class="govuk-textarea" id="more-detail" name="question" rows="5"></textarea>
+            <input type="hidden" value="unassigned"/>
+                  <textarea class="govuk-textarea" id="more-detail" name="question" rows="5" ></textarea>
             </div>
 
             {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
 
             {{ govukRadios({
               idPrefix: "who-is-question-for",
@@ -65,23 +66,8 @@ Add or edit a question and answer
               {
                 value: "Unassigned",
                 text: "Unassigned",
-                checked: "true"
-              },
-              {
-                value: "Claimant",
-                text: "Claimant"
-              },
-              {
-                value: "Internal medical support",
-                text: "Internal medical support"
-              },
-              {
-                value: "Internal non medical support",
-                text: "Internal non medical support"
-              },
-              {
-                value: "External healthcare professional",
-                text: "External healthcare professional"
+                checked: "true",
+                hidden: "true"
               }
               ]
             }) }}
@@ -138,7 +124,7 @@ Add or edit a question and answer
 
             </div>
 
- 
+
 </main>
 </div>
 
