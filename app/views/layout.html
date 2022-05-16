@@ -36,20 +36,25 @@
   {% include "includes/head.html" %}
 {% endblock %}
 
+
 {% block pageTitle %}
   GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
-  {# Set serviceName in config.js. #}
- {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-  }) }}
+  <header class="govuk-header " role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+  <!-- govuk logo removed -->
+    <div class="govuk-header__content">
+      <a href="/" class="govuk-header__link govuk-header__link--service-name">
+        PIP case review
+      </a>
+    </div>
+  </div>
+</header>
 {% endblock %}
 
+ 
 
 
  {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
