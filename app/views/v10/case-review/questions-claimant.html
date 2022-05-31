@@ -196,7 +196,7 @@
             <td class="govuk-table__cell"><a href="#"></a></td>
           </tr>  -->
         {% for query in data['queriesQuestions'] %}
-      <!-- i dont think this does anything   {% if query.action == 'Claimant' %} -->
+      <!-- i dont think this does anything -->  {% if query.action == 'Claimant' %}
         {% if query.answeredQuestion == 'yes' %}
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
@@ -212,7 +212,7 @@
           <td class="govuk-table__cell"><a href="question-add">Change</a></td>
         </tr>
         {% endif %}
-      <!-- i dont think this does anything -->  {% endif %}
+        {% endif %}
         {% endfor %}
 
         {% for query in data['queriesPrepFood'] %}
@@ -641,7 +641,7 @@
     </table>
 
     {{ govukButton({
-      text: "Add a question",
+      text: "Add a question for claimant",
       href: "question-add"
     }) }}
 

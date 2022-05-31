@@ -23,32 +23,55 @@ Qustion for Internal medical support
     </dl>
 </section>
 
-<div class="govuk-width-container">
-    <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
-  <main class="govuk-main-wrapper">
 
+
+
+      <div class="govuk-width-container">
+
+        <div class="column-full">
+          <nav class="navigation-secondary">
+            <ul>
+              <li>
+                <a href="personal-details">Personal details</a>
+              </li>
+              <li>
+                <a href="conditions">Conditions</a>
+              </li>
+              <li>
+                <a href="activities">Activities</a>
+              </li>
+              <li>
+                <a href="questions" class="active" aria-current="section">Questions</a>
+              </li>
+              <li>
+                <a href="summary">Summary</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
 
   <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
 
-
-            <h1 class="govuk-heading-l">
-          Add question for Internal medical support
-            </h1>
+            <h1 class="govuk-heading-l">Add a question for internal medical support</h1>
 
               <div class="govuk-form-group">
-                    <h3 class="govuk-heading-m">
-                    Question
-                    </h3>
-
+                    <h3 class="govuk-heading-m">Question</h3>
+                      </div>
+  <form action="#" method="post">
 
             <input type="hidden" value="{{ data.source }}"/>
                   <textarea class="govuk-textarea" id="more-detail" name="question" rows="5"></textarea>
-            </div>
-            <form action="#" method="post">
 
-            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+
+        <!--    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
             {{ govukRadios({
               idPrefix: "who-is-question-for",
@@ -61,16 +84,25 @@ Qustion for Internal medical support
                 }
               },
               items: [
-
               {
+
                 value: "Internal medical support",
                 text: "Internal medical support",
                 checked: "true"
               }
-
               ]
-            }) }}
+            }) }} -->
 
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading" style="display:none;">Who is this question for?</h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios" >
+                  <div class="govuk-radios__item" style="display:none;">
+                    <input class="govuk-radios__input" id="who-is-question-for" name="question-for-internal-medical-support" type="radio" value="Internal medical support" checked="true" style="display:none;">
+                    <label class="govuk-label govuk-radios__label" for="who-is-question-for">Internal medical support</label>
+                  </div>
 
 
 
@@ -87,7 +119,7 @@ Qustion for Internal medical support
                                   <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
                             </div>
 
-                            {{ govukRadios({
+                         {{ govukRadios({
                                   classes: "govuk-radios--inline",
                                   idPrefix: "answeredquestion",
                                   name: "answered-question",
@@ -117,13 +149,13 @@ Qustion for Internal medical support
 
                             }) }}
 
-                  </form>
-            </div>
-
 
             </div>
 
 
+            </div>
+
+</div>
 </main>
 </div>
 

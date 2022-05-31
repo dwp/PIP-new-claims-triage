@@ -2,6 +2,7 @@
 {% block pageTitle %}
 Qustion for internal non medical support
 {% endblock %}
+
 {% block main %}
 <!--<div class="govuk-width-container">-->
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
@@ -22,24 +23,46 @@ Qustion for internal non medical support
     </dl>
 </section>
 
-<div class="govuk-width-container">
-  <a href="questions-claimant" class="govuk-back-link">Back</a>
 
-  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+
+      <div class="govuk-width-container">
+
+        <div class="column-full">
+          <nav class="navigation-secondary">
+            <ul>
+              <li>
+                <a href="personal-details">Personal details</a>
+              </li>
+              <li>
+                <a href="conditions">Conditions</a>
+              </li>
+              <li>
+                <a href="activities">Activities</a>
+              </li>
+              <li>
+                <a href="questions" class="active" aria-current="section">Questions</a>
+              </li>
+              <li>
+                <a href="summary">Summary</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
 
   <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
 
-
-
-            <h1 class="govuk-heading-l">
-Add question for Internal non medical professional
-            </h1>
+            <h1 class="govuk-heading-l">Add a question for internal non medical professional</h1>
 
               <div class="govuk-form-group">
-                    <h3 class="govuk-heading-m">
-                    Question
-                    </h3>
+                    <h3 class="govuk-heading-m">Question</h3>
 
         <form action="#" method="post">
 
@@ -47,27 +70,41 @@ Add question for Internal non medical professional
                   <textarea class="govuk-textarea" id="more-detail" name="question" rows="5"></textarea>
 
 
-            {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-            {{ govukRadios({
-              idPrefix: "who-is-question-for",
-              name: "question-for-non-medical-support",
-              fieldset: {
-                legend: {
-                  text: "Who is this question for?",
-                  isPageHeading: true,
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              items: [
+<!--
+                              {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-              {
-                value: "Internal non medical support",
-                text: "Internal non medical support",
-                checked: "true"
-              }
-              ]
-            }) }}
+                              {{ govukRadios({
+                                idPrefix: "who-is-question-for",
+                                name: "question-for-non-medical-support",
+                                fieldset: {
+                                  legend: {
+                                    text: "Who is this question for?",
+                                    isPageHeading: true,
+                                    classes: "govuk-fieldset__legend--m"
+                                  }
+                                },
+                                items: [
+                                {
+                                  value: "Internal non medical support",
+                                  text: "Internal non medical support",
+                                  checked: "true"
+                                }
+                                ]
+                              }) }} -->
+
+
+
+                                          <div class="govuk-form-group">
+                                            <fieldset class="govuk-fieldset">
+                                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                                <h1 class="govuk-fieldset__heading" style="display:none;">Who is this question for?</h1>
+                                              </legend>
+                                              <div class="govuk-radios" data-module="govuk-radios" >
+                                                <div class="govuk-radios__item" style="display:none;">
+                                                  <input class="govuk-radios__input" id="who-is-question-for" name="question-for-non-medical-support" type="radio" value="Internal non medical support" checked="true" style="display:none;">
+                                                  <label class="govuk-label govuk-radios__label" for="who-is-question-for">Internal non medical support</label>
+                                                </div>
 
               <div class="govuk-form-group">
                     <h3 class="govuk-heading-m">

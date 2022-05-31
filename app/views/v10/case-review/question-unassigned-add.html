@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main %}
+
 <!--<div class="govuk-width-container">-->
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">
@@ -23,38 +24,58 @@
     </dl>
 </section>
 
-<div class="govuk-width-container">
+
+
+
+      <div class="govuk-width-container">
+
+        <div class="column-full">
+          <nav class="navigation-secondary">
+            <ul>
+              <li>
+                <a href="personal-details">Personal details</a>
+              </li>
+              <li>
+                <a href="conditions">Conditions</a>
+              </li>
+              <li>
+                <a href="activities">Activities</a>
+              </li>
+              <li>
+                <a href="questions" class="active" aria-current="section">Questions</a>
+              </li>
+              <li>
+                <a href="summary">Summary</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+
       <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
 
-      <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
   <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
 
-              <h1 class="govuk-heading-l">
-  Add question for Unassigned
-              </h1>
-
-
+              <h1 class="govuk-heading-l">Add an unassigned question  </h1>
 
                       <form action="#" method="post">
               <div class="govuk-form-group">
-                    <h3 class="govuk-heading-m">
-                    Question
-                    </h3>
+                    <h3 class="govuk-heading-m">Question</h3>
 
 
-            <input type="hidden" value="unassigned"/>
+
                   <textarea class="govuk-textarea" id="more-detail" name="question" rows="5" ></textarea>
             </div>
 
-            {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-
+            <!-- {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
             {{ govukRadios({
               idPrefix: "who-is-question-for",
               name: "question-for-unassigned",
+
               fieldset: {
                 legend: {
                   text: "Who is this question for?",
@@ -66,14 +87,29 @@
               {
                 value: "Unassigned",
                 text: "Unassigned",
-                checked: "true",
-                hidden: "true"
+                  checked: "true"
+
+
               }
               ]
-            }) }}
+            }) }} -->
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading" style="display:none;">Who is this question for?</h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios" >
+                  <div class="govuk-radios__item" style="display:none;">
+                    <input class="govuk-radios__input" id="who-is-question-for" name="question-for-unassigned" type="radio" value="Unassigned" checked="true" style="display:none;">
+                    <label class="govuk-label govuk-radios__label" for="who-is-question-for">Unassigned</label>
+                  </div>
 
 
+                </div>
 
+              </fieldset>
+            </div>
 
               <div class="govuk-form-group">
                     <h3 class="govuk-heading-m">

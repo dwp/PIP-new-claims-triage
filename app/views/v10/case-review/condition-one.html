@@ -219,13 +219,11 @@
 
 
 
-
-
-<h2 class="govuk-heading-m">Questions</h2>
+<h2 class="govuk-heading-m">Questions <b id="condition-unanswered" style="display: none;">0</b></h2>
 
 
 <div id="queryTable">
-<table class="govuk-table">
+<table class="govuk-table" id="condition-table">
 
 <thead class="govuk-table__head">
   <tr class="govuk-table__row">
@@ -241,6 +239,7 @@
  <tr class="govuk-table__row">
     <td class="govuk-table__cell">{{ query.textBox }}</td>
     <td class="govuk-table__cell"><a href="{{ query.href }}">{{ query.action }}</a></td>
+       
     <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
 </tr>
 
@@ -249,10 +248,14 @@
 
 </tbody>
 </table>
+
+
+
 </div>
 
 <script defer type="text/javascript">
 
+// hide table of questions if there aren't any
   var noQuery = "{{ data['who-is-question-for-cond-one'] }}";
 
   if (noQuery) {
@@ -266,7 +269,23 @@
     }
   }
 
+
+// count the number of questions in the table to assign to conditions page
+
+  //            var a = document.getElementById("condition-table");
+    //          var rows = a.rows.length -1;
+      //               let name = "(+rows)";
+      //        document.getElementById("condition-unanswered").innerHTML = rows;
+//
+              // Set Item
+      //        localStorage.setItem("unanswered-conditions1", rows );
+              // Retrieve
+        //      document.getElementById("tag-condition1").innerHTML = localStorage.getItem("unanswered-conditions1");
+
+
+
   </script>
+
 </main>
     </div>
   </div>

@@ -247,11 +247,11 @@
 
 
 
-<h2 class="govuk-heading-m">Questions</h2>
+<h2 class="govuk-heading-m">Questions <b id="condition-unanswered" style="display: none;">0</b></h2>
 
 
 <div id="queryTable">
-<table class="govuk-table">
+<table class="govuk-table" id="condition-table">
 
 <thead class="govuk-table__head">
   <tr class="govuk-table__row">
@@ -273,12 +273,14 @@
 {% endif %}
 {% endfor %}
 
+
+
 </tbody>
 </table>
 </div>
-
+ 
 <script defer type="text/javascript">
-
+// hide table of questions if there aren't any
   var noQuery = "{{ data['who-is-question-for-cond-two'] }}";
 
   if (noQuery) {
@@ -292,10 +294,23 @@
     }
   }
 
+  // count the number of questions in the table to assign to conditions page
+
+                var a = document.getElementById("condition-table");
+                var rows = a.rows.length -1;
+                       let name = "(+rows)";
+                document.getElementById("condition-unanswered").innerHTML = rows;
+
+                // Set Item
+                localStorage.setItem("unanswered-conditions2", rows );
+                // Retrieve
+                document.getElementById("tag-condition2").innerHTML = localStorage.getItem("unanswered-conditions2");
+
+
   </script>
-</main>
+
       </div>
-    </div>
+    </div></main>
   </div>
 
 {% endblock %}

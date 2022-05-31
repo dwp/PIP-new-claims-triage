@@ -24,26 +24,46 @@ Qustion for claimant
     </dl>
 </section>
 
-<div class="govuk-width-container">
-  <a href="questions-claimant" class="govuk-back-link">Back</a>
-
-  <main class="govuk-main-wrapper" id="main-content" role="main" >
 
 
+
+      <div class="govuk-width-container">
+
+        <div class="column-full">
+          <nav class="navigation-secondary">
+            <ul>
+              <li>
+                <a href="personal-details">Personal details</a>
+              </li>
+              <li>
+                <a href="conditions">Conditions</a>
+              </li>
+              <li>
+                <a href="activities">Activities</a>
+              </li>
+              <li>
+                <a href="questions" class="active" aria-current="section">Questions</a>
+              </li>
+              <li>
+                <a href="summary">Summary</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
   <div class="govuk-grid-row" >
           <div class="govuk-grid-column-two-thirds" >
 
-
-            <h1 class="govuk-heading-l">
-Add question for Claimant
-            </h1>
+            <h1 class="govuk-heading-l">Add a question for the claimant</h1>
 
   <form action="#" method="post">
               <div class="govuk-form-group">
-                    <h3 class="govuk-heading-m">
-                    Question
-                    </h3>
+                    <h3 class="govuk-heading-m">Question</h3>
 
 
 
@@ -51,30 +71,38 @@ Add question for Claimant
             </div>
 
 
+            <!-- {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
             {{ govukRadios({
               idPrefix: "who-is-question-for",
-              name: "question-for",
+              name: "question-for-claimant",
               fieldset: {
                 legend: {
                   text: "Who is this question for?",
                   isPageHeading: true,
-                  classes: "govuk-fieldset__legend--m",
-                    value: "Claimant"
+                  classes: "govuk-fieldset__legend--m"
                 }
               },
               items: [
-
               {
+
                 value: "Claimant",
                 text: "Claimant",
                 checked: "true"
-
               }
-
               ]
-            }) }}
+            }) }} -->
 
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  <h1 class="govuk-fieldset__heading" style="display:none;">Who is this question for?</h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios" >
+                  <div class="govuk-radios__item" style="display:none;">
+                    <input class="govuk-radios__input" id="who-is-question-for" name="question-for-claimant" type="radio" value="Claimant" checked="true" style="display:none;">
+                    <label class="govuk-label govuk-radios__label" for="who-is-question-for">Claimant</label>
+                  </div>
 
 
 

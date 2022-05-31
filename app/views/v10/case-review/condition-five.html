@@ -242,11 +242,11 @@
 
 
 
-<h2 class="govuk-heading-m">Questions</h2>
+<h2 class="govuk-heading-m">Questions <b id="condition-unanswered" style="display: none;">0</b></h2>
 
 
 <div id="queryTable">
-<table class="govuk-table">
+<table class="govuk-table" id="condition-table">
 
 <thead class="govuk-table__head">
   <tr class="govuk-table__row">
@@ -287,6 +287,18 @@
     }
   }
 
+
+  // count the number of questions in the table to assign to conditions page
+
+                var a = document.getElementById("condition-table");
+                var rows = a.rows.length -1;
+                       let name = "(+rows)";
+                document.getElementById("condition-unanswered").innerHTML = rows;
+
+                // Set Item
+                localStorage.setItem("unanswered-conditions5", rows );
+                // Retrieve
+                document.getElementById("tag-condition5").innerHTML = localStorage.getItem("unanswered-conditions5");
   </script>
 </main>
     </div>
