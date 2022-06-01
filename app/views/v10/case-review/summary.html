@@ -1418,7 +1418,7 @@
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
-          <td class="govuk-table__cell" style="width:13%;"><a href="questions-internal-medical-support">Internal medical support</a></td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="questions-internal-medical-support">-->Internal medical support<!--</a>--></td>
           <td class="govuk-table__cell">Question</td>
           </tr>
         {% endif %}
@@ -2630,7 +2630,7 @@
                 <tr class="govuk-table__row">
                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
-                  <td class="govuk-table__cell" style="width:13%;"><a href="questions-internal-medical-support">Internal medical support</a></td>
+                  <td class="govuk-table__cell" style="width:13%;"><!-- <a href="questions-internal-medical-support">-->Internal medical support<!-- </a>--></td>
                   <td class="govuk-table__cell">Question</td>
                   </tr>
                 {% endif %}
@@ -2650,7 +2650,21 @@
         {% endif %}
         {% endfor %}
 
-
+      
+                <!-- non-medical support option from medical support page-->
+                 {% for query in data['queriesQuestionsNonMedical'] %}
+                 {% if query.action == 'Internal non medical support' %}
+                 {% if query.answeredQuestion == 'yes' %}
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Question </td>
+                       <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+                 </tr>
+                 {% endif %}
+                 {% endif %}
+                 {% endfor %}
 
       </tbody>
     </table>
