@@ -1414,7 +1414,7 @@
 <!-- INTERNAL MED SUPPORT-->
         {% for query in data['queriesQuestionsMedSupport'] %}
         {% if query.action == 'Internal medical support' %}
-        {% if query.answeredQuestion == 'yes' %}
+        {% if query.answeredQuestion == 'no' %}
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
@@ -2623,6 +2623,19 @@
         {% endif %}
         {% endfor %}
 
+        <!-- INTERNAL MED SUPPORT-->
+                {% for query in data['queriesQuestionsMedSupport'] %}
+                {% if query.action == 'Internal medical support' %}
+                {% if query.answeredQuestion == 'yes' %}
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+                  <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                  <td class="govuk-table__cell" style="width:13%;"><a href="questions-internal-medical-support">Internal medical support</a></td>
+                  <td class="govuk-table__cell">Question</td>
+                  </tr>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
 
         {% for query in data['queriesQuestionsExternalMedical'] %}
         {% if query.action == 'External health professional' %}
