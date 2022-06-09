@@ -60,29 +60,29 @@
               items: [
                 {
                   value: "Unassigned",
-                  text: "Unassigned",
-                  checked: checked("question-for", "Unassigned")
+                  text: "Unassigned"
+
 
                 },
                 {
                   value: "Claimant",
-                  text: "Claimant",
-                  checked: checked("question-for", "Claimant")
+                  text: "Claimant"
+
                 },
                 {
                   value: "Internal medical support",
-                  text: "Internal medical support",
-                  checked: checked("question-for", "Internal medical support")
+                  text: "Internal medical support"
+
                 },
                 {
                   value: "Internal non medical support",
-                  text: "Internal non medical support",
-                  checked: checked("question-for", "Internal non medical support")
+                  text: "Internal non medical support"
+
                 },
                 {
                   value: "External health professional",
-                  text: "External health professional",
-                  checked: checked("question-for", "External health professional")
+                  text: "External health professional"
+
                 }
               ]
             }) }}
@@ -98,7 +98,7 @@
 
                             <div class="govuk-form-group">
 
-                                  <textarea class="govuk-textarea" id="answers" name="answer" rows="5">{{ data['answer'] }}</textarea>
+                                  <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
                             </div>
 
                             {{ govukRadios({
@@ -115,13 +115,12 @@
                                   items: [
                                     {
                                       value: "yes",
-                                      text: "Yes",
-                                      checked: checked("answered-question", "yes")
+                                      text: "Yes"
+
                                     },
                                     {
                                       value: "no",
-                                      text: "No",
-                                      checked: checked("answered-question", "no")
+                                      text: "No"
                                     }
                                   ]
                             }) }}
