@@ -152,6 +152,51 @@ router.post('/v10/case-review/question-link', (req, res, next) => {
       }
     })
 
+//test to create a preparing food question
+router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
+    if (req.session.data['question-for']) {
+      console.log('is-this-calling-questions', req.session.data)
+      const questionBox = req.session.data['question']
+      const answerBox = req.session.data['answer']
+      const answeredQuestion = req.session.data['answered-question']
+      const section = req.session.data.source
+
+      const queriesQuestions = req.session.data.queriesQuestions || []
+      queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
+      req.session.data.queriesQuestions = queriesQuestions
+
+      let href;
+
+      switch (req.session.data['question-for']) {
+        case("Unassigned"):
+        href = '/v10/case-review/unassigned-questions';
+        break;
+        case("Claimant"):
+        href = '/v10/case-review/questions-claimant';
+        break;
+        case("Internal medical support"):
+        href = '/v10/case-review/questions-internal-medical-support';
+        break;
+        case("Internal non medical support"):
+        href = '/v10/case-review/questions-internal-non-medical-support';
+        break;
+        case("External health professional"):
+        href = '/v10/case-review/questions-external-medical-health-professional';
+        break;
+        //this is the hardcoded bit if one of the links fails
+        default:
+        href = '/v10/case-review/summary';
+      }
+      console.log('question-for');
+      req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
+      req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].href = href;
+      res.redirect('/v10/case-review/summary')
+
+      }
+    })
+
+    //end test to create preparing food question
+
 
 //Start routes for the 'adding a question' journey (collated questions view)
     //Adding a question to unassigned questions

@@ -14,12 +14,9 @@
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
         <dt class="key-details-bar__name">Jane Doe</dt>
-
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
         <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
-
         <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
-
       </div>
 
       <div class="key-details-bar__bottom-block">
@@ -43,9 +40,9 @@
         <li>
           <a href="activities">Activities</a>
         </li>
-          <li>
+        <!--  <li>
         <a href="questions">Questions</a>
-        </li>
+        </li> -->
         <li>
           <a href="summary" class="active" aria-current="section">Summary</a>
         </li>
@@ -188,7 +185,7 @@
             <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
             <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
               <td class="govuk-table__cell" style="width:13%;">Preparing food </td>
-                <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+                <td class="govuk-table__cell"><a href="question-link"> </a></td>
               </tr>
           {% endif %}
           {% endif %}
@@ -475,14 +472,14 @@
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
            <td class="govuk-table__cell" style="width:13%;">Preparing food </td>
-             <td class="govuk-table__cell"><a href="question-link">Change</a></td></tr>
+             <td class="govuk-table__cell"><a href="question-link"> </a></td></tr>
        {% else %}
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
            <td class="govuk-table__cell" style="width:13%;">Preparing food</td>
-             <td class="govuk-table__cell"><a href="question-link">Change</a></td></tr>
+             <td class="govuk-table__cell"><a href="question-link">Change </a></td></tr>
        {% endif %}
        {% endif %}
        {% endfor %}
@@ -709,14 +706,14 @@
         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Moving around</td>
+          <td class="govuk-table__cell" style="width:13%;"> {{ query.section }}  1111</td>
             <td class="govuk-table__cell"><a href="question-link">Change</a></td></tr>
       {% else %}
       <tr class="govuk-table__row">
         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Moving around </td>
+          <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
             <td class="govuk-table__cell"><a href="question-link">Change</a></td></tr>
       {% endif %}
       {% endif %}
@@ -730,7 +727,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-           <td class="govuk-table__cell" style="width:13%;">Question </td>
+           <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
              <td class="govuk-table__cell"><a href="question-link">Change</a></td>
            </tr>
        {% else %}
@@ -738,7 +735,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-           <td class="govuk-table__cell" style="width:13%;">Question </td>
+           <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
              <td class="govuk-table__cell"><a href="question-link">Change</a></td>
            </tr>
        {% endif %}
@@ -753,7 +750,7 @@
         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Question </td>
+          <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
             <td class="govuk-table__cell"><a href="question-link">Change</a></td>  </tr>
       {% endif %}
       {% endif %}
@@ -768,7 +765,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% else %}
@@ -776,7 +773,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+          <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% endif %}
@@ -790,7 +787,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% else %}
@@ -798,7 +795,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% endif %}
@@ -812,7 +809,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 3 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% else %}
@@ -820,7 +817,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 3 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% endif %}
@@ -835,7 +832,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% else %}
@@ -843,7 +840,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         {% endif %}
         {% endif %}
@@ -856,7 +853,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% else %}
@@ -864,7 +861,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% endif %}
@@ -878,7 +875,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% else %}
@@ -900,7 +897,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% else %}
@@ -908,7 +905,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% endif %}
@@ -922,7 +919,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% else %}
@@ -930,7 +927,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
           <td class="govuk-table__cell"><a href="question-link">Change</a></td>
         </tr>
         {% endif %}
@@ -960,7 +957,7 @@
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
            <td class="govuk-table__cell" style="width:13%;">Preparing food </td>
-             <td class="govuk-table__cell"><a href="question-link">Change</a></td></tr>
+             <td class="govuk-table__cell"><a href="question-link"> </a></td></tr>
        {% else %}
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
@@ -981,7 +978,7 @@
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
            <td class="govuk-table__cell" style="width:13%;">Eating and drinking </td>
-             <td class="govuk-table__cell"><a href="question-link">Change</a></td></tr>
+             <td class="govuk-table__cell"><a href="question-link"> </a></td></tr>
        {% else %}
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
@@ -1003,7 +1000,7 @@
                 <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
                 <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
                 <td class="govuk-table__cell" style="width:13%;">Therapy </td>
-                <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+                <td class="govuk-table__cell"><a href="question-link"> </a></td>
               </tr>
               {% else %}
               <tr class="govuk-table__row">
@@ -1229,7 +1226,7 @@
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
          <td class="govuk-table__cell" style="width:13%;">Additionl information </td>
-         <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+         <td class="govuk-table__cell"><a href="question-link"></a></td>
        </tr>
        {% endif %}
        {% endif %}
@@ -1243,15 +1240,15 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
-         <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="question-link"></a></td>
        </tr>
        {% else %}
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1265,7 +1262,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1274,7 +1271,7 @@
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
          <td class="govuk-table__cell" style="width:13%;">Eating and drinking </td>
-         <td class="govuk-table__cell"><a href="question-link">Condition 2</a></td>
+         <td class="govuk-table__cell"><a href="question-link">{{ query.section }}</a></td>
        </tr>
        {% endif %}
        {% endif %}
@@ -1287,7 +1284,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 3 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1295,7 +1292,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 3 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1309,7 +1306,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1317,7 +1314,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1331,7 +1328,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1339,7 +1336,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1353,7 +1350,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1361,7 +1358,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1375,7 +1372,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1383,7 +1380,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1397,7 +1394,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1405,7 +1402,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        {% endif %}
        {% endif %}
@@ -1433,7 +1430,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1441,7 +1438,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1455,7 +1452,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1463,7 +1460,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1477,7 +1474,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 3 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1485,7 +1482,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 3 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1499,7 +1496,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1507,7 +1504,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1521,7 +1518,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1529,7 +1526,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1543,7 +1540,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1551,7 +1548,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1565,7 +1562,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1573,7 +1570,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1587,7 +1584,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1595,7 +1592,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1628,7 +1625,7 @@
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
             <td class="govuk-table__cell" style="width:13%;">Preparing food </td>
-            <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+            <td class="govuk-table__cell"><a href="question-link"> </a></td>
         </tr>
         {% else %}
         <tr class="govuk-table__row">
@@ -1692,14 +1689,14 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-            <td class="govuk-table__cell" style="width:13%;">Washing </td>
+            <td class="govuk-table__cell" style="width:13%;">Washing and bathing </td>
               <td class="govuk-table__cell"><a href="question-link">Change</a></td>  </tr>
         {% else %}
         <tr class="govuk-table__row">
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-            <td class="govuk-table__cell" style="width:13%;">Washing </td>
+            <td class="govuk-table__cell" style="width:13%;">Washing and bathing </td>
               <td class="govuk-table__cell"><a href="question-link">Change</a></td>    </tr>
         {% endif %}
         {% endif %}
@@ -1902,7 +1899,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1910,7 +1907,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1924,7 +1921,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1932,7 +1929,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1946,14 +1943,14 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 3 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td></tr>
        {% else %}
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 3 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1967,7 +1964,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1975,7 +1972,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -1989,7 +1986,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -1997,7 +1994,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2011,7 +2008,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -2019,7 +2016,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2033,7 +2030,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -2041,7 +2038,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2055,7 +2052,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -2063,7 +2060,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2110,14 +2107,14 @@
                    <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
                    <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
                      <td class="govuk-table__cell" style="width:13%;">Preparing food</td>
-                       <td class="govuk-table__cell"><a href="question-link">Change</a></td>  </tr>
+                       <td class="govuk-table__cell"><a href="question-link">Changello</a></td>  </tr>
                  {% else %}
                  <tr class="govuk-table__row">
                    <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
                    <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
                    <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
                      <td class="govuk-table__cell" style="width:13%;">Preparing food</td>
-                       <td class="govuk-table__cell"><a href="question-link">Change</a></td>  </tr>
+                       <td class="govuk-table__cell"><a href="question-link"> </a></td>  </tr>
                  {% endif %}
                  {% endif %}
                  {% endfor %}
@@ -2175,14 +2172,14 @@
                    <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
                    <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
                    <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-                     <td class="govuk-table__cell" style="width:13%;">Washing</td>
+                     <td class="govuk-table__cell" style="width:13%;">Washing and bathing</td>
                        <td class="govuk-table__cell"><a href="question-link">Change</a></td>    </tr>
                  {% else %}
                  <tr class="govuk-table__row">
                    <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
                    <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
                    <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-                     <td class="govuk-table__cell" style="width:13%;">Washing </td>
+                     <td class="govuk-table__cell" style="width:13%;">Washing and bathing </td>
                        <td class="govuk-table__cell"><a href="question-link">Change</a></td>      </tr>
                  {% endif %}
                  {% endif %}
@@ -2393,7 +2390,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><a href="questions-internal-non-medical-support">Internal non medical support</a></td>
-         <td class="govuk-table__cell">Phone call</td>
+         <td class="govuk-table__cell">{{ query.section }}</td>
        </tr>
        {% endif %}
        {% endif %}
@@ -2407,7 +2404,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -2415,7 +2412,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 1 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2429,7 +2426,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -2437,7 +2434,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 2 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2451,7 +2448,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-           <td class="govuk-table__cell" style="width:13%;">Condition 3</td>
+           <td class="govuk-table__cell" style="width:13%;">{{ query.section }}</td>
              <td class="govuk-table__cell"><a href="question-link">Change</a></td>
            </tr>
        {% else %}
@@ -2459,7 +2456,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-           <td class="govuk-table__cell" style="width:13%;">Condition 3</td>
+           <td class="govuk-table__cell" style="width:13%;">{{ query.section }}</td>
              <td class="govuk-table__cell"><a href="question-link">Change</a></td>
            </tr>
        {% endif %}
@@ -2473,7 +2470,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-           <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+           <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
              <td class="govuk-table__cell"><a href="question-link">Change</a></td>
            </tr>
        {% else %}
@@ -2481,7 +2478,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-           <td class="govuk-table__cell" style="width:13%;">Condition 4 </td>
+           <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
              <td class="govuk-table__cell"><a href="question-link">Change</a></td>
            </tr>
        {% endif %}
@@ -2495,14 +2492,14 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td> </tr>
        {% else %}
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 5 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2516,7 +2513,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -2524,7 +2521,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 6 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2538,7 +2535,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -2546,7 +2543,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 7 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2560,7 +2557,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% else %}
@@ -2568,7 +2565,7 @@
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-         <td class="govuk-table__cell" style="width:13%;">Condition 8 </td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
        </tr>
        {% endif %}
@@ -2616,7 +2613,7 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-          <td class="govuk-table__cell">Phone call</td>
+          <td class="govuk-table__cell">{{ query.section }}</td>
 
         </tr>
         {% endif %}
@@ -2644,13 +2641,13 @@
           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
             <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-            <td class="govuk-table__cell">Phone call</td>
+            <td class="govuk-table__cell">{{ query.section }}</td>
         </tr>
         {% endif %}
         {% endif %}
         {% endfor %}
 
-      
+
                 <!-- non-medical support option from medical support page-->
                  {% for query in data['queriesQuestionsNonMedical'] %}
                  {% if query.action == 'Internal non medical support' %}
@@ -2659,7 +2656,7 @@
                    <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
                    <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
                    <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-                     <td class="govuk-table__cell" style="width:13%;">Question </td>
+                     <td class="govuk-table__cell" style="width:13%;">{{ query.section }}</td>
                        <td class="govuk-table__cell"><a href="question-link">Change</a></td>
                  </tr>
                  {% endif %}

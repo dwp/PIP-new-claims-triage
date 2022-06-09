@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question - uAdd an answer to Preparing Food
+{% endblock %}
+
+{% block main %}
+
+
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+    <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+
+
+            {% for query in data['queriesPrepFood'] %}
+            {% if query.action == 'Unassigned' %}
+
+
+            1 {{ query.section }}
+            2 {{ query.textBox }}
+            3 {{ query.answerBox }}
+            4 {{ query.action }}
+            5 {{ query.section }}
+            6 {{ question.textBox }}
+
+            8 {{ query.answeredQuestion }}
+              <h2 class="govuk-heading-l">
+                Add an answer for {{ query.section }}
+              </h2>
+
+              <div class="govuk-form-group">
+                    <h3 class="govuk-heading-m">
+                    Question
+                    </h3>
+
+         <form action="summary" method="post">
+
+
+            <input type="hidden" value="{{ data.source }}"/>
+                  <textarea class="govuk-textarea" id="more-detail" name="question" rows="5">{{ query.textBox }}</textarea>
+
+            {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+            {{ govukRadios({
+              idPrefix: "who-is-question-for",
+              name: "who-is-question-for-prepfood",
+              fieldset: {
+                legend: {
+                  text: "Who is this question for?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              items: [
+                {
+                  value: "Unassigned",
+                  text: "Unassigned",
+                    checked: "true"
+
+                },
+                {
+                  value: "Claimant",
+                  text: "Claimant",
+                  checked: checked("who-is-question-for-prepfood", "Claimant")
+                },
+                {
+                  value: "Internal medical support",
+                  text: "Internal medical support",
+                  checked: checked("who-is-question-for-prepfood", "Internal medical support")
+                },
+                {
+                  value: "Internal non medical support",
+                  text: "Internal non medical support",
+                  checked: checked("who-is-question-for-prepfood", "Internal non medical support")
+                },
+                {
+                  value: "External health professional",
+                  text: "External health professional",
+                  checked: checked("who-is-question-for-prepfood", "External health professional")
+                }
+              ]
+            }) }}
+
+<br><br>
+            <h3 class="govuk-heading-m">
+              Add an answer for {{ query.action }}
+            </h3>
+            <div class="govuk-form-group">
+
+                  <textarea class="govuk-textarea" id="answers" name="answer" rows="5"></textarea>
+            </div>
+
+            {{ govukRadios({
+                  classes: "govuk-radios--inline",
+                  idPrefix: "answeredquestion",
+                  name: "answered-question",
+                  fieldset: {
+                    legend: {
+                      text: "Has this answered your question?",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--m"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "yes",
+                      text: "Yes"
+                    },
+                    {
+                      value: "no",
+                      text: "No",
+                      checked: "true"
+                    }
+                  ]
+            }) }}
+
+        <p><br> </p>
+            {{ govukButton({
+                text: "Save and continue"
+
+            }) }}
+
+        </form>{% endif %}
+  {% endfor %}
+            </div>
+
+
+
+            </div>
+
+  </div>
+</main>
+</div>
+
+{% endblock %}

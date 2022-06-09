@@ -27,13 +27,8 @@
 
   <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
-
-
-
   <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
-
-
 
               <h2 class="govuk-heading-l">
                 Add or edit a question and answer
@@ -65,24 +60,29 @@
               items: [
                 {
                   value: "Unassigned",
-                  text: "Unassigned"
+                  text: "Unassigned",
+                  checked: checked("question-for", "Unassigned")
 
                 },
                 {
                   value: "Claimant",
-                  text: "Claimant"
+                  text: "Claimant",
+                  checked: checked("question-for", "Claimant")
                 },
                 {
                   value: "Internal medical support",
-                  text: "Internal medical support"
+                  text: "Internal medical support",
+                  checked: checked("question-for", "Internal medical support")
                 },
                 {
                   value: "Internal non medical support",
-                  text: "Internal non medical support"
+                  text: "Internal non medical support",
+                  checked: checked("question-for", "Internal non medical support")
                 },
                 {
-                  value: "External healthcare professional",
-                  text: "External health professional"
+                  value: "External health professional",
+                  text: "External health professional",
+                  checked: checked("question-for", "External health professional")
                 }
               ]
             }) }}
@@ -91,9 +91,7 @@
 
 
               <div class="govuk-form-group">
-                    <h3 class="govuk-heading-m">
-                      Add an answer
-                    </h3>
+                    <h3 class="govuk-heading-m">  Add an answer</h3>
 
 
 
@@ -117,12 +115,13 @@
                                   items: [
                                     {
                                       value: "yes",
-                                      text: "Yes"
+                                      text: "Yes",
+                                      checked: checked("answered-question", "yes")
                                     },
                                     {
                                       value: "no",
                                       text: "No",
-                                      checked: "true"
+                                      checked: checked("answered-question", "no")
                                     }
                                   ]
                             }) }}
@@ -130,7 +129,6 @@
 <p><br> </p>
                             {{ govukButton({
                                 text: "Save and continue"
-
                             }) }}
 
 

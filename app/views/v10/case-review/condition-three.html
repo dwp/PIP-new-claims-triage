@@ -70,7 +70,7 @@
             <a href="activities">Activities</a>
           </li>
           <li>
-            <a href="questions">Questions</a>
+
           </li>
           <li>
             <a href="summary">Summary</a>
@@ -266,7 +266,7 @@
   {% if query.section == 'angina' %}
  <tr class="govuk-table__row">
     <td class="govuk-table__cell">{{ query.textBox }}</td>
-    <td class="govuk-table__cell"><a href="{{ query.href }}">{{ query.action }}</a></td>
+    <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
     <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong></td>
 </tr>
 
