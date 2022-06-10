@@ -273,6 +273,7 @@
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Question</th>
+              <th scope="col" class="govuk-table__header">Answer</th>
               <th scope="col" class="govuk-table__header">Contact</th>
               <th scope="col" class="govuk-table__header">Status</th>
             </tr>
@@ -282,17 +283,11 @@
           {% if query.section == 'budgeting' %}
 
           <tr class="govuk-table__row">
-              <td class="govuk-table__cell">
-                {{ query.textBox }}
-
-              </td>
-              <td class="govuk-table__cell">
-                <!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> -->
-              </td>
-              <td class="govuk-table__cell">
-                  <strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong>
-              </td>
-          </tr>
+             <td class="govuk-table__cell">{{ query.textBox }}</td>
+             <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+             <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
+             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+         </tr>
           {% endif %}
           {% endfor %}
 
