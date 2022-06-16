@@ -10,10 +10,9 @@ Qustion for Preparing Food
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
         <dt class="key-details-bar__name">Jane Doe</dt>
-
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
         <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
-          <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
       </div>
 
       <div class="key-details-bar__bottom-block">
@@ -31,22 +30,22 @@ Qustion for Preparing Food
   <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
 
+<form action="summary" method="post" class="form">
 
-            {% for query in data['queriesPrepFood'] %}
 
-            <h2 class="govuk-heading-l">Add an answer for {{ query.section }}</h2>
+            <h2 class="govuk-heading-l">Add an answer for {{ data['queriesPrepFood'][0].section }}</h2>
 
               <div class="govuk-form-group">
                     <h3 class="govuk-heading-m">Question</h3>
 
-           <form action="#" method="post">
-                  <p>{{ query.textBox }}</p>
+
+                  <p>{{ data['queriesPrepFood'][0].textBox }}</p>
             <h3 class="govuk-heading-m">
-              Add an answer after contacting {{ query.action }}
+              Add an answer after contacting {{ data['queriesPrepFood'][0].action }}
             </h3>
             <div class="govuk-form-group">
-              
-  <textarea class="govuk-textarea" id="answers" name="answer" value="{{ data['query.answerBox'] }}" rows="5"></textarea>
+                <input class="govuk-input" id="preparing-food-answer" name="preparing-food-answer" value="{{ data['preparing-food-answer'] }}" type="text">
+
             </div>
 
             {{ govukRadios({
@@ -79,16 +78,11 @@ Qustion for Preparing Food
 
             }) }}
 
+
+</div>
+
         </form>
-
-  {% endfor %}
             </div>
-
-
-
-            </div>
-
-  </div>
 </main>
 </div>
 

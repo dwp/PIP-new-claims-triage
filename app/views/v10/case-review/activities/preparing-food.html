@@ -170,13 +170,13 @@
 
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
-
+<br>
           <!-- text box is here -->
           <h2 class="govuk-heading-m">Add a question </h2>
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                 </div>
-                <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+<br>
 
                 <!-- radio buttons here -->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -225,38 +225,7 @@
           </form>
 
 
-
-
-<!--<table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Notes</th>
-      <th scope="col" class="govuk-table__header">Linked to</th>
-    </tr>
-  </thead>
-  {% for taggedPrepFood in data['taggingPrepFood'] %}
-  {% if taggedPrepFood.section == 'Preparing food' %}
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        {{ taggedPrepFood.tagContent }}
-      </td>
-      <td class="govuk-table__cell">
-        {{ taggedPrepFood.action }}
-
-      </td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-
-  <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Problem with standing too long</td>
-      <td class="govuk-table__cell">Atorvastatin,Tamsulosin,Moving around</td>
-    </tr>
-
-  </tbody>
-</table>-->
+<br><br>
 
 <h2 class="govuk-heading-m">Questions</h2>
 
@@ -276,7 +245,7 @@
           {% if query.section == 'Preparing food' %}
           <tr class="govuk-table__row">
              <td class="govuk-table__cell">{{ query.textBox }}</td>
-             <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+             <td class="govuk-table__cell" style="width:35%;"> {{ data['preparing-food-answer'] }}</td>
              <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
          </tr>

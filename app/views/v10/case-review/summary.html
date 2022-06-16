@@ -127,9 +127,7 @@
            <p class="govuk-heading-m" style="font-size:65px; color:#005ea5;" id="answered">0 <span class="govuk-visually-hidden">Answered questions</span></p><a href="#unanswered" class="nhsuk-card__link    nhsuk-u-font-size-19 govuk-link--no-visited-state">Answered <br>questions</a>
          </div>
        </div>
-
      </li>
-
    </ul>
 
 
@@ -145,12 +143,6 @@
         </tr>
       </thead>
      <tbody class="govuk-table__body">
-
-
-
-
-
-
 
 
          <!-- external medical support option -->
@@ -202,14 +194,8 @@
               <td class="govuk-table__cell" style="width:13%;">Eating and drinking </td>
                 <td class="govuk-table__cell"><a href="question-link">Change</a></td>
               </tr>
-          {% else %}
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
-            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
-            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
-              <td class="govuk-table__cell" style="width:13%;">Eating and drinking </td>
-                <td class="govuk-table__cell"><a href="question-link">Change</a></td>
-              </tr>
+         
+
           {% endif %}
           {% endif %}
           {% endfor %}
@@ -756,8 +742,7 @@
       {% endif %}
       {% endfor %}
 
-<!-- Conditions - unassigned option -->
-
+      <!-- Conditions - unassigned option -->
         {% for query in data['queriesConditionOne'] %}
         {% if query.action == 'Unassigned' %}
         {% if query.answeredQuestion == 'no' %}
@@ -954,17 +939,18 @@
        {% if query.answeredQuestion == 'no' %}
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
-         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;"> 1  {{ data['preparing-food-answer'] }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
            <td class="govuk-table__cell" style="width:13%;">Preparing food </td>
              <td class="govuk-table__cell"><a href="question-link"> </a></td></tr>
        {% else %}
        <tr class="govuk-table__row">
          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
-         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">    {{ data['preparing-food-answer'] }}</td>
          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
            <td class="govuk-table__cell" style="width:13%;">Preparing food </td>
-             <td class="govuk-table__cell"><a href="question-link">Change</a></td></tr>
+             <td class="govuk-table__cell"><a href="question-preparingfood">Change</a> <p> {{ query | dump | safe }} {{ query.answeredQuestion }}</p></td></tr>
+
        {% endif %}
        {% endif %}
        {% endfor %}
@@ -1097,9 +1083,6 @@
                                             {% endif %}
                                             {% endif %}
                                             {% endfor %}
-
-
-
 
   <!-- claimant from reading page-->
                        {% for query in data['queriesReading'] %}

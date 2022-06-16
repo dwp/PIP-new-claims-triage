@@ -15,26 +15,41 @@
         <span class="govuk-caption-xl">Running on {{releaseVersion}} of the GOV.UK prototype kit</span>
       </h1>
 
-      <h1 class="govuk-heading-l">Latest version of Prototype</h1>
+      <h1 class="govuk-heading-l">Latest versions of prototype</h1>
 
-<h2 class="govuk-heading-m">Case selector</h2>
-<p>v10: May 2022:<br>This Case selctor is parked until the Chaffinch version is reviewed and compared.</p>
+      <h2 class="govuk-heading-m">1 - Case review - add questions</h2>
+      <p><b>v10 June 2022</b><br>Removed questions section and replicated the functionality onto the summary page.<br>
+      Added answer column on each of the questions on the bottom of each condition and activity pages.</p>
 
       {{ govukButton({
-          text: "Case Selector",
+        text: "Start case review ",
+        classes: "govuk-button--primary",
+        href: "/v10/case-review/personal-details"
+      }) }}
+      <hr>
+        <h2 class="govuk-heading-m">2 - Case review - answer questions</h2>
+      <p><b>v10 June 2022</b><br> Second prototype to answer pre-entered questions.<br>
+      Use this  form to <a href="/v10/case-review/answer0">reset questions to an unanswered state</a>.</p>
+
+      {{ govukButton({
+        text: "Complete case review",
+        classes: "govuk-button--primary",
+        href: "/v10/case-review/summary2"
+      }) }}
+      <hr>
+
+
+
+<h2 class="govuk-heading-m">3 - Case selector</h2>
+<p><b>v10 May 2022</b><br>This Case selector is parked until the Chaffinch version is reviewed and compared.</p>
+
+      {{ govukButton({
+          text: "Case selector",
           href: "/v10/case-selector/cases-for-triage"
       }) }}
 
 <hr>
-      <h2 class="govuk-heading-m">Case review </h2>
-      <p>v10: May 2022:<br>Fixed questions to appear on summary page and correctly tagged. Question Section now removed as it is duplicated by summary, </p>
 
-      {{ govukButton({
-        text: "Case Review",
-        classes: "govuk-button--primary",
-        href: "/v10/case-review/personal-details"
-      }) }}
-<hr>
       <h2 class="govuk-heading-m">Archived designs</h2>
       <p>The archived prototypes from 26th May 2021 until
           2nd February 2022.</p>

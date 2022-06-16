@@ -153,15 +153,15 @@ router.post('/v10/case-review/question-link', (req, res, next) => {
     })
 
 //test to create a preparing food question
+
 router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
     if (req.session.data['question-for']) {
       console.log('is-this-calling-questions', req.session.data)
-      const questionBox = req.session.data['question']
+      const textBox = req.session.data['question']
       const answerBox = req.session.data['answer']
       const answeredQuestion = req.session.data['answered-question']
       const section = req.session.data.source
-
-      const queriesQuestions = req.session.data.queriesQuestions || []
+      const queriesQuestions = req.session.data.queriesQuestions || ['question-for']
       queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
       req.session.data.queriesQuestions = queriesQuestions
 
@@ -206,10 +206,8 @@ router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
           const questionBox = req.session.data['question']
           const answerBox = req.session.data['answer']
           const answeredQuestion = req.session.data['answered-question']
-        //  let answered = '<td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>'
           const section = req.session.data.source
-
-          const queriesQuestionsUnassigned = req.session.data.queriesQuestionsUnassigned || []
+          const queriesQuestionsUnassigned = req.session.data.queriesQuestionsUnassigned || ['question-for-unassigned']
           queriesQuestionsUnassigned.push({ answerBox, questionBox, answeredQuestion, section })
           req.session.data.queriesQuestionsUnassigned = queriesQuestionsUnassigned
 
@@ -234,9 +232,7 @@ router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
 
           }
 
-        //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
           req.session.data.queriesQuestionsUnassigned[req.session.data.queriesQuestionsUnassigned.length - 1].action = req.session.data['question-for-unassigned']
-          //req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].answered = answered;
           req.session.data.queriesQuestionsUnassigned[req.session.data.queriesQuestionsUnassigned.length - 1].href = href;
           res.redirect('/v10/case-review/unassigned-questions')
           }
@@ -249,9 +245,7 @@ router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
               const questionBox = req.session.data['question']
               const answerBox = req.session.data['answer']
               const answeredQuestion = req.session.data['answered-question']
-
               const section = req.session.data.source
-
               const queriesQuestions = req.session.data.queriesQuestions || ['question-for-claimant']
               queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
               req.session.data.queriesQuestions = queriesQuestions
@@ -3381,55 +3375,7 @@ router.post('/sprint-41/minimum-viable-product/review-activity-descriptors', (re
   console.log(1, req.session.data.scoresChoice)
   res.redirect('/sprint-41/minimum-viable-product/review-activity-descriptors')
 })
-//Create query preparing food activity
-// router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req, res, next) => {
-// router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req, res, next) => {
-//   console.log('/sprint-41/minimum-viable-product/activities/preparing-food', req.session.data)
-//   const name = req.session.data['query-content']
-//   const section = req.session.data.source
-//   const queries = req.session.data.queries || []
-//   queries.push({ name, section })
-//   req.session.data.queries = queries
-//   res.redirect('/sprint-41/minimum-viable-product/set-action/set-action-preparing-food')
-// })
-//
-// router.post('/sprint-41/minimum-viable-product/set-action/set-action-preparing-food', (req, res, next) => {
-//   console.log('this is preparing food')
-//   console.log(req.session.data)
-//   const section = req.session.data.source
-//   let href;
-//
-//
-//   switch (req.session.data['set-an-action']) {
-//     case('The claimant'):
-//     href = '/sprint-41/minimum-viable-product/contact-claimant-action';
-//     break;
-//     case("The claimant's doctor"):
-//     href = '/sprint-41/minimum-viable-product/contact-hcp1-action';
-//     break;
-//     case("The claimant's urologist"):
-//     href = '/sprint-41/minimum-viable-product/contact-hcp2-action';
-//     break;
-//     case("The claimant's consultant clinical urologist"):
-//     href = '/sprint-41/minimum-viable-product/contact-hcp3-action';
-//     break;
-//     case('VAL'):
-//     href = '/sprint-41/minimum-viable-product/contact-val-action';
-//     break;
-//     case('Resolve this issue another way'):
-//     href = '/sprint-41/minimum-viable-product/none-these-action';
-//     break;
-//     //this is the hardcoded bit if one of the links fails
-//     default:
-//     href = '/sprint-41/minimum-viable-product/tasklist';
-//   }
-//   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
-//   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
-//   req.session.data.queries[req.session.data.queries.length - 1].href = href;
-//   req.session.data.queries[req.session.data.queries.length - 1].section = section;
-//   console.log(1, req.session.data)
-//   res.redirect('/sprint-41/minimum-viable-product/activities/preparing-food')
-// })
+
 
 
 //Create query taking nutrition activity
@@ -4262,18 +4208,6 @@ router.post('/sprint-30-35/question-tabbed', (req, res, next) => {
 
             })
 
-        // // follow up code for giving an answer to a question
-        // router.post('/sprint-30-35/questions-claimant', (req, res, next) => {
-        //   console.log('this is tabbed3 answer question')
-        //   console.log(req.session.data)
-        //
-        //   req.session.data.answerQuestion[req.session.data.answerQuestion.length - 1].answerPrepFood = req.session.data['answers']
-        // //  req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].action = req.session.data['set-an-action']
-        //   //req.session.data.outScopePrepFood[req.session.data.outScopePrepFood.length - 1].href = href;
-        //   console.log(1, req.session.data)
-        //   res.redirect('/sprint-30-35/questions-claimant')
-        //
-        // })
 
 
 
@@ -4915,55 +4849,6 @@ router.post('/sprint-30-35/review-activity-descriptors', (req, res, next) => {
   console.log(1, req.session.data.scoresChoice)
   res.redirect('/sprint-30-35/review-activity-descriptors')
 })
-//Create query preparing food activity
-// router.post('/sprint-30-35/activities/preparing-food', (req, res, next) => {
-// router.post('/sprint-30-35/activities/preparing-food', (req, res, next) => {
-//   console.log('/sprint-30-35/activities/preparing-food', req.session.data)
-//   const name = req.session.data['query-content']
-//   const section = req.session.data.source
-//   const queries = req.session.data.queries || []
-//   queries.push({ name, section })
-//   req.session.data.queries = queries
-//   res.redirect('/sprint-30-35/set-action/set-action-preparing-food')
-// })
-//
-// router.post('/sprint-30-35/set-action/set-action-preparing-food', (req, res, next) => {
-//   console.log('this is preparing food')
-//   console.log(req.session.data)
-//   const section = req.session.data.source
-//   let href;
-//
-//
-//   switch (req.session.data['set-an-action']) {
-//     case('The claimant'):
-//     href = '/sprint-30-35/contact-claimant-action';
-//     break;
-//     case("The claimant's doctor"):
-//     href = '/sprint-30-35/contact-hcp1-action';
-//     break;
-//     case("The claimant's urologist"):
-//     href = '/sprint-30-35/contact-hcp2-action';
-//     break;
-//     case("The claimant's consultant clinical urologist"):
-//     href = '/sprint-30-35/contact-hcp3-action';
-//     break;
-//     case('VAL'):
-//     href = '/sprint-30-35/contact-val-action';
-//     break;
-//     case('Resolve this issue another way'):
-//     href = '/sprint-30-35/none-these-action';
-//     break;
-//     //this is the hardcoded bit if one of the links fails
-//     default:
-//     href = '/sprint-30-35/tasklist';
-//   }
-//   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
-//   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
-//   req.session.data.queries[req.session.data.queries.length - 1].href = href;
-//   req.session.data.queries[req.session.data.queries.length - 1].section = section;
-//   console.log(1, req.session.data)
-//   res.redirect('/sprint-30-35/activities/preparing-food')
-// })
 
 
 //Create query taking nutrition activity
@@ -8047,55 +7932,7 @@ router.post('/sprint-28/review-activity-descriptors', (req, res, next) => {
   console.log(1, req.session.data.scoresChoice)
   res.redirect('/sprint-28/review-activity-descriptors')
 })
-//Create query preparing food activity
-// router.post('/sprint-28/activities/preparing-food', (req, res, next) => {
-// router.post('/sprint-28/activities/preparing-food', (req, res, next) => {
-//   console.log('/sprint-28/activities/preparing-food', req.session.data)
-//   const name = req.session.data['query-content']
-//   const section = req.session.data.source
-//   const queries = req.session.data.queries || []
-//   queries.push({ name, section })
-//   req.session.data.queries = queries
-//   res.redirect('/sprint-28/set-action/set-action-preparing-food')
-// })
-//
-// router.post('/sprint-28/set-action/set-action-preparing-food', (req, res, next) => {
-//   console.log('this is preparing food')
-//   console.log(req.session.data)
-//   const section = req.session.data.source
-//   let href;
-//
-//
-//   switch (req.session.data['set-an-action']) {
-//     case('The claimant'):
-//     href = '/sprint-28/contact-claimant-action';
-//     break;
-//     case("The claimant's doctor"):
-//     href = '/sprint-28/contact-hcp1-action';
-//     break;
-//     case("The claimant's urologist"):
-//     href = '/sprint-28/contact-hcp2-action';
-//     break;
-//     case("The claimant's consultant clinical urologist"):
-//     href = '/sprint-28/contact-hcp3-action';
-//     break;
-//     case('VAL'):
-//     href = '/sprint-28/contact-val-action';
-//     break;
-//     case('Resolve this issue another way'):
-//     href = '/sprint-28/none-these-action';
-//     break;
-//     //this is the hardcoded bit if one of the links fails
-//     default:
-//     href = '/sprint-28/tasklist';
-//   }
-//   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
-//   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
-//   req.session.data.queries[req.session.data.queries.length - 1].href = href;
-//   req.session.data.queries[req.session.data.queries.length - 1].section = section;
-//   console.log(1, req.session.data)
-//   res.redirect('/sprint-28/activities/preparing-food')
-// })
+
 
 
 //Create query taking nutrition activity

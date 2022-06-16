@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+Qustion for Preparing Food
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+    <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+
+<form action="summary2" method="post" class="form">
+
+
+            <h2 class="govuk-heading-l">Reset all the questions to 'no' before testing</h2>
+
+              <div class="govuk-form-group">
+<p> {{ data['answered-question1'] }}, {{ data['answered-question2'] }}, {{ data['answered-question3'] }}, {{ data['answered-question4'] }}, {{ data['answered-question5'] }}</p>
+            <div class="govuk-form-group">
+            </div>
+
+
+            <fieldset class="govuk-fieldset">
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <br> <h3  class="govuk-fieldset__heading">
+                  Has this answered your question 1?
+                </h3>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question1" type="radio" value="Yes" >
+                  <label class="govuk-label govuk-radios__label" for="answered-question1-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question1" type="radio" value="No" checked="no">
+                  <label class="govuk-label govuk-radios__label" for="answered-question1-no">
+                    No
+                  </label>
+                </div>
+
+              </div>
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <br> <h3  class="govuk-fieldset__heading">
+                  Has this answered your question 2?
+                </h3>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question2" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="answered-question2-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question2" type="radio" value="No" checked="no">
+                  <label class="govuk-label govuk-radios__label" for="answered-question2-no">
+                    No
+                  </label>
+                </div>
+
+              </div>
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <br> <h3  class="govuk-fieldset__heading">
+                  Has this answered your question 3?
+                </h3>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question3" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="answered-question3-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question3" type="radio" value="No" checked="no">
+                  <label class="govuk-label govuk-radios__label" for="answered-question3-no">
+                    No
+                  </label>
+                </div>
+
+              </div>
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <br> <h3  class="govuk-fieldset__heading">
+                  Has this answered your question 4?
+                </h3>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question4" type="radio" value="Yes" >
+                  <label class="govuk-label govuk-radios__label" for="answered-question4-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question4" type="radio" value="No" checked="no" >
+                  <label class="govuk-label govuk-radios__label" for="answered-question4-no">
+                    No
+                  </label>
+                </div>
+
+              </div>
+
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <br> <h3  class="govuk-fieldset__heading">
+                  Has this answered your question 5?
+                </h3>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question5" type="radio" value="Yes" >
+                  <label class="govuk-label govuk-radios__label" for="answered-question5-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="answered-question" name="answered-question5" type="radio" value="No" checked="no">
+                  <label class="govuk-label govuk-radios__label" for="answered-question5-no">
+                    No
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+
+<br><br>
+
+            {{ govukButton({
+                text: "Save and continue"
+
+            }) }}
+
+
+</div>
+
+        </form>
+            </div>
+</main>
+</div>
+
+
+
+{% endblock %}
