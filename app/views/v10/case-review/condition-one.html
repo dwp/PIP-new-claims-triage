@@ -245,16 +245,10 @@
      <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
  </tr>
-
-
 {% endif %}
 {% endfor %}
-
 </tbody>
 </table>
-
-
-
 </div>
 
 <script defer type="text/javascript">
@@ -263,7 +257,6 @@
   var noQuery = "{{ data['who-is-question-for-cond-one'] }}";
 
   if (noQuery) {
-
       document.write('');
       }
     else {
@@ -272,7 +265,6 @@
       document.getElementById('queryTable').style.display = 'none';
     }
   }
-
 
 // count the number of questions in the table to assign to conditions page
 
@@ -286,10 +278,7 @@
               // Retrieve
         //      document.getElementById("tag-condition1").innerHTML = localStorage.getItem("unanswered-conditions1");
 
-
-
   </script>
-
 </main>
     </div>
   </div>
