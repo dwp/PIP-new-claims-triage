@@ -501,20 +501,19 @@ router.post('/v10/case-review/activities/preparing-food', (req, res, next) => {
           req.session.data.queriesEatDrink[req.session.data.queriesEatDrink.length - 1].action = req.session.data['who-is-question-for-eating']
           req.session.data.queriesEatDrink[req.session.data.queriesEatDrink.length - 1].href = href;
           res.redirect('/v10/case-review/activities/taking-nutrition')
-
           }
         })
 
-        //Start routes for managing therapy: questions
-          router.post('/v10/case-review/activities/managing-therapy', (req, res, next) => {
+        //Start routes for managing treatments: questions
+          router.post('/v10/case-review/activities/managing-treatments', (req, res, next) => {
               if (req.session.data['who-is-question-for-treatments']) {
                 console.log('is-this-calling', req.session.data)
                 const textBox = req.session.data['query-content']
                 const section = req.session.data.source
 
-                const queriesTherapy = req.session.data.queriesTherapy || []
-                queriesTherapy.push({ textBox, section })
-                req.session.data.queriesTherapy = queriesTherapy
+                const queriesTreatments = req.session.data.queriesTreatments || []
+                queriesTreatments.push({ textBox, section })
+                req.session.data.queriesTreatments = queriesTreatments
 
                 let href;
 
@@ -540,9 +539,9 @@ router.post('/v10/case-review/activities/preparing-food', (req, res, next) => {
                 }
 
               //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-                req.session.data.queriesTherapy[req.session.data.queriesTherapy.length - 1].action = req.session.data['who-is-question-for-treatments']
-                req.session.data.queriesTherapy[req.session.data.queriesTherapy.length - 1].href = href;
-                res.redirect('/v10/case-review/activities/managing-therapy')
+                req.session.data.queriesTreatments[req.session.data.queriesTreatments.length - 1].action = req.session.data['who-is-question-for-treatments']
+                req.session.data.queriesTreatments[req.session.data.queriesTreatments.length - 1].href = href;
+                res.redirect('/v10/case-review/activities/managing-treatments')
 
                 }
               })
@@ -802,7 +801,7 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 })
 
       //Start routes for managing money: questions
-        router.post('/v10/case-review/activities/budgeting', (req, res, next) => {
+        router.post('/v10/case-review/activities/managing-money', (req, res, next) => {
             if (req.session.data['who-is-question-for-money']) {
               console.log('is-this-calling', req.session.data)
               const textBox = req.session.data['query-content']
@@ -838,7 +837,7 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
               req.session.data.queriesMoney[req.session.data.queriesMoney.length - 1].action = req.session.data['who-is-question-for-money']
               req.session.data.queriesMoney[req.session.data.queriesMoney.length - 1].href = href;
-              res.redirect('/v10/case-review/activities/budgeting')
+              res.redirect('/v10/case-review/activities/managing-money')
 
               }
             })
@@ -1409,19 +1408,19 @@ router.post('/v10/case-review/set-action/set-action-taking-nutrition', (req, res
   res.redirect('/sprint-30-35/activities/taking-nutrition')
 })
 
-//Create query managing therapy activity
-router.post('/v10/case-review/activities/managing-therapy', (req, res, next) => {
-  console.log('/v10/case-review/activities/managing-therapy', req.session.data)
+//Create query managing Treatments activity
+router.post('/v10/case-review/activities/managing-treatments', (req, res, next) => {
+  console.log('/v10/case-review/activities/managing-treatments', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
-  res.redirect('/v10/case-review/set-action/set-action-managing-therapy')
+  res.redirect('/v10/case-review/set-action/set-action-managing-treatments')
 })
 
-router.post('/v10/case-review/set-action/set-action-managing-therapy', (req, res, next) => {
-  console.log('this is managing therapy')
+router.post('/v10/case-review/set-action/set-action-managing-treatments', (req, res, next) => {
+  console.log('this is managing treatments')
   let href;
 
   switch (req.session.data['set-an-action']) {
@@ -1453,7 +1452,7 @@ router.post('/v10/case-review/set-action/set-action-managing-therapy', (req, res
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/v10/case-review/activities/managing-therapy')
+  res.redirect('/v10/case-review/activities/managing-treatments')
 })
 
 //Create query washing and bathing activity
@@ -1744,19 +1743,19 @@ router.post('/v10/case-review/set-action/set-action-engage-face-to-face', (req, 
   res.redirect('/v10/case-review/activities/engaging-face-to-face')
 })
 
-//Create query budgeting activity
-router.post('/v10/case-review/activities/budgeting', (req, res, next) => {
-  console.log('/v10/case-review/activities/budgeting', req.session.data)
+//Create query managing money activity
+router.post('/v10/case-review/activities/managing-money', (req, res, next) => {
+  console.log('/v10/case-review/activities/managing-money', req.session.data)
   const name = req.session.data['query-content']
   const section = req.session.data.source
   const queries = req.session.data.queries || []
   queries.push({ name, section })
   req.session.data.queries = queries
-  res.redirect('/v10/case-review/set-action/set-action-budgeting')
+  res.redirect('/v10/case-review/set-action/set-action-managing-money')
 })
 
-router.post('/v10/case-review/set-action/set-action-budgeting', (req, res, next) => {
-  console.log('this is budgeting')
+router.post('/v10/case-review/set-action/set-action-managing-money', (req, res, next) => {
+  console.log('this is managing-money')
   console.log(req.session.data)
 
   let href;
@@ -1789,7 +1788,7 @@ router.post('/v10/case-review/set-action/set-action-budgeting', (req, res, next)
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
   req.session.data.queries[req.session.data.queries.length - 1].href = href;
   console.log(1, req.session.data)
-  res.redirect('/v10/case-review/activities/budgeting')
+  res.redirect('/v10/case-review/activities/managing-money')
 })
 
 //Create query planning and following journeys activity

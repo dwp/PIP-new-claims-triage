@@ -148,28 +148,12 @@
           Mixing with other people
      </h1>
 
-     <table class="govuk-table">
-       <thead class="govuk-table__head">
-         <tr class="govuk-table__row">
-           <th scope="col" class="govuk-table__header govuk-!-width-one-half">Question</th>
-           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Answer</th>
-         </tr>
-       </thead>
-       <tbody class="govuk-table__body">
-         <tr class="govuk-table__row">
-           <td class="govuk-table__cell">Do you need someone else to help you understand how much things cost when you buy them or how much change you'll receive?</td>
-           <td class="govuk-table__cell">No</td>
-         </tr>
-         <tr class="govuk-table__row">
-           <td class="govuk-table__cell">Do you need someone else to help you manage your household budgets, pay bills or plan future purchases?</td>
-           <td class="govuk-table__cell">No</td>
-         </tr>
-       </tbody>
-       </table>
+     <h2 class="govuk-heading-s">Does your condition affect you mixing with other people?</h2>
+     <p class="govuk-body">Yes</p>
+     <br>
 
-      <h2 class="govuk-heading-m">Claimant's account of this activity</h2>
-      <p class="govuk-body">I sometimes get anxiety attacks if I'm talking to strangers because of a lack of confidence.</p>
-
+        <h3 class="govuk-heading-s">Tell us about the difficulties you have when mixing with other people and how you manage them </h3>
+      <p class="govuk-body">I am always unable to meet new people by myself because I become very distressed. My carer supports me when I interact with new people so I do not become distressed.<br>  <br>
 
 
           <form action="#" method="post">
@@ -181,9 +165,7 @@
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                 </div>
-                <!--<input name="query-content" value="{{ data['query-content'] }}">-->
 
-                <!-- radio buttons here -->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
                 {{ govukRadios({

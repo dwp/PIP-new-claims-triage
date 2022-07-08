@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Activities - Managing money
+  Activities - Managing Treatments
 {% endblock %}
 
 {% block main %}
@@ -70,7 +70,7 @@
             <a href="../activities" class="active" aria-current="section">Activities</a>
           </li>
           <li>
-            <!--   -->
+
           </li>
           <li>
             <a href="../summary">Summary</a>
@@ -145,36 +145,26 @@
 
       <h1 class="govuk-heading-l">
           <span class="govuk-caption-l">Activity</span>
-          Managing money
+          Managing treatments
      </h1>
 
-     <table class="govuk-table">
-       <thead class="govuk-table__head">
-         <tr class="govuk-table__row">
-           <th scope="col" class="govuk-table__header govuk-!-width-one-half">Question</th>
-           <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Answer</th>
-         </tr>
-       </thead>
-       <tbody class="govuk-table__body">
-         <tr class="govuk-table__row">
-           <td class="govuk-table__cell">Does your condition affect your eating and drinking?</td>
-           <td class="govuk-table__cell">Yes</td>
-         </tr>
-         <tr class="govuk-table__row">
-           <td class="govuk-table__cell">Do you use a feeding tube or similar device to eat or drink?</td>
-           <td class="govuk-table__cell">No</td>
-         </tr>
-       </tbody>
-       </table>
+     <h2 class="govuk-heading-s">Does your condition affect you managing your treatments?</h2>
+     <p class="govuk-body">Yes</p>
 
-      <h2 class="govuk-heading-m">Claimant's account of this activity</h2>
-      <p class="govuk-body">No additional comments from the claimant.</p>
+     <br>
+        <h3 class="govuk-heading-s">Tell us about the difficulties you have with monitoring changes in your health condition or disability and taking medication, and how you manage them
+        </h3>
+      <p class="govuk-body">About four days a week, I have trouble taking my arthritis medication because my wrists hurt when I try to open the pill bottle. I put my pills in a dosette box so I do not need to open the pill bottle on days when I am unable.<br>
+ <br>Every evening, I have trouble monitoring my blood glucose levels because I forget and get confused on how to do it. My partner prompts me and helps me measure my blood glucose levels in the evening.<br>
+
+        <h3 class="govuk-heading-s">Tell us about any therapies you take at home that need the help of another person
+        </h3>
+      <p class="govuk-body">I need home dialysis for 3 hours on Monday and Friday each week. My partner helps me set up the dialysis equipment and supervises me during the dialysis to make sure I stay safe.<br>  <br>
 
 
 
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
-
 
 
 
@@ -189,7 +179,7 @@
 
                 {{ govukRadios({
                   idPrefix: "who-is-question-for",
-                  name: "who-is-question-for-money",
+                  name: "who-is-question-for-treatments",
                   fieldset: {
                     legend: {
                       text: "Who is this question for?",
@@ -233,43 +223,11 @@
 
 
 
-
-<!--<table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Notes</th>
-      <th scope="col" class="govuk-table__header">Linked to</th>
-    </tr>
-  </thead>
-  {% for taggedPrepFood in data['taggingPrepFood'] %}
-  {% if taggedPrepFood.section == 'Preparing food' %}
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        {{ taggedPrepFood.tagContent }}
-      </td>
-      <td class="govuk-table__cell">
-        {{ taggedPrepFood.action }}
-
-      </td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-
-  <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Problem with standing too long</td>
-      <td class="govuk-table__cell">Atorvastatin,Tamsulosin,Moving around</td>
-    </tr>
-
-  </tbody>
-</table>-->
-
 <h2 class="govuk-heading-m">Questions</h2>
 
 <div id="queryTable">
   <table class="govuk-table">
-          <!--<caption class="govuk-table__caption govuk-table__caption--m"></caption>-->
+
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Question</th>
@@ -279,8 +237,8 @@
             </tr>
           </thead>
           <tbody class="govuk-table__body">
-          {% for query in data['queriesMoney'] %}
-          {% if query.section == 'budgeting' %}
+          {% for query in data['queriesTreatments'] %}
+          {% if query.section == 'Managing treatments' %}
 
           <tr class="govuk-table__row">
              <td class="govuk-table__cell">{{ query.textBox }}</td>
@@ -291,14 +249,12 @@
           {% endif %}
           {% endfor %}
 
-
         </tbody>
 </table>
 </div>
-
 <script defer type="text/javascript">
 
-  var noQuery = "{{ data['who-is-question-for-money'] }}";
+  var noQuery = "{{ data['who-is-question-for-treatments'] }}";
 
   if (noQuery) {
 
@@ -313,9 +269,10 @@
 
   </script>
 
-  </div>
 
+  </div>
 </main>
       </div>
+
 
 {% endblock %}
