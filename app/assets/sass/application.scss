@@ -17,6 +17,8 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+a.govuk-skip-link {text-decoration: underline;}
+
 .key-details-bar {
   background-color: #005ea5;
 }
@@ -111,6 +113,7 @@ $govuk-assets-path: '/govuk/assets/';
   margin: 0 auto;
   max-width: 960px;
   padding-left: 0;
+
 }
 
 .navigation-secondary li {
@@ -122,12 +125,14 @@ $govuk-assets-path: '/govuk/assets/';
   .navigation-secondary li {
     border: 0;
     width: 100%;
+
   }
 }
 
 .navigation-secondary a {
   display: block;
   padding: 15px;
+  text-decoration: none;
 }
 
 .navigation-secondary a:visited {
@@ -135,12 +140,11 @@ $govuk-assets-path: '/govuk/assets/';
 }
 
 .navigation-secondary a:hover {
-  background-color: #f8f8f8;
+    text-decoration: underline;
 }
 
 .navigation-secondary .active {
   box-shadow: inset 0px -5px 0px 0px #005ea5;
-  color: #0b0c0c;
   text-decoration: none;
 }
 
@@ -181,7 +185,7 @@ $govuk-assets-path: '/govuk/assets/';
       display: inline-block;
       padding: 15px 5px 10px 5px;
       margin-right: 15px;
-      text-decoration: none;
+
 
       &:focus {
         outline: 0;
