@@ -73,7 +73,7 @@
 
           </li>
           <li>
-            <a href="summary">Summary</a>
+            <a href="summary">Questions and answers</a>
           </li>
         </ul>
       </nav>
@@ -263,7 +263,7 @@
   </thead>
 <tbody class="govuk-table__body">
   {% for query in data['queriesConditionThree'] %}
-  {% if query.section == 'Angina' %}
+  {% if query.section == 'angina' %}
   <tr class="govuk-table__row">
      <td class="govuk-table__cell">{{ query.textBox }}</td>
      <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
