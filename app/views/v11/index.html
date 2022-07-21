@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+          Version 10 (Case Review)</h1>
+                  <h3 class="govuk-heading-m">This is the case review with the following fixes
+          </h3><p>
+                   * Updated routes to take logic to include “/v10”<br>
+                    * The Summary page has the correct formatting for Cards<br>
+                    * 'Skip to main content' is fixed - Main tag in the css.<br>
+                    * Correct page titles added to all pages. Replacing default gov prototype.<br>
+                      * Question for claimant links to Jim Smith page now Jane Doe (fixed header)<br>
+                      * 	Questions pages back links were hard coded to claimant questions and not browser back button. Now fixed<br>
+                      * 	Questions for Internal medical support was broken, the button links to the same page (fixed link but logic not working for this function)<br>
+                      * End point wrong values in the radio buttons now fixed<br>
+                      * In review added to all the Conditions pages<br>
+                      * In review added to all the Activities Pages<br>
+                      * Triage bar and button are not formatted correctly (now fixed to correct horizontal and vertical positioning<br>
+                * Triage needs to be added to the triaging section<br>
+                * Search page fixed, now contains correct h1 and fixed the broken formatting of both input box and button.<br>
+                * Pagination on Cases for Triage page now fixed, spacing and shows number of cases not pages.<br>
+                * Footer on ‘Ready for Review’ page is broken, now fixed.<br>
+</p>
+
+
+
+                  {{ govukButton({
+                    text: "Start MVP prototype",
+                    href: "/v10/case-review/personal-details
+                  }) }}
+
+    </div>
+</div>
+
+
+{% endblock %}

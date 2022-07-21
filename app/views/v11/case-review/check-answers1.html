@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Questions for the claimant
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+
+<div class="govuk-width-container">
+  <a href="summary" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">Check your answers </h1>
+
+          {% for query in data['queriesPrepFood'] %}
+          {% if query.action == 'Claimant' %}
+
+          <h2 class="govuk-heading-m">{{ query.section }} questions</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Question</dt>
+            <dd class="govuk-summary-list__value">{{ query.textBox }}</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">Question</span></a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Answer</dt>
+            <dd class="govuk-summary-list__value">{{ query.answerBox }}</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">Answer</span></a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Contact</dt>
+            <dd class="govuk-summary-list__value">{{ query.action }}</dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">contact name</span></a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Source</dt>
+            <dd class="govuk-summary-list__value">{{ query.section }} </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> source</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Status</dt>
+            <dd class="govuk-summary-list__value">
+
+              {% if query.answeredQuestion == 'no' %}
+
+              <p class="govuk-body"><strong class="govuk-tag" id="question-status">answered</strong></p>
+              {% else %}
+                  <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> status</span></a>
+            </dd>
+          </div>
+        </dl>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+
+
+
+      </div>
+
+
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+          {% for query in data['queriesConditionEight'] %}
+            {% if query.action == 'Claimant' %}
+          <h2 class="govuk-heading-m">{{ query.section }} questions</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Question</dt>
+              <dd class="govuk-summary-list__value">{{ query.textBox }}</dd>
+              <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">Question</span></a></dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Answer</dt>
+              <dd class="govuk-summary-list__value">{{ query.answerBox }}</dd>
+              <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">Answer</span></a></dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Contact</dt>
+              <dd class="govuk-summary-list__value">{{ query.action }}</dd>
+              <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">contact name</span></a></dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Source</dt>
+              <dd class="govuk-summary-list__value">{{ query.section }} </dd>
+              <dd class="govuk-summary-list__actions"><a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> source</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Status</dt>
+              <dd class="govuk-summary-list__value">
+
+                {% if query.answeredQuestion == 'no' %}
+
+                <p class="govuk-body"><strong class="govuk-tag" id="question-status">answered</strong></p>
+                {% else %}
+                    <p class="govuk-body"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> status</span></a>
+              </dd>
+            </div>
+          </dl>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+        </div>
+
+    </div>
+  </main>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

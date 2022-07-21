@@ -1,0 +1,1860 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Questions and answers
+{% endblock %}
+
+{% block main %}
+
+
+
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972  </dd>
+      </div>
+    </dl>
+</section>
+
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="personal-details">Personal details</a>
+        </li>
+        <li>
+          <a href="conditions">Conditions</a>
+        </li>
+        <li>
+          <a href="activities">Activities</a>
+        </li>
+        <!--  <li>
+        <a href="questions">Questions</a>
+        </li> -->
+        <li>
+          <a href="summary" class="active" aria-current="section">Questions and answers</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">Questions and answers</h1>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    <style>
+      .nhsuk-card-group__item {
+          flex: 0 0 100%;
+      }
+
+      .nhsuk-card--clickable {
+          border-bottom-width: 4px;
+      }
+
+      .nhsuk-card {
+          margin-bottom: 40px;
+          background: #fff;
+          border: 1px solid #d8dde0;
+          position: relative;
+          width: 100%;
+          margin-bottom: 48px;
+      }
+
+      .nhsuk-card__content {
+          padding: 20px;
+          position: relative;
+      }
+
+      .nhsuk-card-group__item {
+          display: flex;
+          list-style-type: none;
+          margin-bottom: 0;
+      }
+
+      .nhsuk-list--bullet, ul {
+          list-style-type: disc;
+          padding-left: 0px;
+      }
+
+      .nhsuk-list  {
+          font-size: 16px;
+          font-size: 1rem;
+          line-height: 1.5;
+          margin-bottom: 16px;
+          list-style-type: none;
+          margin-top: 0;
+          padding-left: 0;
+      }
+      .nhsuk-u-font-weight-normal {
+          font-weight: 400 !important;
+      }
+
+      .nhsuk-u-font-size-19 {
+          font-size: 19px !important;
+          font-size: 1.1875rem !important;
+          line-height: 1.47368 !important;
+      }
+
+      </style>
+   <ul class="govuk-grid-row nhsuk-card-group">
+     <li class="govuk-grid-column-one-half nhsuk-card-group__item">
+       <div class="nhsuk-card nhsuk-card--clickable">
+         <div class="nhsuk-card__content">
+           <p class="govuk-heading-m" style="font-size:65px" id="unanswered">0 <span class="govuk-visually-hidden">Unanswered questions</span></p><a href="#answered" class="nhsuk-card__link    nhsuk-u-font-size-19  govuk-link--no-visited-state">Unanswered <br>questions</a>
+        </div>
+       </div>
+
+     </li>
+     <li class="govuk-grid-column-one-half nhsuk-card-group__item">
+       <div class="nhsuk-card nhsuk-card--clickable">
+         <div class="nhsuk-card__content">
+           <p class="govuk-heading-m" style="font-size:65px; color:#005ea5;" id="answered">0 <span class="govuk-visually-hidden">Answered questions</span></p><a href="#unanswered" class="nhsuk-card__link    nhsuk-u-font-size-19 govuk-link--no-visited-state">Answered <br>questions</a>
+         </div>
+       </div>
+     </li>
+   </ul>
+
+
+    <table class="govuk-table" id="unanswered-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Unanswered questions about this case </caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Contact</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+     <tbody class="govuk-table__body">
+
+
+         <!-- external medical support option -->
+          {% for query in data['queriesQuestionsExternalMedical'] %}
+          {% if query.action == 'External health professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+              <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">question </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>
+            </tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from preparing food page-->
+          {% for query in data['queriesPrepFood'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">Preparing food </td>
+                <td class="govuk-table__cell"><a href="question-link"> </a></td>
+              </tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from eating and drinking page-->
+          {% for query in data['queriesEatDrink'] %}
+          {% if query.action == 'External health professional' %}
+          {% if query.answeredQuestion == 'no' %}
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td>
+              </tr>
+
+
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from managing treatments page-->
+          {% for query in data['queriesTreatments'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">managing treatments</td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from washing and bathing page-->
+          {% for query in data['queriesWashing'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">Washing and bathing</td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td>    </tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from incontinance page-->
+          {% for query in data['queriesToilet'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">using the toilet </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from dressing and undressing page-->
+          {% for query in data['queriesDressing'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">Dressing </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from talking page-->
+          {% for query in data['queriesTalking'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">talking </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from reading page-->
+          {% for query in data['queriesReading'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">reading </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!--external medical support from mixing with others page-->
+          {% for query in data['queriesMixing'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">Mixing with others </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from managing money page-->
+          {% for query in data['queriesMoney'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">money </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from planning journeys page-->
+          {% for query in data['queriesPlanning'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">planning and following journeys </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from moving around page-->
+          {% for query in data['queriesMoving'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">moving around </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- external medical support from moving around page-->
+          {% for query in data['queriesAdditional'] %}
+          {% if query.action == 'External health professional' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">additional information</td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- Unassigned option from unassigned question page-->
+          {% for query in data['queriesQuestionsUnassigned'] %}
+          {% if query.action == 'Unassigned' %}
+          {% if query.answeredQuestion == 'no' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">Question</td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+
+
+
+
+       <!-- unassigned from preparing food page-->
+       {% for query in data['queriesPrepFood'] %}
+       {% if query.action == 'Unassigned' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+           <td class="govuk-table__cell" style="width:13%;">Preparing food</td>
+             <td class="govuk-table__cell"><a href="question-link">Change </a></td></tr>
+
+       {% endif %}
+       {% endfor %}
+
+       <!-- unassigned from eating and drinking page-->
+              {% for query in data['queriesEatDrink'] %}
+              {% if query.action == 'Unassigned' %}
+
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                  <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+                    <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+              {% endif %}
+              {% endfor %}
+
+              <!-- unassigned from managing treatments page-->
+                     {% for query in data['queriesTreatments'] %}
+                     {% if query.action == 'Unassigned' %}
+
+                     <tr class="govuk-table__row">
+                       <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                       <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                       <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                         <td class="govuk-table__cell" style="width:13%;">Managing treatments </td>
+                           <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+                     {% endif %}
+                     {% endfor %}
+
+
+              <!-- unassigned from washing page-->
+                     {% for query in data['queriesWashing'] %}
+                     {% if query.action == 'Unassigned' %}
+
+                     <tr class="govuk-table__row">
+                       <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                       <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                       <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                         <td class="govuk-table__cell" style="width:13%;">Washing and bathing</td>
+                           <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+                     {% endif %}
+                     {% endfor %}
+
+              <!-- unassigned from incontinance page-->
+                     {% for query in data['queriesToilet'] %}
+                     {% if query.action == 'Unassigned' %}
+
+                     <tr class="govuk-table__row">
+                       <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                       <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                       <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                         <td class="govuk-table__cell" style="width:13%;">using the toilet</td>
+                           <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+                     {% endif %}
+                     {% endfor %}
+
+              <!-- unassigned from dressing page-->
+                     {% for query in data['queriesDressing'] %}
+                     {% if query.action == 'Unassigned' %}
+
+                     <tr class="govuk-table__row">
+                       <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                       <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                       <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                         <td class="govuk-table__cell" style="width:13%;">dressing and undressing </td>
+                           <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+                     {% endif %}
+                     {% endfor %}
+
+
+              <!-- unassigned from talking page-->
+                     {% for query in data['queriesTalking'] %}
+                     {% if query.action == 'Unassigned' %}
+
+                     <tr class="govuk-table__row">
+                       <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                       <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                       <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                         <td class="govuk-table__cell" style="width:13%;">talking </td>
+                           <td class="govuk-table__cell"><a href="#">Answer</a></td> </tr>
+
+                     {% endif %}
+                     {% endfor %}
+
+
+    <!-- unassigned from reading page-->
+           {% for query in data['queriesReading'] %}
+           {% if query.action == 'Unassigned' %}
+
+           <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+             <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+             <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+               <td class="govuk-table__cell" style="width:13%;">reading </td>
+                 <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+           {% endif %}
+           {% endfor %}
+
+
+    <!-- unassigned from mixing with people page-->
+           {% for query in data['queriesMixing'] %}
+           {% if query.action == 'Unassigned' %}
+
+           <tr class="govuk-table__row">
+             <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+             <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+             <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+               <td class="govuk-table__cell" style="width:13%;">Mixing with others </td>
+                 <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+           {% endif %}
+           {% endfor %}
+
+   <!-- unassigned from managing money page-->
+          {% for query in data['queriesMoney'] %}
+          {% if query.action == 'Unassigned' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+              <td class="govuk-table__cell" style="width:13%;">managin money </td>
+                <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+<!-- unassigned from planning journeys page-->
+     {% for query in data['queriesPlanning'] %}
+     {% if query.action == 'Unassigned' %}
+
+     <tr class="govuk-table__row">
+       <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+       <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+       <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">planning and following journeys</td>
+           <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+     {% endif %}
+     {% endfor %}
+
+<!-- unassigned from moving around page-->
+      {% for query in data['queriesMoving'] %}
+      {% if query.action == 'Unassigned' %}
+
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+        <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+        <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
+            <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+      {% endif %}
+      {% endfor %}
+
+<!-- unassigned from additional information page-->
+       {% for query in data['queriesAdditional'] %}
+       {% if query.action == 'Unassigned' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+           <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
+             <td class="govuk-table__cell"><a href="#">Answer</a></td>
+           </tr>
+
+       {% endif %}
+       {% endfor %}
+
+     <!-- unassigned from claimant page-->
+      {% for query in data['queriesQuestions'] %}
+      {% if query.action == 'Unassigned' %}
+      {% if query.answeredQuestion == 'no' %}
+      <tr class="govuk-table__row">
+        <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+        <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+        <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
+            <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+
+      <!-- Conditions - unassigned option -->
+        {% for query in data['queriesConditionOne'] %}
+        {% if query.action == 'Unassigned' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;"> {{ query.section }} </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionTwo'] %}
+        {% if query.action == 'Unassigned' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionThree'] %}
+        {% if query.action == 'Unassigned' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionFour'] %}
+        {% if query.action == 'Unassigned' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionFive'] %}
+        {% if query.action == 'Unassigned' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionSix'] %}
+        {% if query.action == 'Unassigned' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">Condition6 </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionSeven'] %}
+        {% if query.action == 'Unassigned' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionEight'] %}
+        {% if query.action == 'Unassigned' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+
+        {% endif %}
+        {% endfor %}
+
+       <!-- claimant from claimant page-->
+       {% for query in data['queriesQuestions'] %}
+       {% if query.action == 'Claimant' %}
+       {% if query.answeredQuestion == 'no' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+           <td class="govuk-table__cell" style="width:13%;">question </td>
+             <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       <!-- claimant from preparing food page-->
+       {% for query in data['queriesPrepFood'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">    {{ data['preparing-food-answer'] }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+           <td class="govuk-table__cell" style="width:13%;">preparing food </td>
+             <td class="govuk-table__cell"><a href="question-preparingfood">Change</a> <p><!-- {{ query | dump | safe }} {{ query.answeredQuestion }}--></p></td></tr>
+
+
+       {% endif %}
+       {% endfor %}
+
+<!-- claimant from eating and drinking page-->
+       {% for query in data['queriesEatDrink'] %}
+       {% if query.action == 'Claimant' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }}  </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+ <!-- claimant from managing treatments page-->
+        {% for query in data['queriesTreatments'] %}
+        {% if query.action == 'Claimant' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">Managing treatments</td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+
+        {% endif %}
+        {% endfor %}
+
+  <!-- claimant from washing page-->
+         {% for query in data['queriesWashing'] %}
+         {% if query.action == 'Claimant' %}
+
+         <tr class="govuk-table__row">
+           <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+           <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+           <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+           <td class="govuk-table__cell" style="width:13%;">washing and bathing </td>
+           <td class="govuk-table__cell"><a href="#">Answer</a></td> </tr>
+
+         {% endif %}
+         {% endfor %}
+
+   <!-- claimant from incontinance page-->
+          {% for query in data['queriesToilet'] %}
+          {% if query.action == 'Claimant' %}
+
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+            <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Using the toilet</td>
+            <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+          {% endif %}
+          {% endfor %}
+
+          <!-- claimant from dressing page-->
+                 {% for query in data['queriesDressing'] %}
+                 {% if query.action == 'Claimant' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                   <td class="govuk-table__cell" style="width:13%;">dressing and undressing</td>
+                   <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- claimant from talking page-->
+                        {% for query in data['queriesTalking'] %}
+                        {% if query.action == 'Claimant' %}
+
+                        <tr class="govuk-table__row">
+                          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                          <td class="govuk-table__cell" style="width:13%;">talking</td>
+                          <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+                        {% endif %}
+                        {% endfor %}
+
+        <!-- claimant from reading page-->
+        {% for query in data['queriesReading'] %}
+        {% if query.action == 'Claimant' %}
+
+        <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">Reading</td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+        {% endif %}
+        {% endfor %}
+
+<!-- claimant from mixing with people page-->
+       {% for query in data['queriesMixing'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">Mixing with other people </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+       {% endif %}
+       {% endfor %}
+
+<!-- claimant from managing money page-->
+       {% for query in data['queriesMoney'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">managing money </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+<!-- claimant from planning journeys page-->
+       {% for query in data['queriesPlanning'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">planning and following journeys</td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+       {% endif %}
+       {% endfor %}
+
+
+<!-- claimant from moving around page-->
+       {% for query in data['queriesMoving'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">moving around</td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td></tr>
+
+       {% endif %}
+       {% endfor %}
+
+<!-- claimant from additional information page-->
+       {% for query in data['queriesAdditional'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">additional information </td>
+         <td class="govuk-table__cell"><a href="question-link"></a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       <!-- Conditions claimant option -->
+       {% for query in data['queriesConditionOne'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionTwo'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionThree'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFour'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFive'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSix'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSeven'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionEight'] %}
+       {% if query.action == 'Claimant' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+
+       {% endif %}
+       {% endfor %}
+
+<!-- INTERNAL MED SUPPORT-->
+        {% for query in data['queriesQuestionsMedSupport'] %}
+        {% if query.action == 'Internal medical support' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="questions-internal-medical-support">-->Internal medical support<!--</a>--></td>
+          <td class="govuk-table__cell">Question</td>
+          </tr>
+
+        {% endif %}
+        {% endfor %}
+
+       <!-- Conditions -->
+       {% for query in data['queriesConditionOne'] %}
+       {% if query.action == 'Internal medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionTwo'] %}
+       {% if query.action == 'Internal medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionThree'] %}
+       {% if query.action == 'Internal medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFour'] %}
+       {% if query.action == 'Internal medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFive'] %}
+       {% if query.action == 'Internal medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSix'] %}
+       {% if query.action == 'Internal medical support' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSeven'] %}
+       {% if query.action == 'Internal medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionEight'] %}
+       {% if query.action == 'Internal medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       <!-- internal medical support option from internal medical support page-->
+        {% for query in data['queriesQuestionsMedSupport'] %}
+        {% if query.action == 'Internal medical support' %}
+        {% if query.answeredQuestion == 'no' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Question </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from preparing food page-->
+        {% for query in data['queriesPrepFood'] %}
+        {% if query.action == 'Internal medical support' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell" style="width:13%;">Preparing food </td>
+          <td class="govuk-table__cell"><a href="#">Answer</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from eating and drinking page-->
+        {% for query in data['queriesEatDrink'] %}
+        {% if query.action == 'Internal medical support' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>        </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from managing treatments page-->
+        {% for query in data['queriesTreatments'] %}
+        {% if query.action == 'Internal medical support' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Managing treatments</td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+
+        {% endif %}
+        {% endfor %}
+        <!-- internal medical support from washing and bathing page-->
+        {% for query in data['queriesWashing'] %}
+        {% if query.action == 'Internal medical support' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Washing and bathing </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>    </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from incontinance page-->
+        {% for query in data['queriesToilet'] %}
+        {% if query.action == 'Internal medical support' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Using the toilet </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>    </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from dressing and undressing page-->
+        {% for query in data['queriesDressing'] %}
+        {% if query.action == 'Internal medical support' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Question </td>
+              <td class="govuk-table__cell"><a href="question-link">Dressing</a></td>    </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from talking page-->
+        {% for query in data['queriesTalking'] %}
+        {% if query.action == 'Internal medical support' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Talking</td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from reading page-->
+        {% for query in data['queriesReading'] %}
+        {% if query.action == 'Internal medical support' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Reading </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from mixing with others page-->
+        {% for query in data['queriesMixing'] %}
+        {% if query.action == 'Internal medical support' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Mixing with others</td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from managing money page-->
+        {% for query in data['queriesMoney'] %}
+        {% if query.action == 'Internal medical support' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Money </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>    </tr>
+
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from planning journeys page-->
+        {% for query in data['queriesPlanning'] %}
+        {% if query.action == 'Internal medical support' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">planning and following journeys/td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from moving around page-->
+        {% for query in data['queriesMoving'] %}
+        {% if query.action == 'Internal medical support' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Moving around </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+        {% endif %}
+        {% endfor %}
+
+        <!-- internal medical support from moving around page-->
+        {% for query in data['queriesAdditional'] %}
+        {% if query.action == 'Internal medical support' %}
+
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell" style="width:13%;">Additional information </td>
+              <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+
+        {% endif %}
+        {% endfor %}
+
+       <!-- internal non medical support -->
+       {% for query in data['queriesConditionOne'] %}
+       {% if query.action == 'Internal non medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionTwo'] %}
+       {% if query.action == 'Internal non medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionThree'] %}
+       {% if query.action == 'Internal non medical support' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFour'] %}
+       {% if query.action == 'Internal non medical support' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFive'] %}
+       {% if query.action == 'Internal non medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSix'] %}
+       {% if query.action == 'Internal non medical support' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSeven'] %}
+       {% if query.action == 'Internal non medical support' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionEight'] %}
+       {% if query.action == 'Internal non medical support' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       <!-- NON MEDICAL SUPPORT-->
+               <!-- non-medical support option from medical support page-->
+                {% for query in data['queriesQuestionsNonMedical'] %}
+                {% if query.action == 'Internal non medical support' %}
+                {% if query.answeredQuestion == 'no' %}
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+                  <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                  <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                    <td class="govuk-table__cell" style="width:13%;">Question </td>
+                      <td class="govuk-table__cell"><a href="#">Answer</a></td>
+                </tr>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+
+                <!-- internal non medical support option from internal non medical support page-->
+                 {% for query in data['queriesQuestionsMedSupport'] %}
+                 {% if query.action == 'Internal non medical support' %}
+                 {% if query.answeredQuestion == 'no' %}
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Question </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>
+                 </tr>
+                 {% endif %}
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from preparing food page-->
+                 {% for query in data['queriesPrepFood'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Preparing food</td>
+                       <td class="govuk-table__cell"><a href="question-link"> </a></td>  </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical ort from eating and drinking page-->
+                 {% for query in data['queriesEatDrink'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>
+                 </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from managing treatments page-->
+                 {% for query in data['queriesTreatments'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Managing treatments</td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>      </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from washing and bathing page-->
+                 {% for query in data['queriesWashing'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Washing and bathing </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>      </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from incontinence page-->
+                 {% for query in data['queriesToilet'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Toilet</td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>      </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from dressing and undressing page-->
+                 {% for query in data['queriesDressing'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Dressing </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>
+                     </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from talking page-->
+                 {% for query in data['queriesTalking'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                   <td class="govuk-table__cell" style="width:13%;">Talking</td>
+                   <td class="govuk-table__cell"><a href="#">Answer</a></td>
+                 </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from reading page-->
+                 {% for query in data['queriesReading'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Reading </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>
+                     </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from mixing with others page-->
+                 {% for query in data['queriesMixing'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Mixing with others </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>  </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from managing money page-->
+                 {% for query in data['queriesMoney'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">managing money </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>      </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from planning journeys page-->
+                 {% for query in data['queriesPlanning'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">planning and following journeys </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>        </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from moving around page-->
+                 {% for query in data['queriesMoving'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Moving around</td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>    </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+                 <!-- internal non medical support from moving around page-->
+                 {% for query in data['queriesAdditional'] %}
+                 {% if query.action == 'Internal non medical support' %}
+
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">Additional information </td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>
+                     </tr>
+
+                 {% endif %}
+                 {% endfor %}
+
+
+       {% for query in data['queriesQuestionsNonMedical'] %}
+       {% if query.action == 'Internal non medical support' %}
+       {% if query.answeredQuestion == 'yes' %}
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><a href="questions-internal-non-medical-support">Internal non medical support</a></td>
+         <td class="govuk-table__cell">{{ query.section }}</td>
+       </tr>
+       {% endif %}
+       {% endif %}
+       {% endfor %}
+
+       <!-- external medical support -->
+       {% for query in data['queriesConditionOne'] %}
+       {% if query.action == 'External health professional' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionTwo'] %}
+       {% if query.action == 'External health professional' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionThree'] %}
+       {% if query.action == 'External health professional' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+           <td class="govuk-table__cell" style="width:13%;">{{ query.section }}</td>
+             <td class="govuk-table__cell"><a href="#">Answer</a></td>
+           </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFour'] %}
+       {% if query.action == 'External health professional' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+           </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionFive'] %}
+       {% if query.action == 'External health professional' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSix'] %}
+       {% if query.action == 'External health professional' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionSeven'] %}
+       {% if query.action == 'External health professional' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+       {% endif %}
+       {% endfor %}
+
+       {% for query in data['queriesConditionEight'] %}
+       {% if query.action == 'External health professional' %}
+
+       <tr class="govuk-table__row">
+         <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.textBox }}</td>
+         <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+         <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+         <td class="govuk-table__cell" style="width:13%;">{{ query.section }} </td>
+         <td class="govuk-table__cell"><a href="#">Answer</a></td>
+       </tr>
+
+       {% endif %}
+       {% endfor %}
+
+      </tbody>
+    </table>
+
+      <br>
+      <br>
+    <table class="govuk-table" id="answered-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Answered questions about this case  </caption>
+
+
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Questions</th>
+          <th scope="col" class="govuk-table__header">Answers</th>
+          <th scope="col" class="govuk-table__header">Contact</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+        {% for query in data['queriesQuestionsUnassigned'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell">Questions</td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesQuestions'] %}
+        {% if query.action == 'Claimant' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+          <td class="govuk-table__cell">{{ query.section }}</td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- INTERNAL MED SUPPORT-->
+                {% for query in data['queriesQuestionsMedSupport'] %}
+                {% if query.action == 'Internal medical support' %}
+                {% if query.answeredQuestion == 'yes' %}
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+                  <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                  <td class="govuk-table__cell" style="width:13%;"><!-- <a href="questions-internal-medical-support">-->Internal medical support<!-- </a>--></td>
+                  <td class="govuk-table__cell">Question</td>
+                  </tr>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+
+        {% for query in data['queriesQuestionsExternalMedical'] %}
+        {% if query.action == 'External health professional' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+            <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+            <td class="govuk-table__cell">{{ query.section }}</td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+
+                <!-- non-medical support option from medical support page-->
+                 {% for query in data['queriesQuestionsNonMedical'] %}
+                 {% if query.action == 'Internal non medical support' %}
+                 {% if query.answeredQuestion == 'yes' %}
+                 <tr class="govuk-table__row">
+                   <td scope="row" class="govuk-table__cell" style="width:30%;">{{ query.questionBox }}</td>
+                   <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+                   <td class="govuk-table__cell" style="width:13%;"><!--<a href="{{ query.href }}"-->{{ query.action }}<!--</a>--></td>
+                     <td class="govuk-table__cell" style="width:13%;">{{ query.section }}</td>
+                       <td class="govuk-table__cell"><a href="#">Answer</a></td>
+                 </tr>
+                 {% endif %}
+                 {% endif %}
+                 {% endfor %}
+
+      </tbody>
+    </table>
+
+    <script>
+      // count the rows in unanswered table minus 1 for header
+                var a = document.getElementById("unanswered-table");
+                var rows = a.rows.length -1;
+                       let name = "(+rows)";
+                document.getElementById("unanswered").innerHTML = rows;
+    </script>
+
+
+
+    <script type="text/javascript">
+      // count the rows in answered table minus 1 for header
+    {
+            var totalRowCount = -1;
+            var rowCount = 0;
+            var table = document.getElementById("answered-table");
+            var rows = table.getElementsByTagName("tr")
+            for (var i = 0; i < rows.length; i++) {
+                totalRowCount++;
+                if (rows[i].getElementsByTagName("td").length > 0) {
+                    rowCount++;
+                }
+            }
+            document.getElementById("answered").innerHTML = rowCount;
+        }
+    </script>
+
+
+    {{ govukButton({
+      text: "Make a recommendation",
+      href: "ready-to-make-next-step"
+    }) }}
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

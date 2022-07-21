@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Why are you referring this case for an assessment?
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="refer-confirm" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+              Why are you referring this case for an assessment?
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="why-refer" name="why-refer" type="radio" value="No medical evidence">
+                <label class="govuk-label govuk-radios__label" for="why-refer">
+                  No medical evidence
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="why-refer-2" name="why-refer" type="radio" value="Insufficient evidence">
+                <label class="govuk-label govuk-radios__label" for="why-refer-2">
+                  Insufficient evidence
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="why-refer-3" name="why-refer" type="radio" value="Missing information in PIP2">
+                <label class="govuk-label govuk-radios__label" for="why-refer-3">
+                Missing information in PIP2
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="why-refer-4" name="why-refer" type="radio" value="Long Covid">
+                <label class="govuk-label govuk-radios__label" for="why-refer-4">
+                Long Covid
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="why-refer-4" name="why-refer" type="radio" value="Complex">
+                <label class="govuk-label govuk-radios__label" for="why-refer-4">
+                  Complex
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="why-refer-4" name="why-refer" type="radio" value="Other">
+                <label class="govuk-label govuk-radios__label" for="why-refer-4">
+                  Other
+                </label>
+              </div>
+              <div class="govuk-form-group">
+              <label class="govuk-label" for="why-refer-note">
+              If other, tell us the reason you are referring this case for an assessment.
+              </label>
+              <textarea class="govuk-textarea" id="why-refer-note" name="why-refer-note" rows="5"></textarea>
+            </div>
+            </div>
+
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+    </form>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

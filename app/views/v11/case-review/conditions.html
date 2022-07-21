@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Conditions
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+          <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <div class="column-full">
+    <nav class="navigation-secondary">
+      <ul>
+        <li>
+          <a href="personal-details">Personal details</a>
+        </li>
+        <li>
+        <li>
+            <a href="evidence">Evidence</a>
+        </li>
+        <li>
+            <a href="conditions" class="active" aria-current="section">Conditions</a>
+        </li>
+        <li>
+            <a href="activities">Activities</a>
+        </li>
+        <!--<li>
+          <a href="summary">Questions and answers</a>
+        </li>-->
+      </ul>
+    </nav>
+
+  </div>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">
+          Conditions
+        </h1>
+
+      <table class="govuk-table" id="tagrow">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-one?source=diabetes">Diabetes  </a></td>
+            <!--  <td scope="row" class="govuk-table__cell" ><strong class="govuk-tag govuk-tag--grey app-task-list__tag" ><b id="tag-condition1">0</b> questions </strong></td> -->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-two?source=prostate-cancer">
+              Prostate cancer
+            </a></td>
+              <!-- <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag"><b id="tag-condition2">0</b> questions</strong></td> -->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-three?source=angina">
+              Angina
+              </a></td>
+              <!--   <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag"><b id="tag-condition3">0</b> questions</strong></td> -->
+            </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-four?source=copd">
+              COPD
+              </a></td>
+            <!--  <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag"><b id="tag-condition4">0</b> questions</strong></td> -->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-five?source=blood-pressure">
+              Blood pressure
+              </a></td>
+            <!--  <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag"><b id="tag-condition5">0</b> questions</strong></td> -->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-six?source=incontinence">
+              Incontinence
+              </a></td>
+            <!--  <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag"><b id="tag-condition6">0</b> questions</strong></td> -->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-seven?source=irregular-heartbeat">
+              Irregular heartbeat
+              </a></td>
+            <!--  <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag"><b id="tag-condition7">0</b> questions</strong></td> -->
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a id="activities" href="condition-eight?source=hot-flushes">
+              Hot flushes
+              </a></td>
+            <!--  <td scope="row" class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag"><b id="tag-condition8">0</b> questions</strong></td> -->
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<!-- <script>
+
+  // Retrieve number of questions for each condition
+  document.getElementById("tag-condition1").innerHTML = localStorage.getItem("unanswered-conditions1");
+  document.getElementById("tag-condition2").innerHTML = localStorage.getItem("unanswered-conditions2");
+  document.getElementById("tag-condition3").innerHTML = localStorage.getItem("unanswered-conditions3");
+  document.getElementById("tag-condition4").innerHTML = localStorage.getItem("unanswered-conditions4");
+  document.getElementById("tag-condition5").innerHTML = localStorage.getItem("unanswered-conditions5");
+  document.getElementById("tag-condition6").innerHTML = localStorage.getItem("unanswered-conditions6");
+  document.getElementById("tag-condition7").innerHTML = localStorage.getItem("unanswered-conditions7");
+  document.getElementById("tag-condition8").innerHTML = localStorage.getItem("unanswered-conditions8");
+
+
+
+</script> -->
+
+
+{% endblock %}

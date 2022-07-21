@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+{% include "./preparing-food-descriptor.html" %}
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jim Smith</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 X</dt>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>5 January 1978</dd>
+      </div>
+    </dl>
+</section>
+
+    <div class="govuk-width-container">
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form method="post" action="#">
+          <input type="hidden" value="{{ data.scoreNumber }}"/>
+
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      idPrefix: "",
+      name: "set-descriptor",
+      fieldset: {
+        legend: {
+          text: "How well can the claimant cook food?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          id: "A",
+          value: "Can prepare and cook a simple meal unaided",
+          text: "Can prepare and cook a simple meal unaided"
+        },
+        {
+          id: "B",
+          value: "Needs to use an aid or appliance to be able to either prepare or cook a simple meal",
+          text: "Needs to use an aid or appliance to be able to either prepare or cook a simple meal"
+        },
+        {
+          id: "C",
+          value: "Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave",
+          text: "Cannot cook a simple meal using a conventional cooker but is able to do so using a microwave"
+        },
+        {
+          id: "D",
+          value: "Needs prompting to be able to either prepare or cook a simple meal",
+          text: "Needs prompting to be able to either prepare or cook a simple meal"
+        },
+        {
+          id: "E",
+          value: "Needs supervision or assistance to either prepare or cook a simple meal",
+          text: "Needs supervision or assistance to either prepare or cook a simple meal"
+        },
+        {
+          id: "F",
+          value: "Cannot prepare and cook food at all",
+          text: "Cannot prepare and cook food at all"
+        }
+      ]
+    }) }}
+
+    <script type="text/javascript">
+      function checkButton(element) {
+        var letters = "A";
+
+      if(document.getElementById('A').checked) {
+            document.getElementById("disp").innerHTML
+                = letters;
+        }
+        else if(document.getElementById('B').checked) {
+            document.getElementById("disp").innerHTML
+                = "B";
+        }
+      }
+    </script>
+
+    <h3 id="disp" style= "color:green"> </h3>
+    <h3 id="disp" style= "color:green"> </h3>
+
+
+<div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+        What is the reason for this answer?
+    </label>
+    <textarea class="govuk-textarea" id="justif" name="justification" value="{{ data['justification'] }}" rows="5"></textarea>
+</div>
+
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+
+    </form>
+
+
+
+    </div>
+
+              <!--<div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                    </aside>
+                  </div>-->
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}
