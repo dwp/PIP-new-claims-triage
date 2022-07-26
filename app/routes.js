@@ -1,8 +1,14 @@
 const express = require('express')
 const router = express.Router()
 
-// Add lastest routes here:
 
+
+// Start folder specific routes
+router.use('/sprint-24-25', require('./views/sprint-24-25/_routes'));
+
+router.use('/sprint-39', require('./views/sprint-39/_routes'));
+router.use('/v11', require('./views/v11/case-review/_routes'));
+module.exports = router
 
 
 //v11//*******************************************************************************************************************************************************v10*
@@ -141,9 +147,6 @@ router.post('/v11/case-review/question-link', (req, res, next) => {
         case("External health professional"):
         href = '/v11/case-review/questions-external-medical-health-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/v11/case-review/summary';
       }
       console.log('question-for');
       req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
@@ -184,9 +187,6 @@ router.post('/v11/case-review/question-preparingfood', (req, res, next) => {
         case("External health professional"):
         href = '/v11/case-review/questions-external-medical-health-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/v11/case-review/summary';
       }
       console.log('question-for');
       req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
@@ -269,9 +269,6 @@ router.post('/v11/case-review/question-preparingfood', (req, res, next) => {
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/questions';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -317,9 +314,6 @@ router.post('/v11/case-review/question-preparingfood', (req, res, next) => {
                     case("External health professional"):
                     href = '/v11/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v11/case-review/questions';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -404,9 +398,6 @@ router.post('/v11/case-review/question-preparingfood', (req, res, next) => {
                                       case("External health professional"):
                                       href = '/v11/case-review/questions-external-medical-health-professional';
                                       break;
-                                      //this is the hardcoded bit if one of the links fails
-                                      default:
-                                      href = '/v11/case-review/questions';
                                     }
 
                                   //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -447,13 +438,9 @@ router.post('/v11/case-review/activities/preparing-food', (req, res, next) => {
         case("External health professional"):
         href = '/v11/case-review/questions-external-medical-health-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/v11/case-review/tasklist';
       }
 
-    //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
-      req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].action = req.session.data['who-is-question-for-prepfood']
+        req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].action = req.session.data['who-is-question-for-prepfood']
       req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].href = href;
       res.redirect('/v11/case-review/activities/preparing-food')
       }
@@ -489,9 +476,6 @@ router.post('/v11/case-review/activities/preparing-food', (req, res, next) => {
             case("External health professional"):
             href = '/v11/case-review/questions-external-medical-health-professional';
             break;
-            //this is the hardcoded bit if one of the links fails
-            default:
-            href = '/v11/case-review/tasklist';
           }
 
         //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -530,9 +514,7 @@ router.post('/v11/case-review/activities/preparing-food', (req, res, next) => {
                   case("External health professional"):
                   href = '/v11/case-review/questions-external-medical-health-professional';
                   break;
-                  //this is the hardcoded bit if one of the links fails
-                  default:
-                  href = '/v11/case-review/tasklist';
+
                 }
 
               //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -573,9 +555,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
         case("External health professional"):
         href = '/v11/case-review/questions-external-medical-health-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/v11/case-review/tasklist';
+
       }
 
     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -616,9 +596,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
           case("External health professional"):
           href = '/v11/case-review/questions-external-medical-health-professional';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          href = '/v11/case-review/tasklist';
+
         }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -658,9 +636,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
               case("External health professional"):
               href = '/v11/case-review/questions-external-medical-health-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/v11/case-review/tasklist';
+
             }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -700,9 +676,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                     case("External health professional"):
                     href = '/v11/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v11/case-review/tasklist';
+
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -742,9 +716,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                     case("External health professional"):
                     href = '/v11/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v11/case-review/tasklist';
+
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -784,9 +756,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                     case("External health professional"):
                     href = '/v11/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v11/case-review/tasklist';
+
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -826,9 +796,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/tasklist';
+
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -867,9 +835,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
               case("External health professional"):
               href = '/v11/case-review/questions-external-medical-health-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/v11/case-review/tasklist';
+
             }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -910,9 +876,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                     case("External health professional"):
                     href = '/v11/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v11/case-review/tasklist';
+
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -953,9 +917,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                           case("External health professional"):
                           href = '/v11/case-review/questions-external-medical-health-professional';
                           break;
-                          //this is the hardcoded bit if one of the links fails
-                          default:
-                          href = '/v11/case-review/tasklist';
+
                         }
 
                       //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -996,9 +958,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
               case("External health professional"):
               href = '/v11/case-review/questions-external-medical-health-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/v11/case-review/questions';
+
             }
 
           //  req.session.data.queriesConditionOne[req.session.data.queriesConditionOne.length - 1].content = req.session.data['query-content']
@@ -1038,9 +998,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/tasklist';
+
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -1080,9 +1038,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/tasklist';
+
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -1122,9 +1078,7 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/tasklist';
+
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -1164,9 +1118,6 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -1206,10 +1157,6 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -1250,9 +1197,6 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -1293,9 +1237,6 @@ router.post('/v11/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v11/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v11/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -1335,9 +1276,6 @@ router.post('/v11/case-review/set-descriptor', (req, res, next) => {
           case('Cannot prepare and cook food at all'):
           points = '8';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          points = '/v11/case-review/tasklist';
         }
 
      const scoresChoice = req.session.data.scoresChoice || []
@@ -1393,9 +1331,6 @@ router.post('/v11/case-review/set-action/set-action-taking-nutrition', (req, res
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1439,9 +1374,6 @@ router.post('/v11/case-review/set-action/set-action-managing-treatments', (req, 
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   console.log(req.session.data)
@@ -1488,9 +1420,6 @@ router.post('/v11/case-review/set-action/set-action-washing-and-bathing', (req, 
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1536,9 +1465,6 @@ router.post('/v11/case-review/set-action/set-action-managing-toilet-needs', (req
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1584,9 +1510,6 @@ router.post('/v11/case-review/set-action/set-action-dressing-and-undressing', (r
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1632,9 +1555,6 @@ router.post('/v11/case-review/set-action/set-action-communicating-verbally', (re
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1680,9 +1600,6 @@ router.post('/v11/case-review/set-action/set-action-reading-and-understanding', 
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1728,9 +1645,6 @@ router.post('/v11/case-review/set-action/set-action-engage-face-to-face', (req, 
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1776,9 +1690,6 @@ router.post('/v11/case-review/set-action/set-action-managing-money', (req, res, 
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1824,9 +1735,6 @@ router.post('/v11/case-review/set-action/set-action-planning-and-following-journ
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1872,9 +1780,6 @@ router.post('/v11/case-review/set-action/set-action-moving-around', (req, res, n
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -1962,9 +1867,6 @@ router.post('/v11/case-review/set-action/set-action-evidence', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['query-content']
@@ -2063,9 +1965,6 @@ router.post('/v11/case-review/set-action/set-action-evidence-two', (req, res, ne
     case('Resolve this issue another way'):
     href = '/v11/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v11/case-review/tasklist';
   }
 
   req.session.data.queriesEvidenceTwo[req.session.data.queriesEvidenceTwo.length - 1].evidence = req.session.data['query-content']
@@ -2107,6 +2006,7 @@ router.post('/v11/case-review/contact-claimant-action', (req, res, next) => {
   res.redirect('/v11/case-review/contact-claimant-action')
 })
 //******** -- End of v11**********************************************************************************************
+
 
 //v10//*******************************************************************************************************************************************************v10*
 ///// case selector routes ////
@@ -2244,9 +2144,6 @@ router.post('/v10/case-review/question-link', (req, res, next) => {
         case("External health professional"):
         href = '/v10/case-review/questions-external-medical-health-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/v10/case-review/summary';
       }
       console.log('question-for');
       req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
@@ -2287,9 +2184,6 @@ router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
         case("External health professional"):
         href = '/v10/case-review/questions-external-medical-health-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/v10/case-review/summary';
       }
       console.log('question-for');
       req.session.data.queriesQuestions[req.session.data.queriesQuestions.length - 1].action = req.session.data['question-for']
@@ -2372,9 +2266,6 @@ router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/questions';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2420,9 +2311,6 @@ router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
                     case("External health professional"):
                     href = '/v10/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v10/case-review/questions';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2507,9 +2395,6 @@ router.post('/v10/case-review/question-preparingfood', (req, res, next) => {
                                       case("External health professional"):
                                       href = '/v10/case-review/questions-external-medical-health-professional';
                                       break;
-                                      //this is the hardcoded bit if one of the links fails
-                                      default:
-                                      href = '/v10/case-review/questions';
                                     }
 
                                   //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2550,9 +2435,6 @@ router.post('/v10/case-review/activities/preparing-food', (req, res, next) => {
         case("External health professional"):
         href = '/v10/case-review/questions-external-medical-health-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/v10/case-review/tasklist';
       }
 
     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2592,9 +2474,6 @@ router.post('/v10/case-review/activities/preparing-food', (req, res, next) => {
             case("External health professional"):
             href = '/v10/case-review/questions-external-medical-health-professional';
             break;
-            //this is the hardcoded bit if one of the links fails
-            default:
-            href = '/v10/case-review/tasklist';
           }
 
         //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2633,9 +2512,6 @@ router.post('/v10/case-review/activities/preparing-food', (req, res, next) => {
                   case("External health professional"):
                   href = '/v10/case-review/questions-external-medical-health-professional';
                   break;
-                  //this is the hardcoded bit if one of the links fails
-                  default:
-                  href = '/v10/case-review/tasklist';
                 }
 
               //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2676,9 +2552,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
         case("External health professional"):
         href = '/v10/case-review/questions-external-medical-health-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/v10/case-review/tasklist';
       }
 
     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2719,9 +2592,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
           case("External health professional"):
           href = '/v10/case-review/questions-external-medical-health-professional';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          href = '/v10/case-review/tasklist';
         }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2761,9 +2631,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
               case("External health professional"):
               href = '/v10/case-review/questions-external-medical-health-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/v10/case-review/tasklist';
             }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2803,9 +2670,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                     case("External health professional"):
                     href = '/v10/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v10/case-review/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2845,9 +2709,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                     case("External health professional"):
                     href = '/v10/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v10/case-review/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2887,9 +2748,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                     case("External health professional"):
                     href = '/v10/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v10/case-review/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2929,9 +2787,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -2970,9 +2825,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
               case("External health professional"):
               href = '/v10/case-review/questions-external-medical-health-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/v10/case-review/tasklist';
             }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3013,9 +2865,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                     case("External health professional"):
                     href = '/v10/case-review/questions-external-medical-health-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/v10/case-review/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3056,9 +2905,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                           case("External health professional"):
                           href = '/v10/case-review/questions-external-medical-health-professional';
                           break;
-                          //this is the hardcoded bit if one of the links fails
-                          default:
-                          href = '/v10/case-review/tasklist';
                         }
 
                       //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3099,9 +2945,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
               case("External health professional"):
               href = '/v10/case-review/questions-external-medical-health-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/v10/case-review/questions';
             }
 
           //  req.session.data.queriesConditionOne[req.session.data.queriesConditionOne.length - 1].content = req.session.data['query-content']
@@ -3141,9 +2984,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3183,9 +3023,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3225,9 +3062,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3267,9 +3101,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3309,10 +3140,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3353,9 +3180,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3396,9 +3220,6 @@ router.post('/v10/case-review/activities/washing-and-bathing', (req, res, next) 
                 case("External health professional"):
                 href = '/v10/case-review/questions-external-medical-health-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/v10/case-review/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -3438,9 +3259,6 @@ router.post('/v10/case-review/set-descriptor', (req, res, next) => {
           case('Cannot prepare and cook food at all'):
           points = '8';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          points = '/v10/case-review/tasklist';
         }
 
      const scoresChoice = req.session.data.scoresChoice || []
@@ -3496,9 +3314,6 @@ router.post('/v10/case-review/set-action/set-action-taking-nutrition', (req, res
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3542,9 +3357,6 @@ router.post('/v10/case-review/set-action/set-action-managing-treatments', (req, 
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   console.log(req.session.data)
@@ -3591,9 +3403,6 @@ router.post('/v10/case-review/set-action/set-action-washing-and-bathing', (req, 
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3639,9 +3448,6 @@ router.post('/v10/case-review/set-action/set-action-managing-toilet-needs', (req
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3687,9 +3493,6 @@ router.post('/v10/case-review/set-action/set-action-dressing-and-undressing', (r
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3735,9 +3538,6 @@ router.post('/v10/case-review/set-action/set-action-communicating-verbally', (re
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3783,9 +3583,6 @@ router.post('/v10/case-review/set-action/set-action-reading-and-understanding', 
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3831,9 +3628,6 @@ router.post('/v10/case-review/set-action/set-action-engage-face-to-face', (req, 
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3879,9 +3673,6 @@ router.post('/v10/case-review/set-action/set-action-managing-money', (req, res, 
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3927,9 +3718,6 @@ router.post('/v10/case-review/set-action/set-action-planning-and-following-journ
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -3975,9 +3763,6 @@ router.post('/v10/case-review/set-action/set-action-moving-around', (req, res, n
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -4065,9 +3850,6 @@ router.post('/v10/case-review/set-action/set-action-evidence', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['query-content']
@@ -4166,9 +3948,6 @@ router.post('/v10/case-review/set-action/set-action-evidence-two', (req, res, ne
     case('Resolve this issue another way'):
     href = '/v10/case-review/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/v10/case-review/tasklist';
   }
 
   req.session.data.queriesEvidenceTwo[req.session.data.queriesEvidenceTwo.length - 1].evidence = req.session.data['query-content']
@@ -4264,9 +4043,6 @@ router.post('/sprint-41/minimum-viable-product/ready-to-make-next-step', functio
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4309,9 +4085,6 @@ router.post('/sprint-41/minimum-viable-product/ready-to-make-next-step', functio
                     case("External healthcare professional"):
                     href = '/sprint-41/minimum-viable-product/unassigned-questions';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/sprint-41/minimum-viable-product/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4353,9 +4126,6 @@ router.post('/sprint-41/minimum-viable-product/ready-to-make-next-step', functio
                     case("External healthcare professional"):
                     href = '/sprint-41/minimum-viable-product/unassigned-questions';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/sprint-41/minimum-viable-product/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4397,16 +4167,12 @@ router.post('/sprint-41/minimum-viable-product/ready-to-make-next-step', functio
                           case("External healthcare professional"):
                           href = '/sprint-41/minimum-viable-product/unassigned-questions';
                           break;
-                          //this is the hardcoded bit if one of the links fails
-                          default:
-                          href = '/sprint-41/minimum-viable-product/tasklist';
                         }
 
                       //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
                         req.session.data.queriesQuestionsExternalMedical[req.session.data.queriesQuestionsExternalMedical.length - 1].action = req.session.data['question-for-external-healthcare-professional']
                         req.session.data.queriesQuestionsExternalMedical[req.session.data.queriesQuestionsExternalMedical.length - 1].href = href;
                         res.redirect('/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional')
-
                         }
                       })
 
@@ -4441,9 +4207,6 @@ router.post('/sprint-41/minimum-viable-product/ready-to-make-next-step', functio
                                 case("External healthcare professional"):
                                 href = '/sprint-41/minimum-viable-product/unassigned-questions';
                                 break;
-                                //this is the hardcoded bit if one of the links fails
-                                default:
-                                href = '/sprint-41/minimum-viable-product/tasklist';
                               }
 
                             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4485,9 +4248,6 @@ router.post('/sprint-41/minimum-viable-product/ready-to-make-next-step', functio
                     case("External healthcare professional"):
                     href = '/sprint-41/minimum-viable-product/unassigned-questions';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/sprint-41/minimum-viable-product/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4522,9 +4282,6 @@ router.post('/sprint-41/minimum-viable-product/ready-to-make-next-step', functio
                         case("Unassigned"):
                         href = '/sprint-41/minimum-viable-product/unassigned-questions';
                         break;
-                        //this is the hardcoded bit if one of the links fails
-                        default:
-                        href = '/sprint-41/minimum-viable-product/tasklist';
                       }
 
                     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4565,9 +4322,6 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
         case("External healthcare professional"):
         href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/sprint-41/minimum-viable-product/tasklist';
       }
 
     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4607,9 +4361,6 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
             case("External healthcare professional"):
             href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
             break;
-            //this is the hardcoded bit if one of the links fails
-            default:
-            href = '/sprint-41/minimum-viable-product/tasklist';
           }
 
         //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4649,9 +4400,6 @@ router.post('/sprint-41/minimum-viable-product/activities/preparing-food', (req,
                   case("External healthcare professional"):
                   href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                   break;
-                  //this is the hardcoded bit if one of the links fails
-                  default:
-                  href = '/sprint-41/minimum-viable-product/tasklist';
                 }
 
               //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4692,9 +4440,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
         case("External healthcare professional"):
         href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
         break;
-        //this is the hardcoded bit if one of the links fails
-        default:
-        href = '/sprint-41/minimum-viable-product/tasklist';
       }
 
     //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4735,9 +4480,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
           case("External healthcare professional"):
           href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          href = '/sprint-41/minimum-viable-product/tasklist';
         }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4777,9 +4519,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               case("External healthcare professional"):
               href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/sprint-41/minimum-viable-product/tasklist';
             }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4819,9 +4558,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                     case("External healthcare professional"):
                     href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/sprint-41/minimum-viable-product/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4861,9 +4597,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                     case("External healthcare professional"):
                     href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/sprint-41/minimum-viable-product/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4903,9 +4636,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                     case("External healthcare professional"):
                     href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/sprint-41/minimum-viable-product/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4945,9 +4675,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -4986,9 +4713,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               case("External healthcare professional"):
               href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/sprint-41/minimum-viable-product/tasklist';
             }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5029,9 +4753,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                     case("External healthcare professional"):
                     href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                     break;
-                    //this is the hardcoded bit if one of the links fails
-                    default:
-                    href = '/sprint-41/minimum-viable-product/tasklist';
                   }
 
                 //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5072,9 +4793,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                           case("External healthcare professional"):
                           href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                           break;
-                          //this is the hardcoded bit if one of the links fails
-                          default:
-                          href = '/sprint-41/minimum-viable-product/tasklist';
                         }
 
                       //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5115,9 +4833,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
               case("External healthcare professional"):
               href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
               break;
-              //this is the hardcoded bit if one of the links fails
-              default:
-              href = '/sprint-41/minimum-viable-product/tasklist';
             }
 
           //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5157,9 +4872,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5199,9 +4911,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5241,9 +4950,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5283,9 +4989,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5325,9 +5028,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5368,9 +5068,6 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -5411,16 +5108,12 @@ router.post('/sprint-41/minimum-viable-product/activities/washing-and-bathing', 
                 case("External healthcare professional"):
                 href = '/sprint-41/minimum-viable-product/questions-external-medical-healthcare-professional';
                 break;
-                //this is the hardcoded bit if one of the links fails
-                default:
-                href = '/sprint-41/minimum-viable-product/tasklist';
               }
 
             //  req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
               req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].action = req.session.data['who-is-question-for-cond-eight']
               req.session.data.queriesConditionEight[req.session.data.queriesConditionEight.length - 1].href = href;
               res.redirect('/sprint-41/minimum-viable-product/condition-eight')
-
               }
         })
 
@@ -5453,9 +5146,6 @@ router.post('/sprint-41/minimum-viable-product/set-descriptor', (req, res, next)
           case('Cannot prepare and cook food at all'):
           points = '8';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          points = '/sprint-41/minimum-viable-product/tasklist';
         }
 
      const scoresChoice = req.session.data.scoresChoice || []
@@ -5512,9 +5202,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-taking-nutr
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5558,9 +5245,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-managing-th
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   console.log(req.session.data)
@@ -5607,9 +5291,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-washing-and
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5655,9 +5336,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-managing-to
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5703,9 +5381,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-dressing-an
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5751,9 +5426,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-communicati
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5799,9 +5471,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-reading-and
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5847,9 +5516,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-engage-face
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5895,9 +5561,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-budgeting',
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5943,9 +5606,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-planning-an
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -5991,9 +5651,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-moving-arou
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -6081,9 +5738,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-evidence', 
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['query-content']
@@ -6182,9 +5836,6 @@ router.post('/sprint-41/minimum-viable-product/set-action/set-action-evidence-tw
     case('Resolve this issue another way'):
     href = '/sprint-41/minimum-viable-product/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-41/minimum-viable-product/tasklist';
   }
 
   req.session.data.queriesEvidenceTwo[req.session.data.queriesEvidenceTwo.length - 1].evidence = req.session.data['query-content']
@@ -6396,9 +6047,6 @@ router.post('/sprint-30-35/set-action/set-action-preparing-food', (req, res, nex
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].content = req.session.data['query-content']
@@ -6494,9 +6142,6 @@ router.post('/sprint-30-35/set-action/set-action-taking-nutrition', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -6592,9 +6237,6 @@ router.post('/sprint-30-35/set-action/set-action-managing-therapy', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesManageTherapy[req.session.data.queriesManageTherapy.length - 1].content = req.session.data['query-content']
@@ -6691,9 +6333,6 @@ router.post('/sprint-30-35/set-action/set-action-washing-and-bathing', (req, res
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesWashingBathing[req.session.data.queriesWashingBathing.length - 1].content = req.session.data['query-content']
@@ -6790,9 +6429,6 @@ router.post('/sprint-30-35/set-action/set-action-managing-toilet-needs', (req, r
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesToiletneeds[req.session.data.queriesToiletneeds.length - 1].content = req.session.data['query-content']
@@ -6888,9 +6524,6 @@ router.post('/sprint-30-35/set-action/set-action-dressing-and-undressing', (req,
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].content = req.session.data['query-content']
@@ -6927,9 +6560,6 @@ router.post('/sprint-30-35/set-descriptor', (req, res, next) => {
           case('Cannot prepare and cook food at all'):
           points = '8';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          points = '/sprint-30-35/tasklist';
         }
 
      const scoresChoice = req.session.data.scoresChoice || []
@@ -6985,9 +6615,6 @@ router.post('/sprint-30-35/set-action/set-action-taking-nutrition', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7031,9 +6658,6 @@ router.post('/sprint-30-35/set-action/set-action-managing-therapy', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   console.log(req.session.data)
@@ -7080,9 +6704,6 @@ router.post('/sprint-30-35/set-action/set-action-washing-and-bathing', (req, res
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7128,9 +6749,6 @@ router.post('/sprint-30-35/set-action/set-action-managing-toilet-needs', (req, r
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7176,9 +6794,6 @@ router.post('/sprint-30-35/set-action/set-action-dressing-and-undressing', (req,
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7224,9 +6839,6 @@ router.post('/sprint-30-35/set-action/set-action-communicating-verbally', (req, 
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7272,9 +6884,6 @@ router.post('/sprint-30-35/set-action/set-action-reading-and-understanding', (re
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7320,9 +6929,6 @@ router.post('/sprint-30-35/set-action/set-action-engage-face-to-face', (req, res
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7368,9 +6974,6 @@ router.post('/sprint-30-35/set-action/set-action-budgeting', (req, res, next) =>
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7416,9 +7019,6 @@ router.post('/sprint-30-35/set-action/set-action-planning-and-following-journeys
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7464,9 +7064,6 @@ router.post('/sprint-30-35/set-action/set-action-moving-around', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -7554,9 +7151,6 @@ router.post('/sprint-30-35/set-action/set-action-evidence', (req, res, next) => 
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['query-content']
@@ -7655,9 +7249,6 @@ router.post('/sprint-30-35/set-action/set-action-evidence-two', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesEvidenceTwo[req.session.data.queriesEvidenceTwo.length - 1].evidence = req.session.data['query-content']
@@ -7736,9 +7327,6 @@ router.post('/sprint-30-35/set-action/set-action-condition-one', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -7785,9 +7373,6 @@ router.post('/sprint-30-35/set-action/set-action-condition-two', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -7834,9 +7419,6 @@ router.post('/sprint-30-35/set-action/set-action-condition-three', (req, res, ne
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -7883,9 +7465,6 @@ router.post('/sprint-30-35/set-action/set-action-condition-four', (req, res, nex
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/condition-four';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -7932,9 +7511,6 @@ router.post('/sprint-30-35/set-action/set-action-condition-five', (req, res, nex
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -7981,9 +7557,6 @@ router.post('/sprint-30-35/set-action/set-action-condition-six', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/condition-six';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -8030,9 +7603,6 @@ router.post('/sprint-30-35/set-action/set-action-condition-seven', (req, res, ne
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -8079,9 +7649,6 @@ router.post('/sprint-30-35/set-action/set-action-condition-eight', (req, res, ne
     case('Resolve this issue another way'):
     href = '/sprint-30-35/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-30-35/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -8183,9 +7750,6 @@ router.post('/sprint-29/set-action/set-action-preparing-food', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].content = req.session.data['query-content']
@@ -8281,9 +7845,6 @@ router.post('/sprint-29/set-action/set-action-taking-nutrition', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesTakeNutrition[req.session.data.queriesTakeNutrition.length - 1].content = req.session.data['query-content']
@@ -8379,9 +7940,6 @@ router.post('/sprint-29/set-action/set-action-managing-therapy', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesManageTherapy[req.session.data.queriesManageTherapy.length - 1].content = req.session.data['query-content']
@@ -8478,9 +8036,6 @@ router.post('/sprint-29/set-action/set-action-washing-and-bathing', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesWashingBathing[req.session.data.queriesWashingBathing.length - 1].content = req.session.data['query-content']
@@ -8577,9 +8132,6 @@ router.post('/sprint-29/set-action/set-action-managing-toilet-needs', (req, res,
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesToiletneeds[req.session.data.queriesToiletneeds.length - 1].content = req.session.data['query-content']
@@ -8675,9 +8227,6 @@ router.post('/sprint-29/set-action/set-action-dressing-and-undressing', (req, re
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesDressing[req.session.data.queriesDressing.length - 1].content = req.session.data['query-content']
@@ -8714,9 +8263,6 @@ router.post('/sprint-29/set-descriptor', (req, res, next) => {
           case('Cannot prepare and cook food at all'):
           points = '8';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          points = '/sprint-29/tasklist';
         }
 
      const scoresChoice = req.session.data.scoresChoice || []
@@ -8773,9 +8319,6 @@ router.post('/sprint-29/set-action/set-action-taking-nutrition', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -8819,9 +8362,6 @@ router.post('/sprint-29/set-action/set-action-managing-therapy', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   console.log(req.session.data)
@@ -8868,9 +8408,6 @@ router.post('/sprint-29/set-action/set-action-washing-and-bathing', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -8916,9 +8453,6 @@ router.post('/sprint-29/set-action/set-action-managing-toilet-needs', (req, res,
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -8964,9 +8498,6 @@ router.post('/sprint-29/set-action/set-action-dressing-and-undressing', (req, re
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -9012,9 +8543,6 @@ router.post('/sprint-29/set-action/set-action-communicating-verbally', (req, res
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -9060,9 +8588,6 @@ router.post('/sprint-29/set-action/set-action-reading-and-understanding', (req, 
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -9108,9 +8633,6 @@ router.post('/sprint-29/set-action/set-action-engage-face-to-face', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -9156,9 +8678,6 @@ router.post('/sprint-29/set-action/set-action-budgeting', (req, res, next) => {
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -9204,9 +8723,6 @@ router.post('/sprint-29/set-action/set-action-planning-and-following-journeys', 
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -9252,9 +8768,6 @@ router.post('/sprint-29/set-action/set-action-moving-around', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -9342,9 +8855,6 @@ router.post('/sprint-29/set-action/set-action-evidence', (req, res, next) => {
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['query-content']
@@ -9443,9 +8953,6 @@ router.post('/sprint-29/set-action/set-action-evidence-two', (req, res, next) =>
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesEvidenceTwo[req.session.data.queriesEvidenceTwo.length - 1].evidence = req.session.data['query-content']
@@ -9524,9 +9031,6 @@ router.post('/sprint-29/set-action/set-action-condition-one', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -9573,9 +9077,6 @@ router.post('/sprint-29/set-action/set-action-condition-two', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -9622,9 +9123,6 @@ router.post('/sprint-29/set-action/set-action-condition-three', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -9671,9 +9169,6 @@ router.post('/sprint-29/set-action/set-action-condition-four', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/condition-four';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -9720,9 +9215,6 @@ router.post('/sprint-29/set-action/set-action-condition-five', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -9769,9 +9261,6 @@ router.post('/sprint-29/set-action/set-action-condition-six', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/condition-six';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -9818,9 +9307,6 @@ router.post('/sprint-29/set-action/set-action-condition-seven', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -9867,9 +9353,6 @@ router.post('/sprint-29/set-action/set-action-condition-eight', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-29/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-29/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -9971,9 +9454,6 @@ router.post('/sprint-28/set-action/set-action-preparing-food', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesPrepFood[req.session.data.queriesPrepFood.length - 1].content = req.session.data['query-content']
@@ -10010,9 +9490,6 @@ router.post('/sprint-28/set-descriptor', (req, res, next) => {
           case('Cannot prepare and cook food at all'):
           points = '8';
           break;
-          //this is the hardcoded bit if one of the links fails
-          default:
-          points = '/sprint-28/tasklist';
         }
 
      const scoresChoice = req.session.data.scoresChoice || []
@@ -10069,9 +9546,6 @@ router.post('/sprint-28/set-action/set-action-taking-nutrition', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10115,9 +9589,6 @@ router.post('/sprint-28/set-action/set-action-managing-therapy', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   console.log(req.session.data)
@@ -10164,9 +9635,6 @@ router.post('/sprint-28/set-action/set-action-washing-and-bathing', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10212,9 +9680,6 @@ router.post('/sprint-28/set-action/set-action-managing-toilet-needs', (req, res,
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10260,9 +9725,6 @@ router.post('/sprint-28/set-action/set-action-dressing-and-undressing', (req, re
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10308,9 +9770,6 @@ router.post('/sprint-28/set-action/set-action-communicating-verbally', (req, res
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10356,9 +9815,6 @@ router.post('/sprint-28/set-action/set-action-reading-and-understanding', (req, 
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10404,9 +9860,6 @@ router.post('/sprint-28/set-action/set-action-engage-face-to-face', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10452,9 +9905,6 @@ router.post('/sprint-28/set-action/set-action-budgeting', (req, res, next) => {
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10500,9 +9950,6 @@ router.post('/sprint-28/set-action/set-action-planning-and-following-journeys', 
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10548,9 +9995,6 @@ router.post('/sprint-28/set-action/set-action-moving-around', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -10626,9 +10070,6 @@ router.post('/sprint-28/set-action/set-action-evidence', (req, res, next) => {
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
@@ -10704,9 +10145,6 @@ router.post('/sprint-28/set-action/set-action-evidence', (req, res, next) => {
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
@@ -10743,9 +10181,6 @@ router.post('/sprint-28/set-action/set-action-evidence-two', (req, res, next) =>
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
@@ -10817,9 +10252,6 @@ router.post('/sprint-28/set-action/set-action-condition-one', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -10866,9 +10298,6 @@ router.post('/sprint-28/set-action/set-action-condition-two', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -10915,9 +10344,6 @@ router.post('/sprint-28/set-action/set-action-condition-three', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -10964,9 +10390,6 @@ router.post('/sprint-28/set-action/set-action-condition-four', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/condition-four';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -11013,9 +10436,6 @@ router.post('/sprint-28/set-action/set-action-condition-five', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -11062,9 +10482,6 @@ router.post('/sprint-28/set-action/set-action-condition-six', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/condition-six';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -11111,9 +10528,6 @@ router.post('/sprint-28/set-action/set-action-condition-seven', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -11160,9 +10574,6 @@ router.post('/sprint-28/set-action/set-action-condition-eight', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-28/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-28/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -11212,9 +10623,6 @@ router.post('/sprint-27/set-action/set-action-preparing-food', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
   req.session.data.queries[req.session.data.queries.length - 1].action = req.session.data['set-an-action']
@@ -11260,9 +10668,6 @@ router.post('/sprint-27/set-action/set-action-taking-nutrition', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11306,9 +10711,6 @@ router.post('/sprint-27/set-action/set-action-managing-therapy', (req, res, next
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   console.log(req.session.data)
@@ -11355,9 +10757,6 @@ router.post('/sprint-27/set-action/set-action-washing-and-bathing', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11403,9 +10802,6 @@ router.post('/sprint-27/set-action/set-action-managing-toilet-needs', (req, res,
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11451,9 +10847,6 @@ router.post('/sprint-27/set-action/set-action-dressing-and-undressing', (req, re
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11499,9 +10892,6 @@ router.post('/sprint-27/set-action/set-action-communicating-verbally', (req, res
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11547,9 +10937,6 @@ router.post('/sprint-27/set-action/set-action-reading-and-understanding', (req, 
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11595,9 +10982,6 @@ router.post('/sprint-27/set-action/set-action-engage-face-to-face', (req, res, n
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11643,9 +11027,6 @@ router.post('/sprint-27/set-action/set-action-budgeting', (req, res, next) => {
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11691,9 +11072,6 @@ router.post('/sprint-27/set-action/set-action-planning-and-following-journeys', 
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11739,9 +11117,6 @@ router.post('/sprint-27/set-action/set-action-moving-around', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queries[req.session.data.queries.length - 1].content = req.session.data['query-content']
@@ -11817,9 +11192,6 @@ router.post('/sprint-27/set-action/set-action-evidence', (req, res, next) => {
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
@@ -11895,9 +11267,6 @@ router.post('/sprint-27/set-action/set-action-evidence', (req, res, next) => {
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
@@ -11934,9 +11303,6 @@ router.post('/sprint-27/set-action/set-action-evidence-two', (req, res, next) =>
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesEvidence[req.session.data.queriesEvidence.length - 1].evidence = req.session.data['evidence-query']
@@ -12008,9 +11374,6 @@ router.post('/sprint-27/set-action/set-action-condition-one', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -12057,9 +11420,6 @@ router.post('/sprint-27/set-action/set-action-condition-two', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -12106,9 +11466,6 @@ router.post('/sprint-27/set-action/set-action-condition-three', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -12155,9 +11512,6 @@ router.post('/sprint-27/set-action/set-action-condition-four', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/condition-four';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -12204,9 +11558,6 @@ router.post('/sprint-27/set-action/set-action-condition-five', (req, res, next) 
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -12253,9 +11604,6 @@ router.post('/sprint-27/set-action/set-action-condition-six', (req, res, next) =
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/condition-six';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -12302,9 +11650,6 @@ router.post('/sprint-27/set-action/set-action-condition-seven', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -12351,9 +11696,6 @@ router.post('/sprint-27/set-action/set-action-condition-eight', (req, res, next)
     case('Resolve this issue another way'):
     href = '/sprint-27/none-these-action';
     break;
-    //this is the hardcoded bit if one of the links fails
-    default:
-    href = '/sprint-27/tasklist';
   }
 
   req.session.data.queriesCondition[req.session.data.queriesCondition.length - 1].content = req.session.data['condition-query']
@@ -12383,13 +11725,3 @@ router.post('/sprint-24-25/set-action/set-action-preparing-food', (req, res, nex
   console.log(1, req.session.data)
   res.redirect('/sprint-24-25/task-list')
 })
-
-
-
-// Start folder specific routes
-router.use('/sprint-24-25', require('./views/sprint-24-25/_routes'));
-// router.use('/v11', require('./views/v11/_routes'));
-// current sprint, remember to add older sprint when adding a new folder!
-router.use('/sprint-39', require('./views/sprint-39/_routes'));
-//router.use('/v11', require('./views/v11/case-review/_routes'));
-module.exports = router

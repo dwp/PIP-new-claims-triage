@@ -17,6 +17,16 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+// hide crown on footer
+.govuk-footer__copyright-logo {
+   display: none;
+}
+
+// hide licence on footer
+.govuk-footer__licence-logo {
+  display: none;
+}
+
 a.govuk-skip-link {text-decoration: underline;}
 
 .key-details-bar {

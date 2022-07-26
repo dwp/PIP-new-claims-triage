@@ -11,7 +11,6 @@
         <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
         <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
       </div>
-
       <div class="key-details-bar__bottom-block">
         <dt>Date of birth:</dt>
         <dd>4 June 1972</dd>
@@ -29,20 +28,13 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       <h1 class="govuk-heading-l">
           <span class="govuk-caption-l">Evidence</span>
           Document 1
      </h1>
 
-
- 
-
       <img src="/public/images/evidence-3.jpg" alt="doctors-note" width="703px" height="887">
-
-      <iframe class="document" src="evidence/JaneDoe_FurtherEvidence_120921.pdf"></iframe>
-   </div>
-      <br>
+      <br>  <br>
 
       <!--{{ data | dump }}-->
 
@@ -91,9 +83,6 @@
             }) }}
       </form>
 
-
-
-
     <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
     <thead class="govuk-table__head">
@@ -126,7 +115,7 @@
     </tbody>
     </table>
 
-  <!--  <h2 class="govuk-heading-m">Questions about the claimant's account</h2>
+   <h2 class="govuk-heading-m">Questions about the claimant's account</h2>
     <script defer type="text/javascript">
 
     var noQuery = "{{ data['set-an-action'] }}";
@@ -142,7 +131,7 @@
     }
     }
 
-    </script>-->
+    </script>
 
     <div id="queryTable">
     <table class="govuk-table">
@@ -170,26 +159,9 @@
       {% endif %}
       {% endfor %}
 
-  <!--    <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
-          <td class="govuk-table__cell">The claimant</td>
-      </tr>
-
-      <tr class="govuk-table__row">
-          <td class="govuk-table__cell">How often are your angina attacks?</td>
-          <td class="govuk-table__cell">The claimant</td>
-      </tr>
-
-      <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
-          <td class="govuk-table__cell">The claimant</td>
-      </tr>
--->
     </tbody>
     </table>
     </div>
-
-
 
     <table class="govuk-table">
     <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
@@ -213,22 +185,10 @@
     {% endif %}
     {% endfor %}
 
-<!--
-    <tr class="govuk-table__row">
-    <td class="govuk-table__cell">Issue with bending to reach oven</td>
-    <td class="govuk-table__cell">
--->
-    <!--{{ noScopePrepFood.action }}-->
-<!--
-    </td>
-    </tr>
-
-  -->
 
   </tbody>
     </table>
-<!--<p>{{ data['page-URL'][1]['contact-claimant-page'] }}</p>-->
-<!--<p>{{ data['items'][1]['href'] }}</p>-->
+
     </div>
 
   </div>
