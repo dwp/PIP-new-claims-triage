@@ -2,14 +2,11 @@ const express = require('express')
 const router = express.Router()
 
 
-
 // Start folder specific routes
 router.use('/sprint-24-25', require('./views/sprint-24-25/_routes'));
-
 router.use('/sprint-39', require('./views/sprint-39/_routes'));
 router.use('/v11', require('./views/v11/case-review/_routes'));
 module.exports = router
-
 
 //v11//*******************************************************************************************************************************************************v10*
 ///// case selector routes ////
@@ -59,8 +56,6 @@ router.post('/v11/case-selector/create-new-case-in-review', (req, res, next) => 
         res.redirect('/v11/case-selector/create-caseload-in-review-success')
       }
 )
-
-
 
 // Triage route //
 router.post('/v11/case-selector/ready-to-make-next-step', function (req, res) {
@@ -112,7 +107,6 @@ router.post('/v11/case-review/ready-to-make-next-step', function (req, res) {
     // Send user to referral page
     res.redirect('refer')
   }
-
 })
 
 //Start routes for the 'adding a question' journey (collated questions view)
@@ -169,9 +163,7 @@ router.post('/v11/case-review/question-preparingfood', (req, res, next) => {
       queriesQuestions.push({ answerBox, questionBox, answeredQuestion, section })
       req.session.data.queriesQuestions = queriesQuestions
 
-      let href;
-
-      switch (req.session.data['question-for']) {
+      let href;      switch (req.session.data['question-for']) {
         case("Unassigned"):
         href = '/v11/case-review/unassigned-questions';
         break;
@@ -366,7 +358,6 @@ router.post('/v11/case-review/question-preparingfood', (req, res, next) => {
                               }
                             })
 
-
                             // Add a question for external health professional
                               router.post('/v11/case-review/question-external-medical-add', (req, res, next) => {
                                   if (req.session.data['question-for-external-health-professional']) {
@@ -407,7 +398,6 @@ router.post('/v11/case-review/question-preparingfood', (req, res, next) => {
 
                                     }
                                   })
-
 
 //Start routes for preparing food: questions
 router.post('/v11/case-review/activities/preparing-food', (req, res, next) => {
@@ -11399,9 +11389,7 @@ router.post('/sprint-27/set-action/set-action-condition-two', (req, res, next) =
   console.log('this is condition two')
   console.log(req.session.data)
 
-  let href;
-
-  switch (req.session.data['set-an-action']) {
+  let href;  switch (req.session.data['set-an-action']) {
     case('The claimant'):
     href = '/sprint-27/contact-claimant-action';
     break;
@@ -11430,7 +11418,6 @@ router.post('/sprint-27/set-action/set-action-condition-two', (req, res, next) =
 })
 
 //Routes for query condtion3
-
 router.post('/sprint-27/condition-three', (req, res, next) => {
   console.log('/sprint-27/condition-three', req.session.data)
   const name = req.session.data['condition-query']
@@ -11446,7 +11433,6 @@ router.post('/sprint-27/set-action/set-action-condition-three', (req, res, next)
   console.log(req.session.data)
 
   let href;
-
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
     href = '/sprint-27/contact-claimant-action';
@@ -11491,9 +11477,7 @@ router.post('/sprint-27/set-action/set-action-condition-four', (req, res, next) 
   console.log('this is condition four')
   console.log(req.session.data)
 
-  let href;
-
-  switch (req.session.data['set-an-action']) {
+  let href;  switch (req.session.data['set-an-action']) {
     case('The claimant'):
     href = '/sprint-27/contact-claimant-action';
     break;
@@ -11538,7 +11522,6 @@ router.post('/sprint-27/set-action/set-action-condition-five', (req, res, next) 
   console.log(req.session.data)
 
   let href;
-
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
     href = '/sprint-27/contact-claimant-action';
@@ -11676,7 +11659,6 @@ router.post('/sprint-27/set-action/set-action-condition-eight', (req, res, next)
   console.log(req.session.data)
 
   let href;
-
   switch (req.session.data['set-an-action']) {
     case('The claimant'):
     href = '/sprint-27/contact-claimant-action';
