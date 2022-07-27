@@ -135,7 +135,6 @@ a.govuk-skip-link {text-decoration: underline;}
   .navigation-secondary li {
     border: 0;
     width: 100%;
-
   }
 }
 
@@ -254,4 +253,9 @@ a.govuk-skip-link {text-decoration: underline;}
   @media (min-width: 642px) {
     float: right;
   }
+}
+
+.govuk-grid-column-one-third {
+    float: right;
+    width: 30%;
 }
