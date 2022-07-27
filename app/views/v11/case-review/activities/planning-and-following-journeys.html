@@ -63,9 +63,9 @@
           <li>
             <a href="../personal-details">Personal details</a>
           </li>
-          <li>
+          <!--<li>
               <a href="../evidence">Supporting documents</a>
-          </li>
+          </li>-->
           <li>
               <a href="../conditions">Conditions</a>
           </li>
@@ -160,6 +160,8 @@
 <br><br>
 I am never able to follow a new or familiar journey safely by myself because I am unable to see. My guide dog helps me stay safe when following journeys.
 I am never able to plan new journeys as I find it too difficult to understand maps. My carer plans new journeys for me and tells me how to follow them.<br>  <br>
+
+<!-- removing question and answer functionality --
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
 
@@ -169,9 +171,7 @@ I am never able to plan new journeys as I find it too difficult to understand ma
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                 </div>
-                <!--<input name="query-content" value="{{ data['query-content'] }}">-->
 
-                <!-- radio buttons here -->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
                 {{ govukRadios({
@@ -210,7 +210,7 @@ I am never able to plan new journeys as I find it too difficult to understand ma
                 }) }}
 
 
-                <!-- action button here -->
+
                 {% from "govuk/components/button/macro.njk" import govukButton %}
 
                 {{ govukButton({
@@ -221,42 +221,13 @@ I am never able to plan new journeys as I find it too difficult to understand ma
 
 
 
-<!--<table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Notes</th>
-      <th scope="col" class="govuk-table__header">Linked to</th>
-    </tr>
-  </thead>
-  {% for taggedPrepFood in data['taggingPrepFood'] %}
-  {% if taggedPrepFood.section == 'Preparing food' %}
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        {{ taggedPrepFood.tagContent }}
-      </td>
-      <td class="govuk-table__cell">
-        {{ taggedPrepFood.action }}
 
-      </td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-
-  <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Problem with standing too long</td>
-      <td class="govuk-table__cell">Atorvastatin,Tamsulosin,Moving around</td>
-    </tr>
-
-  </tbody>
-</table>-->
 
 <h2 class="govuk-heading-m">Questions</h2>
 
 <div id="queryTable">
   <table class="govuk-table">
-          <!--<caption class="govuk-table__caption govuk-table__caption--m"></caption>-->
+
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Question</th>
@@ -272,7 +243,7 @@ I am never able to plan new journeys as I find it too difficult to understand ma
           <tr class="govuk-table__row">
              <td class="govuk-table__cell">{{ query.textBox }}</td>
              <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
-             <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
+             <td class="govuk-table__cell">{{ query.action }}</td>
              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
          </tr>
           {% endif %}
@@ -299,7 +270,7 @@ I am never able to plan new journeys as I find it too difficult to understand ma
   }
 
   </script>
-
+-->
   </div>
     </main>
     </div>

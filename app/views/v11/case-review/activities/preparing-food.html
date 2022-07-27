@@ -63,9 +63,9 @@
           <li>
             <a href="../personal-details">Personal details</a>
           </li>
-          <li>
+          <!--<li>
               <a href="../evidence">Supporting documents</a>
-          </li>
+          </li>-->
           <li>
               <a href="../conditions">Conditions</a>
           </li>
@@ -137,7 +137,6 @@
           </ul>
         </nav>
 
-
      </div>-->
 
     <div class="govuk-grid-column-three-quarters">
@@ -156,20 +155,19 @@
         </h3>
       <p class="govuk-body">About twice a year, for about 3 weeks at a time I have difficulty remembering to turn the hob off because I get too distracted to complete tasks like this. My partner supervises me in the kitchen to make sure I stay safe.
         <br><br>
+
         Every day, I have difficulty standing while preparing food because my leg is too stiff and painful. I need to use a perching stool so I can rest my leg while preparing food.<br>  <br>
-
-
+<!-- remove questions and answer functionality
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
 <br>
-          <!-- text box is here -->
+
           <h2 class="govuk-heading-m">Add a question </h2>
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                 </div>
 <br>
 
-                <!-- radio buttons here -->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
                 {{ govukRadios({
@@ -207,7 +205,6 @@
                 }) }}
 
 
-                <!-- action button here -->
                 {% from "govuk/components/button/macro.njk" import govukButton %}
 
                 {{ govukButton({
@@ -237,7 +234,7 @@
           <tr class="govuk-table__row">
              <td class="govuk-table__cell">{{ query.textBox }}</td>
              <td class="govuk-table__cell" style="width:35%;"> {{ data['preparing-food-answer'] }}</td>
-             <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
+             <td class="govuk-table__cell">{{ query.action }}</td>
              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
          </tr>
 
@@ -265,7 +262,7 @@
     }
   }
 
-  </script>
+  </script>  -->
 
 
 

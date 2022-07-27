@@ -64,9 +64,9 @@
           <li>
             <a href="../personal-details">Personal details</a>
           </li>
-          <li>
+          <!--<li>
               <a href="../evidence">Supporting documents</a>
-          </li>
+          </li>-->
           <li>
               <a href="../conditions">Conditions</a>
           </li>
@@ -159,6 +159,8 @@
 I have difficulty speaking and expressing myself due to having a stroke several years ago. I use a communication board to help me communicate with others.
    <br>  <br>
 
+<!-- removing question and answer functionality --
+
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
 
@@ -168,9 +170,7 @@ I have difficulty speaking and expressing myself due to having a stroke several 
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                 </div>
-                <!--<input name="query-content" value="{{ data['query-content'] }}">-->
 
-                <!-- radio buttons here -->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
                 {{ govukRadios({
@@ -209,7 +209,6 @@ I have difficulty speaking and expressing myself due to having a stroke several 
                 }) }}
 
 
-                <!-- action button here -->
                 {% from "govuk/components/button/macro.njk" import govukButton %}
 
                 {{ govukButton({
@@ -225,7 +224,7 @@ I have difficulty speaking and expressing myself due to having a stroke several 
 
 <div id="queryTable">
   <table class="govuk-table">
-          <!--<caption class="govuk-table__caption govuk-table__caption--m"></caption>-->
+
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Question</th>
@@ -241,7 +240,7 @@ I have difficulty speaking and expressing myself due to having a stroke several 
           <tr class="govuk-table__row">
              <td class="govuk-table__cell">{{ query.textBox }}</td>
              <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
-             <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
+             <td class="govuk-table__cell">{{ query.action }}</td>
              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
          </tr>
           {% endif %}
@@ -267,7 +266,7 @@ I have difficulty speaking and expressing myself due to having a stroke several 
     }
   }
 
-  </script>
+  </script>  -->
 
   </div>
 </main>

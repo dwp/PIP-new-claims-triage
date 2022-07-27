@@ -63,9 +63,9 @@
           <li>
             <a href="../personal-details">Personal details</a>
           </li>
-          <li>
+          <!--<li>
               <a href="../evidence">Supporting documents</a>
-          </li>
+          </li>-->
           <li>
               <a href="../conditions">Conditions</a>
           </li>
@@ -154,10 +154,11 @@
      <h3 class="govuk-heading-s">Tell us anything else you think we should know about how your health condition or disability affects you, that you have not mentioned already.</h3>
      <p class="govuk-body">Sometimes I cannot remember my medication<br><br><br>
 
+<!-- removing questions and answers functionality ----
                         <form action="#" method="post">
                             <input type="hidden" value="{{ data.source }}"/>
 
-                        <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
+
                         <h2 class="govuk-heading-m">Add a question about this additional information</h2>
                               <div class="govuk-form-group">
                                   <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
@@ -211,7 +212,7 @@
 
                         <div id="queryTable">
                           <table class="govuk-table">
-                                  <!--<caption class="govuk-table__caption govuk-table__caption--m"></caption>-->
+
                                   <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
                                       <th scope="col" class="govuk-table__header">Question</th>
@@ -228,7 +229,7 @@
                                         {{ query.textBox }}
                                       </td>
                                       <td class="govuk-table__cell">
-                                        <!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> -->
+                                         {{ query.action }}
                                       </td>
                                       <td class="govuk-table__cell">
                                           <strong class="govuk-tag govuk-tag--grey" id="list-convictions-status">unanswered</strong>
@@ -236,12 +237,6 @@
                                   </tr>
                                   {% endif %}
                                   {% endfor %}
-
-                                <!-- <tr class="govuk-table__row">
-                                      <td class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
-                                      <td class="govuk-table__cell"><a href="/sprint-40/minimum-viable-product/questions-claimant">Claimant</a></td>
-                                      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">unanswered</strong></td>
-                                  </tr>-->
 
                                 </tbody>
                         </table>
@@ -262,7 +257,7 @@
                             }
                           }
 
-                          </script>
+                          </script> -->
 
 </div>
 </div>

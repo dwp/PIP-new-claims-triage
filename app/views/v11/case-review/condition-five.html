@@ -63,10 +63,9 @@
           <li>
             <a href="personal-details">Personal details</a>
           </li>
-          <li>
-          <li>
+          <!--<li>
               <a href="evidence">Supporting documents</a>
-          </li>
+          </li>-->
           <li>
               <a href="conditions" class="active" aria-current="section">Conditions</a>
           </li>
@@ -178,19 +177,19 @@
 
   ]
 }) }}-->
-
+<!-- hiding questions for MVP
   <h2 class="govuk-heading-m">Add a question about the claimant's condition
         <div id="passport-issued-hint" class="govuk-hint">
               This includes the claimant's medications, treatments and side effects.
             </div>
   <h2>
 
-      <!-- text box is here -->
+
       <div class="govuk-form-group">
           <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
       </div>
 
-      <!-- radio buttons here -->
+
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
       {{ govukRadios({
@@ -229,7 +228,7 @@
       }) }}
 
 
-      <!-- action button here -->
+
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
       {{ govukButton({
@@ -263,7 +262,7 @@
   <tr class="govuk-table__row">
      <td class="govuk-table__cell">{{ query.textBox }}</td>
      <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
-     <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
+     <td class="govuk-table__cell"><{{ query.action }} </td>
      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
  </tr>
 
@@ -303,6 +302,8 @@
                 // Retrieve
                 document.getElementById("tag-condition5").innerHTML = localStorage.getItem("unanswered-conditions5");
   </script>
+
+ hiding questions for MVP -->
 </main>
     </div>
 

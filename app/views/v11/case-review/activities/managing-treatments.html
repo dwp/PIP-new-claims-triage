@@ -11,7 +11,6 @@
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
         <dt class="key-details-bar__name">Jane Doe</dt>
-
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
         <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
           <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
@@ -63,9 +62,9 @@
           <li>
             <a href="../personal-details">Personal details</a>
           </li>
-          <li>
+          <!--<li>
               <a href="../evidence">Supporting documents</a>
-          </li>
+          </li>-->
           <li>
               <a href="../conditions">Conditions</a>
           </li>
@@ -162,7 +161,7 @@
       <p class="govuk-body">I need home dialysis for 3 hours on Monday and Friday each week. My partner helps me set up the dialysis equipment and supervises me during the dialysis to make sure I stay safe.<br>  <br>
 
 
-
+<!-- remove question and answer functionality --
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
 
@@ -172,9 +171,7 @@
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                 </div>
-                <!--<input name="query-content" value="{{ data['query-content'] }}">-->
 
-                <!-- radio buttons here -->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
                 {{ govukRadios({
@@ -213,7 +210,7 @@
                 }) }}
 
 
-                <!-- action button here -->
+
                 {% from "govuk/components/button/macro.njk" import govukButton %}
 
                 {{ govukButton({
@@ -268,7 +265,7 @@
   }
 
   </script>
-
+-->
 
   </div>
 </main>

@@ -62,9 +62,9 @@
           <li>
             <a href="../personal-details">Personal details</a>
           </li>
-          <li>
+          <!--<li>
               <a href="../evidence">Supporting documents</a>
-          </li>
+          </li>-->
           <li>
               <a href="../conditions">Conditions</a>
           </li>
@@ -160,7 +160,7 @@ This is how it varies</p>
       <p class="govuk-body">I can only walk down one aisle of my local supermarket leaning on the trolley for support.
         I am never able to walk more than 20 metres as quickly as most people do, because I can only walk very slowly without being at risk of falling. My carer physically supports me when we walk outside to make sure I do not fall.<br>  <br>
 
-
+<!-- removing question and answer functionality --
           <form action="#" method="post">
               <input type="hidden" value="{{ data.source }}"/>
 
@@ -169,9 +169,7 @@ This is how it varies</p>
                 <div class="govuk-form-group">
                     <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
                 </div>
-                <!--<input name="query-content" value="{{ data['query-content'] }}">-->
 
-                <!-- radio buttons here -->
                 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
                 {{ govukRadios({
@@ -209,8 +207,6 @@ This is how it varies</p>
                   ]
                 }) }}
 
-
-                <!-- action button here -->
                 {% from "govuk/components/button/macro.njk" import govukButton %}
 
                 {{ govukButton({
@@ -221,42 +217,12 @@ This is how it varies</p>
 
 
 
-<!--<table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Notes</th>
-      <th scope="col" class="govuk-table__header">Linked to</th>
-    </tr>
-  </thead>
-  {% for taggedPrepFood in data['taggingPrepFood'] %}
-  {% if taggedPrepFood.section == 'Preparing food' %}
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">
-        {{ taggedPrepFood.tagContent }}
-      </td>
-      <td class="govuk-table__cell">
-        {{ taggedPrepFood.action }}
-
-      </td>
-    </tr>
-    {% endif %}
-    {% endfor %}
-
-  <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Problem with standing too long</td>
-      <td class="govuk-table__cell">Atorvastatin,Tamsulosin,Moving around</td>
-    </tr>
-
-  </tbody>
-</table>-->
 
 <h2 class="govuk-heading-m">Question</h2>
 
 <div id="queryTable">
   <table class="govuk-table">
-          <!--<caption class="govuk-table__caption govuk-table__caption--m"></caption>-->
+
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Question</th>
@@ -268,25 +234,21 @@ This is how it varies</p>
           <tbody class="govuk-table__body">
           {% for query in data['queriesMoving'] %}
           {% if query.section == 'moving-around' %}
-
           <tr class="govuk-table__row">
              <td class="govuk-table__cell">{{ query.textBox }}</td>
              <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
-             <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
+             <td class="govuk-table__cell">{{ query.action }}</td>
              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
          </tr>
           {% endif %}
           {% endfor %}
-
         </tbody>
 </table>
 </div>
 
-
 <script defer type="text/javascript">
 
   var noQuery = "{{ data['who-is-question-for-moving'] }}";
-
   if (noQuery) {
 
       document.write('');
@@ -299,7 +261,7 @@ This is how it varies</p>
   }
 
   </script>
-
+-->
   </div>
   </main>
       </div>

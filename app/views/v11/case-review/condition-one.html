@@ -11,7 +11,6 @@
       <div class="key-details-bar__top-block">
         <dt class="govuk-visually-hidden">Name:</dt>
         <dt class="key-details-bar__name">Jane Doe</dt>
-
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
         <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
           <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
@@ -63,10 +62,9 @@
           <li>
             <a href="personal-details">Personal details</a>
           </li>
-          <li>
-          <li>
+          <!--<li>
               <a href="evidence">Supporting documents</a>
-          </li>
+          </li>-->
           <li>
               <a href="conditions" class="active" aria-current="section">Conditions</a>
           </li>
@@ -151,7 +149,7 @@
         </p>
 
 
-
+<!--
 <form action="#" method="post">
     <input type="hidden" value="{{ data.source }}"/>
 
@@ -163,12 +161,12 @@
               </div>
     </h2>
 
-      <!-- text box is here -->
+
       <div class="govuk-form-group">
           <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
       </div>
 
-      <!-- radio buttons here -->
+
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
       {{ govukRadios({
@@ -209,7 +207,7 @@
 
 <br>
 
-      <!-- action button here -->
+     
       {% from "govuk/components/button/macro.njk" import govukButton %}
 
       {{ govukButton({
@@ -241,7 +239,7 @@
   <tr class="govuk-table__row">
      <td class="govuk-table__cell">{{ query.textBox }}</td>
      <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
-     <td class="govuk-table__cell"><!-- <a href="{{ query.href }}"> -->{{ query.action }}<!-- </a> --></td>
+     <td class="govuk-table__cell"> {{ query.action }} </td>
      <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
  </tr>
 {% endif %}
@@ -278,6 +276,7 @@
         //      document.getElementById("tag-condition1").innerHTML = localStorage.getItem("unanswered-conditions1");
 
   </script>
+  -->
 </main>
     </div>
   </div>
