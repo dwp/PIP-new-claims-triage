@@ -5,8 +5,27 @@ const router = express.Router()
 // Start folder specific routes
 router.use('/sprint-24-25', require('./views/sprint-24-25/_routes'));
 router.use('/sprint-39', require('./views/sprint-39/_routes'));
-router.use('/v11', require('./views/v11/case-review/_routes'));
+router.use('/v12', require('./views/v12/case-review/_routes'));
 module.exports = router
+
+//v12//
+// Referral assessment route //
+
+router.post('/v12/case-review/ready-to-make-next-step', function (req, res) {
+
+  // Make a variable and give it the value from 'how-many-balls'
+  var makearecommendation = req.session.data['next-step']
+
+  // Check whether the variable matches a condition
+  if (makearecommendation == "Case is ready for a decision"){
+    // Send user to decision page
+    res.redirect('decision')
+  } else {
+    // Send user to referral page
+    res.redirect('refer')
+  }
+})
+
 
 //v11//*******************************************************************************************************************************************************v10*
 ///// case selector routes ////
