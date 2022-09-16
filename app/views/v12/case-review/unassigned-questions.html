@@ -1,0 +1,681 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Unassigned questions
+{% endblock %}
+
+{% block main %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <!--  <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong> -->
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+
+
+      <div class="govuk-width-container">
+
+        <div class="column-full">
+          <nav class="navigation-secondary">
+            <ul>
+              <li>
+                <a href="personal-details">Personal details</a>
+              </li>
+              <li>
+                <a href="conditions">Conditions</a>
+              </li>
+              <li>
+                <a href="activities">Activities</a>
+              </li>
+              <li>
+                <a href="questions" class="active" aria-current="section">Questions</a>
+              </li>
+              <li>
+                <a href="summary">Questions and answers</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+
+      <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Unassigned questions</h1>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Question</th>
+          <th scope="col" class="govuk-table__header">Answer</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+                <!-- Below this point is all test data -->
+              <!--  <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">How often are your Angina attacks?</td>
+                  <td class="govuk-table__cell">{{ data['answer'] }}</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="claimant">Unanswered</strong></td>
+                  <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Bad day - further info needed, how many good or bad days?</td>
+                  <td class="govuk-table__cell">Prostate cancer and COPD impacts preparing food. With COPD majority of days are bad days.</td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Do you have any upper limb or grip restrictions? If you were sat down would you be able to prepare food?</td>
+                  <td class="govuk-table__cell">He can peel and chop vegetables if he was sat down.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+
+                </tr>
+
+
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Discuss cognitive - no cognitive restrictions listed under conditions, but the dosette box suggests this</td>
+                  <td class="govuk-table__cell">Dosette box prepared by the chemist.
+                    I take so many throughout the day that I do sometimes forget so my wife is always asking me if I’ve taken them. Sometimes I already have, sometimes I haven’t. He can remember to take his medication majority of times. He can get them out of the packets.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+
+
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Were you prescribed the long handled sponge?</td>
+                  <td class="govuk-table__cell">Bought himself.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+
+
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Do you have any other aids in the bathroom, eg stool, grab rails?</td>
+                  <td class="govuk-table__cell">Has recently had bath taken out and shower cubicle put in. Has had a raised toilet put in. He holds onto the shower pipe in the shower.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+
+
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Do you have any aids, raised toilet seat, rails fitted?</td>
+                  <td class="govuk-table__cell">He has a raised toilet. He holds onto the sink to sit and stand from the toilet.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Have you been prescribed pads for incontinence? Are you currently under any treatment for incontinence?</td>
+                  <td class="govuk-table__cell">Does not wear pads. When he has urinary retention he has to self catheterise, he does this on occasion.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">How often do you have urinary incontinence?</td>
+                  <td class="govuk-table__cell">This does not fluctuate, every day is a bad day. This has got worse in the last 12 months. He has had no hospital admissions.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Is the claimant able to communicate over the phone? Does the claimant have any speech restrictions?</td>
+                  <td class="govuk-table__cell">Can communicate needs and be understood by others without support on the majority of days. Speech was fully intelligible over the phone.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Were aids provided by OH?  Are you able to grip aids?</td>
+                  <td class="govuk-table__cell">Sock aid bought himself. Shoe horn bought himself. Claimant can grip, yes. He drives a car most days.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">How often are you having anxiety attacks? What symptoms do you have when having a panic attack?</td>
+                  <td class="govuk-table__cell">Panic attacks – come without warning. This fluctuates - 4 bad days a week. Symptoms include palpitations, sweats, cries and panic attacks. I need to find somewhere to sit down or if I’m driving, I’ll need to quickly pull over. If im in the car alone and if for example I realise Im in the wrong lane, that will set my panic attacks off. They take around 2 or 3 minutes to wear off. I panic when I’m talking to people with authority, that’s why I wanted my wife with me now. I can get quite emotional when I get panicky. I don’t take any medication for these attacks.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">How often are you going out?</td>
+                  <td class="govuk-table__cell">Driving – to local places only and would usually have somebody with me, makes me less nervous and panicky. If petrol is needed, I can do this myself. Drives a manual car. Will drive 3 times a week. Will drive locally. Cannot drive for more than 20 mins at a time due to pain in his hips. No adaptations to the car. To get into the car he sits down first then lifts his legs into the car. To get out he lifts his legs out then holds onto the car with 2 hands and pull himself up. He can put seatbelt on by himself. Is able to put petrol in the car.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Do you have aids from the GP or that you've bought yourself?</td>
+                  <td class="govuk-table__cell">I didn't know you could get things like handrails from your GP. No, I bought them myself. I use the handrail to help me get upstairs. I have fallen twice in the last year, thankfully I didn’t end up in hospital though.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">How long can you walk for (not just distance)?	</td>
+                  <td class="govuk-table__cell">Lots of pain in back, hips and groin. Can walk about 15-20 meters but will then need to stop for a minute before I can carry on again. I can get up and down kerbs okay. It absolutely kills my back, hips and groin when I’m going upstairs. I use a handrail to walk upstairs. 20 meters takes me around 4-5 mins then needs tostop for a min or two and then can walk again for 20 ish meters. No more than that though.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Evidence 2 does not state treatment end date. Ask how long restrictions have lasted.</td>
+                  <td class="govuk-table__cell">I had radiotherapy in Feb (20) and my blood and condition is being monitored but as of now there isnt any plan for any more radiotherapy. The cancer was diagnosed in July 19, I was suffering for about 3 months before it was diagnosed. Because of the radiotherapy I'm in constant pain in my back, groin and hip and I have hot flushes throughout the day and night. The pain has got worse over the last 12 months.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Are you currently under any specialists, how often are you reviewed, planned ongoing treatments?</td>
+                  <td class="govuk-table__cell">Diagnosed February 2020 by practice nurse, currently managed by practice nurse, sees them every 3 months.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Is it COPD that's causing issues bending?</td>
+                  <td class="govuk-table__cell">Radiotherapy has caused chronic pain in my lower back and hips, thats why I struggle to bend.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Check COPD medication and dizziness</td>
+                  <td class="govuk-table__cell">Symptoms include shortness of breath, dizziness and a cough. This fluctuates. He has good and bad days - 3 bad days a week. No hospital admissions. Spiloto respimat 2.5mg 2 puffs twice per day. Ventilin evohaler 2 puffs twice per day. Warfarin 5-6mg per night. Paracetamol 2 tbs 3 times per day but these dont help with the pain. I cant take anything else though because of all the other medications I'm on.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">There is no mental health meds, nothing for anxiety or panic attacks</td>
+                  <td class="govuk-table__cell">I don’t take any medication for panic attacks.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">How long ago were the mini strokes?</td>
+                  <td class="govuk-table__cell">2010 when I had a clot removed from my neck. Thankfully that sorted it and I havent had any repeat TIA's.</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag app-task-list__tag" id="claimant">Answered</strong></td>
+                  <td class="govuk-table__cell"><a href="#">Change</a></td>
+                </tr>-->
+        {% for query in data['queriesQuestionsUnassigned'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.questionBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+
+        {% for query in data['queriesPrepFood'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesEatDrink'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesTherapy'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesWashing'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesToilet'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesDressing'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesTalking'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesReading'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesMixing'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesMoney'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesPlanning'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesMoving'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesAdditional'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- conditions-->
+
+        {% for query in data['queriesConditionOne'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"> </a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionTwo'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionThree'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionFour'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionFive'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionSix'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionSeven'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        {% for query in data['queriesConditionEight'] %}
+        {% if query.action == 'Unassigned' %}
+        {% if query.answeredQuestion == 'yes' %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">ANSWERED</strong></td>
+          <td class="govuk-table__cell"><a href="#"></a></td>
+        </tr>
+        {% else %}
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">{{ query.textBox }}</td>
+          <td class="govuk-table__cell">{{ query.answerBox }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+          <td class="govuk-table__cell"><a href="question-link">Change</a></td>
+        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    {{ govukButton({
+      text: "Add a question",
+      href: "question-unassigned-add"
+    }) }}
+
+
+    </div>
+</div>
+  </div>
+
+        </main>
+      </div>
+
+{% endblock %}

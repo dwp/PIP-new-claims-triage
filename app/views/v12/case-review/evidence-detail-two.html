@@ -1,0 +1,229 @@
+{% extends "layout.html" %}
+{% block main %}
+<!--<div class="govuk-width-container">-->
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+      <!--  <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong> -->
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="govuk-width-container">
+  <a href="evidence" class="govuk-back-link">Back</a>
+
+  <main class="govuk-main-wrapper">
+
+
+    <!--<div class="govuk-width-container">
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Evidence 2
+      </h1>
+
+      <img src="/public/images/evidence-4.jpg" alt="doctors-note" width="620px" height="876px">
+
+      <br>
+      <br>
+
+      <!--{{ data | dump }}-->
+
+      <form action="#" method="post">
+          <input type="hidden" value="{{ data.source }}"/>
+
+      {{ govukRadios({
+        idPrefix: "evidence-two-note",
+        name: "evidence-note-two",
+        fieldset: {
+          legend: {
+            text: "Add a note about this activity",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "important-to-this-case",
+            text: "Important to this case"
+          },
+          {
+            value: "question-about-this-condition",
+            text: "Question about this condition"
+          },
+          {
+            value: "out-of-scope",
+            text: "Out of scope"
+          }
+
+        ]
+      }) }}
+
+      <!-- <h2 class="govuk-heading-m">Add an issue to be resolved</h2> -->
+
+
+            <div class="govuk-form-group">
+                <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+            </div>
+            <!--<input name="query-content" value="{{ data['query-content'] }}">-->
+
+            {% from "govuk/components/button/macro.njk" import govukButton %}
+
+            {{ govukButton({
+              text: "Add this note"
+            }) }}
+      </form>
+
+
+
+
+    <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Important to this case</caption>
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">Notes</th>
+    <th scope="col" class="govuk-table__header">Linked to</th>
+    </tr>
+    </thead>
+    {% for taggedEvidenceTwo in data['conditionsEvidence'] %}
+    {% if taggedEvidenceTwo.section == 'evidence-two' %}
+    <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    {{ taggedEvidenceTwo.evidenceNote }}
+    </td>
+    <td class="govuk-table__cell">
+    {{ taggedEvidenceTwo.action }}
+
+    </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+
+<!--
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">Problem with standing too long</td>
+    <td class="govuk-table__cell"></td>
+    </tr>
+-->
+
+    </tbody>
+    </table>
+
+  <!--  <h2 class="govuk-heading-m">Questions about the claimant's account</h2>
+    <!--<script defer type="text/javascript">
+
+    var noQuery = "{{ data['set-an-action'] }}";
+
+    if (noQuery) {
+
+    document.write('');
+    }
+    else {
+    document.write('<p class="govuk-body">There are no queries for this activity.</p>');
+    window.onload = function(){
+    document.getElementById('queryTable').style.display = 'none';
+    }
+    }
+
+    </script>-->
+
+    <div id="queryTable">
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Questions about the claimant's account</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Question</th>
+          <th scope="col" class="govuk-table__header">Who to contact</th>
+          <!--<th scope="col" class="govuk-table__header">Status</th>-->
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      {% for query in data['queriesEvidenceTwo'] %}
+      {% if query.section == 'evidence-two' %}
+
+      <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            {{ query.evidence }}
+
+          </td>
+          <td class="govuk-table__cell">
+            {{ query.action }}
+          </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+
+      <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Evidence 2 does not state treatment end date. Ask how long restrictions have lasted.</td>
+          <td class="govuk-table__cell">The claimant</td>
+      </tr>
+
+      <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Date of treatment</td>
+          <td class="govuk-table__cell">The claimant</td>
+      </tr>
+
+
+    </tbody>
+    </table>
+    </div>
+
+
+
+    <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Out of scope</caption>
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header"></th>
+    <th scope="col" class="govuk-table__header"></th>
+    </tr>
+    </thead>
+    {% for noScopeEvidenceTwo in data['outScopeEvidenceTwo'] %}
+    {% if noScopeEvidenceTwo.section == 'evidence-two' %}
+    <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">
+    {{ noScopeEvidenceTwo.scopeEvidenceTwo }}
+    </td>
+    <td class="govuk-table__cell">
+    <!--{{ noScopePrepFood.action }}-->
+    </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+
+<!--
+    <tr class="govuk-table__row">
+    <td class="govuk-table__cell">Issue with bending to reach oven</td>
+    <td class="govuk-table__cell">
+    <!--{{ noScopePrepFood.action }}-->
+<!--    </td>
+    </tr>
+-->
+
+    </tbody>
+    </table>
+    </div>
+
+  </div>
+
+
+
+      </main>
+      </div>
+
+{% endblock %}
