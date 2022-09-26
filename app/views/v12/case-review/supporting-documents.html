@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Personal details
+{% endblock %}
+
+{% block main %}
+<!-- triage bar -->
+<div class="govuk-width-container" >
+  <div class="column-full" style="height:55px; margin-top: 5px;">
+<a href="index" class="govuk-back-link" id="back-link">Back to case list</a>
+<div class="triage-button" style="float:right; margin-bottom:0px; margin-top: 5px;">
+  {{ govukButton({
+    text: "Make a recommendation",
+    href: "ready-to-make-next-step"
+  }) }}
+</div>
+</div></div>
+<!-- triage bar end -->
+
+    <section class="key-details-bar" role="contentinfo" aria-label="Key details">
+        <dl class="key-details-bar__key-details">
+          <div class="key-details-bar__top-block">
+            <dt class="govuk-visually-hidden">Name:</dt>
+            <dt class="key-details-bar__name">Jane Doe</dt>
+            <dt class="govuk-visually-hidden">National Insurance number:</dt>
+            <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+            <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+          </div>
+          <div class="key-details-bar__bottom-block">
+            <dt>Date of birth:</dt>
+            <dd>4 June 1972</dd>
+          </div>
+        </dl>
+    </section>
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" aria-current="page" href="personal-details">Personal details</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="supporting-documents">Supporting documents</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="conditions">Conditions</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="activities">Activities</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="summary">Questions and answers</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </div>
+</div>
+
+
+  <div class="govuk-width-container">
+
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+
+    <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+          <h1 class="govuk-heading-l">
+            Activities
+          </h1>
+
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Evidence submitted by the claimant</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">File name</th>
+          <th scope="col" class="govuk-table__header">Source</th>
+          <th scope="col" class="govuk-table__header">Date received</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="evidence-detail?source=evidence-one">Evidence 1</a></td>
+          <td class="govuk-table__cell">Claimant</td>
+          <td class="govuk-table__cell">05 July 2022</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a href="evidence-detail-two?source=evidence-two">Evidence 2</a></td>
+          <td class="govuk-table__cell">Claimant</td>
+          <td class="govuk-table__cell">05 July 2022</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+
+
+      </div>
+
+{% endblock %}

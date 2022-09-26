@@ -5,6 +5,20 @@
 {% endblock %}
 
 {% block main %}
+
+<!-- activities top bar -->
+<div class="govuk-width-container" >
+  <div class="column-full" style="height:55px; margin-top: 5px;">
+<a href="../index" class="govuk-back-link" id="back-link">Back to case list</a>
+<div class="triage-button" style="float:right; margin-bottom:0px; margin-top: 5px;">
+  {{ govukButton({
+    text: "Make a recommendation",
+    href: "../ready-to-make-next-step"
+  }) }}
+</div>
+</div></div>
+<!-- activities top bar end -->
+
 <section class="key-details-bar" role="contentinfo" aria-label="Key details">
     <dl class="key-details-bar__key-details">
       <div class="key-details-bar__top-block">
@@ -44,13 +58,10 @@
                 <a class="moj-primary-navigation__link" aria-current="page" href="../activities">Activities</a>
               </li>
 
-              <li class="moj-primary-navigation__item">
-                <a class="moj-primary-navigation__link" href="../summary">Questions and answers</a>
-              </li>
 
-              <li class="moj-primary-navigation__item">
-                <a class="moj-primary-navigation__link" href="../ready-to-make-next-step">Make a recommendation</a>
-              </li>
+            <!-- <li class="moj-primary-navigation__item">
+              <a class="moj-primary-navigation__link" href="../summary">Questions and answers</a>
+            </li> -->
             </ul>
 
           </nav>
