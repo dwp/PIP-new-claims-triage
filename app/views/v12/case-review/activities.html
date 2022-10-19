@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Activities
+{% endblock %}
+
+{% block main %}
+
+<!-- top bar -->
+<div class="govuk-width-container" >
+  <div class="column-full" style="height:55px; margin-top: 5px;">
+<a href="index" class="govuk-back-link" id="back-link">Back to case list</a>
+<div class="triage-button" style="float:right; margin-bottom:0px; margin-top: 5px;">
+  {{ govukButton({
+    text: "Make a recommendation",
+    href: "ready-to-make-next-step"
+  }) }}
+</div>
+</div></div>
+<!-- top bar end -->
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  href="personal-details">Personal details</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="conditions">Conditions</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" aria-current="page"  href="activities">Activities</a>
+          </li>
+
+        <!--  <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="summary">Questions and answers</a>
+          </li> -->
+
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">
+          Activities
+        </h1>
+
+          {% from "govuk/components/table/macro.njk" import govukTable %}
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" width="75%">Daily living</th>
+                <th scope="col" class="govuk-table__header">Claimed for</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:50%;"><a href="activities/preparing-food.html?source=Preparing food">Preparing food</a></td>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/taking-nutrition?source=Taking nutrition">Eating and drinking</a></td>
+                <td class="govuk-table__cell">Yes</td>
+                </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/managing-treatments?source=Managing treatments">Managing treatments</a></td>
+                <td class="govuk-table__cell">Yes</td>
+                </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/washing-and-bathing?source=Washing and bathing">Washing and bathing</a></td>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/managing-toilet-needs?source=Managing toilet needs or incontinence">Using the toilet and managing​ incontinence</a></td>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/dressing-and-undressing?source=Dressing and undressing">Dressing and undressing</a></td>
+                <td class="govuk-table__cell">No</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/communicating-verbally?source=communicating-verbally">Talking, listening and understanding</a></td>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/reading-and-understanding?source=reading-and-understanding">Reading</a></td>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/engaging-face-to-face?source=face-to-face">Mixing with other people</a></td>
+                <td class="govuk-table__cell">No</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/managing-money?source=managing-money">Managing money</a></td>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" width="75%">Mobility</th>
+                <th scope="col" class="govuk-table__header">Claimed for</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" style="width:50%;"><a href="activities/planning-and-following-journeys?source=plan-follow-journeys">Planning and following a journey</a></td>
+                <td class="govuk-table__cell">Yes</td>
+
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="activities/moving-around?source=moving-around">Moving around</a></td>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" width="75%">Tell us about anything else</th>
+                  <th scope="col" class="govuk-table__header">Provided</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell" ><a href="activities/additional-information?source=additional-info">Additonal information</a></td>
+                <td class="govuk-table__cell">Yes</td>
+              </tr>
+            </tbody>
+          </table>
+</main>
+      </div>
+
+{% endblock %}

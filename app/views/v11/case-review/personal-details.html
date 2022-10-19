@@ -12,7 +12,7 @@
 
         <dt class="govuk-visually-hidden">National Insurance number:</dt>
         <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
-        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      <!--  <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong> -->
       </div>
 
       <div class="key-details-bar__bottom-block">
@@ -31,6 +31,9 @@
           <a href="personal-details" class="active" aria-current="section">Personal details</a>
         </li>
         <li>
+          <a href="supporting-documents">Supporting documents</a>
+        </li>
+        <li>
           <a href="conditions">Conditions</a>
         </li>
         <li>
@@ -43,11 +46,9 @@
       </ul>
     </nav>
 </div>
+  <main class="govuk-main-wrapper" id="main-content" role="main">
   <div class="govuk-grid-row">
-    <main class="govuk-main-wrapper" id="main-content" role="main">
-
-   <div class="govuk-grid-column-two-thirds">
-
+  <div class="govuk-grid-column-full">
   <h1 class="govuk-heading-l">Personal details</h1>
 
 <div class="govuk-tabs" data-module="govuk-tabs">
@@ -74,57 +75,6 @@ Personal details
 <div class="govuk-tabs__panel" id="claimant">
 <h2 class="govuk-heading-m">Contact details</h2>
 
-
-<!-- new div idea
- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row govuk-!-width-one-half">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Claim date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            20 November 2021
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Jane Doe
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Age
-          </dt>
-          <dd class="govuk-summary-list__value">
-            49
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Date of birth
-          </dt>
-          <dd class="govuk-summary-list__value">
-            4 June 1972
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Home Address
-          </dt>
-          <dd class="govuk-summary-list__value">
-            12 Pearl Street<br>
-            Bristol<br>
-            BS3 4AB
-          </dd>
-        </div>
-</dl>
- -- end of new idea -->
-
-
-
-
 <table class="govuk-table">
 
 <tbody class="govuk-table__body">
@@ -133,12 +83,16 @@ Personal details
     <td class="govuk-table__cell" >20 November 2021</td>
   </tr>
   <tr class="govuk-table__row">
+    <td class="govuk-table__header">National Insurance number</td>
+    <td class="govuk-table__cell">QQ 12 34 56 C</td>
+  </tr>
+  <tr class="govuk-table__row">
     <td class="govuk-table__header">Name</td>
     <td class="govuk-table__cell">Jane Doe</td>
   </tr>
   <tr class="govuk-table__row">
     <td class="govuk-table__header">Age</td>
-    <td class="govuk-table__cell">49</td>
+    <td class="govuk-table__cell">50</td>
   </tr>
   <tr class="govuk-table__row">
     <td class="govuk-table__header">Date of birth</td>
@@ -148,7 +102,8 @@ Personal details
     <td class="govuk-table__header">Home address</td>
     <td class="govuk-table__cell">12 Pearl Street <br>
                                   Bristol  <br>
-                                  BS3 4AB</td>
+                                  BS3 4AB<br>
+                                  United Kingdom</td>
   </tr>
   <tr class="govuk-table__row">
     <td class="govuk-table__header">Can we write to you at this address?</td>
@@ -158,7 +113,8 @@ Personal details
     <td class="govuk-table__header">Correspondence address</td>
     <td class="govuk-table__cell">11 Pearl Street<br>
                                   Bristol  <br>
-                                  BS3 4AB</td>
+                                  BS3 4AB<br>
+                                  United Kingdom</td>
   </tr>
   <tr class="govuk-table__row">
     <td class="govuk-table__header">Mobile phone number</td>
@@ -262,7 +218,8 @@ Personal details
                                   195-197 Perry Vale<br>
                                   Forest Hill<br>
                                   London<br>
-                                  SE23 2JF</td>
+                                  SE23 2JF<br>
+                                  United Kingdom</td>
   </tr>
   <tr class="govuk-table__row">
     <td class="govuk-table__header">Approximate date of last appointment</td>
@@ -293,7 +250,8 @@ Personal details
     <br>Stadium Rd
     <br>Greenwich
     <br>London
-    <br>SE18 4QH</td>
+    <br>SE18 4QH
+    <br>United Kingdom</td>
   </tr>
   <tr class="govuk-table__row">
     <td class="govuk-table__header">Approximate date of last appointment</td>
@@ -347,29 +305,11 @@ Personal details
     </tbody>
     </table>
 </div>
-      </div>
 
 </div>
-   <div class="govuk-grid-column-one-third">
-
-       <aside class="app-related-items" role="complementary">
-         <h2 class="govuk-heading-m" id="subsection-title">
-           Supporting documents
-         </h2>
-         <nav role="navigation" aria-labelledby="subsection-title">
-           <ul class="govuk-list">
-
-             <li>
-               <a href="https://supporting-documents-service.herokuapp.com/v4/full-mvp/claimant-documents-buttons" target="_blank">View claimant documents</a>
-             </li>
-
-           </ul>
-         </nav>
-       </aside>
-
-      </div>
+</div>
+</main>
      </div>
-  </main>
-</div>
+
 
 {% endblock %}

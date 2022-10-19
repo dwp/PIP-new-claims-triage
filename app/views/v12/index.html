@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+          Version 11 (Case Review MVP)</h1>
+                  <h3 class="govuk-heading-m">This is the case review with the following fixes
+          </h3><p>
+                      * Updated routes to take logic to include “/v11”<br>
+                      * Removed questions and answers section<br>
+                      * Removed questions and answers on all the Conditions pages<br>
+                      * Removed questions and answers on the Activities Pages<br>
+                      * Added view claimants documents (external) link on Personal details page, inline with Chaffinch solution <br>
+</p>
+
+
+                  {{ govukButton({
+                    text: "Start MVP prototype",
+                    href: "/v10/case-review/personal-details
+                  }) }}
+
+    </div>
+</div>
+
+
+{% endblock %}

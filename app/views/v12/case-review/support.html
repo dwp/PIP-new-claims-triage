@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Personal details
+{% endblock %}
+
+{% block main %}
+
+<!-- triage bar -->
+<div class="govuk-width-container" >
+  <div class="column-full" style="height:55px; margin-top: 5px;">
+<a href="index" class="govuk-back-link" id="back-link">Back to case list</a>
+<div class="triage-button" style="float:right; margin-bottom:0px; margin-top: 5px;">
+  {{ govukButton({
+    text: "Make a recommendation",
+    href: "ready-to-make-next-step"
+  }) }}
+</div>
+</div></div>
+<!-- triage bar end -->
+
+    <section class="key-details-bar" role="contentinfo" aria-label="Key details">
+        <dl class="key-details-bar__key-details">
+          <div class="key-details-bar__top-block">
+            <dt class="govuk-visually-hidden">Name:</dt>
+            <dt class="key-details-bar__name">Jane Doe</dt>
+            <dt class="govuk-visually-hidden">National Insurance number:</dt>
+            <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+            <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+          </div>
+          <div class="key-details-bar__bottom-block">
+            <dt>Date of birth:</dt>
+            <dd>4 June 1972</dd>
+          </div>
+        </dl>
+    </section>
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" aria-current="page" href="personal-details">Personal details</a>
+          </li>
+
+          <!-- <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="supporting-documents">Supporting documents</a>
+          </li> -->
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="conditions">Conditions</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="activities">Activities</a>
+          </li>
+
+          <!-- <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="summary">Questions and answers</a>
+          </li> -->
+        </ul>
+
+      </nav>
+
+    </div>
+  </div>
+
+  </div>
+  <div class="govuk-width-container">
+
+       <div class="govuk-grid-column-one-quarter">
+           <nav class="moj-side-navigation" aria-label="Side navigation">
+                <ul class="moj-side-navigation__list">
+                 <li class="moj-side-navigation__item ">
+                   <a href="personal-details">Claimant</a>
+                 </li>
+                 <li class="moj-side-navigation__item">
+                   <a href="health-professionals">Health professionals</a>
+                 </li>
+                 <li class="moj-side-navigation__item moj-side-navigation__item--active">
+                   <a href="support" aria-current="location">Support and communication</a>
+                 </li>
+               </ul>
+           </nav>
+      </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">Personal details </span>
+                Support and communication
+           </h1>
+
+  <h2 class="govuk-heading-m">Help and support</h2>
+  <table class="govuk-table">
+
+
+<tbody class="govuk-table__body">
+  <tr class="govuk-table__row">
+    <td class="govuk-table__header" width="42%">Do you need help from someone else to communicate with us?</td>
+    <td class="govuk-table__cell">Yes</td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__header">Do you need help to fill in forms and understand letters?</td>
+    <td class="govuk-table__cell">Yes</td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__header">Is someone helping you with this claim?
+</td>
+    <td class="govuk-table__cell">Yes</td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__header">Name of the person helping you with this claim?</td>
+    <td class="govuk-table__cell">John Doe</td>
+  </tr>
+</tbody>
+</table>
+<br>
+<h2 class="govuk-heading-m">Alternative communication format</h2>
+    <table class="govuk-table">
+    <thead class="govuk-table__head"></thead>
+    <tbody class="govuk-table__body">
+       <tr class="govuk-table__row">
+        <td class="govuk-table__header" width="42%">Do you need communications in another format?</td>
+        <td class="govuk-table__cell">No</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__header">Which other format do you need?</td>
+        <td class="govuk-table__cell">Not applicable</td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__header">Format type</td>
+        <td class="govuk-table__cell">Not applicable</td>
+      </tr>
+    </tbody>
+    </table>
+
+       </main>
+</div>
+</div>
+
+     </div>
+
+{% endblock %}

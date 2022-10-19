@@ -1,0 +1,267 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Activities - Managing Treatments
+{% endblock %}
+
+{% block main %}
+<!-- activities top bar -->
+<div class="govuk-width-container" >
+  <div class="column-full" style="height:55px; margin-top: 5px;">
+<a href="../index" class="govuk-back-link" id="back-link">Back to case list</a>
+<div class="triage-button" style="float:right; margin-bottom:0px; margin-top: 5px;">
+  {{ govukButton({
+    text: "Make a recommendation",
+    href: "../ready-to-make-next-step"
+  }) }}
+</div>
+</div></div>
+<!-- activities top bar end -->
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+
+    <div class="moj-primary-navigation">
+
+      <div class="moj-primary-navigation__container">
+
+        <div class="moj-primary-navigation__nav">
+
+          <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+            <ul class="moj-primary-navigation__list">
+              <li class="moj-primary-navigation__item">
+                <a class="moj-primary-navigation__link"  href="../personal-details">Personal details</a>
+              </li>
+
+              <li class="moj-primary-navigation__item">
+                <a class="moj-primary-navigation__link"  href="../conditions">Conditions</a>
+              </li>
+
+              <li class="moj-primary-navigation__item">
+                <a class="moj-primary-navigation__link" aria-current="page" href="../activities">Activities</a>
+              </li>
+
+
+              <!-- <li class="moj-primary-navigation__item">
+                <a class="moj-primary-navigation__link" href="../summary">Questions and answers</a>
+              </li> -->
+            </ul>
+
+          </nav>
+
+        </div>
+      </div>
+     </div>
+
+
+      <div class="govuk-width-container">
+
+        <main class="govuk-main-wrapper "id="main-content" role="main" style="padding-top:0px">
+
+           <div class="govuk-grid-column-one-quarter">
+            <nav class="moj-side-navigation" aria-label="Side navigation">
+                <h4 class="moj-side-navigation__title">Day to day life</h4>
+                <ul class="moj-side-navigation__list">
+                  <li class="moj-side-navigation__item">
+                    <a href="preparing-food" >Preparing food</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="taking-nutrition">Eating and drinking</a>
+                  </li>
+                  <li class="moj-side-navigation__item  moj-side-navigation__item--active">
+                    <a href="managing-treatments" aria-current="location">Managing treatments</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="washing-and-bathing">Washing and bathing</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="managing-toilet-needs">Using the toilet and managing incontinence</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="dressing-and-undressing">Dressing and undressing</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="communicating-verbally">Talking, listening and understanding</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="reading-and-understanding">Reading</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="engaging-face-to-face">Mixing with other people</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="managing-money">Managing money</a>
+                  </li>
+                </ul>
+
+            <h4 class="moj-side-navigation__title">Mobility</h4>
+                <ul class="moj-side-navigation__list">
+                  <li class="moj-side-navigation__item">
+                    <a href="planning-and-following-journeys">Planning and following journeys</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="moving-around">Moving around</a>
+                  </li>
+                </ul>
+
+                <h4 class="moj-side-navigation__title">Anything else</h4>
+                    <ul class="moj-side-navigation__list">
+                      <li class="moj-side-navigation__item">
+                        <a href="additional-information">Additional information</a>
+                      </li>
+                    </ul>
+                  </nav>
+           </div>
+
+
+           <div class="govuk-grid-row">
+             <div class="govuk-grid-column-two-thirds">
+               <main class="govuk-main-wrapper" id="main-content" role="main">
+
+               <h1 class="govuk-heading-l">
+                   <span class="govuk-caption-l">Activity </span>
+                    Managing treatments
+              </h1>
+
+     <h2 class="govuk-heading-s">Does your condition affect you managing your treatments?</h2>
+     <p class="govuk-body">Yes</p>
+
+     <br>
+        <h3 class="govuk-heading-s">Tell us about the difficulties you have with monitoring changes in your health condition or disability and taking medication, and how you manage them
+        </h3>
+      <p class="govuk-body">About four days a week, I have trouble taking my arthritis medication because my wrists hurt when I try to open the pill bottle. I put my pills in a dosette box so I do not need to open the pill bottle on days when I am unable.<br>
+ <br>Every evening, I have trouble monitoring my blood glucose levels because I forget and get confused on how to do it. My partner prompts me and helps me measure my blood glucose levels in the evening.<br>
+
+        <h3 class="govuk-heading-s">Tell us about any therapies you take at home that need the help of another person
+        </h3>
+      <p class="govuk-body">I need home dialysis for 3 hours on Monday and Friday each week. My partner helps me set up the dialysis equipment and supervises me during the dialysis to make sure I stay safe.<br>  <br>
+
+
+<!-- remove question and answer functionality --
+          <form action="#" method="post">
+              <input type="hidden" value="{{ data.source }}"/>
+
+
+
+          <h2 class="govuk-heading-m">Add a question</h2>
+                <div class="govuk-form-group">
+                    <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+                </div>
+
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                  idPrefix: "who-is-question-for",
+                  name: "who-is-question-for-treatments",
+                  fieldset: {
+                    legend: {
+                      text: "Who is this question for?",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--m"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "Unassigned",
+                    text: "Unassigned",
+                    checked: "true"
+                  },
+                  {
+                    value: "Claimant",
+                    text: "Claimant"
+                  },
+                  {
+                    value: "Internal medical support",
+                    text: "Internal medical support"
+                  },
+                  {
+                    value: "Internal non medical support",
+                    text: "Internal non medical support"
+                  },
+                  {
+                    value: "External health professional",
+                    text: "External health professional"
+                  }
+                  ]
+                }) }}
+
+
+
+                {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                {{ govukButton({
+                  text: "Add question"
+                }) }}
+          </form>
+
+
+
+<h2 class="govuk-heading-m">Questions</h2>
+
+<div id="queryTable">
+  <table class="govuk-table">
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Question</th>
+              <th scope="col" class="govuk-table__header">Answer</th>
+              <th scope="col" class="govuk-table__header">Contact</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for query in data['queriesTreatments'] %}
+          {% if query.section == 'Managing treatments' %}
+
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">{{ query.textBox }}</td>
+             <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+             <td class="govuk-table__cell"> <a href="{{ query.href }}"> {{ query.action }} </a> </td>
+             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+         </tr>
+          {% endif %}
+          {% endfor %}
+
+        </tbody>
+</table>
+</div>
+<script defer type="text/javascript">
+
+  var noQuery = "{{ data['who-is-question-for-treatments'] }}";
+
+  if (noQuery) {
+
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">No questions have been added yet.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
+
+  </script>
+-->
+
+  </div>
+</main>
+      </div>
+
+
+{% endblock %}

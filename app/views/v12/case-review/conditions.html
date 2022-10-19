@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Conditions
+{% endblock %}
+
+{% block main %}
+
+<!-- triage bar -->
+<div class="govuk-width-container" >
+  <div class="column-full" style="height:55px; margin-top: 5px;">
+<a href="index" class="govuk-back-link" id="back-link">Back to case list</a>
+<div class="triage-button" style="float:right; margin-bottom:0px; margin-top: 5px;">
+  {{ govukButton({
+    text: "Make a recommendation",
+    href: "ready-to-make-next-step"
+  }) }}
+</div>
+</div></div>
+<!-- triage bar end -->
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  href="personal-details">Personal details</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" aria-current="page" href="conditions">Conditions</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="activities">Activities</a>
+          </li>
+
+          <!-- <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="summary">Questions and answers</a>
+          </li>-->
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">
+          Conditions
+        </h1>
+
+      <table class="govuk-table" id="tagrow">
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" width="75%">Condition</th>
+            <th scope="col" class="govuk-table__header">Approximate start date</th>
+                    </tr>
+              </thead>
+
+              <tbody class="govuk-table__body">
+  <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="condition-one?source=diabetes">Diabetes  </a></td>
+                  <td scope="row" class="govuk-table__cell">14 weeks ago</td>
+
+</tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-two?source=prostate-cancer">
+              Prostate cancer
+            </a></td>
+             <td scope="row" class="govuk-table__cell">20 July 1990</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-three?source=angina">
+              Angina
+              </a></td>
+                <td scope="row" class="govuk-table__cell">1 March 1995</td>
+            </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-four?source=copd">
+              COPD
+              </a></td>
+        <td scope="row" class="govuk-table__cell">20 December 1999</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-five?source=blood-pressure">
+              Blood pressure
+              </a></td>
+            <td scope="row" class="govuk-table__cell">20 February 2000</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-six?source=incontinence">
+              Incontinence
+              </a></td>
+             <td scope="row" class="govuk-table__cell">09 April 2001</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a href="condition-seven?source=irregular-heartbeat">
+              Irregular heartbeat
+              </a></td>
+              <td scope="row" class="govuk-table__cell">27 August 2009</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell"><a id="activities" href="condition-eight?source=hot-flushes">
+              Hot flushes
+              </a></td>
+            <td scope="row" class="govuk-table__cell">20 June 2012</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<!-- <script>
+
+  // Retrieve number of questions for each condition
+  document.getElementById("tag-condition1").innerHTML = localStorage.getItem("unanswered-conditions1");
+  document.getElementById("tag-condition2").innerHTML = localStorage.getItem("unanswered-conditions2");
+  document.getElementById("tag-condition3").innerHTML = localStorage.getItem("unanswered-conditions3");
+  document.getElementById("tag-condition4").innerHTML = localStorage.getItem("unanswered-conditions4");
+  document.getElementById("tag-condition5").innerHTML = localStorage.getItem("unanswered-conditions5");
+  document.getElementById("tag-condition6").innerHTML = localStorage.getItem("unanswered-conditions6");
+  document.getElementById("tag-condition7").innerHTML = localStorage.getItem("unanswered-conditions7");
+  document.getElementById("tag-condition8").innerHTML = localStorage.getItem("unanswered-conditions8");
+
+
+
+</script> -->
+
+
+{% endblock %}

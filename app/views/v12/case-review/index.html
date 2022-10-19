@@ -1,0 +1,154 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Case List
+{% endblock %}
+
+
+{% block main %}
+<!-- <header class="govuk-header " role="banner" data-module="govuk-header">
+     <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__content">
+      <nav aria-label="Menu" class="govuk-header__navigation">
+      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu">Menu</button>
+     <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item govuk-header__navigation-item--active">
+                <a class="govuk-header__link" href="cases-for-triage">
+                Cases for triage
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="ready-for-review">
+                Ready for review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="assigned-for-review-case-manager">
+                In review
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="review-completed">
+                Review completed
+                </a>
+            </li>
+            <li class="govuk-header__navigation-item">
+                <a class="govuk-header__link" href="search">
+                Search
+                </a>
+            </li>
+      </ul>
+    </nav>
+    </div>
+  </div>
+</header> -->
+
+<div class="govuk-width-container">
+  <div class="column-full">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+  <h1 class="govuk-heading-l">New cases (122)</h1>
+      <p class="govuk-body">The following cases are ready for review.</p>
+
+        <table class="govuk-table" data-module="moj-sortable-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" aria-sort="none">Claimant name</th>
+              <th scope="col" class="govuk-table__header" aria-sort="nonme">NINO</th>
+              <th scope="col" class="govuk-table__header" aria-sort="ascending">Claim date</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="personal-details">Jane Doe</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">20 November 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="personal-details">John Smith</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">5 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="personal-details">Susan Morris</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">10 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="personal-details">Patrick Mills</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">11 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="personal-details">Kelly Williams</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">11 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="personal-details">Sophie Edwards</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">12 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Kieran McDonald</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">13 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="personal-details">Tamsin Scott</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">14 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="#">Bob Smith</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">14 December 2021</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="personal-details">Simon Morris</a></td>
+              <td class="govuk-table__cell">QQ 12 34 56 C</td>
+              <td class="govuk-table__cell">15 December 2021</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+       <nav class="moj-pagination" id="pagination-label">
+
+      <p class="govuk-visually-hidden" aria-labelledby="pagination-label">Pagination navigation</p>
+
+      <ul class="moj-pagination__list">
+        <li class="moj-pagination__item moj-pagination__item--prev">
+          <a class="moj-pagination__link" href="#">Previous<span class="govuk-visually-hidden">set of pages</span></a>
+        </li>
+
+        <li class="moj-pagination__item moj-pagination__item--active" style="padding-left: 10px;
+    padding-right: 10px;">1</li>
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">2</a></li>
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="#">3</a></li>
+        <li class="moj-pagination__item  moj-pagination__item--next"><a class="moj-pagination__link" href="#">Next<span class="govuk-visually-hidden">set of pages</span></a>
+        </li>
+      </ul>
+      <p class="moj-pagination__results">Showing <b>10</b> of <b>122</b> cases</p>
+    </nav>
+
+</main>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

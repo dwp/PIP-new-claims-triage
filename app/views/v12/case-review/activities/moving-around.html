@@ -1,0 +1,261 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Activities - Moving around
+{% endblock %}
+
+{% block main %}
+
+<!-- activities top bar -->
+<div class="govuk-width-container" >
+  <div class="column-full" style="height:55px; margin-top: 5px;">
+<a href="../index" class="govuk-back-link" id="back-link">Back to case list</a>
+<div class="triage-button" style="float:right; margin-bottom:0px; margin-top: 5px;">
+  {{ govukButton({
+    text: "Make a recommendation",
+    href: "../ready-to-make-next-step"
+  }) }}
+</div>
+</div></div>
+<!-- activities top bar end -->
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+        <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+
+    <div class="moj-primary-navigation">
+
+      <div class="moj-primary-navigation__container">
+
+        <div class="moj-primary-navigation__nav">
+
+          <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+            <ul class="moj-primary-navigation__list">
+              <li class="moj-primary-navigation__item">
+                <a class="moj-primary-navigation__link"  href="../personal-details">Personal details</a>
+              </li>
+
+              <li class="moj-primary-navigation__item">
+                <a class="moj-primary-navigation__link"  href="../conditions">Conditions</a>
+              </li>
+
+              <li class="moj-primary-navigation__item">
+                <a class="moj-primary-navigation__link" aria-current="page" href="../activities">Activities</a>
+              </li>
+
+              <!-- <li class="moj-primary-navigation__item">
+                <a class="moj-primary-navigation__link" href="../summary">Questions and answers</a>
+              </li> -->
+            </ul>
+
+          </nav>
+
+        </div>
+      </div>
+     </div>
+
+
+      <div class="govuk-width-container">
+
+        <main class="govuk-main-wrapper "id="main-content" role="main" style="padding-top:0px">
+
+           <div class="govuk-grid-column-one-quarter">
+            <nav class="moj-side-navigation" aria-label="Side navigation">
+                <h4 class="moj-side-navigation__title">Day to day life</h4>
+                <ul class="moj-side-navigation__list">
+                  <li class="moj-side-navigation__item">
+                    <a href="preparing-food" >Preparing food</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="taking-nutrition">Eating and drinking</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="managing-treatments">Managing treatments</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="washing-and-bathing">Washing and bathing</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="managing-toilet-needs">Using the toilet and managing incontinence</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="dressing-and-undressing">Dressing and undressing</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="communicating-verbally">Talking, listening and understanding</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="reading-and-understanding">Reading</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="engaging-face-to-face">Mixing with other people</a>
+                  </li>
+                  <li class="moj-side-navigation__item">
+                    <a href="managing-money">Managing money</a>
+                  </li>
+                </ul>
+
+            <h4 class="moj-side-navigation__title">Mobility</h4>
+                <ul class="moj-side-navigation__list">
+                  <li class="moj-side-navigation__item">
+                    <a href="planning-and-following-journeys">Planning and following journeys</a>
+                  </li>
+                  <li class="moj-side-navigation__item moj-side-navigation__item--active">
+                    <a href="moving-around" aria-current="location">Moving around</a>
+                  </li>
+                </ul>
+
+                <h4 class="moj-side-navigation__title">Anything else</h4>
+                    <ul class="moj-side-navigation__list">
+                      <li class="moj-side-navigation__item">
+                        <a href="additional-information" >Additional information</a>
+                      </li>
+                    </ul>
+                  </nav>
+           </div>
+
+
+           <div class="govuk-grid-row">
+             <div class="govuk-grid-column-two-thirds">
+               <main class="govuk-main-wrapper" id="main-content" role="main">
+
+               <h1 class="govuk-heading-l">
+                   <span class="govuk-caption-l">Activity </span>
+                    Moving around
+              </h1>
+
+     <h2 class="govuk-heading-s">Does your condition affect you moving around?</h2>
+     <p class="govuk-body">Yes</p>
+     <br>
+
+     <h3 class="govuk-heading-s">How far can you walk using any aids or appliances you need?</h3>
+     <p class="govuk-body">It varies:<br>
+This is how it varies</p>
+     <br>
+        <h3 class="govuk-heading-s">Tell us more about the difficulties you have with moving around and how you manage them
+</h3>
+      <p class="govuk-body">I can only walk down one aisle of my local supermarket leaning on the trolley for support.
+        I am never able to walk more than 20 metres as quickly as most people do, because I can only walk very slowly without being at risk of falling. My carer physically supports me when we walk outside to make sure I do not fall.<br>  <br>
+
+<!-- removing question and answer functionality --
+          <form action="#" method="post">
+              <input type="hidden" value="{{ data.source }}"/>
+
+
+          <h2 class="govuk-heading-m">Add a question</h2>
+                <div class="govuk-form-group">
+                    <textarea class="govuk-textarea" id="more-detail" name="query-content" value="{{ data['query-content'] }}" rows="5"></textarea>
+                </div>
+
+                {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+                {{ govukRadios({
+                  idPrefix: "who-is-question-for",
+                  name: "who-is-question-for-moving",
+                  fieldset: {
+                    legend: {
+                      text: "Who is this question for?",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--m"
+                    }
+                  },
+                  items: [
+                  {
+                    value: "Unassigned",
+                    text: "Unassigned",
+                    checked: "true"
+                  },
+                  {
+                    value: "Claimant",
+                    text: "Claimant"
+                  },
+                  {
+                    value: "Internal medical support",
+                    text: "Internal medical support"
+                  },
+                  {
+                    value: "Internal non medical support",
+                    text: "Internal non medical support"
+                  },
+                  {
+                    value: "External health professional",
+                    text: "External health professional"
+                  }
+                  ]
+                }) }}
+
+                {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                {{ govukButton({
+                  text: "Add question"
+                }) }}
+          </form>
+
+
+
+
+
+<h2 class="govuk-heading-m">Question</h2>
+
+<div id="queryTable">
+  <table class="govuk-table">
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Question</th>
+              <th scope="col" class="govuk-table__header">Answer</th>
+              <th scope="col" class="govuk-table__header">Contact</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for query in data['queriesMoving'] %}
+          {% if query.section == 'moving-around' %}
+          <tr class="govuk-table__row">
+             <td class="govuk-table__cell">{{ query.textBox }}</td>
+             <td class="govuk-table__cell" style="width:35%;">{{ query.answerBox }}</td>
+             <td class="govuk-table__cell">{{ query.action }}</td>
+             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey" id="question-status">unanswered</strong></td>
+         </tr>
+          {% endif %}
+          {% endfor %}
+        </tbody>
+</table>
+</div>
+
+<script defer type="text/javascript">
+
+  var noQuery = "{{ data['who-is-question-for-moving'] }}";
+  if (noQuery) {
+
+      document.write('');
+      }
+    else {
+      document.write('<p class="govuk-body">No questions have been added yet.</p>');
+      window.onload = function(){
+      document.getElementById('queryTable').style.display = 'none';
+    }
+  }
+
+  </script>
+-->
+  </div>
+  </main>
+      </div>
+
+{% endblock %}

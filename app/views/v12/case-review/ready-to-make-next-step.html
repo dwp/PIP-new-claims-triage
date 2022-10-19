@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What recommendation are you making for this case?
+{% endblock %}
+
+{% block main %}
+
+
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+    <dl class="key-details-bar__key-details">
+      <div class="key-details-bar__top-block">
+        <dt class="govuk-visually-hidden">Name:</dt>
+        <dt class="key-details-bar__name">Jane Doe</dt>
+        <dt class="govuk-visually-hidden">National Insurance number:</dt>
+        <dt class="key-details-bar__nino">QQ 12 34 56 C</dt>
+    <strong class="govuk-tag govuk-tag--grey" id="tag">In review</strong>
+      </div>
+
+      <div class="key-details-bar__bottom-block">
+        <dt>Date of birth:</dt>
+        <dd>4 June 1972</dd>
+      </div>
+    </dl>
+</section>
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+
+
+    </div>
+  </div>
+
+</div>
+
+<div class="govuk-width-container">
+  <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+
+  <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+
+
+
+
+
+      <form method="post" action="#" onclick=" checkButton()" class="score">
+
+
+
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      idPrefix: "decision-point-descriptor-assessment",
+      name: "next-step",
+      fieldset: {
+        legend: {
+          text: "What recommendation are you making for this case?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          value: "Case is ready for a decision",
+          text: "Case is ready for a decision"
+        },
+        {
+          value: "Refer case for an assessment",
+          text: "Refer case for an assessment"
+        }
+      ]
+    }) }}
+
+
+    {{ govukButton({
+      text: "Continue",
+      href: ""
+    }) }}
+
+    </form>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+        </main>
+      </div>
+
+{% endblock %}

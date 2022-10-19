@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@dwp/dwp-frontend": "2.3.1",
+    "@ministryofjustice/frontend": "1.4.2",
     "acorn": "^8.5.0",
     "ansi-colors": "^4.1.1",
     "basic-auth": "^2.0.0",
